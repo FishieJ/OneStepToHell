@@ -1338,7 +1338,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 			}
 		}
 		core.setStatusBarInnerHTML('weak', core.hasFlag('weak') ? "衰" : "");
-		core.setStatusBarInnerHTML('curse', core.getFlag('curse_stack', 0) > 0 ? "寒 " + core.getFlag('curse_stack', 0) : "");
+		core.setStatusBarInnerHTML('curse', core.getFlag('curse_stack', 0) > 0 ? "寒 " + core.getFlag('curse_stack', 0) : "", "color: #6C87FF");
 	}
 	// 破炸飞
 	if (core.flags.enablePZF) {

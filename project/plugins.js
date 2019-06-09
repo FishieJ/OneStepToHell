@@ -1,9 +1,6 @@
 var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 = 
 {
     "init": function () {
-
-	console.log("插件编写测试");
-
 	// 可以写一些直接执行的代码
 	// 在这里写的代码将会在【资源加载前】被执行，此时图片等资源尚未被加载。
 	// 请勿在这里对包括bgm，图片等资源进行操作。
@@ -19,10 +16,101 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		//     core.material.images.images["asset"+i+".png"] = arr[i];
 		// }
 
-	}
+	};
 
 	// 可以在任何地方（如afterXXX或自定义脚本事件）调用函数，方法为 core.plugin.xxx();
 	// 从V2.6开始，插件中用this.XXX方式定义的函数也会被转发到core中，详见文档-脚本-函数的转发。
+
+	core.utils.setStatusBarInnerHTML = function (name, value, css) {
+		if (!core.statusBar[name]) return;
+		if (typeof value == 'number') value = this.formatBigNumber(value);
+		// 判定是否斜体
+		var italic = /^[-a-zA-Z0-9`~!@#$%^&*()_=+\[{\]}\\|;:'",<.>\/?]*$/.test(value);
+		var style = 'font-style: ' + (italic ? 'italic' : 'normal') + '; ';
+		// 判定是否需要缩放
+		var length = this.strlen(value) || 1;
+		style += 'font-size: ' + Math.min(1, 7 / length) + 'em; ';
+		if (name == 'lv') {
+			style += 'font-family: "黑体";';
+
+			if (value == '萌新五段' || value == '萌新六段' || value == '萌新七段') {
+				style += 'color: #56dc56;';
+			} else if (value == '萌新八段' || value == '萌新九段' ||
+				value == '蓝海一阶' || value == '蓝海二阶') {
+				style += 'color: #6b68ff;';
+			} else if (value == '蓝海三阶' || value == '蓝海四阶' ||
+				value == '蓝海五阶' || value == '蓝海六阶' ||
+				value == '蓝海七阶' || value == '蓝海八阶' ||
+				value == '蓝海九阶' || value == '蓝海巅峰') {
+				style += 'color: #b343e2;';
+			} else if (value == '红海低阶' || value == '红海中阶' ||
+				value == '红海高阶' || value == '红海巅峰' ||
+				value == '半步血海') {
+				style += 'color: #db68ff;';
+			} else if (value == '血海初成' || value == '血海大成' ||
+				value == '血海圆满') {
+				style += 'color: #ff4040;';
+			}
+		}
+		if (css) style += css;
+		core.statusBar[name].innerHTML = "<span class='_status' style='" + style + "'>" + value + "</span>";
+	};
+
+	core.ui._drawBook_drawRow1 = function (index, enemy, top, left, width, position) {
+		// 绘制第一行
+		core.setTextAlign('ui', 'left');
+		var b13 = this._buildFont(13, true),
+			f13 = this._buildFont(13, false);
+		var col1 = left,
+			col2 = left + width * 9 / 25,
+			col3 = left + width * 17 / 25;
+		core.fillText('ui', '生命', col1, position, '#A0F753', f13);
+		core.fillText('ui', core.formatBigNumber(enemy.hp || 0), col1 + 30, position, null, b13);
+		core.fillText('ui', '攻击', col2, position, '#FF0000', f13);
+		core.fillText('ui', core.formatBigNumber(enemy.atk || 0), col2 + 30, position, null, b13);
+		core.fillText('ui', '防御', col3, position, '#45D1E0', f13);
+		core.fillText('ui', core.formatBigNumber(enemy.def || 0), col3 + 30, position, null, b13);
+	};
+
+
+	core.ui._drawBook_drawName = function (index, enemy, top, left, width) {
+		// 绘制第零列（名称和特殊属性）
+		// 如果需要添加自己的比如怪物的称号等，也可以在这里绘制
+		core.setTextAlign('ui', 'center');
+		var color = '#DDDDDD';
+		var value = enemy.level;
+		if (value == '萌新五段' || value == '萌新六段' || value == '萌新七段') {
+			color = '#56dc56';
+		} else if (value == '萌新八段' || value == '萌新九段' ||
+			value == '蓝海一阶' || value == '蓝海二阶') {
+			color = '#6b68ff';
+		} else if (value == '蓝海三阶' || value == '蓝海四阶' ||
+			value == '蓝海五阶' || value == '蓝海六阶' ||
+			value == '蓝海七阶' || value == '蓝海八阶' ||
+			value == '蓝海九阶' || value == '蓝海巅峰') {
+			color = '#b343e2';
+		} else if (value == '红海低阶' || value == '红海中阶' ||
+			value == '红海高阶' || value == '红海巅峰' ||
+			value == '半步血海') {
+			color = '#db68ff';
+		} else if (value == '血海初成' || value == '血海大成' ||
+			value == '血海圆满' || value == '血海王者') {
+			color = '#ff4040';
+		}
+		if (enemy.specialText == '') {
+			core.fillText('ui', enemy.name, left + width / 2,
+				top + 27, '#DDDDDD', this._buildFont(17, true));
+			core.fillText('ui', enemy.level, left + width / 2,
+				top + 51, color, this._buildFont(14, true));
+		} else {
+			core.fillText('ui', enemy.name, left + width / 2,
+				top + 20, '#DDDDDD', this._buildFont(17, true));
+			core.fillText('ui', enemy.specialText, left + width / 2,
+				top + 38, '#FF6A6A', this._buildFont(14, true));
+			core.fillText('ui', enemy.level, left + width / 2,
+				top + 56, color, this._buildFont(14, true));
+		}
+	};
 },
     "drawLight": function () {
 
@@ -86,7 +174,6 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 	}
 },
     "drawHero": function () {
-
 	core.control.drawHero = function (status, offset) {
 		if (!core.isPlaying() || !core.status.floorId || core.status.gameOver) return;
 		var x = core.getHeroLoc('x'),
@@ -121,6 +208,6 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 
 		core.control.updateViewport();
 	}
-},
-    "doSL_drawMap": undefined
+
+}
 }
