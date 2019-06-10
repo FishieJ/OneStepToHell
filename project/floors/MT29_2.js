@@ -22,12 +22,12 @@ main.floors.MT29_2=
             "noPass": null,
             "displayDamage": true,
             "data": [
-                "\t[yellowKeyProtector]这里并没有什么至宝，请回吧。",
+                "\t[yellowKeyProtector]这里并没有什么宝物，请回吧。",
                 "\t[hero]……我还什么都没说呢，你这不是此地无银三百两？",
                 "\t[yellowKeyProtector]我知道你为何而来。你并不是第一个来到这里的人。",
-                "\t[hero]若是没有至宝，你又为何守护在此？",
+                "\t[hero]若是没有宝物，你又为何守护在此？",
                 "\t[yellowKeyProtector]我不否认我在守护一样东西。",
-                "\t[yellowKeyProtector]但它，绝对不是什么至宝。相反，它会把你引领至万劫不复的深渊中。",
+                "\t[yellowKeyProtector]但它，绝对不是什么宝物。相反，它会把你引领至万劫不复的深渊中。",
                 "\t[hero]哼，说着吓人，我才不信你的鬼话。既然你不让开，我只能动手了。",
                 {
                     "type": "battle",
@@ -94,7 +94,7 @@ main.floors.MT29_2=
             "\t[hero]我倒要看看这箱子里是个什么东西。",
             {
                 "type": "playSound",
-                "name": "item.mp3"
+                "name": "044-Chest01.ogg"
             },
             {
                 "type": "setBlock",

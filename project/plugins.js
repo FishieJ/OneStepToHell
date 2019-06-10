@@ -21,6 +21,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 	// 可以在任何地方（如afterXXX或自定义脚本事件）调用函数，方法为 core.plugin.xxx();
 	// 从V2.6开始，插件中用this.XXX方式定义的函数也会被转发到core中，详见文档-脚本-函数的转发。
 
+	// 主角境界文字颜色
 	core.utils.setStatusBarInnerHTML = function (name, value, css) {
 		if (!core.statusBar[name]) return;
 		if (typeof value == 'number') value = this.formatBigNumber(value);
@@ -56,6 +57,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		core.statusBar[name].innerHTML = "<span class='_status' style='" + style + "'>" + value + "</span>";
 	};
 
+	// 怪物手册文字颜色
 	core.ui._drawBook_drawRow1 = function (index, enemy, top, left, width, position) {
 		// 绘制第一行
 		core.setTextAlign('ui', 'left');
@@ -72,7 +74,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		core.fillText('ui', core.formatBigNumber(enemy.def || 0), col3 + 30, position, null, b13);
 	};
 
-
+	// 怪物境界文字颜色
 	core.ui._drawBook_drawName = function (index, enemy, top, left, width) {
 		// 绘制第零列（名称和特殊属性）
 		// 如果需要添加自己的比如怪物的称号等，也可以在这里绘制
@@ -110,6 +112,49 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 			core.fillText('ui', enemy.level, left + width / 2,
 				top + 56, color, this._buildFont(14, true));
 		}
+	};
+
+	// 夹爆动画效果
+	core.control.checkBlock = function () {
+		var x = core.getHeroLoc('x'),
+			y = core.getHeroLoc('y'),
+			loc = x + "," + y;
+		var damage = core.status.checkBlock.damage[loc];
+		if (damage) {
+			core.status.hero.hp -= damage;
+			core.drawTip("受到" + (core.status.checkBlock.type[loc] || "伤害") + damage + "点");
+			if (core.status.hero.hp == 1) {
+				core.drawAnimate("explosion", x, y);
+			} else {
+				core.drawAnimate("zone", x, y);
+			}
+			this._checkBlock_disableQuickShop();
+			core.status.hero.statistics.extraDamage += damage;
+			if (core.status.hero.hp <= 0) {
+				core.status.hero.hp = 0;
+				core.updateStatusBar();
+				core.events.lose();
+				return;
+			}
+		}
+		this._checkBlock_snipe(core.status.checkBlock.snipe[loc]);
+		this._checkBlock_ambush(core.status.checkBlock.ambush[loc]);
+	};
+
+	// 怪物伤害相同时按经验排序而非金钱
+	core.enemys._getCurrentEnemys_sort = function (enemys) {
+		return enemys.sort(function (a, b) {
+			if (a.damage == b.damage) {
+				return a.experience - b.experience;
+			}
+			if (a.damage == null) {
+				return 1;
+			}
+			if (b.damage == null) {
+				return -1;
+			}
+			return a.damage - b.damage;
+		});
 	};
 },
     "drawLight": function () {

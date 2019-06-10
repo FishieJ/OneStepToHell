@@ -235,6 +235,52 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		}
 	}
 
+	var heroAnimateName = '';
+	if (core.flags.enableSkill) {
+		// 检测当前开启的技能类型
+		var skill = core.getFlag('skill', 0);
+		if (skill == 1) { // 技能1：强击
+			heroAnimateName = 'skill1';
+		} else if (skill == 2) { // 技能2：防御
+			heroAnimateName = 'skill2';
+		} else if (skill == 0) { // 未开启技能
+			heroAnimateName = 'hand';
+		}
+	} else {
+		heroAnimateName = 'hand';
+	}
+
+	// 技能动画
+	function drawHeroAnimate() {
+		core.drawAnimate(heroAnimateName, x != null ? x : core.getHeroLoc('x'), y != null ? y : core.getHeroLoc('y'));
+	}
+
+	function drawEnemyAnimate(animate_name, ex, ey) {
+		if (animate_name == null)
+			drawHeroAnimate();
+		else {
+			core.drawAnimate(animate_name, ex != null ? ex : core.getHeroLoc('x'), ey != null ? ey : core.getHeroLoc('y'), drawHeroAnimate);
+		}
+	}
+
+	var enemy = core.material.enemys[enemyId];
+	var special = enemy.special;
+	if (core.enemys.hasSpecial(special, 14) || core.enemys.hasSpecial(special, 109)) {
+		drawEnemyAnimate('ice');
+	} else if (core.enemys.hasSpecial(special, 103)) {
+		drawEnemyAnimate('skill1');
+	} else if (core.enemys.hasSpecial(special, 110)) {
+		drawEnemyAnimate('light');
+	} else if (core.enemys.hasSpecial(special, 111)) {
+		drawEnemyAnimate('dark');
+	} else if (core.enemys.hasSpecial(special, 117) || core.enemys.hasSpecial(special, 118)) {
+		drawEnemyAnimate('heal', x, y);
+	} else if (core.enemys.hasSpecial(special, 119)) {
+		drawEnemyAnimate('repelDark');
+	} else {
+		drawEnemyAnimate(null);
+	}
+
 	return true;
 },
         "afterBattle": function (enemyId, x, y, callback) {
@@ -242,16 +288,18 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 	var enemy = core.material.enemys[enemyId];
 
-	// 播放战斗音效和动画
-	var equipAnimate = 'hand',
-		equipId = (core.status.hero.equipment || [])[0];
-	if (equipId && (core.material.items[equipId].equip || {}).animate)
-		equipAnimate = core.material.items[equipId].equip.animate;
-	// 检查equipAnimate是否存在SE，如果不存在则使用默认音效
-	if (!(core.material.animates[equipAnimate] || {}).se)
-		core.playSound('attack.mp3');
-	// 强制战斗的战斗动画
-	core.drawAnimate(equipAnimate, x != null ? x : core.getHeroLoc('x'), y != null ? y : core.getHeroLoc('y'));
+	/*
+		// 播放战斗音效和动画
+		var equipAnimate = 'hand',
+			equipId = (core.status.hero.equipment || [])[0];
+		if (equipId && (core.material.items[equipId].equip || {}).animate)
+			equipAnimate = core.material.items[equipId].equip.animate;
+		// 检查equipAnimate是否存在SE，如果不存在则使用默认音效
+		if (!(core.material.animates[equipAnimate] || {}).se)
+			core.playSound('attack.mp3');
+		// 强制战斗的战斗动画
+		core.drawAnimate(equipAnimate, x != null ? x : core.getHeroLoc('x'), y != null ? y : core.getHeroLoc('y'));
+	*/
 
 	var damage = core.enemys.getDamage(enemyId, x, y);
 	if (damage == null) damage = core.status.hero.hp + 1;

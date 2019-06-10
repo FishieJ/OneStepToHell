@@ -49,6 +49,10 @@ main.floors.MT10=
                                 "time": 2000,
                                 "async": true
                             },
+                            {
+                                "type": "playSound",
+                                "name": "WomanScream.ogg"
+                            },
                             "（幼女的尖叫声）啊~~~ ",
                             {
                                 "type": "changePos",

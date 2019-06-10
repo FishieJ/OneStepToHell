@@ -340,6 +340,10 @@ main.floors.MT60=
                     "id": "yeq_battle_final"
                 },
                 {
+                    "type": "sleep",
+                    "time": 1000
+                },
+                {
                     "type": "setBlock",
                     "number": "yeq"
                 },
@@ -486,7 +490,11 @@ main.floors.MT60=
                         6
                     ]
                 ],
-                "time": 50
+                "time": 100
+            },
+            {
+                "type": "playSound",
+                "name": "092-Attack04.ogg"
             },
             {
                 "type": "show",
@@ -496,7 +504,11 @@ main.floors.MT60=
                         8
                     ]
                 ],
-                "time": 50
+                "time": 100
+            },
+            {
+                "type": "playSound",
+                "name": "092-Attack04.ogg"
             },
             {
                 "type": "show",
@@ -506,7 +518,11 @@ main.floors.MT60=
                         7
                     ]
                 ],
-                "time": 50
+                "time": 100
+            },
+            {
+                "type": "playSound",
+                "name": "092-Attack04.ogg"
             },
             {
                 "type": "show",
@@ -516,7 +532,11 @@ main.floors.MT60=
                         7
                     ]
                 ],
-                "time": 50
+                "time": 100
+            },
+            {
+                "type": "playSound",
+                "name": "092-Attack04.ogg"
             },
             {
                 "type": "show",
@@ -526,7 +546,11 @@ main.floors.MT60=
                         5
                     ]
                 ],
-                "time": 50
+                "time": 100
+            },
+            {
+                "type": "playSound",
+                "name": "092-Attack04.ogg"
             },
             {
                 "type": "show",
@@ -536,7 +560,11 @@ main.floors.MT60=
                         9
                     ]
                 ],
-                "time": 50
+                "time": 100
+            },
+            {
+                "type": "playSound",
+                "name": "092-Attack04.ogg"
             },
             {
                 "type": "show",
@@ -546,7 +574,11 @@ main.floors.MT60=
                         8
                     ]
                 ],
-                "time": 50
+                "time": 100
+            },
+            {
+                "type": "playSound",
+                "name": "092-Attack04.ogg"
             },
             {
                 "type": "show",
@@ -556,7 +588,11 @@ main.floors.MT60=
                         6
                     ]
                 ],
-                "time": 50
+                "time": 100
+            },
+            {
+                "type": "playSound",
+                "name": "092-Attack04.ogg"
             },
             {
                 "type": "show",
@@ -566,7 +602,11 @@ main.floors.MT60=
                         9
                     ]
                 ],
-                "time": 50
+                "time": 100
+            },
+            {
+                "type": "playSound",
+                "name": "092-Attack04.ogg"
             },
             {
                 "type": "show",
@@ -576,7 +616,11 @@ main.floors.MT60=
                         5
                     ]
                 ],
-                "time": 50
+                "time": 100
+            },
+            {
+                "type": "playSound",
+                "name": "092-Attack04.ogg"
             },
             {
                 "type": "show",
@@ -586,7 +630,11 @@ main.floors.MT60=
                         8
                     ]
                 ],
-                "time": 50
+                "time": 100
+            },
+            {
+                "type": "playSound",
+                "name": "092-Attack04.ogg"
             },
             {
                 "type": "show",
@@ -596,7 +644,11 @@ main.floors.MT60=
                         6
                     ]
                 ],
-                "time": 50
+                "time": 100
+            },
+            {
+                "type": "playSound",
+                "name": "092-Attack04.ogg"
             },
             {
                 "type": "show",
@@ -606,7 +658,11 @@ main.floors.MT60=
                         4
                     ]
                 ],
-                "time": 50
+                "time": 100
+            },
+            {
+                "type": "playSound",
+                "name": "092-Attack04.ogg"
             },
             {
                 "type": "show",
@@ -616,7 +672,11 @@ main.floors.MT60=
                         7
                     ]
                 ],
-                "time": 50
+                "time": 100
+            },
+            {
+                "type": "playSound",
+                "name": "092-Attack04.ogg"
             },
             {
                 "type": "show",
@@ -626,7 +686,11 @@ main.floors.MT60=
                         10
                     ]
                 ],
-                "time": 50
+                "time": 100
+            },
+            {
+                "type": "playSound",
+                "name": "092-Attack04.ogg"
             },
             {
                 "type": "show",
@@ -636,7 +700,11 @@ main.floors.MT60=
                         7
                     ]
                 ],
-                "time": 50
+                "time": 100
+            },
+            {
+                "type": "playSound",
+                "name": "092-Attack04.ogg"
             },
             {
                 "type": "show",
@@ -646,7 +714,11 @@ main.floors.MT60=
                         6
                     ]
                 ],
-                "time": 50
+                "time": 100
+            },
+            {
+                "type": "playSound",
+                "name": "092-Attack04.ogg"
             },
             {
                 "type": "show",
@@ -656,7 +728,11 @@ main.floors.MT60=
                         6
                     ]
                 ],
-                "time": 50
+                "time": 100
+            },
+            {
+                "type": "playSound",
+                "name": "092-Attack04.ogg"
             }
         ],
         "2,6": [
@@ -669,6 +745,10 @@ main.floors.MT60=
                 "type": "if",
                 "condition": "flag:MT60==2",
                 "true": [
+                    {
+                        "type": "sleep",
+                        "time": 500
+                    },
                     "\t[yeq_battle]有两下子嘛，我要认真了。",
                     {
                         "type": "show",
@@ -694,6 +774,10 @@ main.floors.MT60=
                 "type": "if",
                 "condition": "flag:MT60==2",
                 "true": [
+                    {
+                        "type": "sleep",
+                        "time": 500
+                    },
                     "\t[yeq_battle]有两下子嘛，我要认真了。",
                     {
                         "type": "show",
