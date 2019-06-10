@@ -16,18 +16,20 @@ main.floors.MT10=
         {
             "type": "loadBgm",
             "name": "13-15.mp3"
-        }
+        },
+        {
+            "type": "sleep",
+            "time": 500
+        },
+        "\t[hero]\b[up,hero]这……竟然是罕见的金莱姆……",
+        {
+            "type": "callBook"
+        },
+        "\t[hero]\b[up,hero]萌新四段吗……而且比同为萌新四段的银莱姆还厉害一点。不过以我现在的升级速度，打完前面那些莱姆应该差不多也能达到萌新四段了，打败它并非难事。"
     ],
     "eachArrive": [],
     "parallelDo": "",
     "events": {
-        "4,6": {
-            "trigger": null,
-            "enable": false,
-            "noPass": null,
-            "displayDamage": true,
-            "data": []
-        },
         "12,6": [
             {
                 "type": "if",
@@ -38,13 +40,49 @@ main.floors.MT10=
                         "condition": "core.status.hero.experience >= 10",
                         "true": [
                             {
-                                "type": "changeFloor",
-                                "floorId": "MT11",
+                                "type": "sleep",
+                                "time": 500
+                            },
+                            {
+                                "type": "setVolume",
+                                "value": 0,
+                                "time": 2000,
+                                "async": true
+                            },
+                            "（幼女的尖叫声）啊~~~ ",
+                            {
+                                "type": "changePos",
+                                "direction": "left"
+                            },
+                            "\t[hero]\b[up,hero]等等，刚才是什么声音？",
+                            {
+                                "type": "jumpHero",
                                 "loc": [
-                                    0,
-                                    9
+                                    6,
+                                    6
                                 ],
-                                "direction": "right",
+                                "time": 370
+                            },
+                            {
+                                "type": "moveHero",
+                                "time": 100,
+                                "steps": [
+                                    "left",
+                                    "left",
+                                    "left",
+                                    "left",
+                                    "left",
+                                    "left"
+                                ]
+                            },
+                            {
+                                "type": "changeFloor",
+                                "floorId": "MT0A",
+                                "loc": [
+                                    6,
+                                    12
+                                ],
+                                "direction": "up",
                                 "time": 1000
                             }
                         ],
@@ -73,6 +111,50 @@ main.floors.MT10=
                     "系统提示：可以利用浏览地图功能查找漏掉的怪物，快捷键是PgUp和PgDn。"
                 ]
             }
+        ],
+        "11,6": [
+            "这里是漏怪检测，请清光前面的怪物再前进。",
+            {
+                "type": "if",
+                "condition": "core.status.hero.lv >= 4",
+                "true": [
+                    {
+                        "type": "if",
+                        "condition": "core.status.hero.experience >= 10",
+                        "true": [
+                            "怪物已清完！",
+                            {
+                                "type": "hide",
+                                "time": 0
+                            }
+                        ],
+                        "false": [
+                            "\t[hero]前面好像还有莱姆没有打，暂时不要继续前进了吧……",
+                            "系统提示：可以利用浏览地图功能查找漏掉的怪物，快捷键是PgUp和PgDn。",
+                            {
+                                "type": "if",
+                                "condition": "core.platform.isPC",
+                                "true": [
+                                    "单击地图可以瞬移，用来快速赶路。"
+                                ],
+                                "false": []
+                            }
+                        ]
+                    }
+                ],
+                "false": [
+                    "\t[hero]前面好像还有莱姆没有打，暂时不要继续前进了吧……",
+                    "系统提示：可以利用浏览地图功能查找漏掉的怪物，快捷键是PgUp和PgDn。",
+                    {
+                        "type": "if",
+                        "condition": "core.platform.isPC",
+                        "true": [
+                            "单击地图可以瞬移，用来快速赶路。"
+                        ],
+                        "false": []
+                    }
+                ]
+            }
         ]
     },
     "changeFloor": {
@@ -88,57 +170,10 @@ main.floors.MT10=
     "afterBattle": {
         "9,6": [
             {
-                "type": "openDoor",
-                "loc": [
-                    11,
-                    6
-                ]
-            },
-            {
                 "type": "sleep",
                 "time": 500
             },
-            "\b[up,hero]\t[hero]这里最强的金莱姆也被我打败了……这样下去说不定我真能获得我梦寐以求的强大力量。",
-            {
-                "type": "show",
-                "loc": [
-                    [
-                        4,
-                        6
-                    ]
-                ],
-                "time": 500
-            },
-            {
-                "type": "changePos",
-                "direction": "left"
-            },
-            "\b[up,4,6]\t[莫家长老,N364]哈哈，打得不错。",
-            "\b[up,hero]\t[hero]长老？……您找我有事吗？",
-            "\b[up,4,6]\t[莫家长老,N364]有人向我报告说这花园的莱姆被消灭了大半，怀疑有人蓄意破坏，我是前来调查的。",
-            "\b[up,hero]\t[hero]啊……这个……确实是我做的……",
-            "\b[up,4,6]\t[莫家长老,N364]哈哈，不用紧张，我观察的你刚才的战斗，应该是刚晋入萌新四阶不久，在这里打莱姆不违反规矩。",
-            "\b[up,4,6]\t[莫家长老,N364]不过我很好奇，一般的萌新四阶打那么多莱姆必然早已力竭，你是怎么做到的？",
-            "\b[up,hero]\t[hero]（……还是不要把宝石和血瓶的事情说出去比较好，得找个理由搪塞过去）",
-            "\b[up,hero]\t[hero]这个……不知为何感觉这些莱姆的攻击比起以往要弱一些，可能它们染上了什么病？",
-            "\b[up,4,6]\t[莫家长老,N364]你这小家伙还真是谦虚。不过既然你说它们可能患病，我需要立即上报，请求家主派人调查。告辞。",
-            {
-                "type": "hide",
-                "loc": [
-                    [
-                        4,
-                        6
-                    ]
-                ],
-                "time": 500
-            },
-            {
-                "type": "sleep",
-                "time": 500
-            },
-            "\b[up,hero]\t[hero]糟糕……虽然应付过去了，但是惊动家主的话事情就麻烦了……",
-            "\b[up,hero]\t[hero]算了不想那些了，继续修炼吧。我要让他们大吃一惊！",
-            "\b[up,hero]\t[hero]接下来去哪呢……对了，听说家里好多人喜欢去\r[yellow]粽子湖畔\r[white]修炼，就去那里看看吧。"
+            "\t[hero]\b[up,hero]这里最强的金莱姆也被我打败了……这样下去说不定我真能获得我梦寐以求的强大力量。"
         ]
     },
     "afterGetItem": {},
@@ -151,7 +186,7 @@ main.floors.MT10=
     [  0,  0,  0, 20, 27,  0, 20, 20, 20, 20, 20, 20, 20],
     [  0, 17, 17, 20,10004,203, 20,  0,  0,  0,  0,  0, 20],
     [  0,  0,  0,  0,  0,  0, 20,  0,  0,  0,  0,  0, 20],
-    [ 92,  0,  0,  0,364,  0,  0,  0,  0,233,  0, 85, 94],
+    [ 92,  0,  0,  0,  0,  0,  0,  0,  0,233,  0,384, 94],
     [  0,  0,  0,  0,  0,  0, 20,  0,  0,  0,  0,  0, 20],
     [  0,  0,  0, 20,10004,203, 20,  0,  0,  0,  0,  0, 20],
     [  0,  0,  0, 20, 28,  0, 20, 20, 20, 20, 20, 20, 20],

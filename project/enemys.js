@@ -76,7 +76,7 @@ var enemys_fcae963b_31c9_42b4_b48c_bb48d09f3f80 =
 	"E348": {"name":"柯诏","hp":820,"atk":288,"def":27,"money":0,"experience":27,"point":0,"special":[1,4],"level":"萌新八段"},
 	"E361": {"name":"林间烂泥","hp":1666,"atk":175,"def":50,"money":0,"experience":18,"point":0,"special":0,"level":"萌新七段"},
 	"mgz": {"name":"莫孤舟","hp":4000,"atk":840,"def":260,"money":0,"experience":500,"point":0,"special":102,"level":"蓝海一阶","value":10,"atkValue":null,"n":20},
-	"yellowKeyProtector": {"name":"至宝守护者","hp":2019,"atk":520,"def":365,"money":0,"experience":100,"point":0,"special":[4,7],"level":"萌新九段","defValue":null,"value":1},
+	"yellowKeyProtector": {"name":"宝物守护者","hp":2019,"atk":520,"def":365,"money":0,"experience":100,"point":0,"special":[4,7],"level":"萌新九段","defValue":null,"value":1},
 	"E374": {"name":"迟秋法师","hp":5000,"atk":800,"def":600,"money":0,"experience":51,"point":0,"special":2,"level":"蓝海二阶"},
 	"E375": {"name":"变异蝙蝠","hp":2400,"atk":990,"def":130,"money":0,"experience":43,"point":0,"special":[1,5],"level":"蓝海一阶"},
 	"E376": {"name":"迟秋巫师","hp":6000,"atk":2000,"def":550,"money":0,"experience":53,"point":0,"special":15,"level":"蓝海二阶","value":1000},

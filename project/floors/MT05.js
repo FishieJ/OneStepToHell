@@ -12,13 +12,30 @@ main.floors.MT05=
     "item_ratio": 1,
     "defaultGround": "grass",
     "bgm": "11-13.mp3",
-    "firstArrive": [],
+    "firstArrive": [
+        {
+            "type": "sleep",
+            "time": 500
+        },
+        "\t[hero]咦，竟然有银色的莱姆……",
+        {
+            "type": "callBook"
+        },
+        "\t[hero]嘶，萌新四段，恐怖如斯……暂时先不要打它们了。"
+    ],
     "eachArrive": [],
     "parallelDo": "",
     "events": {
         "1,11": [
             "\t[莫子陆,N372]跟这些莱姆战斗好累……趁长老不注意在这里休息一会。",
-            "\t[hero]（果然……这些血瓶和宝石都只有我才能看到。这就是那位神仙给我的力量吗？）"
+            "\t[hero]（果然……这些血瓶和宝石都只有我才能看到。这就是那位神仙给我的力量吗？）",
+            {
+                "type": "if",
+                "condition": "flag:hard<3",
+                "true": [
+                    "系统提示：没错，这个NPC是个酱油角色，如果后悔花大代价打青莱姆来跟他对话，可以按\r[yellow]A\r[white]键读取自动存档。"
+                ]
+            }
         ]
     },
     "changeFloor": {

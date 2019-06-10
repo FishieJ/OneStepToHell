@@ -13,6 +13,13 @@ main.floors.MT11=
     "defaultGround": "sand",
     "firstArrive": [
         {
+            "type": "setCurtain",
+            "time": 500
+        },
+        "\t[hero]终于离开那该死的莫家了！终于又能说话了！",
+        "\t[hero]谔谔啊啊啊啊啊啊！！！气死我了！！",
+        "\t[hero]哈哈，我要修炼，我要变强，我要干爆你们这些蠢货！什么柯诏，什么愚蠢的禁言家规，我可去你妈的吧。",
+        {
             "type": "freeBgm",
             "name": "11-13.mp3"
         },

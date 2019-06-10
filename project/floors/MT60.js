@@ -354,7 +354,8 @@ main.floors.MT60=
                 {
                     "type": "setVolume",
                     "value": 0,
-                    "time": 500
+                    "time": 3000,
+                    "async": true
                 },
                 {
                     "type": "sleep",

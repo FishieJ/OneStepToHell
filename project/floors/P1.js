@@ -38,12 +38,12 @@ main.floors.P1=
         {
             "type": "setValue",
             "name": "status:hpmax",
-            "value": "6700417"
+            "value": "114514"
         },
         {
             "type": "setValue",
             "name": "status:hp",
-            "value": "6700417"
+            "value": "114514"
         },
         "\t[hero]等等，我好像变强了……",
         "\t[hero]哈哈，这下我无敌了！横扫这些辣鸡怪物吧！"

@@ -332,6 +332,7 @@ var maps_90f36752_8815_4be8_b32b_d7fad1d0542e =
 	"421": {"cls":"enemy48","id":"E421"},
 	"422": {"cls":"enemy48","id":"E422"},
 	"423": {"cls":"enemy48","id":"yeq_battle_final"},
+	"424": {"cls":"npc48","id":"N424"},
 	"10072": {"cls":"tileset","id":"X10072","noPass":"false"},
 	"10075": {"cls":"tileset","id":"X10075","noPass":"false"},
 	"10138": {"cls":"tileset","id":"X10138","noPass":false},

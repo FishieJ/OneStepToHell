@@ -158,7 +158,8 @@ var icons_4665ee12_3a1f_44a4_bea3_0fccba634dc1 =
 		"npc0": 0,
 		"heroine": 16,
 		"yeq": 17,
-		"N402": 18
+		"N402": 18,
+		"N424": 19
 	},
 	"enemys": {
 		"greenSlime": 0,
