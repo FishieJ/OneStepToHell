@@ -19,37 +19,68 @@ main.floors.MT54=
         0.5
     ],
     "weather": [],
-    "firstArrive": [],
-    "eachArrive": [],
-    "parallelDo": "",
-    "events": {},
-    "changeFloor": {
-        "0,7": {
-            "floorId": "MT53",
-            "loc": [
-                12,
-                7
-            ],
-            "time": 0
-        },
-        "12,3": {
-            "floorId": "MT58",
-            "loc": [
-                0,
-                3
-            ],
-            "time": 0
-        },
-        "6,12": {
-            "floorId": "MT5A",
-            "loc": [
-                6,
-                0
-            ],
-            "direction": "down",
-            "time": 0
+    "firstArrive": [
+        {
+            "type": "setValue",
+            "name": "flag:darkRatio",
+            "value": "flag:darkRatio+0.01"
         }
+    ],
+    "eachArrive": [
+        {
+            "type": "function",
+            "function": "function(){\ncore.setFlag('bgLight', [\n\t[144, 400, 150],\n\t[272, 400, 150],\n]);\ncore.drawMap();\n}"
+        }
+    ],
+    "parallelDo": "",
+    "events": {
+        "0,7": [
+            {
+                "type": "function",
+                "function": "function(){\ncore.setFlag('bgLight', []);\n}"
+            },
+            {
+                "type": "changeFloor",
+                "floorId": "MT53",
+                "loc": [
+                    12,
+                    7
+                ],
+                "time": 0
+            }
+        ],
+        "12,3": [
+            {
+                "type": "function",
+                "function": "function(){\ncore.setFlag('bgLight', []);\n}"
+            },
+            {
+                "type": "changeFloor",
+                "floorId": "MT58",
+                "loc": [
+                    0,
+                    3
+                ],
+                "time": 0
+            }
+        ],
+        "6,12": [
+            {
+                "type": "function",
+                "function": "function(){\ncore.setFlag('bgLight', []);\n}"
+            },
+            {
+                "type": "changeFloor",
+                "floorId": "MT5A",
+                "loc": [
+                    6,
+                    0
+                ],
+                "time": 0
+            }
+        ]
     },
+    "changeFloor": {},
     "afterBattle": {},
     "afterGetItem": {},
     "afterOpenDoor": {},
@@ -73,6 +104,18 @@ main.floors.MT54=
 
 ],
     "fgmap": [
-
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,103,  0,  0,  0,103,  0,  0,  0,  0]
 ]
 }

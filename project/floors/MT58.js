@@ -19,13 +19,14 @@ main.floors.MT58=
         0.5
     ],
     "weather": [],
-    "firstArrive": [],
-    "eachArrive": [
+    "firstArrive": [
         {
-            "type": "function",
-            "function": "function(){\ncore.setFlag('bgLight', []);\ncore.drawMap();\n}"
+            "type": "setValue",
+            "name": "flag:darkRatio",
+            "value": "flag:darkRatio+0.01"
         }
     ],
+    "eachArrive": null,
     "parallelDo": "",
     "events": {},
     "changeFloor": {

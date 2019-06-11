@@ -19,32 +19,58 @@ main.floors.MT57=
         0.5
     ],
     "weather": [],
-    "firstArrive": [],
-    "eachArrive": [],
+    "firstArrive": [
+        {
+            "type": "setValue",
+            "name": "flag:darkRatio",
+            "value": "flag:darkRatio+0.01"
+        }
+    ],
+    "eachArrive": [
+        {
+            "type": "function",
+            "function": "function(){\ncore.setFlag('bgLight', [\n\t[16, 104, 150],\n\t[16, 200, 150],\n]);\ncore.drawMap();\n}"
+        }
+    ],
     "parallelDo": "",
-    "events": {},
+    "events": {
+        "0,6": [
+            {
+                "type": "function",
+                "function": "function(){\ncore.setFlag('bgLight', []);\n}"
+            },
+            {
+                "type": "changeFloor",
+                "floorId": "MT5A",
+                "loc": [
+                    12,
+                    6
+                ],
+                "time": 0
+            }
+        ],
+        "8,0": [
+            {
+                "type": "function",
+                "function": "function(){\ncore.setFlag('bgLight', []);\n}"
+            },
+            {
+                "type": "changeFloor",
+                "floorId": "MT58",
+                "loc": [
+                    8,
+                    12
+                ],
+                "time": 0
+            }
+        ]
+    },
     "changeFloor": {
         "8,12": {
             "floorId": "MT56",
             "loc": [
                 8,
                 0
-            ],
-            "time": 0
-        },
-        "8,0": {
-            "floorId": "MT58",
-            "loc": [
-                8,
-                12
-            ],
-            "time": 0
-        },
-        "0,6": {
-            "floorId": "MT5A",
-            "loc": [
-                12,
-                6
             ],
             "time": 0
         }
@@ -72,6 +98,18 @@ main.floors.MT57=
 
 ],
     "fgmap": [
-
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [103,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [103,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0]
 ]
 }

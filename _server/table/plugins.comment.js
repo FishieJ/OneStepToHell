@@ -24,7 +24,13 @@ var plugins_comment_c456ea59_6018_45ef_8bcc_211a24c627dc = {
 				"_leaf": true,
 				"_type": "textarea",
 				"_range": "typeof(thiseval)=='string' || thiseval==null",
-				"_data": "跟随勇士移动的灯光"
+				"_data": "跟随勇士移动的灯光以及背景灯光"
+			},
+			"setBgLight": {
+				"_leaf": true,
+				"_type": "textarea",
+				"_range": "typeof(thiseval)=='string' || thiseval==null",
+				"_data": "更新背景灯光"
 			},
 		}
 		if (obj[key]) return obj[key];

@@ -11,40 +11,71 @@ main.floors.MT51=
     "images": [],
     "item_ratio": 50,
     "defaultGround": "grass2",
-    "firstArrive": null,
-    "eachArrive": [],
+    "firstArrive": [
+        {
+            "type": "setValue",
+            "name": "flag:darkRatio",
+            "value": "flag:darkRatio+0.01"
+        }
+    ],
+    "eachArrive": [
+        {
+            "type": "function",
+            "function": "function(){\ncore.setFlag('bgLight', [\n\t[16, 104, 150],\n\t[16, 200, 150],\n]);\ncore.drawMap();\n}"
+        }
+    ],
     "parallelDo": "",
     "events": {
         "0,5": [
             "关于光明/黑暗属性的说明：\n\r[yellow]光明/黑暗\r[white]状态会影响所有受到和造成的伤害，包括普通攻击伤害和技能伤害。\n与\r[blue]严寒\r[white]状态对伤害的影响是乘法叠加。"
+        ],
+        "6,0": [
+            {
+                "type": "function",
+                "function": "function(){\ncore.setFlag('bgLight', []);\n}"
+            },
+            {
+                "type": "changeFloor",
+                "floorId": "MT52",
+                "loc": [
+                    6,
+                    12
+                ],
+                "time": 0
+            }
+        ],
+        "12,10": [
+            {
+                "type": "function",
+                "function": "function(){\ncore.setFlag('bgLight', []);\n}"
+            },
+            {
+                "type": "changeFloor",
+                "floorId": "MT55",
+                "loc": [
+                    0,
+                    10
+                ],
+                "time": 0
+            }
+        ],
+        "0,6": [
+            {
+                "type": "function",
+                "function": "function(){\ncore.setFlag('bgLight', []);\n}"
+            },
+            {
+                "type": "changeFloor",
+                "floorId": "Area5_m",
+                "loc": [
+                    29,
+                    11
+                ],
+                "time": 1000
+            }
         ]
     },
-    "changeFloor": {
-        "0,6": {
-            "floorId": "Area5_m",
-            "loc": [
-                29,
-                11
-            ],
-            "time": 1000
-        },
-        "12,10": {
-            "floorId": "MT55",
-            "loc": [
-                0,
-                10
-            ],
-            "time": 0
-        },
-        "6,0": {
-            "floorId": "MT52",
-            "loc": [
-                6,
-                12
-            ],
-            "time": 0
-        }
-    },
+    "changeFloor": {},
     "afterBattle": {},
     "afterGetItem": {},
     "afterOpenDoor": {},
@@ -68,7 +99,19 @@ main.floors.MT51=
 
 ],
     "fgmap": [
-
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [103,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [103,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0]
 ],
     "bgm": "21-23.mp3",
     "color": [

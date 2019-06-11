@@ -22,7 +22,13 @@ main.floors.MT43=
         "snow",
         1
     ],
-    "firstArrive": [],
+    "firstArrive": [
+        {
+            "type": "setValue",
+            "name": "flag:darkRatio",
+            "value": "flag:darkRatio+0.01"
+        }
+    ],
     "eachArrive": [],
     "parallelDo": "",
     "events": {},

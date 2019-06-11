@@ -22,7 +22,13 @@ main.floors.Area5_m=
         "snow",
         1
     ],
-    "firstArrive": [],
+    "firstArrive": [
+        {
+            "type": "setValue",
+            "name": "flag:darkRatio",
+            "value": "flag:darkRatio+0.01"
+        }
+    ],
     "eachArrive": [],
     "parallelDo": "",
     "events": {},

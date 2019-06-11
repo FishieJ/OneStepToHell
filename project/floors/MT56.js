@@ -19,7 +19,13 @@ main.floors.MT56=
         0.5
     ],
     "weather": [],
-    "firstArrive": [],
+    "firstArrive": [
+        {
+            "type": "setValue",
+            "name": "flag:darkRatio",
+            "value": "flag:darkRatio+0.01"
+        }
+    ],
     "eachArrive": [],
     "parallelDo": "",
     "events": {},

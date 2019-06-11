@@ -13,11 +13,17 @@ main.floors.MT59=
     "defaultGround": "grass2",
     "bgm": "21-23.mp3",
     "weather": [],
-    "firstArrive": [],
+    "firstArrive": [
+        {
+            "type": "setValue",
+            "name": "flag:darkRatio",
+            "value": "flag:darkRatio+0.01"
+        }
+    ],
     "eachArrive": [
         {
             "type": "function",
-            "function": "function(){\ncore.plugin.drawLight(0.5, [[80,40,150],[48,72,150],[336,40,150],[368,72,150]]);\ncore.setFlag('bgLight', [[80,40,150],[48,72,150],[336,40,150],[368,72,150]]);\ncore.drawMap();\n}"
+            "function": "function(){\ncore.setFlag('bgLight', [\n\t[80, 40, 150],\n\t[48, 72, 150],\n\t[336, 40, 150],\n\t[368, 72, 150]\n]);\ncore.drawMap();\n}"
         }
     ],
     "parallelDo": "",
@@ -39,18 +45,24 @@ main.floors.MT59=
                 "direction": "up",
                 "time": 2000
             }
+        ],
+        "0,6": [
+            {
+                "type": "function",
+                "function": "function(){\ncore.setFlag('bgLight', []);\n}"
+            },
+            {
+                "type": "changeFloor",
+                "floorId": "MT58",
+                "loc": [
+                    12,
+                    6
+                ],
+                "time": 0
+            }
         ]
     },
-    "changeFloor": {
-        "0,6": {
-            "floorId": "MT58",
-            "loc": [
-                12,
-                6
-            ],
-            "time": 0
-        }
-    },
+    "changeFloor": {},
     "afterBattle": {},
     "afterGetItem": {},
     "afterOpenDoor": {},

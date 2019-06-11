@@ -15,7 +15,7 @@ main.floors.MT60=
     "firstArrive": [
         {
             "type": "function",
-            "function": "function(){\ncore.setFlag('bgLight', []);\ncore.drawMap();\n}"
+            "function": "function(){\ncore.setBgLight([]);\n}"
         },
         {
             "type": "pauseBgm"
@@ -182,18 +182,17 @@ main.floors.MT60=
                                 6,
                                 3
                             ]
+                        },
+                        {
+                            "type": "function",
+                            "function": "function(){\ncore.setBgLight([\n\t[208, 112, 150]\n]);\n}"
                         }
                     ]
                 }
             ]
         }
     ],
-    "eachArrive": [
-        {
-            "type": "function",
-            "function": "function(){\ncore.setFlag('bgLight', []);\ncore.drawMap();\n}"
-        }
-    ],
+    "eachArrive": null,
     "parallelDo": "",
     "events": {
         "6,3": {
@@ -348,6 +347,10 @@ main.floors.MT60=
                     "number": "yeq"
                 },
                 {
+                    "type": "function",
+                    "function": "function(){\ncore.setBgLight([]);\n}"
+                },
+                {
                     "type": "move",
                     "time": 500,
                     "keep": true,
@@ -468,6 +471,10 @@ main.floors.MT60=
     },
     "afterBattle": {
         "6,3": [
+            {
+                "type": "function",
+                "function": "function(){\ncore.setBgLight([]);\n}"
+            },
             "\t[yeq_battle]哼哼，你以为这样就结束了？",
             {
                 "type": "animate",
@@ -733,6 +740,10 @@ main.floors.MT60=
             {
                 "type": "playSound",
                 "name": "092-Attack04.ogg"
+            },
+            {
+                "type": "function",
+                "function": "function(){\ncore.setBgLight([\n\t[80, 208, 150],\n\t[336, 208, 150],\n]);\n}"
             }
         ],
         "2,6": [
@@ -746,6 +757,10 @@ main.floors.MT60=
                 "condition": "flag:MT60==2",
                 "true": [
                     {
+                        "type": "function",
+                        "function": "function(){\ncore.setBgLight([]);\n}"
+                    },
+                    {
                         "type": "sleep",
                         "time": 500
                     },
@@ -759,9 +774,18 @@ main.floors.MT60=
                             ]
                         ],
                         "time": 500
+                    },
+                    {
+                        "type": "function",
+                        "function": "function(){\ncore.setBgLight([\n\t[208, 80, 150],\n]);\n}"
                     }
                 ],
-                "false": []
+                "false": [
+                    {
+                        "type": "function",
+                        "function": "function(){\ncore.setBgLight([\n\t[336, 208, 150],\n]);\n}"
+                    }
+                ]
             }
         ],
         "10,6": [
@@ -775,6 +799,10 @@ main.floors.MT60=
                 "condition": "flag:MT60==2",
                 "true": [
                     {
+                        "type": "function",
+                        "function": "function(){\ncore.setBgLight([]);\n}"
+                    },
+                    {
                         "type": "sleep",
                         "time": 500
                     },
@@ -788,9 +816,18 @@ main.floors.MT60=
                             ]
                         ],
                         "time": 500
+                    },
+                    {
+                        "type": "function",
+                        "function": "function(){\ncore.setBgLight([\n\t[208, 80, 150],\n]);\n}"
                     }
                 ],
-                "false": []
+                "false": [
+                    {
+                        "type": "function",
+                        "function": "function(){\ncore.setBgLight([\n\t[80, 208, 150],\n]);\n}"
+                    }
+                ]
             }
         ]
     },
@@ -807,9 +844,9 @@ main.floors.MT60=
     [152,  0,422,  0,410,  0,412,  0,407,  0,421,  0,152],
     [152,  0,  0,410,  0,411,  0,412,  0,409,  0,  0,152],
     [152,  0,  0,  0,408,  0,411,  0,409,  0,  0,  0,152],
-    [152,  0,  0,  0,  0,408,  0,409,  0,  0,  0,  0,152],
-    [152,152,  0,  0,  0,  0,408,  0,  0,  0,  0,152,152],
-    [152,152,152,  0,  0,  0,  0,  0,  0,  0,152,152,152],
+    [152,152,  0,  0,  0,408,  0,409,  0,  0,  0,152,152],
+    [152,152,152,  0,  0,  0,408,  0,  0,  0,152,152,152],
+    [152,152,152,152,  0,  0,  0,  0,  0,152,152,152,152],
     [152,152,152,152,152,  0, 93,  0,152,152,152,152,152]
 ],
     "bgmap": [
