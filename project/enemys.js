@@ -121,6 +121,6 @@ var enemys_fcae963b_31c9_42b4_b48c_bb48d09f3f80 =
 	"E419": {"name":"迅捷大妖精","hp":40000,"atk":20500,"def":2050,"money":0,"experience":310,"point":0,"special":112,"level":"蓝海八阶"},
 	"E420": {"name":"变异小恶魔","hp":15000,"atk":4000,"def":2500,"money":0,"experience":70,"point":0,"special":115,"level":"蓝海四阶","v_115":25},
 	"E421": {"name":"叶芊（分身）","hp":36666,"atk":0,"def":22222,"money":0,"experience":5000,"point":0,"special":117,"level":"蓝海巅峰"},
-	"E422": {"name":"叶芊（分身）","hp":200000,"atk":28888,"def":0,"money":0,"experience":5000,"point":0,"special":118,"level":"蓝海巅峰"},
+	"E422": {"name":"叶芊（分身）","hp":36666,"atk":28888,"def":0,"money":0,"experience":5000,"point":0,"special":118,"level":"蓝海巅峰"},
 	"yeq_battle_final": {"name":"叶芊","hp":140641,"atk":36565,"def":13333,"money":0,"experience":10000,"point":0,"special":[99,100,119],"level":"蓝海巅峰","defValue":60,"x":25}
 }

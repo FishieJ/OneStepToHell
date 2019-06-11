@@ -110,7 +110,8 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"area3.jpg",
 			"area12.jpg",
 			"winskin.png",
-			"black.jpg"
+			"black.jpg",
+			"hero2.png"
 		],
 		"tilesets": [
 			"001-Grassland01.png",
@@ -127,19 +128,25 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"042-EvilCastle02.png"
 		],
 		"animates": [
+			"attack2",
+			"attack3",
 			"dark",
 			"explosion",
 			"hand",
 			"heal",
 			"ice",
+			"iceblast",
 			"light",
 			"repelDark",
 			"skill1",
 			"skill2",
 			"skill3",
 			"sword",
+			"sword3",
 			"thunder",
+			"upgrade",
 			"wuyu",
+			"xunjie",
 			"yongchang",
 			"zone"
 		],
@@ -183,17 +190,22 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"057-Wrong01.ogg",
 			"083-Monster05.ogg",
 			"087-Action02.ogg",
+			"089-Attack01.ogg",
 			"092-Attack04.ogg",
+			"094-Attack06.ogg",
 			"102-Attack14.ogg",
 			"103-Attack15.ogg",
+			"104-Attack16.ogg",
 			"105-Heal01.ogg",
 			"118-Fire02.ogg",
 			"120-Ice01.ogg",
 			"124-Thunder02.ogg",
 			"139-Darkness02.ogg",
 			"143-Support01.ogg",
+			"159-Skill03.ogg",
 			"161-Skill05.ogg",
 			"sound1634.mp3",
+			"Thunder5.ogg",
 			"WomanScream.ogg"
 		],
 		"nameMap": {
@@ -497,6 +509,11 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"clear": true,
 				"action": [
 					{
+						"type": "animate",
+						"name": "upgrade",
+						"loc": "hero"
+					},
+					{
 						"type": "setValue",
 						"name": "status:hpmax",
 						"value": "status:hpmax+50"
@@ -533,6 +550,11 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"clear": true,
 				"action": [
 					{
+						"type": "animate",
+						"name": "upgrade",
+						"loc": "hero"
+					},
+					{
 						"type": "setValue",
 						"name": "status:hpmax",
 						"value": "status:hpmax+100"
@@ -566,6 +588,11 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"clear": true,
 				"action": [
 					{
+						"type": "animate",
+						"name": "upgrade",
+						"loc": "hero"
+					},
+					{
 						"type": "setValue",
 						"name": "status:hpmax",
 						"value": "status:hpmax+150"
@@ -598,6 +625,11 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"title": "萌新五段",
 				"clear": true,
 				"action": [
+					{
+						"type": "animate",
+						"name": "upgrade",
+						"loc": "hero"
+					},
 					{
 						"type": "setValue",
 						"name": "status:hpmax",
@@ -643,6 +675,11 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"clear": true,
 				"action": [
 					{
+						"type": "animate",
+						"name": "upgrade",
+						"loc": "hero"
+					},
+					{
 						"type": "setValue",
 						"name": "status:hpmax",
 						"value": "status:hpmax+300"
@@ -676,6 +713,11 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"clear": true,
 				"action": [
 					{
+						"type": "animate",
+						"name": "upgrade",
+						"loc": "hero"
+					},
+					{
 						"type": "setValue",
 						"name": "status:hpmax",
 						"value": "status:hpmax+400"
@@ -708,6 +750,11 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"title": "萌新八段",
 				"clear": true,
 				"action": [
+					{
+						"type": "animate",
+						"name": "upgrade",
+						"loc": "hero"
+					},
 					{
 						"type": "setValue",
 						"name": "status:hpmax",
@@ -753,6 +800,11 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"clear": true,
 				"action": [
 					{
+						"type": "animate",
+						"name": "upgrade",
+						"loc": "hero"
+					},
+					{
 						"type": "setValue",
 						"name": "status:hpmax",
 						"value": "status:hpmax+1600"
@@ -791,6 +843,11 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"title": "蓝海一阶",
 				"clear": true,
 				"action": [
+					{
+						"type": "animate",
+						"name": "upgrade",
+						"loc": "hero"
+					},
 					{
 						"type": "setValue",
 						"name": "status:hpmax",
@@ -856,6 +913,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"value": "12"
 					},
 					"领悟主动技能【强击】：首回合获得2倍攻击力，消耗12点魔法。",
+					"普通攻击动画已改变！",
 					{
 						"type": "setValue",
 						"name": "status:hp",
@@ -866,7 +924,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"name": "status:mana",
 						"value": "status:manamax"
 					},
-					"最后，境界突破，状态回满！"
+					"最后，大境界突破，状态回满！"
 				]
 			},
 			{
@@ -874,6 +932,11 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"title": "蓝海二阶",
 				"clear": true,
 				"action": [
+					{
+						"type": "animate",
+						"name": "upgrade",
+						"loc": "hero"
+					},
 					{
 						"type": "setValue",
 						"name": "status:hpmax",
@@ -949,6 +1012,11 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"clear": true,
 				"action": [
 					{
+						"type": "animate",
+						"name": "upgrade",
+						"loc": "hero"
+					},
+					{
 						"type": "setValue",
 						"name": "status:hpmax",
 						"value": "status:hpmax+8000"
@@ -1007,6 +1075,11 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"title": "蓝海四阶",
 				"clear": true,
 				"action": [
+					{
+						"type": "animate",
+						"name": "upgrade",
+						"loc": "hero"
+					},
 					{
 						"type": "setValue",
 						"name": "status:hpmax",
@@ -1083,6 +1156,11 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"clear": true,
 				"action": [
 					{
+						"type": "animate",
+						"name": "upgrade",
+						"loc": "hero"
+					},
+					{
 						"type": "setValue",
 						"name": "status:hpmax",
 						"value": "status:hpmax+15000"
@@ -1135,6 +1213,11 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"title": "蓝海六阶",
 				"clear": true,
 				"action": [
+					{
+						"type": "animate",
+						"name": "upgrade",
+						"loc": "hero"
+					},
 					{
 						"type": "setValue",
 						"name": "status:hpmax",
@@ -1189,6 +1272,11 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"clear": true,
 				"action": [
 					{
+						"type": "animate",
+						"name": "upgrade",
+						"loc": "hero"
+					},
+					{
 						"type": "setValue",
 						"name": "status:hpmax",
 						"value": "status:hpmax+30000"
@@ -1241,6 +1329,11 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"title": "蓝海八阶",
 				"clear": true,
 				"action": [
+					{
+						"type": "animate",
+						"name": "upgrade",
+						"loc": "hero"
+					},
 					{
 						"type": "setValue",
 						"name": "status:hpmax",
@@ -1295,6 +1388,11 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"clear": true,
 				"action": [
 					{
+						"type": "animate",
+						"name": "upgrade",
+						"loc": "hero"
+					},
+					{
 						"type": "setValue",
 						"name": "status:hpmax",
 						"value": "status:hpmax+100000"
@@ -1348,6 +1446,11 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"clear": true,
 				"action": [
 					{
+						"type": "animate",
+						"name": "upgrade",
+						"loc": "hero"
+					},
+					{
 						"type": "setValue",
 						"name": "status:hpmax",
 						"value": "status:hpmax+30000"
@@ -1392,7 +1495,24 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					{
 						"type": "function",
 						"function": "function(){\ncore.drawHero();\n}"
-					}
+					},
+					"普通攻击动画已改变！",
+					{
+						"type": "setHeroIcon",
+						"name": "hero2.png"
+					},
+					"行走图改变！",
+					{
+						"type": "setValue",
+						"name": "status:hp",
+						"value": "status:hpmax"
+					},
+					{
+						"type": "setValue",
+						"name": "status:mana",
+						"value": "status:manamax"
+					},
+					"最后，大境界突破，状态回满！"
 				]
 			}
 		]

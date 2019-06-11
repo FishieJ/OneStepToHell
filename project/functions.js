@@ -236,6 +236,14 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	}
 
 	var heroAnimateName = '';
+	var heroNormalAttack = 'hand';
+	if (core.status.hero.lv >= 10) { // 蓝海
+		heroNormalAttack = 'attack2';
+	}
+	if (core.status.hero.lv >= 19) { // 红海
+		heroNormalAttack = 'attack3';
+	}
+
 	if (core.flags.enableSkill) {
 		// 检测当前开启的技能类型
 		var skill = core.getFlag('skill', 0);
@@ -244,15 +252,15 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		} else if (skill == 2) { // 技能2：防御
 			heroAnimateName = 'skill2';
 		} else if (skill == 0) { // 未开启技能
-			heroAnimateName = 'hand';
+			heroAnimateName = heroNormalAttack;
 		}
 	} else {
-		heroAnimateName = 'hand';
+		heroAnimateName = heroNormalAttack;
 	}
 
 	// 技能动画
-	function drawHeroAnimate() {
-		core.drawAnimate(heroAnimateName, x != null ? x : core.getHeroLoc('x'), y != null ? y : core.getHeroLoc('y'));
+	function drawHeroAnimate(animate_name) {
+		core.drawAnimate(animate_name != null ? animate_name : heroAnimateName, x != null ? x : core.getHeroLoc('x'), y != null ? y : core.getHeroLoc('y'));
 	}
 
 	function drawEnemyAnimate(animate_name, ex, ey) {
@@ -269,10 +277,22 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		drawEnemyAnimate('ice');
 	} else if (core.enemys.hasSpecial(special, 103)) {
 		drawEnemyAnimate('skill1');
+	} else if (core.enemys.hasSpecial(special, 104)) {
+		drawEnemyAnimate('sword3');
+	} else if (core.enemys.hasSpecial(special, 108)) {
+		drawEnemyAnimate('iceblast');
 	} else if (core.enemys.hasSpecial(special, 110)) {
 		drawEnemyAnimate('light');
 	} else if (core.enemys.hasSpecial(special, 111)) {
 		drawEnemyAnimate('dark');
+	} else if (core.enemys.hasSpecial(special, 112)) {
+		drawEnemyAnimate('xunjie');
+	} else if (core.enemys.hasSpecial(special, 113)) {
+		drawEnemyAnimate('xunjie', x, y);
+	} else if (core.enemys.hasSpecial(special, 114)) {
+		drawEnemyAnimate('xunjie', x, y);
+	} else if (core.enemys.hasSpecial(special, 116)) {
+		drawEnemyAnimate('xunjie');
 	} else if (core.enemys.hasSpecial(special, 117) || core.enemys.hasSpecial(special, 118)) {
 		drawEnemyAnimate('heal', x, y);
 	} else if (core.enemys.hasSpecial(special, 119)) {
@@ -596,7 +616,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[114, "智障", "智力有严重缺陷。勇士先攻100次。"],
 		[115, "怒意狂击", function (enemy) { return "每一次攻击都比之前更致命。怪物每回合提升" + enemy.v_115 + "点攻击力"; }],
 		[116, "魔爪", "黑暗的力量使对手动弹不得。怪物先攻100次。"],
-		[117, "神圣愈合", "持续引导神圣的治愈之力。不攻击，每回合开始时治愈自身10000点生命值。"],
+		[117, "神圣愈合", "持续引导神圣的治愈之力。不攻击，每回合治愈自身10000点生命值。"],
 		[118, "炫目之光", "持续散发出神圣的光芒之力。每回合损耗自身2%的最大生命值，使自身处于无敌状态。"],
 		[119, "驱邪", "使对方体内的不洁之力尽数爆发。战斗开始时驱除勇士的所有光明/黑暗状态，每驱除1层便额外造成64100点伤害。"],
 	];
