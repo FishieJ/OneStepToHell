@@ -153,7 +153,8 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 		"bgms": [
 			"1-3.mp3",
 			"3-5.mp3",
-			"5-7.mp3",
+			"5-6.mp3",
+			"6-7.mp3",
 			"7-9.mp3",
 			"9-11.mp3",
 			"11-13.mp3",
@@ -170,7 +171,8 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"prologue.mp3",
 			"postboss0.mp3",
 			"preboss1.mp3",
-			"rain.mp3"
+			"rain.mp3",
+			"xuehai.mp3"
 		],
 		"sounds": [
 			"floor.mp3",
