@@ -296,7 +296,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	} else if (core.enemys.hasSpecial(special, 117) || core.enemys.hasSpecial(special, 118)) {
 		drawEnemyAnimate('heal', x, y);
 	} else if (core.enemys.hasSpecial(special, 119)) {
-		drawEnemyAnimate('repelDark');
+		drawEnemyAnimate('light2');
 	} else {
 		drawEnemyAnimate(null);
 	}
@@ -577,7 +577,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[4, "2连击", "怪物每回合攻击2次"],
 		[5, "3连击", "怪物每回合攻击3次"],
 		[6, function (enemy) { return (enemy.n || 4) + "连击"; }, function (enemy) { return "怪物每回合攻击" + (enemy.n || 4) + "次"; }],
-		[7, "破甲", function (enemy) { return "侵蚀对手的护甲。首回合怪物攻击时，附加勇士防御的" + Math.floor(100 * enemy.value || 0) + "%作为伤害"; }, "#e25e5e"],
+		[7, "破甲", function (enemy) { return "侵蚀对手的护甲。首回合怪物攻击时，附加勇士防御的" + Math.floor(100 * enemy.value || 0) + "%作为伤害"; }, "#b30000"],
 		[8, "反伤", function (enemy) { return "来犯之敌，自讨苦吃。战斗时，勇士攻击的" + Math.floor(100 * enemy.value || 0) + "%也会同时伤害到自身"; }, "#bd26ce"],
 		[9, "净化", "战斗前，怪物附加勇士魔防的" + core.values.purify + "倍作为伤害", "#00d2d4"],
 		[10, "模仿", "怪物的攻防和勇士攻防相等"],
@@ -602,11 +602,11 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[100, "穿刺", function (enemy) { return "攻击能够穿透一部分防御。无视对手" + (enemy.x || 0) + "%的防御力。"; }],
 		[101, "夹爆", "某个著名红海技能的上位版本。经过两只相同的怪物中间，勇士生命值变成一。", "#ff0000"],
 		[102, "上位威压", function (enemy) { return "上位者的气质震慑对手。每比对手高出一级，便在先前基础上进一步削弱对手" + Math.floor(enemy.n) + "%的攻防，当前对方比你高" + Math.max(0, (enemy.value || 0) - core.status.hero.lv) + "级"; }, "#b113ff"],
-		[103, "强击", function (enemy) { return "一次强力的攻击。怪物首回合获得" + (enemy.atkValue || 0) + "倍攻击力。"; }, "#e25e5e"],
+		[103, "强击", function (enemy) { return "一次强力的攻击。怪物首回合获得" + (enemy.atkValue || 0) + "倍攻击力。"; }, "#b30000"],
 		[104, "斩杀", function (enemy) { return "一旦对手势弱，攻击就会更加致命。战斗中，若勇士生命值低于" + (enemy.range || 0) + "%，则怪物攻击力提升" + (enemy.n || 0) + "%。"; }],
 		[105, "重甲", function (enemy) { return "无视对手" + (enemy.defValue || 0) + "%的攻击力。"; }, "#b9822d"],
-		[106, "寒霜之足", function (enemy) { return "危险的寒冰咒印。怪物前5回合每回合额外造成" + enemy.damage + "点伤害，然后冰封对方10回合。"; }, "#e25e5e"],
-		[107, "冰封禁制", function (enemy) { return "将敌人锁在冰块之中。怪物首先冰封对方3回合，每回合额外造成" + enemy.damage + "点伤害。"; }, "#e25e5e"],
+		[106, "寒霜之足", function (enemy) { return "危险的寒冰咒印。怪物前5回合每回合额外造成" + enemy.damage + "点伤害，然后冰封对方10回合。"; }, "#b30000"],
+		[107, "冰封禁制", function (enemy) { return "将敌人锁在冰块之中。怪物首先冰封对方3回合，每回合额外造成" + enemy.damage + "点伤害。"; }, "#b30000"],
 		[108, "霜寒爆发", "令敌人体内的霜寒尽数爆发。战斗开始时，立即清除勇士的所有霜寒状态，每驱除1层就会使勇士冰封1回合。", "#43e2dc"],
 		[109, "寒冰护甲", "冷气贯穿全身。每受到1回合攻击就会使勇士获得1层霜寒状态，战斗后生效。", "#747dff"],
 		[110, "光明", function (enemy) { return "战斗后，勇士获得" + enemy.n + "层光明状态，每层使得勇士受到和造成的伤害均提升1%，线性叠加。会与黑暗状态相抵消。"; }, "#FFFFFF"],

@@ -335,7 +335,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 		"增加HP": [
 			{
 				"type": "function",
-				"function": "function(){\nvar val = core.getFlag('hp_score', 0);\nvar heal = core.getFlag('arg1', 0);\nvar overheal = heal - (core.status.hero.hpmax - core.status.hero.hp);\nif (overheal > 0) {\n\tcore.setFlag('hp_score', val + overheal);\n}\ncore.status.hero.hp += heal;\n}"
+				"function": "function(){\nvar val = core.getFlag('hp_score', 0);\nvar heal = core.getFlag('arg1', 0);\nvar overheal = heal - (core.status.hero.hpmax - core.status.hero.hp);\nif (overheal > 0) {\n\tcore.insertAction({ \"type\": \"animate\", \"name\": \"heal\", \"loc\": \"hero\", \"async\": true });\n\tcore.setFlag('hp_score', val + overheal);\n}\ncore.status.hero.hp += heal;\n}"
 			}
 		]
 	}

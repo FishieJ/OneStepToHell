@@ -41,40 +41,20 @@ main.floors.MT51=
         "0,5": [
             "关于光明/黑暗属性的说明：\n\r[yellow]光明/黑暗\r[white]状态会影响所有受到和造成的伤害，包括普通攻击伤害和技能伤害。\n与\r[blue]严寒\r[white]状态对伤害的影响是乘法叠加。"
         ],
-        "6,0": [
-            {
-                "type": "function",
-                "function": "function(){\ncore.setFlag('bgLight', []);\n}"
-            },
-            {
-                "type": "changeFloor",
-                "floorId": "MT52",
-                "loc": [
-                    6,
-                    12
-                ],
-                "time": 0
-            }
-        ],
-        "12,10": [
-            {
-                "type": "function",
-                "function": "function(){\ncore.setFlag('bgLight', []);\n}"
-            },
-            {
-                "type": "changeFloor",
-                "floorId": "MT55",
-                "loc": [
-                    0,
-                    10
-                ],
-                "time": 0
-            }
-        ],
         "0,6": [
             {
                 "type": "function",
                 "function": "function(){\ncore.setFlag('bgLight', []);\n}"
+            },
+            {
+                "type": "setValue",
+                "name": "flag:charge_atk",
+                "value": "0"
+            },
+            {
+                "type": "setValue",
+                "name": "flag:last_direction",
+                "value": "null"
             },
             {
                 "type": "changeFloor",
@@ -87,7 +67,26 @@ main.floors.MT51=
             }
         ]
     },
-    "changeFloor": {},
+    "changeFloor": {
+        "12,10": {
+            "type": "changeFloor",
+            "floorId": "MT55",
+            "loc": [
+                0,
+                10
+            ],
+            "time": 0
+        },
+        "6,0": {
+            "type": "changeFloor",
+            "floorId": "MT52",
+            "loc": [
+                6,
+                12
+            ],
+            "time": 0
+        }
+    },
     "afterBattle": {},
     "afterGetItem": {},
     "afterOpenDoor": {},
@@ -105,7 +104,7 @@ main.floors.MT51=
     [152, 32,80009,  0,  0,60030,  0,80010, 29,408,80010,  0,  0],
     [152,152,152,408, 32,80009,380,80009, 32,80009, 28,  0, 94],
     [152,152,152, 28,80011, 28,80009, 28,410, 32,60030,80009,60030],
-    [152,152,152, 34,410,  0, 32,80011,380,410, 28,  0, 34]
+    [152,152,152, 32,410,  0, 34,80011,380,410, 28,  0, 34]
 ],
     "bgmap": [
 

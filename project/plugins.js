@@ -349,7 +349,12 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 			var index = text.indexOf("：");
 			if (index >= 0) {
 				var x1 = text.substring(0, index + 1);
-				core.fillText('data', x1, pos.content_left, content_top, colorList[specialCount], this._buildFont(16, true));
+				var specialColor = '';
+				if (specialCount < colorList.length)
+					specialColor = colorList[specialCount];
+				else
+					specialColor = '#FF6A6A';
+				core.fillText('data', x1, pos.content_left, content_top, specialColor, this._buildFont(16, true));
 				var len = core.calWidth('data', x1);
 				core.fillText('data', text.substring(index + 1), pos.content_left + len, content_top, '#FFFFFF', this._buildFont(16, false));
 				specialCount++;

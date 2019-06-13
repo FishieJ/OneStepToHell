@@ -201,7 +201,12 @@ main.floors.MT60=
             ]
         }
     ],
-    "eachArrive": null,
+    "eachArrive": [
+        {
+            "type": "function",
+            "function": "function(){\nif (core.getFlag('60_finished', 0) > 0) {\n\tcore.setFlag('bgLight', []);\n\tcore.drawMap();\n}\n}"
+        }
+    ],
     "parallelDo": "",
     "events": {
         "6,3": {
@@ -357,7 +362,7 @@ main.floors.MT60=
                 },
                 {
                     "type": "function",
-                    "function": "function(){\ncore.setBgLight([]);\n}"
+                    "function": "function(){\ncore.setBgLight([]);\ncore.setFlag('60_finished', 1);\n}"
                 },
                 {
                     "type": "move",
