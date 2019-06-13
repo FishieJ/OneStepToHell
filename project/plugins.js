@@ -57,63 +57,6 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		core.statusBar[name].innerHTML = "<span class='_status' style='" + style + "'>" + value + "</span>";
 	};
 
-	// 怪物手册文字颜色
-	core.ui._drawBook_drawRow1 = function (index, enemy, top, left, width, position) {
-		// 绘制第一行
-		core.setTextAlign('ui', 'left');
-		var b13 = this._buildFont(13, true),
-			f13 = this._buildFont(13, false);
-		var col1 = left,
-			col2 = left + width * 9 / 25,
-			col3 = left + width * 17 / 25;
-		core.fillText('ui', '生命', col1, position, '#A0F753', f13);
-		core.fillText('ui', core.formatBigNumber(enemy.hp || 0), col1 + 30, position, null, b13);
-		core.fillText('ui', '攻击', col2, position, '#FF0000', f13);
-		core.fillText('ui', core.formatBigNumber(enemy.atk || 0), col2 + 30, position, null, b13);
-		core.fillText('ui', '防御', col3, position, '#45D1E0', f13);
-		core.fillText('ui', core.formatBigNumber(enemy.def || 0), col3 + 30, position, null, b13);
-	};
-
-	// 怪物境界文字颜色
-	core.ui._drawBook_drawName = function (index, enemy, top, left, width) {
-		// 绘制第零列（名称和特殊属性）
-		// 如果需要添加自己的比如怪物的称号等，也可以在这里绘制
-		core.setTextAlign('ui', 'center');
-		var color = '#DDDDDD';
-		var value = enemy.level;
-		if (value == '萌新五段' || value == '萌新六段' || value == '萌新七段') {
-			color = '#56dc56';
-		} else if (value == '萌新八段' || value == '萌新九段' ||
-			value == '蓝海一阶' || value == '蓝海二阶') {
-			color = '#6b68ff';
-		} else if (value == '蓝海三阶' || value == '蓝海四阶' ||
-			value == '蓝海五阶' || value == '蓝海六阶' ||
-			value == '蓝海七阶' || value == '蓝海八阶' ||
-			value == '蓝海九阶' || value == '蓝海巅峰') {
-			color = '#b343e2';
-		} else if (value == '红海低阶' || value == '红海中阶' ||
-			value == '红海高阶' || value == '红海巅峰' ||
-			value == '半步血海') {
-			color = '#db68ff';
-		} else if (value == '血海初成' || value == '血海大成' ||
-			value == '血海圆满' || value == '血海王者') {
-			color = '#ff4040';
-		}
-		if (enemy.specialText == '') {
-			core.fillText('ui', enemy.name, left + width / 2,
-				top + 27, '#DDDDDD', this._buildFont(17, true));
-			core.fillText('ui', enemy.level, left + width / 2,
-				top + 51, color, this._buildFont(14, true));
-		} else {
-			core.fillText('ui', enemy.name, left + width / 2,
-				top + 20, '#DDDDDD', this._buildFont(17, true));
-			core.fillText('ui', enemy.specialText, left + width / 2,
-				top + 38, '#FF6A6A', this._buildFont(14, true));
-			core.fillText('ui', enemy.level, left + width / 2,
-				top + 56, color, this._buildFont(14, true));
-		}
-	};
-
 	// 夹爆动画效果
 	core.control.checkBlock = function () {
 		var x = core.getHeroLoc('x'),
@@ -259,6 +202,152 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 	this.setBgLight = function (lightList) {
 		core.setFlag('bgLight', lightList != null ? lightList : []);
 		core.drawMap();
+	};
+},
+    "specialColor": function () {
+	// 怪物手册文字颜色
+	core.ui._drawBook_drawRow1 = function (index, enemy, top, left, width, position) {
+		// 绘制第一行
+		core.setTextAlign('ui', 'left');
+		var b13 = this._buildFont(13, true),
+			f13 = this._buildFont(13, false);
+		var col1 = left,
+			col2 = left + width * 9 / 25,
+			col3 = left + width * 17 / 25;
+		core.fillText('ui', '生命', col1, position, '#A0F753', f13);
+		core.fillText('ui', core.formatBigNumber(enemy.hp || 0), col1 + 30, position, null, b13);
+		core.fillText('ui', '攻击', col2, position, '#FF0000', f13);
+		core.fillText('ui', core.formatBigNumber(enemy.atk || 0), col2 + 30, position, null, b13);
+		core.fillText('ui', '防御', col3, position, '#45D1E0', f13);
+		core.fillText('ui', core.formatBigNumber(enemy.def || 0), col3 + 30, position, null, b13);
+	};
+
+	// 怪物境界文字颜色
+	core.ui._drawBook_drawName = function (index, enemy, top, left, width) {
+		// 绘制第零列（名称和特殊属性）
+		// 如果需要添加自己的比如怪物的称号等，也可以在这里绘制
+		core.setTextAlign('ui', 'center');
+		var color = '#DDDDDD';
+		var value = enemy.level;
+		if (value == '萌新五段' || value == '萌新六段' || value == '萌新七段') {
+			color = '#56dc56';
+		} else if (value == '萌新八段' || value == '萌新九段' ||
+			value == '蓝海一阶' || value == '蓝海二阶') {
+			color = '#6b68ff';
+		} else if (value == '蓝海三阶' || value == '蓝海四阶' ||
+			value == '蓝海五阶' || value == '蓝海六阶' ||
+			value == '蓝海七阶' || value == '蓝海八阶' ||
+			value == '蓝海九阶' || value == '蓝海巅峰') {
+			color = '#b343e2';
+		} else if (value == '红海低阶' || value == '红海中阶' ||
+			value == '红海高阶' || value == '红海巅峰' ||
+			value == '半步血海') {
+			color = '#db68ff';
+		} else if (value == '血海初成' || value == '血海大成' ||
+			value == '血海圆满' || value == '血海王者') {
+			color = '#ff4040';
+		}
+
+		var getColorByName = function (specialName) {
+			var allSpecialList = core.enemys.getSpecials();
+			for (var tmp = 0; tmp < allSpecialList.length; tmp++) {
+				var cur = allSpecialList[tmp];
+				if (specialName == cur[1]) {
+					if (cur.length > 3) // 定义了该特技的颜色
+						return cur[3];
+					else // 默认颜色
+						return '#FF6A6A';
+				}
+			}
+			return '#FF6A6A';
+		};
+
+		if (enemy.specialText == '') {
+			core.fillText('ui', enemy.name, left + width / 2,
+				top + 27, '#DDDDDD', this._buildFont(17, true));
+			core.fillText('ui', enemy.level, left + width / 2,
+				top + 51, color, this._buildFont(14, true));
+		} else {
+			core.fillText('ui', enemy.name, left + width / 2,
+				top + 20, '#DDDDDD', this._buildFont(17, true));
+			core.fillText('ui', enemy.specialText, left + width / 2,
+				top + 38, getColorByName(enemy.specialText), this._buildFont(14, true));
+			core.fillText('ui', enemy.level, left + width / 2,
+				top + 56, color, this._buildFont(14, true));
+		}
+	};
+
+	core.ui.drawBookDetail = function (index) {
+		var info = this._drawBookDetail_getInfo(index),
+			enemy = info[0];
+		if (!enemy) return;
+
+		// 获取怪物特技颜色
+		var enemySpecialList = info[0].special;
+		// 如果只有一个特技会只返回一个数字，所以要转换成array
+		if (typeof (enemySpecialList) == typeof (1)) {
+			enemySpecialList = [enemySpecialList];
+		}
+		var allSpecialList = core.enemys.getSpecials();
+		var colorList = [];
+		var p = 0;
+		for (var tmp = 0; tmp < allSpecialList.length; tmp++) {
+			var cur = allSpecialList[tmp];
+			if (enemySpecialList[p] == cur[0]) {
+				if (cur.length > 3) // 定义了该特技的颜色
+					colorList.push(allSpecialList[tmp][3]);
+				else // 默认颜色
+					colorList.push('#FF6A6A');
+				p++;
+			}
+		}
+
+		var content = info[1].join("\n");
+		core.status.event.id = 'book-detail';
+		clearInterval(core.interval.tipAnimate);
+		core.clearMap('data');
+
+		var left = 10,
+			width = this.PIXEL - 2 * left,
+			right = left + width;
+		var content_left = left + 25,
+			validWidth = right - content_left - 13;
+		var contents = core.splitLines("data", content, validWidth, this._buildFont(16, false));
+		var height = Math.max(24 * contents.length + 55, 80),
+			top = (this.PIXEL - height) / 2,
+			bottom = top + height;
+
+		core.setAlpha('data', 0.9);
+		core.fillRect('data', left, top, width, height, '#000000');
+		core.setAlpha('data', 1);
+		core.strokeRect('data', left - 1, top - 1, width + 1, height + 1,
+			core.status.globalAttribute.borderColor, 2);
+
+		this._drawBookDetail_drawContent(enemy, contents, { top: top, content_left: content_left, bottom: bottom }, colorList);
+	};
+
+	//  在原函数的基础上只是多传了个colorList，按顺序存储特技名称要显示的颜色
+	core.ui._drawBookDetail_drawContent = function (enemy, contents, pos, colorList) {
+		// 名称
+		core.setTextAlign('data', 'left');
+		core.fillText('data', enemy.name, pos.content_left, pos.top + 30, '#FFD700', this._buildFont(22, true));
+		var content_top = pos.top + 57;
+
+		var specialCount = 0;
+		for (var i = 0; i < contents.length; i++) {
+			var text = contents[i];
+			var index = text.indexOf("：");
+			if (index >= 0) {
+				var x1 = text.substring(0, index + 1);
+				core.fillText('data', x1, pos.content_left, content_top, colorList[specialCount], this._buildFont(16, true));
+				var len = core.calWidth('data', x1);
+				core.fillText('data', text.substring(index + 1), pos.content_left + len, content_top, '#FFFFFF', this._buildFont(16, false));
+				specialCount++;
+			} else {
+				core.fillText('data', contents[i], pos.content_left, content_top, '#FFFFFF', this._buildFont(16, false));
+			}
+			content_top += 24;
+		}
 	};
 }
 }

@@ -32,6 +32,12 @@ var plugins_comment_c456ea59_6018_45ef_8bcc_211a24c627dc = {
 				"_range": "typeof(thiseval)=='string' || thiseval==null",
 				"_data": "更新背景灯光"
 			},
+			"specialColor": {
+				"_leaf": true,
+				"_type": "textarea",
+				"_range": "typeof(thiseval)=='string' || thiseval==null",
+				"_data": "怪物特技文字颜色"
+			},
 		}
 		if (obj[key]) return obj[key];
 		return {
