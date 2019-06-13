@@ -21,7 +21,12 @@ main.floors.Area4_b=
     ],
     "weather": null,
     "firstArrive": [],
-    "eachArrive": [],
+    "eachArrive": [
+        {
+            "type": "loadBgm",
+            "name": "19-21.mp3"
+        }
+    ],
     "parallelDo": "",
     "events": {
         "6,0": {

@@ -33,7 +33,11 @@ main.floors.Area5_m=
             "time": 500
         },
         "\t[熙枫,heroine]这里就是梦雪平原的中心地带了。",
-        "\t[熙枫,heroine]有些怪物对你来讲还太强了，如果觉得打起来吃力的话，往右边走可以到\r[yellow]永夜平原\r[white]看看。"
+        "\t[熙枫,heroine]有些怪物对你来讲还太强了，如果觉得打起来吃力的话，往右边走可以到\r[yellow]永夜平原\r[white]看看。",
+        {
+            "type": "loadBgm",
+            "name": "21-23.mp3"
+        }
     ],
     "eachArrive": [
         {

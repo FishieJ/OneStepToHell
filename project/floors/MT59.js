@@ -18,6 +18,10 @@ main.floors.MT59=
             "type": "setValue",
             "name": "flag:darkRatio",
             "value": "flag:darkRatio+0.01"
+        },
+        {
+            "type": "loadBgm",
+            "name": "boss1.mp3"
         }
     ],
     "eachArrive": [

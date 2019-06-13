@@ -47,7 +47,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 			} else if (value == '红海低阶' || value == '红海中阶' ||
 				value == '红海高阶' || value == '红海巅峰' ||
 				value == '半步血海') {
-				style += 'color: #db68ff;';
+				style += 'color: #ff8be0;';
 			} else if (value == '血海初成' || value == '血海大成' ||
 				value == '血海圆满') {
 				style += 'color: #ff4040;';
@@ -242,7 +242,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		} else if (value == '红海低阶' || value == '红海中阶' ||
 			value == '红海高阶' || value == '红海巅峰' ||
 			value == '半步血海') {
-			color = '#db68ff';
+			color = '#ff8be0';
 		} else if (value == '血海初成' || value == '血海大成' ||
 			value == '血海圆满' || value == '血海王者') {
 			color = '#ff4040';

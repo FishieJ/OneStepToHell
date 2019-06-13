@@ -353,6 +353,14 @@ main.floors.MT60=
                     "id": "yeq_battle_final"
                 },
                 {
+                    "type": "loadBgm",
+                    "name": "postboss1.mp3"
+                },
+                {
+                    "type": "loadBgm",
+                    "name": "23-1.mp3"
+                },
+                {
                     "type": "sleep",
                     "time": 1000
                 },
@@ -447,7 +455,7 @@ main.floors.MT60=
                 "\t[熙枫,heroine]蓝海境界的怪物对你的提升已经没有什么帮助了，接下来只能去打红海生物了。",
                 "\t[熙枫,heroine]很危险的。",
                 "\t[hero]我不怕！不管是哪里，去就是了！",
-                "\t[熙枫,heroine]很好。那么，下一个目的地，红海战场！"
+                "\t[熙枫,heroine]很好。那么，先回去把地上的血瓶都搜集了，再踏入传送阵吧。"
             ]
         },
         "6,12": {
@@ -458,6 +466,375 @@ main.floors.MT60=
             "data": []
         },
         "6,0": {
+            "trigger": null,
+            "enable": false,
+            "noPass": null,
+            "displayDamage": true,
+            "data": [
+                {
+                    "type": "confirm",
+                    "text": "确定已经准备好了吗？",
+                    "yes": [
+                        {
+                            "type": "sleep",
+                            "time": 1000
+                        },
+                        "\t[hero]怎么了？",
+                        "\t[熙枫,heroine]……没什么，快走。",
+                        {
+                            "type": "animate",
+                            "name": "yongchang",
+                            "loc": "hero"
+                        },
+                        {
+                            "type": "changePos",
+                            "loc": [
+                                641,
+                                641
+                            ]
+                        },
+                        {
+                            "type": "setValue",
+                            "name": "flag:charge_atk",
+                            "value": "0"
+                        },
+                        {
+                            "type": "setValue",
+                            "name": "flag:last_direction",
+                            "value": "null"
+                        },
+                        {
+                            "type": "sleep",
+                            "time": 2000
+                        },
+                        {
+                            "type": "animate",
+                            "name": "explosion",
+                            "loc": [
+                                6,
+                                5
+                            ],
+                            "async": true
+                        },
+                        {
+                            "type": "show",
+                            "loc": [
+                                [
+                                    6,
+                                    5
+                                ]
+                            ],
+                            "time": 1000
+                        },
+                        {
+                            "type": "setBgFgBlock",
+                            "name": "bg",
+                            "number": "autotile10",
+                            "loc": [
+                                6,
+                                5
+                            ]
+                        },
+                        {
+                            "type": "setBgFgBlock",
+                            "name": "bg",
+                            "number": "autotile10",
+                            "loc": [
+                                6,
+                                4
+                            ]
+                        },
+                        {
+                            "type": "setBgFgBlock",
+                            "name": "bg",
+                            "number": "autotile10",
+                            "loc": [
+                                6,
+                                6
+                            ]
+                        },
+                        {
+                            "type": "setBgFgBlock",
+                            "name": "bg",
+                            "number": "autotile10",
+                            "loc": [
+                                5,
+                                5
+                            ]
+                        },
+                        {
+                            "type": "setBgFgBlock",
+                            "name": "bg",
+                            "number": "autotile10",
+                            "loc": [
+                                7,
+                                5
+                            ]
+                        },
+                        {
+                            "type": "setBgFgBlock",
+                            "name": "bg",
+                            "number": "autotile10",
+                            "loc": [
+                                4,
+                                5
+                            ]
+                        },
+                        {
+                            "type": "setBgFgBlock",
+                            "name": "bg",
+                            "number": "autotile10",
+                            "loc": [
+                                8,
+                                5
+                            ]
+                        },
+                        {
+                            "type": "setBgFgBlock",
+                            "name": "bg",
+                            "number": "autotile10",
+                            "loc": [
+                                6,
+                                3
+                            ]
+                        },
+                        {
+                            "type": "setBgFgBlock",
+                            "name": "bg",
+                            "number": "autotile10",
+                            "loc": [
+                                6,
+                                7
+                            ]
+                        },
+                        {
+                            "type": "setBgFgBlock",
+                            "name": "bg",
+                            "number": "autotile10",
+                            "loc": [
+                                5,
+                                4
+                            ]
+                        },
+                        {
+                            "type": "setBgFgBlock",
+                            "name": "bg",
+                            "number": "autotile10",
+                            "loc": [
+                                5,
+                                6
+                            ]
+                        },
+                        {
+                            "type": "setBgFgBlock",
+                            "name": "bg",
+                            "number": "autotile10",
+                            "loc": [
+                                7,
+                                4
+                            ]
+                        },
+                        {
+                            "type": "setBgFgBlock",
+                            "name": "bg",
+                            "number": "autotile10",
+                            "loc": [
+                                7,
+                                6
+                            ]
+                        },
+                        {
+                            "type": "function",
+                            "function": "function(){\ncore.setBgLight([\n\t[208, 176, 250],\n]);\n}"
+                        },
+                        {
+                            "type": "setVolume",
+                            "value": 90,
+                            "time": 500
+                        },
+                        {
+                            "type": "playBgm",
+                            "name": "postboss1.mp3"
+                        },
+                        "\t[???,N425]\b[down,6,5]还是晚了一步吗……",
+                        {
+                            "type": "animate",
+                            "name": "explosion",
+                            "loc": [
+                                6,
+                                0
+                            ],
+                            "async": true
+                        },
+                        {
+                            "type": "hide",
+                            "loc": [
+                                [
+                                    6,
+                                    0
+                                ]
+                            ],
+                            "time": 500
+                        },
+                        "\t[???,N425]\b[down,6,5]可恶……已经跑了……",
+                        {
+                            "type": "animate",
+                            "name": "yongchang",
+                            "loc": [
+                                5,
+                                3
+                            ],
+                            "async": true
+                        },
+                        {
+                            "type": "animate",
+                            "name": "yongchang",
+                            "loc": [
+                                7,
+                                3
+                            ],
+                            "async": true
+                        },
+                        {
+                            "type": "show",
+                            "loc": [
+                                [
+                                    5,
+                                    3
+                                ]
+                            ],
+                            "time": 500,
+                            "async": true
+                        },
+                        {
+                            "type": "show",
+                            "loc": [
+                                [
+                                    7,
+                                    3
+                                ]
+                            ],
+                            "time": 500
+                        },
+                        {
+                            "type": "function",
+                            "function": "function(){\ncore.setBgLight([\n\t[208, 176, 250],\n\t[176, 112, 200],\n\t[240, 112, 200],\n]);\n}"
+                        },
+                        "\t[???,N425]\b[down,5,3]你怎么回事，搞这么大动静？",
+                        "\t[???,N425]\b[down,6,5]她已经走了。",
+                        "\t[???,N425]\b[down,6,5]好在我及时赶到，大致能感应到她传送的方位，顺便给传送做了点手脚。",
+                        "\t[???,N425]\b[down,7,3]所以她现在在哪？",
+                        "\t[???,N425]\b[down,6,5]红海战场。",
+                        "\t[???,N425]\b[down,5,3]什么？我可不想掺和到权圣教和镇仙域永无休止的争斗中去。这两个势力后台之大，没一个是我们惹得起的。",
+                        "\t[???,N425]\b[down,6,5]你说的没错……不过好消息是这战场可不是想走就走的，好歹帮我们减小了搜索范围。",
+                        "\t[???,N425]\b[down,6,5]偷偷行动，争取在天明之前完成任务。",
+                        "\t[???,N425]\b[down,7,3]明白。",
+                        {
+                            "type": "sleep",
+                            "time": 500
+                        },
+                        "\t[???,N425]\b[down,6,5]你跑不掉的……熙枫……",
+                        {
+                            "type": "hide",
+                            "loc": [
+                                [
+                                    6,
+                                    5
+                                ]
+                            ],
+                            "time": 500,
+                            "async": true
+                        },
+                        {
+                            "type": "hide",
+                            "loc": [
+                                [
+                                    5,
+                                    3
+                                ]
+                            ],
+                            "time": 500,
+                            "async": true
+                        },
+                        {
+                            "type": "hide",
+                            "loc": [
+                                [
+                                    7,
+                                    3
+                                ]
+                            ],
+                            "time": 500,
+                            "async": true
+                        },
+                        {
+                            "type": "animate",
+                            "name": "yongchang",
+                            "loc": [
+                                6,
+                                5
+                            ],
+                            "async": true
+                        },
+                        {
+                            "type": "animate",
+                            "name": "yongchang",
+                            "loc": [
+                                5,
+                                3
+                            ],
+                            "async": true
+                        },
+                        {
+                            "type": "animate",
+                            "name": "yongchang",
+                            "loc": [
+                                7,
+                                3
+                            ]
+                        },
+                        {
+                            "type": "function",
+                            "function": "function(){\ncore.setFlag('bgLight', []);\n}"
+                        },
+                        {
+                            "type": "changeFloor",
+                            "floorId": "MT61",
+                            "loc": [
+                                6,
+                                12
+                            ],
+                            "direction": "up",
+                            "time": 2000
+                        }
+                    ],
+                    "no": [
+                        {
+                            "type": "moveHero",
+                            "time": 100,
+                            "steps": [
+                                "down"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "5,3": {
+            "trigger": null,
+            "enable": false,
+            "noPass": null,
+            "displayDamage": true,
+            "data": []
+        },
+        "7,3": {
+            "trigger": null,
+            "enable": false,
+            "noPass": null,
+            "displayDamage": true,
+            "data": []
+        },
+        "6,5": {
             "trigger": null,
             "enable": false,
             "noPass": null,
@@ -473,14 +850,6 @@ main.floors.MT60=
                 0
             ],
             "time": 0
-        },
-        "6,0": {
-            "floorId": "MT61",
-            "loc": [
-                6,
-                12
-            ],
-            "time": 500
         }
     },
     "afterBattle": {
@@ -888,9 +1257,9 @@ main.floors.MT60=
     [152,152,152,152,152,152, 89,152,152,152,152,152,152],
     [152,152,152,152,152,152,  0,152,152,152,152,152,152],
     [152,152,  0,  0,152,152,423,152,152,  0,  0,152,152],
-    [152,152,  0,  0,  0,  0,387,  0,  0,  0,  0,152,152],
+    [152,152,  0,  0,  0,425,387,425,  0,  0,  0,152,152],
     [152,  0,  0,  0,  0,  0,407,  0,  0,  0,  0,  0,152],
-    [152,  0,  0,  0,  0,410,  0,407,  0,  0,  0,  0,152],
+    [152,  0,  0,  0,  0,410,426,407,  0,  0,  0,  0,152],
     [152,  0,422,  0,410,  0,412,  0,407,  0,421,  0,152],
     [152,  0,  0,410,  0,411,  0,412,  0,409,  0,  0,152],
     [152,  0,  0,  0,408,  0,411,  0,409,  0,  0,  0,152],

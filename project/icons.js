@@ -159,7 +159,9 @@ var icons_4665ee12_3a1f_44a4_bea3_0fccba634dc1 =
 		"heroine": 16,
 		"yeq": 17,
 		"N402": 18,
-		"N424": 19
+		"N424": 19,
+		"N425": 20,
+		"N426": 21
 	},
 	"enemys": {
 		"greenSlime": 0,

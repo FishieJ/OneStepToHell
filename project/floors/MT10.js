@@ -15,6 +15,10 @@ main.floors.MT10=
     "firstArrive": [
         {
             "type": "loadBgm",
+            "name": "boss0.mp3"
+        },
+        {
+            "type": "loadBgm",
             "name": "13-15.mp3"
         },
         {

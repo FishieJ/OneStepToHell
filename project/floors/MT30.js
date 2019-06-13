@@ -17,6 +17,14 @@ main.floors.MT30=
             "type": "pauseBgm"
         },
         {
+            "type": "loadBgm",
+            "name": "postboss0.mp3"
+        },
+        {
+            "type": "loadBgm",
+            "name": "17-19.mp3"
+        },
+        {
             "type": "setCurtain",
             "time": 500
         },
