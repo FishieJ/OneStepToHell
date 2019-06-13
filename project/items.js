@@ -382,7 +382,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"I_charge": {
 			"cls": "constants",
 			"name": "次级冲锋（被动技能）",
-			"text": "向同一方向连续移动后攻击力提升，战斗后效果消失。每移动一步攻击力提升${flag:charge_point}点。"
+			"text": "向同一方向连续移动后攻击力提升，战斗后或者进行瞬移后效果消失。每移动一步攻击力提升${flag:charge_point}点。"
 		},
 		"I_charge2": {
 			"cls": "constants",
@@ -529,7 +529,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"I_vampire": "core.insertAction([\n\t\"蝙蝠血、毛虫血、软泥血、石头血，你想要哪个？\",\n\t\"我全都要！\"\n]);",
 		"I_hp_score": "core.insertAction([\n\t\"当前溢出HP值为：\\r[red]\" + core.getFlag('hp_score') + \"\\r[white]。\\n\",\n]);",
 		"skill2": "// 防御的flag:skill为2\nif (core.getFlag('skill', 0) == 0) { // 判断当前是否已经开了技能\n\tif (core.getStatus('mana') >= core.getFlag('skill2_cost', 0)) { // 这里要写当前能否开技能的条件判断，比如魔力值至少要多少\n\t\tcore.setFlag('skill', 2); // 开技能2\n\t\tcore.setFlag('skillName', '防御 '); // 设置技能名\n\t} else {\n\t\tcore.drawTip(\"魔力不足，无法开启技能\");\n\t}\n} else { // 关闭技能\n\tcore.setFlag('skill', 0); // 关闭技能状态\n\tcore.setFlag('skillName', '无');\n}",
-		"skill3": "// 直接判断是否可以使用即可\nvar curMana = core.status.hero.mana;\nvar cost = core.getFlag('skill3_cost', 641);\nif (curMana >= cost) {\n\tcore.status.hero.mana -= cost;\n\tcore.setFlag('curse_stack', 0);\n\tcore.drawTip(\"你感觉很舒服。\");\n\tcore.drawAnimate('skill3', core.status.hero.loc.x, core.status.hero.loc.y);\n} else {\n\tcore.drawTip(\"魔法不足。\");\n}"
+		"skill3": "// 直接判断是否可以使用即可\nvar curMana = core.status.hero.mana;\nvar cost = core.getFlag('skill3_cost', 641);\nif (curMana >= cost) {\n\tvar temp = core.getFlag('curse_stack', 0);\n\tif (temp == 0) {\n\t\tcore.insertAction([{ \"type\": \"insert\", \"loc\": [0, 0], \"floorId\": \"EventMap\" }]);\n\t} else {\n\t\tcore.status.hero.mana -= cost;\n\t\tcore.setFlag('curse_stack', 0);\n\t\tcore.drawTip(\"你感觉很舒服。\");\n\t\tcore.drawAnimate('skill3', core.status.hero.loc.x, core.status.hero.loc.y);\n\t}\n} else {\n\tcore.drawTip(\"魔法不足。\");\n}"
 	},
 	"canUseItemEffect": {
 		"book": "true",

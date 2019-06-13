@@ -57,7 +57,7 @@ main.floors.MT60=
         },
         "\t[hero]嗯？这个猫耳少女是什么时候出现的？之前完全没有感受到她的气息……",
         "\t[熙枫,heroine]小心，大半夜的出现在这种地方，绝对不是寻常人……",
-        "\t[叶芊,yeq]你好啊，我叫叶芊。",
+        "\t[叶芊,yeq]你好啊，我是来自艾奇王国叶家的叶芊。",
         "\t[hero]……你好，我叫莫逆。",
         {
             "type": "sleep",
@@ -87,7 +87,7 @@ main.floors.MT60=
         "\t[hero]？？？这还能不能讲道理了？",
         "\t[叶芊,yeq]我对东风小姐可是一见钟情呢，不如跟了我吧？",
         "\t[叶芊,yeq]我一直觉得那些随身带老爷爷的人好蠢，带小姐姐就不一样了喵。",
-        "\t[hero]？？？原来这才是你的目的？",
+        "\t[hero]？？？原来这才是你的真实目的？",
         {
             "type": "choices",
             "text": "\t[叶芊,yeq]你可否配合一下，主动把她让给我？",
@@ -175,6 +175,15 @@ main.floors.MT60=
                         "\t[叶芊,yeq]哎，既然这样，莫怪我动手抢夺了。",
                         "\t[hero]多说无益！",
                         "\t[叶芊,yeq]很好，我这就让你领教一下真正的蓝海巅峰的力量！",
+                        {
+                            "type": "animate",
+                            "name": "yongchang",
+                            "loc": [
+                                6,
+                                3
+                            ],
+                            "async": true
+                        },
                         {
                             "type": "setBlock",
                             "number": "yeq_battle",
@@ -742,6 +751,24 @@ main.floors.MT60=
                 "name": "092-Attack04.ogg"
             },
             {
+                "type": "animate",
+                "name": "heal",
+                "loc": [
+                    2,
+                    6
+                ],
+                "async": true
+            },
+            {
+                "type": "animate",
+                "name": "heal",
+                "loc": [
+                    10,
+                    6
+                ],
+                "async": true
+            },
+            {
                 "type": "function",
                 "function": "function(){\ncore.setBgLight([\n\t[80, 208, 150],\n\t[336, 208, 150],\n]);\n}"
             }
@@ -765,6 +792,15 @@ main.floors.MT60=
                         "time": 500
                     },
                     "\t[yeq_battle]有两下子嘛，我要认真了。",
+                    {
+                        "type": "animate",
+                        "name": "yongchang",
+                        "loc": [
+                            6,
+                            2
+                        ],
+                        "async": true
+                    },
                     {
                         "type": "show",
                         "loc": [
@@ -807,6 +843,15 @@ main.floors.MT60=
                         "time": 500
                     },
                     "\t[yeq_battle]有两下子嘛，我要认真了。",
+                    {
+                        "type": "animate",
+                        "name": "yongchang",
+                        "loc": [
+                            6,
+                            2
+                        ],
+                        "async": true
+                    },
                     {
                         "type": "show",
                         "loc": [
