@@ -270,8 +270,18 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		} else {
 			core.fillText('ui', enemy.name, left + width / 2,
 				top + 20, '#DDDDDD', this._buildFont(17, true));
-			core.fillText('ui', enemy.specialText, left + width / 2,
-				top + 38, getColorByName(enemy.specialText), this._buildFont(14, true));
+			var zzz = enemy.specialText.indexOf(' ');
+			if (zzz == -1) {
+				core.fillText('ui', enemy.specialText, left + width / 2,
+					top + 38, getColorByName(enemy.specialText), this._buildFont(14, true));
+			} else {
+				var spec1 = enemy.specialText.substr(0, zzz);
+				var spec2 = enemy.specialText.substr(zzz + 2);
+				core.fillText('ui', spec1, left + width / 4,
+					top + 38, getColorByName(spec1), this._buildFont(14, true));
+				core.fillText('ui', spec2, left + width * 3 / 4,
+					top + 38, getColorByName(spec2), this._buildFont(14, true));
+			}
 			core.fillText('ui', enemy.level, left + width / 2,
 				top + 56, color, this._buildFont(14, true));
 		}
