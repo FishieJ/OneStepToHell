@@ -131,6 +131,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 		"animates": [
 			"attack2",
 			"attack3",
+			"blood",
 			"dark",
 			"dark2",
 			"explosion",
@@ -196,6 +197,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"083-Monster05.ogg",
 			"087-Action02.ogg",
 			"089-Attack01.ogg",
+			"090-Attack02.ogg",
 			"092-Attack04.ogg",
 			"094-Attack06.ogg",
 			"102-Attack14.ogg",

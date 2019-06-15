@@ -26,7 +26,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"greenJewel": {
 			"cls": "items",
 			"name": "一级绿宝石",
-			"text": "'，魔防+'+core.values.greenJewel"
+			"text": "'，护盾+'+core.values.greenJewel"
 		},
 		"yellowJewel": {
 			"cls": "items",
@@ -460,7 +460,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 	"itemEffectTip": {
 		"redJewel": "'，攻击+'+core.values.redJewel * ratio",
 		"blueJewel": "'，防御+'+core.values.blueJewel * ratio",
-		"greenJewel": "'，魔防+'+core.values.greenJewel * ratio",
+		"greenJewel": "'，护盾+'+core.values.greenJewel * ratio",
 		"yellowJewel": "'，生命、生命上限+'+core.values.yellowJewel * ratio",
 		"redPotion": "'，生命+'+core.values.redPotion * ratio",
 		"bluePotion": "'，生命+'+core.values.bluePotion * ratio",
@@ -483,14 +483,14 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"moneyPocket": "'，金币+500'",
 		"I349": "'，攻击+'+core.values.redJewel * ratio * 2",
 		"I350": "'，防御+'+core.values.blueJewel * ratio * 2",
-		"I351": "'，魔防+'+core.values.greenJewel * ratio * 2",
+		"I351": "'，护盾+'+core.values.greenJewel * ratio * 2",
 		"I352": "'，生命、生命上限+'+core.values.yellowJewel * ratio * 2",
 		"I353": "'，攻击+'+core.values.redJewel * ratio * 4",
 		"I357": "'，攻击+'+core.values.redJewel * ratio * 8",
 		"I354": "'，防御+'+core.values.blueJewel * ratio * 4",
 		"I358": "'，防御+'+core.values.blueJewel * ratio * 8",
-		"I355": "'，魔防+'+core.values.greenJewel * ratio * 4",
-		"I359": "'，魔防+'+core.values.greenJewel * ratio * 8",
+		"I355": "'，护盾+'+core.values.greenJewel * ratio * 4",
+		"I359": "'，护盾+'+core.values.greenJewel * ratio * 8",
 		"I356": "'，生命、生命上限+'+core.values.yellowJewel * ratio * 4",
 		"I360": "'，生命、生命上限+'+core.values.yellowJewel * ratio * 4",
 		"I380": "'，魔法+'+core.values.manaCrystal * ratio"

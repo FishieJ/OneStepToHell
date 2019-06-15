@@ -815,6 +815,16 @@ main.floors.MT60=
                             "steps": [
                                 "down"
                             ]
+                        },
+                        {
+                            "type": "setValue",
+                            "name": "flag:charge_atk",
+                            "value": "0"
+                        },
+                        {
+                            "type": "setValue",
+                            "name": "flag:last_direction",
+                            "value": "null"
                         }
                     ]
                 }
