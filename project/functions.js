@@ -619,6 +619,8 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[117, "神圣愈合", "持续引导神圣的治愈之力。不攻击，每回合治愈自身10000点生命值。", "#fff900"],
 		[118, "炫目之光", "持续散发出神圣的光芒之力。每回合损耗自身2%的最大生命值，使自身处于无敌状态。", "#fff900"],
 		[119, "驱邪", "使对方体内的不洁之力尽数爆发。战斗开始时驱除勇士的所有光明/黑暗状态，每驱除1层便额外造成64100点伤害。", "#fff900"],
+		[120, "魔免", "免疫技能伤害。", "#c3c3c3"],
+		[121, "重伤", function (enemy) { return "抑制对手的生命。使对手受到的回复效果降低" + (enemy.v_121 || 0) + "%。"; }, "#b30000"],
 	];
 },
         "getEnemyInfo": function (enemy, hero, x, y, floorId) {
@@ -802,6 +804,10 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 	if (core.getFlag('skill', 0) == 1) { // 开启了技能1：强击
 		var extra_damage = (core.getFlag('skill1_val', 2) - 1) * hero_atk;
+		// 魔免
+		if (core.hasSpecial(mon_special, 120)) {
+			extra_damage = 0;
+		}
 		extra_damage *= dmg_ratio;
 		mon_hp -= extra_damage;
 	}
@@ -1011,15 +1017,19 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	// 护盾不能负伤
 	damage = Math.max(0, damage);
 
+	var heal_ratio = 1;
+	if (core.hasSpecial(mon_special, 121)) {
+		heal_ratio -= enemy.v_121 / 100;
+	}
 	// 勇士吸血
 	if (core.hasItem('I_vampire')) {
 		// 炫目之光
 		if (core.hasSpecial(mon_special, 118)) {} else {
-			damage -= Math.floor(enemyInfo.hp * core.getFlag('vampire_ratio', 0.2));
+			damage -= Math.floor(enemyInfo.hp * core.getFlag('vampire_ratio', 0.2)) * heal_ratio;
 
 			// 神圣愈合
 			if (core.hasSpecial(mon_special, 117))
-				damage -= 10000 * core.getFlag('vampire_ratio', 0.2) * turn;
+				damage -= 10000 * core.getFlag('vampire_ratio', 0.2) * turn * heal_ratio;
 		}
 	}
 

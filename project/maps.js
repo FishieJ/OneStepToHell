@@ -335,6 +335,7 @@ var maps_90f36752_8815_4be8_b32b_d7fad1d0542e =
 	"424": {"cls":"npc48","id":"N424"},
 	"425": {"cls":"npc48","id":"N425"},
 	"426": {"cls":"npc48","id":"N426"},
+	"427": {"cls":"enemys","id":"E427"},
 	"10072": {"cls":"tileset","id":"X10072","noPass":"false"},
 	"10075": {"cls":"tileset","id":"X10075","noPass":"false"},
 	"10138": {"cls":"tileset","id":"X10138","noPass":false},
