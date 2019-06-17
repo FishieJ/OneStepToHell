@@ -1,42 +1,42 @@
 main.floors.MT87=
 {
-"floorId": "MT87",
-"title": "主塔 87 层",
-"name": "87",
-"width": 13,
-"height": 13,
-"canFlyTo": true,
-"canUseQuickShop": true,
-"cannotViewMap": false,
-"images": [],
-"item_ratio": 1,
-"defaultGround": "soil",
-"bgm": "3-5.mp3",
-"color": [
-    0,
-    0,
-    0,
-    0.7
-],
-"firstArrive": [],
-"eachArrive": [],
-"parallelDo": "",
-"events": {},
-"changeFloor": {
-    "3,2": {
-        "floorId": "MT86",
-        "loc": [
-            10,
-            12
-        ],
-        "time": 0
-    }
-},
-"afterBattle": {},
-"afterGetItem": {},
-"afterOpenDoor": {},
-"cannotMove": {},
-"map": [
+    "floorId": "MT87",
+    "title": "白骨山洞",
+    "name": "白骨山洞",
+    "width": 13,
+    "height": 13,
+    "canFlyTo": true,
+    "canUseQuickShop": true,
+    "cannotViewMap": false,
+    "images": [],
+    "item_ratio": 1,
+    "defaultGround": "soil",
+    "bgm": "3-5.mp3",
+    "color": [
+        0,
+        0,
+        0,
+        0.7
+    ],
+    "firstArrive": [],
+    "eachArrive": [],
+    "parallelDo": "",
+    "events": {},
+    "changeFloor": {
+        "3,2": {
+            "floorId": "MT86",
+            "loc": [
+                10,
+                12
+            ],
+            "time": 0
+        }
+    },
+    "afterBattle": {},
+    "afterGetItem": {},
+    "afterOpenDoor": {},
+    "cannotMove": {},
+    "map": [
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0, 91,  0,  0,  0,  0,  0,  0,  0,  0,  0],
@@ -51,7 +51,7 @@ main.floors.MT87=
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0]
 ],
-"bgmap": [
+    "bgmap": [
     [80044,80061,80061,80061,80061,80061,80061,80061,80061,80061,80061,80061,80043],
     [80042,80057,80057,80091,80057,80057,80057,80057,80057,80057,80057,80057,80040],
     [80042,80065,80065,80099,80065,80065,80065,80065,80065,80065,80065,80065,80040],
@@ -66,7 +66,7 @@ main.floors.MT87=
     [80042,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,80040],
     [80036,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,80035]
 ],
-"fgmap": [
+    "fgmap": [
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
@@ -80,5 +80,5 @@ main.floors.MT87=
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,80033,80033,80033,80033,80033,80033,80033,80033,80033,80033,80033,  0]
-],
+]
 }

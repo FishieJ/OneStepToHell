@@ -1,49 +1,49 @@
 main.floors.MT90=
 {
-"floorId": "MT90",
-"title": "主塔 90 层",
-"name": "90",
-"width": 13,
-"height": 13,
-"canFlyTo": true,
-"canUseQuickShop": true,
-"cannotViewMap": false,
-"images": [],
-"item_ratio": 1,
-"defaultGround": "soil",
-"bgm": "boss2.mp3",
-"firstArrive": [],
-"eachArrive": [
-    {
-        "type": "function",
-        "function": "function(){\ncore.plugin.drawLight(0.7, [[176,368,200],[240,368,200]]);\n}"
-    }
-],
-"parallelDo": "",
-"events": {},
-"changeFloor": {
-    "6,12": {
-        "floorId": "MT89",
-        "loc": [
-            6,
-            2
-        ],
-        "time": 0
+    "floorId": "MT90",
+    "title": "白骨山洞",
+    "name": "白骨山洞",
+    "width": 13,
+    "height": 13,
+    "canFlyTo": true,
+    "canUseQuickShop": true,
+    "cannotViewMap": false,
+    "images": [],
+    "item_ratio": 1,
+    "defaultGround": "soil",
+    "bgm": "boss2.mp3",
+    "firstArrive": [],
+    "eachArrive": [
+        {
+            "type": "function",
+            "function": "function(){\ncore.plugin.drawLight(0.7, [[176,368,200],[240,368,200]]);\n}"
+        }
+    ],
+    "parallelDo": "",
+    "events": {},
+    "changeFloor": {
+        "6,12": {
+            "floorId": "MT89",
+            "loc": [
+                6,
+                2
+            ],
+            "time": 0
+        },
+        "6,3": {
+            "floorId": "MT91",
+            "loc": [
+                2,
+                12
+            ],
+            "time": 500
+        }
     },
-    "6,3": {
-        "floorId": "MT91",
-        "loc": [
-            2,
-            12
-        ],
-        "time": 500
-    }
-},
-"afterBattle": {},
-"afterGetItem": {},
-"afterOpenDoor": {},
-"cannotMove": {},
-"map": [
+    "afterBattle": {},
+    "afterGetItem": {},
+    "afterOpenDoor": {},
+    "cannotMove": {},
+    "map": [
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,80093,80094,80095,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,80101,80102,80103,  0,  0,  0,  0,  0],
@@ -58,7 +58,7 @@ main.floors.MT90=
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,80029, 93,80029,  0,  0,  0,  0,  0]
 ],
-"bgmap": [
+    "bgmap": [
     [80044,80081,80081,80081,80081,80081,80081,80081,80081,80081,80081,80081,80043],
     [80042,80057,80057,80057,80057,80057,80057,80057,80057,80057,80057,80057,80040],
     [80042,80065,80065,80065,80065,80065,80065,80065,80065,80065,80065,80065,80040],
@@ -73,7 +73,7 @@ main.floors.MT90=
     [80042,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,80040],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0]
 ],
-"fgmap": [
+    "fgmap": [
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
@@ -88,10 +88,10 @@ main.floors.MT90=
     [  0,  0,  0,  0,  0,80021,  0,80021,  0,  0,  0,  0,  0],
     [80036,80033,80033,80033,80033,80033,80083,80033,80033,80033,80033,80033,80035]
 ],
-"color": [
-    0,
-    0,
-    0,
-    0.7
-],
+    "color": [
+        0,
+        0,
+        0,
+        0.7
+    ]
 }

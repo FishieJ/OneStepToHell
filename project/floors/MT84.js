@@ -1,50 +1,50 @@
 main.floors.MT84=
 {
-"floorId": "MT84",
-"title": "主塔 84 层",
-"name": "84",
-"width": 13,
-"height": 13,
-"canFlyTo": true,
-"canUseQuickShop": true,
-"cannotViewMap": false,
-"images": [],
-"item_ratio": 1,
-"defaultGround": "soil",
-"bgm": "3-5.mp3",
-"color": [
-    0,
-    0,
-    0,
-    0.7
-],
-"firstArrive": [],
-"eachArrive": [],
-"parallelDo": "",
-"events": {},
-"changeFloor": {
-    "5,12": {
-        "floorId": "MT82",
-        "loc": [
-            5,
-            0
-        ],
-        "time": 0
+    "floorId": "MT84",
+    "title": "白骨山洞",
+    "name": "白骨山洞",
+    "width": 13,
+    "height": 13,
+    "canFlyTo": true,
+    "canUseQuickShop": true,
+    "cannotViewMap": false,
+    "images": [],
+    "item_ratio": 1,
+    "defaultGround": "soil",
+    "bgm": "3-5.mp3",
+    "color": [
+        0,
+        0,
+        0,
+        0.7
+    ],
+    "firstArrive": [],
+    "eachArrive": [],
+    "parallelDo": "",
+    "events": {},
+    "changeFloor": {
+        "5,12": {
+            "floorId": "MT82",
+            "loc": [
+                5,
+                0
+            ],
+            "time": 0
+        },
+        "0,0": {
+            "floorId": "MT85",
+            "loc": [
+                12,
+                9
+            ],
+            "time": 0
+        }
     },
-    "0,0": {
-        "floorId": "MT85",
-        "loc": [
-            12,
-            9
-        ],
-        "time": 0
-    }
-},
-"afterBattle": {},
-"afterGetItem": {},
-"afterOpenDoor": {},
-"cannotMove": {},
-"map": [
+    "afterBattle": {},
+    "afterGetItem": {},
+    "afterOpenDoor": {},
+    "cannotMove": {},
+    "map": [
     [ 92,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
@@ -59,7 +59,7 @@ main.floors.MT84=
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0, 93,  0,  0,  0,  0,  0,  0,  0]
 ],
-"bgmap": [
+    "bgmap": [
     [  0,  0,  0,  0,  0,80047,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,80068,80038,80038,80038,80038,80038,80038,80039],
     [80054,80075,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,80047],
@@ -74,7 +74,7 @@ main.floors.MT84=
     [  0,  0,  0,  0,80045,  0,80068,80038,80038,80039,  0,  0,  0],
     [  0,  0,  0,  0,80045,  0,  0,  0,  0,80047,  0,  0,  0]
 ],
-"fgmap": [
+    "fgmap": [
 
-],
+]
 }

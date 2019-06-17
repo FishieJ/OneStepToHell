@@ -1,58 +1,58 @@
 main.floors.MT86=
 {
-"floorId": "MT86",
-"title": "主塔 86 层",
-"name": "86",
-"width": 13,
-"height": 13,
-"canFlyTo": true,
-"canUseQuickShop": true,
-"cannotViewMap": false,
-"images": [],
-"item_ratio": 1,
-"defaultGround": "soil",
-"bgm": "3-5.mp3",
-"color": [
-    0,
-    0,
-    0,
-    0.7
-],
-"firstArrive": [],
-"eachArrive": [],
-"parallelDo": "",
-"events": {},
-"changeFloor": {
-    "10,12": {
-        "floorId": "MT87",
-        "loc": [
-            3,
-            2
-        ],
-        "time": 0
+    "floorId": "MT86",
+    "title": "白骨山洞",
+    "name": "白骨山洞",
+    "width": 13,
+    "height": 13,
+    "canFlyTo": true,
+    "canUseQuickShop": true,
+    "cannotViewMap": false,
+    "images": [],
+    "item_ratio": 1,
+    "defaultGround": "soil",
+    "bgm": "3-5.mp3",
+    "color": [
+        0,
+        0,
+        0,
+        0.7
+    ],
+    "firstArrive": [],
+    "eachArrive": [],
+    "parallelDo": "",
+    "events": {},
+    "changeFloor": {
+        "10,12": {
+            "floorId": "MT87",
+            "loc": [
+                3,
+                2
+            ],
+            "time": 0
+        },
+        "0,4": {
+            "floorId": "MT81",
+            "loc": [
+                12,
+                4
+            ],
+            "time": 0
+        },
+        "9,2": {
+            "floorId": "MT88",
+            "loc": [
+                9,
+                12
+            ],
+            "time": 0
+        }
     },
-    "0,4": {
-        "floorId": "MT81",
-        "loc": [
-            12,
-            4
-        ],
-        "time": 0
-    },
-    "9,2": {
-        "floorId": "MT88",
-        "loc": [
-            9,
-            12
-        ],
-        "time": 0
-    }
-},
-"afterBattle": {},
-"afterGetItem": {},
-"afterOpenDoor": {},
-"cannotMove": {},
-"map": [
+    "afterBattle": {},
+    "afterGetItem": {},
+    "afterOpenDoor": {},
+    "cannotMove": {},
+    "map": [
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0, 91,  0,  0,  0],
@@ -67,7 +67,7 @@ main.floors.MT86=
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 93,  0,  0]
 ],
-"bgmap": [
+    "bgmap": [
     [80061,80061,80061,80061,80061,80061,80061,80061,80061,80061,80061,80043,80041],
     [80057,80057,80057,80057,80057,80057,80057,80057,80057,80091,80057,80048,80043],
     [80065,80065,80065,80065,80065,80065,80065,80065,80065,80099,80065,80056,80040],
@@ -82,7 +82,7 @@ main.floors.MT86=
     [80065,80065,80191,80097,80066,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,80199,  0,  0,  0,  0,  0,  0,  0,  0,  0,80041]
 ],
-"fgmap": [
+    "fgmap": [
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
@@ -96,5 +96,5 @@ main.floors.MT86=
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,80032,80034,  0,80032,80035],
     [  0,  0,  0,  0,  0,  0,  0,  0,80040,80036,80083,80035,  0]
-],
+]
 }

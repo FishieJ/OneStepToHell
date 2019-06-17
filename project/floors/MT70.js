@@ -1,51 +1,43 @@
 main.floors.MT70=
 {
-"floorId": "MT70",
-"title": "主塔 70 层",
-"name": "70",
-"width": 13,
-"height": 13,
-"canFlyTo": true,
-"canUseQuickShop": true,
-"cannotViewMap": false,
-"images": [],
-"item_ratio": 1,
-"defaultGround": "grass2",
-"bgm": "23-1.mp3",
-"color": [
-    0,
-    0,
-    0,
-    0.7
-],
-"firstArrive": [],
-"eachArrive": [],
-"parallelDo": "",
-"events": {},
-"changeFloor": {
-    "6,12": {
-        "floorId": "MT69",
-        "loc": [
-            6,
-            0
-        ],
-        "time": 0
+    "floorId": "MT70",
+    "title": "毒雾沼泽",
+    "name": "毒雾沼泽",
+    "width": 13,
+    "height": 13,
+    "canFlyTo": true,
+    "canUseQuickShop": true,
+    "cannotViewMap": false,
+    "images": [],
+    "item_ratio": 100,
+    "defaultGround": "grass2",
+    "bgm": "23-1.mp3",
+    "color": [
+        0,
+        0,
+        0,
+        0.7
+    ],
+    "firstArrive": [],
+    "eachArrive": [],
+    "parallelDo": "",
+    "events": {},
+    "changeFloor": {
+        "6,12": {
+            "floorId": "MT6A",
+            "loc": [
+                6,
+                0
+            ],
+            "time": 0
+        }
     },
-    "6,0": {
-        "floorId": "MT71",
-        "loc": [
-            6,
-            12
-        ],
-        "time": 500
-    }
-},
-"afterBattle": {},
-"afterGetItem": {},
-"afterOpenDoor": {},
-"cannotMove": {},
-"map": [
-    [151,151,151,151,151,151, 91,151,151,151,151,151,151],
+    "afterBattle": {},
+    "afterGetItem": {},
+    "afterOpenDoor": {},
+    "cannotMove": {},
+    "map": [
+    [151,151,151,151,151,151,151,151,151,151,151,151,151],
     [151,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,151],
     [151,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,151],
     [151,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,151],
@@ -59,10 +51,14 @@ main.floors.MT70=
     [151,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,151],
     [151,151,151,151,151,  0, 93,  0,151,151,151,151,151]
 ],
-"bgmap": [
+    "bgmap": [
 
 ],
-"fgmap": [
+    "fgmap": [
 
 ],
+    "weather": [
+        "fog",
+        8
+    ]
 }

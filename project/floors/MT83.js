@@ -1,42 +1,42 @@
 main.floors.MT83=
 {
-"floorId": "MT83",
-"title": "主塔 83 层",
-"name": "83",
-"width": 13,
-"height": 13,
-"canFlyTo": true,
-"canUseQuickShop": true,
-"cannotViewMap": false,
-"images": [],
-"item_ratio": 1,
-"defaultGround": "soil",
-"bgm": "3-5.mp3",
-"color": [
-    0,
-    0,
-    0,
-    0.7
-],
-"firstArrive": [],
-"eachArrive": [],
-"parallelDo": "",
-"events": {},
-"changeFloor": {
-    "12,3": {
-        "floorId": "MT82",
-        "loc": [
-            0,
-            11
-        ],
-        "time": 0
-    }
-},
-"afterBattle": {},
-"afterGetItem": {},
-"afterOpenDoor": {},
-"cannotMove": {},
-"map": [
+    "floorId": "MT83",
+    "title": "白骨山洞",
+    "name": "白骨山洞",
+    "width": 13,
+    "height": 13,
+    "canFlyTo": true,
+    "canUseQuickShop": true,
+    "cannotViewMap": false,
+    "images": [],
+    "item_ratio": 1,
+    "defaultGround": "soil",
+    "bgm": "3-5.mp3",
+    "color": [
+        0,
+        0,
+        0,
+        0.7
+    ],
+    "firstArrive": [],
+    "eachArrive": [],
+    "parallelDo": "",
+    "events": {},
+    "changeFloor": {
+        "12,3": {
+            "floorId": "MT82",
+            "loc": [
+                0,
+                11
+            ],
+            "time": 0
+        }
+    },
+    "afterBattle": {},
+    "afterGetItem": {},
+    "afterOpenDoor": {},
+    "cannotMove": {},
+    "map": [
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
@@ -51,7 +51,7 @@ main.floors.MT83=
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0]
 ],
-"bgmap": [
+    "bgmap": [
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,80037,80038,80038,80038,80038,80038,80038,80038,80038,80038],
     [  0,  0,  0,80045,  0,  0,  0,  0,  0,  0,  0,  0,  0],
@@ -66,7 +66,7 @@ main.floors.MT83=
     [  0,80053,80054,80054,80054,80054,80054,80054,80054,80054,80054,80055,  0],
     [  0,80056,80057,80057,80057,80057,80057,80057,80057,80057,80057,80058,  0]
 ],
-"fgmap": [
+    "fgmap": [
 
-],
+]
 }

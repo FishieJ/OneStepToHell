@@ -267,11 +267,6 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 			"name": "解衰药水",
 			"text": "可以解除衰弱状态"
 		},
-		"curseWine": {
-			"cls": "tools",
-			"name": "解咒药水",
-			"text": "可以解除诅咒状态"
-		},
 		"superWine": {
 			"cls": "tools",
 			"name": "万能药水",
@@ -294,14 +289,6 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 			"hideInReplay": false
 		},
 		"I331": {
-			"cls": "items",
-			"name": "新物品"
-		},
-		"I334": {
-			"cls": "items",
-			"name": "新物品"
-		},
-		"I338": {
 			"cls": "items",
 			"name": "新物品"
 		},
@@ -411,12 +398,74 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"I_hard_1": {
 			"cls": "constants",
 			"name": "乱撞难度",
-			"text": "你正在游玩乱撞难度！战斗伤害减少50%。（注：负伤害也会减少）"
+			"text": "你正在游玩乱撞难度！免疫地图伤害，战斗伤害减少50%。（注：负伤害也会减少）"
 		},
 		"I_hard_2": {
 			"cls": "constants",
 			"name": "简单难度",
 			"text": "你正在游玩简单难度！战斗伤害减少20%。（注：负伤害也会减少）"
+		},
+		"I454": {
+			"cls": "items",
+			"name": "大红血瓶",
+			"text": null
+		},
+		"I455": {
+			"cls": "items",
+			"name": "大蓝血瓶"
+		},
+		"I456": {
+			"cls": "items",
+			"name": "大黄血瓶"
+		},
+		"I457": {
+			"cls": "items",
+			"name": "大绿血瓶"
+		},
+		"skill4": {
+			"cls": "constants",
+			"name": "【红海技能】撕裂",
+			"text": "消耗${flag:skill4_cost}点魔法，使对方每回合开始时流失${flag:skill4_val}%的当前生命。可以触发【吸血】效果。快捷键为4。"
+		},
+		"I458": {
+			"cls": "tools",
+			"name": "绿色晶体",
+			"text": "毒雾沼泽的特产。"
+		},
+		"I459": {
+			"cls": "tools",
+			"name": "毒素精华",
+			"text": "1000个毒素精华可以合成为1个绿色晶体。"
+		},
+		"I462": {
+			"cls": "tools",
+			"name": "便携式小莱姆",
+			"text": "在面前放置一个小莱姆"
+		},
+		"tome": {
+			"cls": "tools",
+			"name": "知识之书",
+			"text": "《拆塔心理学》，作者：元仝"
+		},
+		"coin": {
+			"cls": "tools",
+			"name": "金币",
+			"text": "红海战场上通用的货币"
+		},
+		"expelPoison": {
+			"cls": "constants",
+			"name": "驱毒",
+			"text": "消耗${flag:expelPoison_cost}点魔法，驱除所有中毒效果，并按照驱除层数获得毒素精华。"
+		},
+		"bring_hp": {
+			"cls": "tools",
+			"name": "便携式血瓶",
+			"text": "便于携带的血瓶，使用可以回复50000生命。"
+		},
+		"bring_mana": {
+			"cls": "tools",
+			"name": "便携式蓝瓶",
+			"text": "便于携带的蓝瓶，使用可以回复50魔法。"
 		}
 	},
 	"itemEffect": {
@@ -455,7 +504,11 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"I359": "core.status.hero.mdef += core.values.greenJewel * ratio * 8",
 		"I356": "core.status.hero.hpmax += core.values.yellowJewel * ratio * 4;\ncore.status.hero.hp += core.values.yellowJewel * ratio * 4;",
 		"I360": "core.status.hero.hpmax += core.values.yellowJewel * ratio * 8;\ncore.status.hero.hp += core.values.yellowJewel * ratio * 8;",
-		"I380": "core.status.hero.mana += core.values.manaCrystal * ratio"
+		"I380": "core.status.hero.mana += core.values.manaCrystal * ratio",
+		"I454": "var heal = core.values.redPotion * 10 * ratio;\ncore.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });",
+		"I455": "var heal = core.values.bluePotion * 10 * ratio;\ncore.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });",
+		"I456": "var heal = core.values.yellowPotion * 10 * ratio;\ncore.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });",
+		"I457": "var heal = core.values.greenPotion * 10 * ratio;\ncore.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });"
 	},
 	"itemEffectTip": {
 		"redJewel": "'，攻击+'+core.values.redJewel * ratio",
@@ -493,7 +546,11 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"I359": "'，护盾+'+core.values.greenJewel * ratio * 8",
 		"I356": "'，生命、生命上限+'+core.values.yellowJewel * ratio * 4",
 		"I360": "'，生命、生命上限+'+core.values.yellowJewel * ratio * 4",
-		"I380": "'，魔法+'+core.values.manaCrystal * ratio"
+		"I380": "'，魔法+'+core.values.manaCrystal * ratio",
+		"I454": "'，生命+'+core.values.redPotion*10*ratio",
+		"I455": "'，生命+'+core.values.bluePotion*10*ratio",
+		"I456": "'，生命+'+core.values.yellowPotion*10*ratio",
+		"I457": "'，生命+'+core.values.greenPotion*10*ratio"
 	},
 	"useItemEffect": {
 		"book": "core.ui.drawBook(0);",
@@ -510,7 +567,6 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"downFly": "var loc = {'direction': core.status.hero.loc.direction, 'x': core.status.event.data.x, 'y': core.status.event.data.y};\ncore.changeFloor(core.status.event.data.id, null, loc, null, function (){\n\tcore.drawTip(core.material.items[itemId].name + '使用成功');\n\tcore.replay();\n});",
 		"poisonWine": "core.removeFlag('poison');",
 		"weakWine": "core.removeFlag('weak');\nif (core.values.weakValue>=1) { // >=1：直接扣数值\n\tcore.status.hero.atk += core.values.weakValue;\n\tcore.status.hero.def += core.values.weakValue;\n}\nelse { // <1：扣比例\n\tcore.setFlag(\"equip_atk_buff\", core.getFlag(\"equip_atk_buff\", 1) + core.values.weakValue);\n\tcore.setFlag(\"equip_def_buff\", core.getFlag(\"equip_def_buff\", 1) + core.values.weakValue);\n}",
-		"curseWine": "core.removeFlag('curse');",
 		"superWine": "core.removeFlag('poison');\nif (core.hasFlag('weak')) {\n\tcore.removeFlag('weak');\n\tif (core.values.weakValue>=1) { // >=1：直接扣数值\n\t\tcore.status.hero.atk += core.values.weakValue;\n\t\tcore.status.hero.def += core.values.weakValue;\n\t}\n\telse { // <1：扣比例\n\t\tcore.setFlag(\"equip_atk_buff\", core.getFlag(\"equip_atk_buff\", 1) + core.values.weakValue);\n\t\tcore.setFlag(\"equip_def_buff\", core.getFlag(\"equip_def_buff\", 1) + core.values.weakValue);\n\t}\n}\ncore.removeFlag('curse');",
 		"jumpShoes": "core.insertAction({\"type\":\"jumpHero\",\"loc\":[core.nextX(2),core.nextY(2)]});",
 		"redPotion": "core.status.hero.hp += core.values.redPotion",
@@ -528,8 +584,15 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"I_charge2": "core.insertAction([\n\t\"当前基础攻击力为: \\r[red]\" + core.status.hero.atk + \"\\r[white]\\n\" +\n\t\"每移动一步攻击力提升基础攻击力的\\r[red]\" + 100 * core.getFlag('charge_ratio') + \"\\r[white]%，也就是\\n\\r[red]\" + core.getFlag('charge_ratio') * core.status.hero.atk + \"\\r[white]点。计算时向下取整。\\n\" +\n\t\"改变移动方向后效果消失。\",\n\t\"注意，如果使用瞬移功能，冲锋效果也会立即消失。\",\n]);",
 		"I_vampire": "core.insertAction([\n\t\"蝙蝠血、毛虫血、软泥血、石头血，你想要哪个？\",\n\t\"我全都要！\"\n]);",
 		"I_hp_score": "core.insertAction([\n\t\"当前溢出HP值为：\\r[red]\" + core.getFlag('hp_score') + \"\\r[white]。\\n\",\n]);",
-		"skill2": "// 防御的flag:skill为2\nif (core.getFlag('skill', 0) == 0) { // 判断当前是否已经开了技能\n\tif (core.getStatus('mana') >= core.getFlag('skill2_cost', 0)) { // 这里要写当前能否开技能的条件判断，比如魔力值至少要多少\n\t\tcore.setFlag('skill', 2); // 开技能2\n\t\tcore.setFlag('skillName', '防御 '); // 设置技能名\n\t} else {\n\t\tcore.drawTip(\"魔力不足，无法开启技能\");\n\t}\n} else { // 关闭技能\n\tcore.setFlag('skill', 0); // 关闭技能状态\n\tcore.setFlag('skillName', '无');\n}",
-		"skill3": "// 直接判断是否可以使用即可\nvar curMana = core.status.hero.mana;\nvar cost = core.getFlag('skill3_cost', 641);\nif (curMana >= cost) {\n\tvar temp = core.getFlag('curse_stack', 0);\n\tif (temp == 0) {\n\t\tcore.insertAction([{ \"type\": \"insert\", \"loc\": [0, 0], \"floorId\": \"EventMap\" }]);\n\t} else {\n\t\tcore.status.hero.mana -= cost;\n\t\tcore.setFlag('curse_stack', 0);\n\t\tcore.drawTip(\"你感觉很舒服。\");\n\t\tcore.drawAnimate('skill3', core.status.hero.loc.x, core.status.hero.loc.y);\n\t}\n} else {\n\tcore.drawTip(\"魔法不足。\");\n}"
+		"skill2": "// 防御的flag:skill为2\nif (core.getFlag('skill', 0) == 0) { // 判断当前是否已经开了技能\n\tif (core.getStatus('mana') >= core.getFlag('skill2_cost', 0)) { // 这里要写当前能否开技能的条件判断，比如魔力值至少要多少\n\t\tcore.setFlag('skill', 2); // 开技能2\n\t\tcore.setFlag('skillName', '防御'); // 设置技能名\n\t} else {\n\t\tcore.drawTip(\"魔力不足，无法开启技能\");\n\t}\n} else { // 关闭技能\n\tcore.setFlag('skill', 0); // 关闭技能状态\n\tcore.setFlag('skillName', '无');\n}",
+		"skill3": "// 直接判断是否可以使用即可\nvar curMana = core.status.hero.mana;\nvar cost = core.getFlag('skill3_cost', 641);\nif (curMana >= cost) {\n\tvar temp = core.getFlag('curse_stack', 0);\n\tif (temp == 0) {\n\t\tcore.insertAction([{ \"type\": \"insert\", \"loc\": [0, 0], \"floorId\": \"EventMap\" }]);\n\t} else {\n\t\tcore.status.hero.mana -= cost;\n\t\tcore.setFlag('curse_stack', 0);\n\t\tcore.drawTip(\"你感觉很舒服。\");\n\t\tcore.drawAnimate('skill3', core.status.hero.loc.x, core.status.hero.loc.y);\n\t}\n} else {\n\tcore.drawTip(\"魔法不足。\");\n}",
+		"skill4": "// 撕裂的flag:skill为4\nif (core.getFlag('skill', 0) == 0) { // 判断当前是否已经开了技能\n\tif (core.getStatus('mana') >= core.getFlag('skill3_cost', 0)) { // 这里要写当前能否开技能的条件判断，比如魔力值至少要多少\n\t\tcore.setFlag('skill', 4); // 开技能4\n\t\tcore.setFlag('skillName', '撕裂'); // 设置技能名\n\t} else {\n\t\tcore.drawTip(\"魔力不足，无法开启技能\");\n\t}\n} else { // 关闭技能\n\tcore.setFlag('skill', 0); // 关闭技能状态\n\tcore.setFlag('skillName', '无');\n}",
+		"I459": "var tmp = core.itemCount('I459');\nif (tmp >= 1000) {\n\tvar z = Math.floor(tmp / 1000);\n\tcore.getItem('I459', 1);\n\tcore.getItem('I459', -1000 * z);\n\tcore.getItem('I458', z);\n} else {\n\t// should never execute\n\tcore.getItem('I459', 1);\n\tcore.drawTip('无法合成。');\n}",
+		"I462": "core.insertAction({ \"type\": \"setBlock\", \"number\": \"E461\", \"loc\": [core.nextX(1), core.nextY(1)] });",
+		"tome": "core.status.hero.experience += 40000;",
+		"expelPoison": "// 直接判断是否可以使用即可\nvar curMana = core.status.hero.mana;\nvar cost = core.getFlag('expelPoison_cost', 641);\nif (curMana >= cost) {\n\tvar temp = core.getFlag('poison_stack', 0);\n\tif (temp == 0) {\n\t\tcore.insertAction([{ \"type\": \"insert\", \"loc\": [1, 0], \"floorId\": \"EventMap\" }]);\n\t} else {\n\t\tcore.status.hero.mana -= cost;\n\t\tcore.getItem('I459', temp);\n\t\tcore.setFlag('poison_stack', 0);\n\t\tcore.drawTip(\"你感觉很舒服。\");\n\t\tcore.drawAnimate('light2', core.status.hero.loc.x, core.status.hero.loc.y);\n\t}\n} else {\n\tcore.drawTip(\"魔法不足。\");\n}",
+		"bring_hp": "var heal = 50000;\ncore.drawAnimate('heal', core.status.hero.loc.x, core.status.hero.loc.y);\ncore.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });",
+		"bring_mana": "core.drawAnimate('yongchang', core.status.hero.loc.x, core.status.hero.loc.y);\ncore.status.hero.mana += 50;"
 	},
 	"canUseItemEffect": {
 		"book": "true",
@@ -546,7 +609,6 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"bigKey": "(function() {\n\tvar able=false, ids = [];\n\tfor (var i in core.status.thisMap.blocks) {\n\t\tvar block = core.status.thisMap.blocks[i];\n\t\tif (core.isset(block.event) && !block.disable && block.event.id == 'yellowDoor') {\n\t\t\tids.push(i);\n\t\t}\n\t}\n\tif (ids.length>0) {\n\t\tcore.status.event.data = ids;\n\t\table=true;\n\t}\n\treturn able;\n})();",
 		"poisonWine": "core.hasFlag('poison');",
 		"weakWine": "core.hasFlag('weak');",
-		"curseWine": "core.hasFlag('curse');",
 		"superWine": "(function() {\n\treturn core.hasFlag('poison') || core.hasFlag('weak') || core.hasFlag('curse');\n})();",
 		"jumpShoes": "(function() {\n\tvar nx=core.nextX(2), ny=core.nextY(2);\n\treturn nx>=0 && nx<core.bigmap.width && ny>=0 && ny<core.bigmap.height && core.getBlockId(nx,ny)==null;\n})();",
 		"redPotion": "true",
@@ -569,7 +631,16 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"skill2": "true",
 		"skill3": "true",
 		"I_hard_1": true,
-		"I_hard_2": true
+		"I_hard_2": true,
+		"skill4": "true",
+		"I458": "false",
+		"I459": "(function () {\n\treturn core.itemCount('I459') >= 1000;\n})();",
+		"I462": "(function () {\n\tvar nx = core.nextX(1),\n\t\tny = core.nextY(1);\n\treturn nx >= 0 && nx < core.bigmap.width && ny >= 0 && ny < core.bigmap.height && core.getBlockId(nx, ny, null, true) == null;\n})();",
+		"tome": "true",
+		"coin": null,
+		"expelPoison": "true",
+		"bring_hp": "true",
+		"bring_mana": "(function () {\n\treturn core.status.hero.mana < core.status.hero.manamax;\n})();"
 	},
 	"canEquip": {},
 	"equipCondition": {}

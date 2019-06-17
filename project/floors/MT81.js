@@ -1,61 +1,64 @@
 main.floors.MT81=
 {
-"floorId": "MT81",
-"title": "主塔 81 层",
-"name": "81",
-"width": 13,
-"height": 13,
-"canFlyTo": true,
-"canUseQuickShop": true,
-"cannotViewMap": false,
-"images": [],
-"item_ratio": 1,
-"defaultGround": "soil",
-"firstArrive": [],
-"eachArrive": [
-    {
-        "type": "function",
-        "function": "function(){\ncore.plugin.drawLight(0.7, [[176,176,200],[304,176,200]]);\n}"
-    }
-],
-"parallelDo": "",
-"events": {},
-"changeFloor": {
-    "6,12": {
-        "floorId": "MT71",
-        "stair": "downFloor",
-        "time": 500
+    "floorId": "MT81",
+    "title": "白骨山洞",
+    "name": "白骨山洞",
+    "width": 13,
+    "height": 13,
+    "canFlyTo": true,
+    "canUseQuickShop": true,
+    "cannotViewMap": false,
+    "images": [],
+    "item_ratio": 1,
+    "defaultGround": "soil",
+    "firstArrive": [],
+    "eachArrive": [
+        {
+            "type": "function",
+            "function": "function(){\ncore.plugin.drawLight(0.7, [[176,176,200],[304,176,200]]);\n}"
+        }
+    ],
+    "parallelDo": "",
+    "events": {},
+    "changeFloor": {
+        "6,12": {
+            "floorId": "Chap3_m",
+            "loc": [
+                9,
+                3
+            ],
+            "time": 500
+        },
+        "12,4": {
+            "floorId": "MT86",
+            "loc": [
+                0,
+                4
+            ],
+            "time": 0
+        },
+        "0,7": {
+            "floorId": "MT82",
+            "loc": [
+                12,
+                4
+            ],
+            "time": 0
+        },
+        "6,2": {
+            "floorId": "MT89",
+            "loc": [
+                6,
+                12
+            ],
+            "time": 0
+        }
     },
-    "12,4": {
-        "floorId": "MT86",
-        "loc": [
-            0,
-            4
-        ],
-        "time": 0
-    },
-    "0,7": {
-        "floorId": "MT82",
-        "loc": [
-            12,
-            4
-        ],
-        "time": 0
-    },
-    "6,2": {
-        "floorId": "MT89",
-        "loc": [
-            6,
-            12
-        ],
-        "time": 0
-    }
-},
-"afterBattle": {},
-"afterGetItem": {},
-"afterOpenDoor": {},
-"cannotMove": {},
-"map": [
+    "afterBattle": {},
+    "afterGetItem": {},
+    "afterOpenDoor": {},
+    "cannotMove": {},
+    "map": [
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0, 91,  0,  0,  0,  0,  0,  0],
@@ -68,9 +71,9 @@ main.floors.MT81=
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
-    [  0,  0,  0,  0,  0,  0, 93,  0,  0,  0,  0,  0,  0]
+    [  0,  0,  0,  0,  0,  0, 93,80007,  0,  0,  0,  0,  0]
 ],
-"bgmap": [
+    "bgmap": [
     [80081,80081,80062,80081,80081,80081,80081,80081,80081,80081,80081,80063,80081],
     [80089,80089,80070,80089,80089,80089,80091,80089,80089,80089,80089,80071,80089],
     [80097,80097,80078,80097,80097,80097,80099,80097,80097,80097,80097,80079,80097],
@@ -85,7 +88,7 @@ main.floors.MT81=
     [80065,80065,80191,80065,80066,  0,  0,  0,  0,80064,80065,80191,80065],
     [  0,  0,80199,  0,  0,  0,  0,  0,  0,  0,  0,80199,  0]
 ],
-"fgmap": [
+    "fgmap": [
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
@@ -100,11 +103,11 @@ main.floors.MT81=
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0]
 ],
-"bgm": "3-5.mp3",
-"color": [
-    0,
-    0,
-    0,
-    0.7
-],
+    "bgm": "3-5.mp3",
+    "color": [
+        0,
+        0,
+        0,
+        0.7
+    ]
 }

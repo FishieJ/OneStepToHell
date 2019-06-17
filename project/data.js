@@ -63,6 +63,8 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"MT59",
 			"MT5A",
 			"MT60",
+			"Chap3_shop",
+			"Chap3_m",
 			"MT61",
 			"MT62",
 			"MT63",
@@ -72,6 +74,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"MT67",
 			"MT68",
 			"MT69",
+			"MT6A",
 			"MT70",
 			"MT71",
 			"MT81",
@@ -171,6 +174,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"boss1.mp3",
 			"boss2.mp3",
 			"boss3.mp3",
+			"chap3_m.mp3",
 			"prologue.mp3",
 			"postboss0.mp3",
 			"preboss1.mp3",
@@ -1565,12 +1569,155 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					{
 						"type": "setValue",
 						"name": "status:hpmax",
-						"value": "status:hpmax+30000"
+						"value": "status:hpmax+500000"
+					},
+					{
+						"type": "setValue",
+						"name": "status:manamax",
+						"value": "status:manamax+100"
+					},
+					{
+						"type": "setValue",
+						"name": "status:atk",
+						"value": "status:atk+5000"
+					},
+					{
+						"type": "setValue",
+						"name": "status:def",
+						"value": "status:def+5000"
+					},
+					{
+						"type": "setValue",
+						"name": "status:mdef",
+						"value": "status:mdef+6000"
+					},
+					"升级！生命上限+500000，魔法上限+100，攻击+5000，防御+5000，护盾+6000",
+					{
+						"type": "setValue",
+						"name": "flag:lightRadius",
+						"value": "flag:lightRadius+25"
+					},
+					"灯光范围变大了。",
+					{
+						"type": "function",
+						"function": "function(){\ncore.drawHero();\n}"
+					},
+					"普通攻击动画已改变！",
+					{
+						"type": "setHeroIcon",
+						"name": "hero2.png"
+					},
+					"行走图改变！",
+					{
+						"type": "setValue",
+						"name": "flag:skill1_val",
+						"value": "4"
+					},
+					{
+						"type": "setValue",
+						"name": "flag:skill1_cost",
+						"value": "40"
+					},
+					{
+						"type": "setValue",
+						"name": "flag:skill2_def_ratio",
+						"value": "3"
+					},
+					{
+						"type": "setValue",
+						"name": "flag:skill2_cost",
+						"value": "25"
+					},
+					"【强击】和【防御】效果和魔法消耗提升。",
+					{
+						"type": "setValue",
+						"name": "item:skill4",
+						"value": "1"
+					},
+					{
+						"type": "setValue",
+						"name": "flag:skill4_val",
+						"value": "5"
+					},
+					{
+						"type": "setValue",
+						"name": "flag:skill4_cost",
+						"value": "75"
+					},
+					"领悟【红海技能】！主动技能【撕裂】：每回合开始时造成相当于对方5%当前生命的伤害。",
+					{
+						"type": "setValue",
+						"name": "status:hp",
+						"value": "status:hpmax"
+					},
+					{
+						"type": "setValue",
+						"name": "status:mana",
+						"value": "status:manamax"
+					},
+					"最后，大境界突破，状态回满！",
+					{
+						"type": "sleep",
+						"time": 1000
+					},
+					"\t[hero]竟然直接就晋升为红海境界了……这书好神奇。",
+					"\t[熙枫,heroine]的确是很神奇的东西，不过限制也很大。不仅对红海以上境界的生物无效，而且每个人只能用一本，第二本就没有效果了。",
+					"\t[熙枫,heroine]既然你突破到红海了，我来试试能不能把毒给解了……",
+					{
+						"type": "setValue",
+						"name": "item:expelPoison",
+						"value": "1"
+					},
+					{
+						"type": "setValue",
+						"name": "flag:expelPoison_cost",
+						"value": "0"
+					},
+					{
+						"type": "useItem",
+						"id": "expelPoison"
+					},
+					{
+						"type": "setValue",
+						"name": "flag:expelPoison_cost",
+						"value": "200"
+					},
+					{
+						"type": "sleep",
+						"time": 1000
+					},
+					"\t[熙枫,heroine]成功了……",
+					"\t[hero]哇，小姐姐太厉害了吧？",
+					"\t[熙枫,heroine]别高兴太早，我刚才借用了你刚刚突破大境界的气势。以后要解毒的话得给我灌输一些魔力。",
+					"\t[hero]哈哈，小意思，我突破到红海境界感觉自己魔法充裕了不少……",
+					"\t[熙枫,heroine]一次200点魔法。",
+					"\t[hero]什么？这么多？？",
+					"\t[熙枫,heroine]不过好消息是我可以把驱除出来的毒素利用起来，合成那种绿色的晶体给你卖钱。",
+					"\t[hero]唉，我真是又笨又穷。",
+					"\t[hero]到了红海境界应该有能力去各处闯荡了吧？",
+					"\t[熙枫,heroine]自保应该不成问题，不过还是尽量小心，毕竟到处都是掌握了红海技能的怪物，太勉强自己会死的。",
+					"\t[hero]放心吧，我死不了！出发！"
+				]
+			},
+			{
+				"need": "100000",
+				"title": "红海中阶",
+				"clear": true,
+				"action": [
+					{
+						"type": "animate",
+						"name": "upgrade",
+						"loc": "hero"
+					},
+					{
+						"type": "setValue",
+						"name": "status:hpmax",
+						"value": "status:hpmax+700000"
 					},
 					{
 						"type": "setValue",
 						"name": "status:hp",
-						"value": "status:hp+30000"
+						"value": "status:hp+700000"
 					},
 					{
 						"type": "setValue",
@@ -1585,35 +1732,193 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					{
 						"type": "setValue",
 						"name": "status:atk",
-						"value": "status:atk+1000"
+						"value": "status:atk+6000"
 					},
 					{
 						"type": "setValue",
 						"name": "status:def",
-						"value": "status:def+1000"
+						"value": "status:def+6000"
 					},
 					{
 						"type": "setValue",
 						"name": "status:mdef",
-						"value": "status:mdef+1200"
+						"value": "status:mdef+7200"
 					},
-					"升级！生命、生命上限+30000，魔法、魔法上限+100，攻击+1000，防御+1000，护盾+1200",
+					"升级！生命、生命上限+700000，魔法、魔法上限+100，攻击+6000，防御+6000，护盾+7200",
 					{
 						"type": "setValue",
 						"name": "flag:lightRadius",
-						"value": "flag:lightRadius+15"
+						"value": "flag:lightRadius+25"
 					},
 					"灯光范围变大了。",
 					{
 						"type": "function",
 						"function": "function(){\ncore.drawHero();\n}"
-					},
-					"普通攻击动画已改变！",
+					}
+				]
+			},
+			{
+				"need": "100000",
+				"title": "红海高阶",
+				"clear": true,
+				"action": [
 					{
-						"type": "setHeroIcon",
-						"name": "hero2.png"
+						"type": "animate",
+						"name": "upgrade",
+						"loc": "hero"
 					},
-					"行走图改变！",
+					{
+						"type": "setValue",
+						"name": "status:hpmax",
+						"value": "status:hpmax+900000"
+					},
+					{
+						"type": "setValue",
+						"name": "status:hp",
+						"value": "status:hp+900000"
+					},
+					{
+						"type": "setValue",
+						"name": "status:manamax",
+						"value": "status:manamax+100"
+					},
+					{
+						"type": "setValue",
+						"name": "status:mana",
+						"value": "status:mana+100"
+					},
+					{
+						"type": "setValue",
+						"name": "status:atk",
+						"value": "status:atk+7000"
+					},
+					{
+						"type": "setValue",
+						"name": "status:def",
+						"value": "status:def+7000"
+					},
+					{
+						"type": "setValue",
+						"name": "status:mdef",
+						"value": "status:mdef+8400"
+					},
+					"升级！生命、生命上限+900000，魔法、魔法上限+100，攻击+7000，防御+7000，护盾+8400",
+					{
+						"type": "setValue",
+						"name": "flag:lightRadius",
+						"value": "flag:lightRadius+25"
+					},
+					"灯光范围变大了。",
+					{
+						"type": "function",
+						"function": "function(){\ncore.drawHero();\n}"
+					}
+				]
+			},
+			{
+				"need": "100000",
+				"title": "红海巅峰",
+				"clear": true,
+				"action": [
+					{
+						"type": "animate",
+						"name": "upgrade",
+						"loc": "hero"
+					},
+					{
+						"type": "setValue",
+						"name": "status:hpmax",
+						"value": "status:hpmax+1200000"
+					},
+					{
+						"type": "setValue",
+						"name": "status:hp",
+						"value": "status:hp+1200000"
+					},
+					{
+						"type": "setValue",
+						"name": "status:manamax",
+						"value": "status:manamax+100"
+					},
+					{
+						"type": "setValue",
+						"name": "status:mana",
+						"value": "status:mana+100"
+					},
+					{
+						"type": "setValue",
+						"name": "status:atk",
+						"value": "status:atk+8000"
+					},
+					{
+						"type": "setValue",
+						"name": "status:def",
+						"value": "status:def+8000"
+					},
+					{
+						"type": "setValue",
+						"name": "status:mdef",
+						"value": "status:mdef+9600"
+					},
+					"升级！生命、生命上限+1200000，魔法、魔法上限+100，攻击+8000，防御+8000，护盾+9600",
+					{
+						"type": "setValue",
+						"name": "flag:lightRadius",
+						"value": "flag:lightRadius+25"
+					},
+					"灯光范围变大了。",
+					{
+						"type": "function",
+						"function": "function(){\ncore.drawHero();\n}"
+					}
+				]
+			},
+			{
+				"need": "10000000",
+				"title": "血海初成",
+				"clear": true,
+				"action": [
+					{
+						"type": "animate",
+						"name": "upgrade",
+						"loc": "hero"
+					},
+					{
+						"type": "setValue",
+						"name": "status:hpmax",
+						"value": "status:hpmax+3000000"
+					},
+					{
+						"type": "setValue",
+						"name": "status:hp",
+						"value": "status:hp+3000000"
+					},
+					{
+						"type": "setValue",
+						"name": "status:manamax",
+						"value": "status:manamax+200"
+					},
+					{
+						"type": "setValue",
+						"name": "status:mana",
+						"value": "status:mana+200"
+					},
+					{
+						"type": "setValue",
+						"name": "status:atk",
+						"value": "status:atk+20000"
+					},
+					{
+						"type": "setValue",
+						"name": "status:def",
+						"value": "status:def+20000"
+					},
+					{
+						"type": "setValue",
+						"name": "status:mdef",
+						"value": "status:mdef+24000"
+					},
+					"升级！生命、生命上限+3000000，魔法、魔法上限+200，攻击+20000，防御+20000，护盾+24000",
 					{
 						"type": "setValue",
 						"name": "status:hp",
@@ -1632,7 +1937,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 	"values": {
 		"lavaDamage": 100,
 		"poisonDamage": 10,
-		"weakValue": 20,
+		"weakValue": 0.05,
 		"redJewel": 1,
 		"blueJewel": 1,
 		"greenJewel": 3,

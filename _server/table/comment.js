@@ -154,7 +154,7 @@ var comment_c456ea59_6018_45ef_8bcc_211a24c627dc = {
 				"value": {
 					"_leaf": true,
 					"_type": "textarea",
-					"_data": "特殊属性的数值\n如：领域/阻激/激光怪的伤害值；吸血怪的吸血比例；光环怪增加生命的比例"
+					"_data": "特殊属性的数值\n如：领域/阻激/激光怪的伤害值；吸血怪的吸血比例；光环怪增加生命的比例；反伤比例"
 				},
 				"zoneSquare": {
 					"_leaf": true,
@@ -221,6 +221,18 @@ var comment_c456ea59_6018_45ef_8bcc_211a24c627dc = {
 					"_type": "textarea",
 					"_range": "thiseval==~~thiseval||thiseval==null",
 					"_data": "重伤百分比"
+				},
+				"poison": {
+					"_leaf": true,
+					"_type": "textarea",
+					"_range": "thiseval==~~thiseval||thiseval==null",
+					"_data": "中毒层数"
+				},
+				"weak": {
+					"_leaf": true,
+					"_type": "textarea",
+					"_range": "thiseval==~~thiseval||thiseval==null",
+					"_data": "衰弱层数"
 				},
 			}
 		},

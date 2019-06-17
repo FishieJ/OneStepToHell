@@ -799,7 +799,7 @@ main.floors.MT60=
                         },
                         {
                             "type": "changeFloor",
-                            "floorId": "MT61",
+                            "floorId": "MT66",
                             "loc": [
                                 6,
                                 12

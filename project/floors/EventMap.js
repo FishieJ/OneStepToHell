@@ -50,6 +50,41 @@ main.floors.EventMap=
                     }
                 ]
             }
+        ],
+        "1,0": [
+            {
+                "type": "choices",
+                "text": "\t[熙枫,heroine]你现在身上好像没有中毒效果啊……确定要用这个吗？",
+                "choices": [
+                    {
+                        "text": "我就是要用！",
+                        "action": [
+                            {
+                                "type": "addValue",
+                                "name": "status:mana",
+                                "value": "-flag:expelPoison_cost"
+                            },
+                            {
+                                "type": "animate",
+                                "name": "light2",
+                                "loc": "hero"
+                            },
+                            "\t[hero]啊……好舒服……",
+                            "\t[熙枫,heroine]……",
+                            {
+                                "type": "addValue",
+                                "name": "status:hp",
+                                "value": "1"
+                            },
+                            "由于感到十分舒适，生命值增加了1点。"
+                        ]
+                    },
+                    {
+                        "text": "我点错了",
+                        "action": []
+                    }
+                ]
+            }
         ]
     },
     "changeFloor": {},

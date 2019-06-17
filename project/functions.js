@@ -251,6 +251,8 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 			heroAnimateName = 'skill1';
 		} else if (skill == 2) { // 技能2：防御
 			heroAnimateName = 'skill2';
+		} else if (skill == 4) { // 技能4：撕裂
+			heroAnimateName = 'blood';
 		} else if (skill == 0) { // 未开启技能
 			heroAnimateName = heroNormalAttack;
 		}
@@ -376,12 +378,21 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	var special = enemy.special;
 	// 中毒
 	if (core.enemys.hasSpecial(special, 12)) {
-		core.push(todo, [{ "type": "insert", "name": "毒衰咒处理", "args": [0] }]);
+		//core.push(todo, [{ "type": "insert", "name": "毒衰咒处理", "args": [0] }]);
+		core.setFlag('poison_stack', core.getFlag('poison_stack', 0) + enemy.poison);
 	}
 	// 衰弱
-	if (core.enemys.hasSpecial(special, 13)) {
-		core.push(todo, [{ "type": "insert", "name": "毒衰咒处理", "args": [1] }]);
+	// 自然减少
+	if (core.getFlag('weak_stack', 0)) {
+		core.setFlag('weak_stack', core.getFlag('weak_stack') - 1);
 	}
+	if (core.enemys.hasSpecial(special, 13)) {
+		//core.push(todo, [{ "type": "insert", "name": "毒衰咒处理", "args": [1] }]);
+		core.setFlag('weak_stack', core.getFlag('weak_stack', 0) + enemy.weak);
+	}
+	var buffVal = Math.pow(0.95, core.getFlag('weak_stack', 0));
+	core.setBuff('atk', buffVal);
+	core.setBuff('def', buffVal);
 	// 霜寒诅咒
 	if (core.enemys.hasSpecial(special, 14)) {
 		//core.push(todo, [{ "type": "insert", "name": "毒衰咒处理", "args": [2] }]);
@@ -429,6 +440,8 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 			core.status.hero.mana -= core.getFlag('skill1_cost', 0); // 扣除魔力值
 		} else if (skill == 2) { // 技能2：防御
 			core.status.hero.mana -= core.getFlag('skill2_cost', 0); // 扣除魔力值
+		} else if (skill == 4) { // 技能4：撕裂
+			core.status.hero.mana -= core.getFlag('skill4_cost', 0); // 扣除魔力值
 		}
 		// 关闭技能
 		core.setFlag('skill', 0);
@@ -579,14 +592,14 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[6, function (enemy) { return (enemy.n || 4) + "连击"; }, function (enemy) { return "怪物每回合攻击" + (enemy.n || 4) + "次"; }],
 		[7, "破甲", function (enemy) { return "侵蚀对手的护甲。首回合怪物攻击时，附加勇士防御的" + Math.floor(100 * enemy.value || 0) + "%作为伤害"; }, "#b30000"],
 		[8, "反伤", function (enemy) { return "来犯之敌，自讨苦吃。战斗时，勇士攻击的" + Math.floor(100 * enemy.value || 0) + "%也会同时伤害到自身"; }, "#bd26ce"],
-		[9, "净化", "战斗前，怪物附加勇士护盾的" + core.values.purify + "倍作为伤害", "#00d2d4"],
-		[10, "模仿", "[红海技能]怪物的攻防与勇士攻防相等。"],
-		[11, "吸血", function (enemy) { return "战斗前，怪物首先吸取角色的" + Math.floor(100 * enemy.value || 0) + "%生命（约" + Math.floor((enemy.value || 0) * core.getStatus('hp')) + "点）作为伤害" + (enemy.add ? "，并把伤害数值加到自身生命上" : ""); }],
-		[12, "中毒", "战斗后，勇士陷入中毒状态，每一步损失生命" + core.values.poisonDamage + "点"],
-		[13, "衰弱", "战斗后，勇士陷入衰弱状态，攻防暂时下降" + (core.values.weakValue >= 1 ? core.values.weakValue + "点" : parseInt(core.values.weakValue * 100) + "%")],
+		[9, "净化", "【红海技能】用对手的力量反制对手\n战斗前，怪物附加勇士护盾的" + core.values.purify + "倍作为伤害", "#00d2d4"],
+		[10, "模仿", "【红海技能】遇弱则弱，遇强则强\n怪物的攻防与勇士基础攻防相等。"],
+		[11, "吸血", function (enemy) { return "【红海技能】直接放血！\n战斗前，怪物首先吸取角色的" + Math.floor(100 * enemy.value || 0) + "%生命（约" + Math.floor((enemy.value || 0) * core.getStatus('hp')) + "点）作为伤害" + (enemy.add ? "，并把伤害数值加到自身生命上" : ""); }],
+		[12, "中毒", function (enemy) { return "【红海技能】战斗后，勇士陷入中毒状态，在接下来的战斗中每回合损失生命" + enemy.poison + "点，效果可叠加。"; }],
+		[13, "衰弱", function (enemy) { return "【红海技能】战斗后，勇士获得" + enemy.weak + "层衰弱状态，每层使得战斗中攻防下降" + (core.values.weakValue >= 1 ? core.values.weakValue + "点" : parseInt(core.values.weakValue * 100) + "%") + "。每次战斗减少1层。"; }],
 		[14, "霜寒", function (enemy) { return "怪物对敌人施加霜寒诅咒。战斗后，你获得" + enemy.n + "层霜寒状态，每层使你普通攻击造成的伤害降低1%，加法叠加。"; }, "#747dff"],
 		[15, "领域", function (enemy) { return "经过怪物周围" + (enemy.zoneSquare ? "九宫格" : "十字") + "范围内" + (enemy.range || 1) + "格时自动减生命" + (enemy.value || 0) + "点"; }],
-		[16, "夹击", "[红海技能]经过两只相同的怪物中间，勇士生命值变成一半。"],
+		[16, "夹击", "【红海技能】两方合击，瞬间将对手打个半死\n经过两只相同的怪物中间，勇士生命值变成一半。"],
 		[17, "仇恨", "战斗前，怪物附加之前积累的仇恨值作为伤害" + (core.flags.hatredDecrease ? "；战斗后，释放一半的仇恨值" : "") + "。（每杀死一个怪物获得" + (core.values.hatred || 0) + "点仇恨值）"],
 		[18, "阻击", function (enemy) { return "经过怪物的十字领域时自动减生命" + (enemy.value || 0) + "点，同时怪物后退一格"; }],
 		[19, "自爆", "战斗后勇士的生命值变成1"],
@@ -600,7 +613,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[27, "捕捉", "当走到怪物周围十字时会强制进行战斗。"],
 		[99, "闪避", function (enemy) { return "灵巧的身法能够躲闪攻击。受到的普通攻击伤害降低" + (enemy.defValue || 0) + "%。"; }, "#c3c3c3"],
 		[100, "穿刺", function (enemy) { return "攻击能够穿透一部分防御。无视对手" + (enemy.x || 0) + "%的防御力。"; }],
-		[101, "夹爆", "某个著名红海技能的上位版本。经过两只相同的怪物中间，勇士生命值变成一。", "#ff0000"],
+		[101, "夹爆", "【血海奥义】某个著名红海技能的上位版本\n经过两只相同的怪物中间，勇士生命值变成一。", "#ff0000"],
 		[102, "上位威压", function (enemy) { return "上位者的气质震慑对手。每比对手高出一级，便在先前基础上进一步削弱对手" + Math.floor(enemy.n) + "%的攻防，当前对方比你高" + Math.max(0, (enemy.value || 0) - core.status.hero.lv) + "级"; }, "#b113ff"],
 		[103, "强击", function (enemy) { return "一次强力的攻击。怪物首回合获得" + (enemy.atkValue || 0) + "倍攻击力。"; }, "#b30000"],
 		[104, "斩杀", function (enemy) { return "一旦对手势弱，攻击就会更加致命。战斗中，若勇士生命值低于" + (enemy.range || 0) + "%，则怪物攻击力提升" + (enemy.n || 0) + "%。"; }],
@@ -907,6 +920,17 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 	// 勇士的攻击回合数；为怪物生命除以每回合伤害向上取整
 	var turn = Math.ceil(mon_hp / hero_per_damage);
+	// 开启了技能4：撕裂，且怪物不魔免，则重新计算回合数
+	if (core.getFlag('skill', 0) == 4 && !core.hasSpecial(mon_special, 120)) {
+		var cur_hp = mon_hp;
+		var gouge_val = core.getFlag('skill4_val', 5) / 100;
+		turn = 0;
+		while (cur_hp > 0) {
+			cur_hp *= (1 - gouge_val);
+			cur_hp -= hero_per_damage;
+			turn++;
+		}
+	}
 	if (turn < 1)
 		turn = 1;
 
@@ -972,6 +996,10 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 	// 最终伤害：初始伤害 + 怪物对勇士造成的伤害 + 反击伤害
 	var damage = init_damage + (turn - 1) * per_damage + turn * counterDamage;
+
+	// 中毒修正
+	var poison = core.getFlag('poison_stack', 0);
+	damage += poison * turn;
 
 	// 怪物怒意狂击修正
 	if (core.hasSpecial(mon_special, 115) && turn > 1) {
@@ -1217,6 +1245,9 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		if (core.hasItem('skill3')) {
 			core.status.route.push("key:52");
 			core.useItem('skill3', true);
+		} else if (core.hasItem('skill4')) {
+			core.status.route.push("key:52");
+			core.useItem('skill4', true);
 		}
 		break;
 		// 在这里可以任意新增或编辑已有的快捷键内容
@@ -1403,8 +1434,8 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	});
 	// 毒衰咒
 	if (core.flags.enableDebuff) {
-		if (core.hasFlag('poison')) {
-			core.setStatusBarInnerHTML('poison', "毒");
+		if (core.getFlag('poison_stack', 0)) {
+			core.setStatusBarInnerHTML('poison', "毒 " + core.getFlag('poison_stack', 0));
 		} else { // 光暗buff
 			var dark_stack = core.getFlag('dark', 0);
 			if (dark_stack > 0) {
@@ -1415,7 +1446,11 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 				core.setStatusBarInnerHTML('poison', "");
 			}
 		}
-		core.setStatusBarInnerHTML('weak', core.hasFlag('weak') ? "衰" : "");
+		if (core.getFlag('weak_stack', 0) > 0) {
+			core.setStatusBarInnerHTML('weak', "衰 " + core.getFlag('weak_stack', 0));
+		} else {
+			core.setStatusBarInnerHTML('weak', "");
+		}
 		core.setStatusBarInnerHTML('curse', core.getFlag('curse_stack', 0) > 0 ? "寒 " + core.getFlag('curse_stack', 0) : "", "color: #6C87FF");
 	}
 	// 破炸飞
