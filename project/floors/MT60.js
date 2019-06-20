@@ -659,7 +659,7 @@ main.floors.MT60=
                         "\t[???,N425]\b[down,6,5]还是晚了一步吗……",
                         {
                             "type": "animate",
-                            "name": "explosion",
+                            "name": "explosion_small",
                             "loc": [
                                 6,
                                 0

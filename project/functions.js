@@ -275,8 +275,18 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 	var enemy = core.material.enemys[enemyId];
 	var special = enemy.special;
-	if (core.enemys.hasSpecial(special, 14) || core.enemys.hasSpecial(special, 109)) {
+	if (core.enemys.hasSpecial(special, 9)) {
+		drawEnemyAnimate('purify');
+	} else if (core.enemys.hasSpecial(special, 11)) {
+		drawEnemyAnimate('blood');
+	} else if (core.enemys.hasSpecial(special, 12)) {
+		drawEnemyAnimate('poison');
+	} else if (core.enemys.hasSpecial(special, 13)) {
+		drawEnemyAnimate('weak');
+	} else if (core.enemys.hasSpecial(special, 14) || core.enemys.hasSpecial(special, 109)) {
 		drawEnemyAnimate('ice');
+	} else if (core.enemys.hasSpecial(special, 19)) {
+		drawEnemyAnimate('explosion');
 	} else if (core.enemys.hasSpecial(special, 103)) {
 		drawEnemyAnimate('skill1');
 	} else if (core.enemys.hasSpecial(special, 104)) {
@@ -299,6 +309,10 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		drawEnemyAnimate('heal', x, y);
 	} else if (core.enemys.hasSpecial(special, 119)) {
 		drawEnemyAnimate('light2');
+	} else if (core.enemys.hasSpecial(special, 124)) {
+		drawEnemyAnimate('explosion_small');
+	} else if (core.enemys.hasSpecial(special, 126)) {
+		drawEnemyAnimate('blood2');
 	} else {
 		drawEnemyAnimate(null);
 	}
@@ -418,6 +432,10 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	if (core.flags.hatredDecrease && core.enemys.hasSpecial(special, 17)) {
 		core.setFlag('hatred', Math.floor(core.getFlag('hatred', 0) / 2));
 	}
+	// 血怨
+	if (core.enemys.hasSpecial(special, 124)) {
+		core.status.hero.hp = Math.floor(core.status.hero.hp / 2);
+	}
 	// 自爆
 	if (core.enemys.hasSpecial(special, 19)) {
 		core.status.hero.hp = 1;
@@ -448,6 +466,9 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		core.setFlag('skillName', '无');
 	}
 
+	// 自然回蓝
+	core.status.hero.mana += core.getFlag('mana_regen', 0);
+
 	// 更新冲锋相关flag
 	if (core.hasItem('I_charge')) {
 		core.setFlag('charge_atk', 0);
@@ -468,6 +489,23 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	core.setFlag('lastAtk', enemy.atk);
 	core.setFlag('lastDef', enemy.def);
 	core.updateStatusBar();
+
+	// 隐身药水效果消失
+	if (core.getFlag('invisible', 0)) {
+		core.setFlag('invisible', 0);
+		core.setOpacity('hero', 1);
+		if (core.getFlag('hard') != 1) {
+			core.setFlag('no_zone', 0);
+			core.setFlag('no_snipe', 0);
+			core.setFlag('no_betweenAttack', 0);
+			core.setFlag('no_laser', 0);
+			core.setFlag('no_ambush', 0);
+		} else {
+			core.setFlag('no_snipe', 0);
+			core.setFlag('no_ambush', 0);
+		}
+		core.drawMap(); // 更新地图显伤
+	}
 
 	// 如果有加点
 	var point = core.material.enemys[enemyId].point;
@@ -592,28 +630,28 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[6, function (enemy) { return (enemy.n || 4) + "连击"; }, function (enemy) { return "怪物每回合攻击" + (enemy.n || 4) + "次"; }],
 		[7, "破甲", function (enemy) { return "侵蚀对手的护甲。首回合怪物攻击时，附加勇士防御的" + Math.floor(100 * enemy.value || 0) + "%作为伤害"; }, "#b30000"],
 		[8, "反伤", function (enemy) { return "来犯之敌，自讨苦吃。战斗时，勇士攻击的" + Math.floor(100 * enemy.value || 0) + "%也会同时伤害到自身"; }, "#bd26ce"],
-		[9, "净化", "【红海技能】用对手的力量反制对手\n战斗前，怪物附加勇士护盾的" + core.values.purify + "倍作为伤害", "#00d2d4"],
-		[10, "模仿", "【红海技能】遇弱则弱，遇强则强\n怪物的攻防与勇士基础攻防相等。"],
-		[11, "吸血", function (enemy) { return "【红海技能】直接放血！\n战斗前，怪物首先吸取角色的" + Math.floor(100 * enemy.value || 0) + "%生命（约" + Math.floor((enemy.value || 0) * core.getStatus('hp')) + "点）作为伤害" + (enemy.add ? "，并把伤害数值加到自身生命上" : ""); }],
-		[12, "中毒", function (enemy) { return "【红海技能】战斗后，勇士陷入中毒状态，在接下来的战斗中每回合损失生命" + enemy.poison + "点，效果可叠加。"; }],
-		[13, "衰弱", function (enemy) { return "【红海技能】战斗后，勇士获得" + enemy.weak + "层衰弱状态，每层使得战斗中攻防下降" + (core.values.weakValue >= 1 ? core.values.weakValue + "点" : parseInt(core.values.weakValue * 100) + "%") + "。每次战斗减少1层。"; }],
+		[9, "净化", "【红海技能】用对手的护盾反制对手\n战斗前，怪物附加勇士护盾的" + core.values.purify + "倍作为伤害", "#00d2d4"],
+		[10, "模仿", "【红海技能】遇弱则弱，遇强则强\n怪物的攻防与勇士基础攻防相等。", "#ff00d2"],
+		[11, "吸血", function (enemy) { return "【红海技能】最常见的红海技能\n战斗前，怪物首先吸取角色的" + Math.floor(100 * enemy.value || 0) + "%生命（约" + Math.floor((enemy.value || 0) * core.getStatus('hp')) + "点）作为伤害" + (enemy.add ? "，并把伤害数值加到自身生命上" : ""); }, "#ff00d2"],
+		[12, "中毒", function (enemy) { return "【红海技能】战斗后，勇士陷入中毒状态，在接下来的战斗中每回合损失生命" + enemy.poison + "点，效果可叠加。"; }, "#4aff60"],
+		[13, "衰弱", function (enemy) { return "【红海技能】战斗后，勇士获得" + enemy.weak + "层衰弱状态，每层使得战斗中攻防下降" + (core.values.weakValue >= 1 ? core.values.weakValue + "点" : parseInt(core.values.weakValue * 100) + "%") + "。每次战斗减少1层。"; }, "#feccd0"],
 		[14, "霜寒", function (enemy) { return "怪物对敌人施加霜寒诅咒。战斗后，你获得" + enemy.n + "层霜寒状态，每层使你普通攻击造成的伤害降低1%，加法叠加。"; }, "#747dff"],
 		[15, "领域", function (enemy) { return "经过怪物周围" + (enemy.zoneSquare ? "九宫格" : "十字") + "范围内" + (enemy.range || 1) + "格时自动减生命" + (enemy.value || 0) + "点"; }],
-		[16, "夹击", "【红海技能】两方合击，瞬间将对手打个半死\n经过两只相同的怪物中间，勇士生命值变成一半。"],
+		[16, "夹击", "【红海技能】两方合击，瞬间将对手打个半死\n经过两只相同的怪物中间，勇士生命值变成一半。", "#ff00d2"],
 		[17, "仇恨", "战斗前，怪物附加之前积累的仇恨值作为伤害" + (core.flags.hatredDecrease ? "；战斗后，释放一半的仇恨值" : "") + "。（每杀死一个怪物获得" + (core.values.hatred || 0) + "点仇恨值）"],
 		[18, "阻击", function (enemy) { return "经过怪物的十字领域时自动减生命" + (enemy.value || 0) + "点，同时怪物后退一格"; }],
-		[19, "自爆", "战斗后勇士的生命值变成1"],
+		[19, "自爆", "【血海奥义】同归于尽吧！\n战斗后，勇士的生命值变成1"],
 		[20, "无敌", "勇士无法打败怪物，除非拥有十字架"],
 		[21, "退化", function (enemy) { return "战斗后勇士永久下降" + (enemy.atkValue || 0) + "点攻击和" + (enemy.defValue || 0) + "点防御"; }],
 		[22, "固伤", function (enemy) { return "战斗前，怪物对勇士造成" + (enemy.damage || 0) + "点固定伤害，无视勇士护盾。"; }],
 		[23, "重生", "怪物被击败后，角色转换楼层则怪物将再次出现"],
-		[24, "激光", function (enemy) { return "经过怪物同行或同列时自动减生命" + (enemy.value || 0) + "点"; }],
+		[24, "射击", function (enemy) { return "经过怪物同行或同列时自动减生命" + (enemy.value || 0) + "点"; }],
 		[25, "光环", function (enemy) { return "同楼层所有怪物生命提升" + (enemy.value || 0) + "%，攻击提升" + (enemy.atkValue || 0) + "%，防御提升" + (enemy.defValue || 0) + "%，" + (enemy.add ? "可叠加" : "不可叠加"); }],
 		[26, "支援", "当周围一圈的怪物受到攻击时将上前支援，并组成小队战斗。"],
 		[27, "捕捉", "当走到怪物周围十字时会强制进行战斗。"],
 		[99, "闪避", function (enemy) { return "灵巧的身法能够躲闪攻击。受到的普通攻击伤害降低" + (enemy.defValue || 0) + "%。"; }, "#c3c3c3"],
 		[100, "穿刺", function (enemy) { return "攻击能够穿透一部分防御。无视对手" + (enemy.x || 0) + "%的防御力。"; }],
-		[101, "夹爆", "【血海奥义】某个著名红海技能的上位版本\n经过两只相同的怪物中间，勇士生命值变成一。", "#ff0000"],
+		[101, "夹爆", "【血海奥义】某个著名红海技能的上位版本\n经过两只相同的怪物中间，勇士生命值变成1。", "#ff0000"],
 		[102, "上位威压", function (enemy) { return "上位者的气质震慑对手。每比对手高出一级，便在先前基础上进一步削弱对手" + Math.floor(enemy.n) + "%的攻防，当前对方比你高" + Math.max(0, (enemy.value || 0) - core.status.hero.lv) + "级"; }, "#b113ff"],
 		[103, "强击", function (enemy) { return "一次强力的攻击。怪物首回合获得" + (enemy.atkValue || 0) + "倍攻击力。"; }, "#b30000"],
 		[104, "斩杀", function (enemy) { return "一旦对手势弱，攻击就会更加致命。战斗中，若勇士生命值低于" + (enemy.range || 0) + "%，则怪物攻击力提升" + (enemy.n || 0) + "%。"; }],
@@ -634,6 +672,12 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[119, "驱邪", "使对方体内的不洁之力尽数爆发。战斗开始时驱除勇士的所有光明/黑暗状态，每驱除1层便额外造成64100点伤害。", "#fff900"],
 		[120, "魔免", "免疫技能伤害。", "#c3c3c3"],
 		[121, "重伤", function (enemy) { return "抑制对手的生命。使对手受到的回复效果降低" + (enemy.v_121 || 0) + "%。"; }, "#b30000"],
+		[122, "盛宴", function (enemy) { return "【红海技能】吞噬血肉\n每次攻击造成对方最大生命值" + (enemy.v_122 || 0) + "%的额外伤害。"; }, "#ff00d2"],
+		[123, "竭心", function (enemy) { return "【红海技能】心脏慢慢停止跳动\n经过怪物周围" + (enemy.zoneSquare ? "九宫格" : "十字") + "范围内" + (enemy.range || 1) + "格时自动减最大生命的" + (enemy.value || 0) + "%"; }, "#ff00d2"],
+		[124, "血怨", "【红海技能】死亡的怨念缠绕着对手。似乎是某个血海奥义的劣化版本\n战斗后，勇士的生命值变成一半。", "#ff00d2"],
+		[125, "血域", function (enemy) { return "【红海技能】生命慢慢流逝\n经过怪物周围" + (enemy.zoneSquare ? "九宫格" : "十字") + "范围内" + (enemy.range || 1) + "格时自动减当前生命的" + (enemy.value || 0) + "%"; }, "#ff00d2"],
+		[126, "死亡", function (enemy) { return "【红海技能】引诱对手走向死亡\n战斗开始时，造成对方已损失生命值" + enemy.v_126 + "%的伤害。"; }, "#b30000"],
+		[199, "死亡镰刀", function (enemy) { return "【红海技能】似乎是某个血海奥义的劣化版本\n第5回合结束时，造成相当于对方已损失生命值100%的伤害。"; }, "#ff00d2"],
 	];
 },
         "getEnemyInfo": function (enemy, hero, x, y, floorId) {
@@ -669,65 +713,71 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		mon_def = hero_atk - 1;
 	}
 
-	// 光环检查
-	// 从V2.5.4开始，对光环效果增加缓存，以解决多次重复计算的问题，从而大幅提升运行效率。
-	// 检查当前楼层所有光环怪物（数字25）
-	var hp_buff = 0,
-		atk_buff = 0,
-		def_buff = 0,
-		cnt = 0;
 	// ------ 支援 ------
 	var guards = [];
-	/*
-	// 检查光环缓存
-	var index = x != null && y != null ? (x + "," + y) : "floor";
-	if (!core.status.checkBlock) core.status.checkBlock = {};
-	if (!core.status.checkBlock.cache) core.status.checkBlock.cache = {};
-	var cache = core.status.checkBlock.cache[index];
-	if (!cache) {
-		// 没有该点的缓存，则遍历每个图块
-		core.status.maps[floorId].blocks.forEach(function (block) {
-			if (!block.disable) {
-				// 获得该图块的ID
-				var id = block.event.id,
-					enemy = core.material.enemys[id];
-				// 检查是不是怪物，且是否拥有该特殊属性
-				if (enemy && core.hasSpecial(enemy.special, 25)) {
-					// 检查是否可叠加
-					if (enemy.add || cnt == 0) {
-						hp_buff += enemy.value || 0;
-						atk_buff += enemy.atkValue || 0;
-						def_buff += enemy.defValue || 0;
-						cnt++;
+	// 光环检查
+	// 在这里判定是否需要遍历全图（由于光环需要遍历全图，应尽可能不需要以减少计算量，尤其是大地图）
+	var query = function () {
+		var floorIds = ["MTx"]; // 在这里给出所有需要遍历的楼层（即有光环或支援等）
+		return core.inArray(floorIds, floorId); // 也可以写其他的判定条件
+	};
+
+	if (query()) {
+		// 从V2.5.4开始，对光环效果增加缓存，以解决多次重复计算的问题，从而大幅提升运行效率。
+		// 检查当前楼层所有光环怪物（数字25）
+		var hp_buff = 0,
+			atk_buff = 0,
+			def_buff = 0,
+			cnt = 0;
+		// 检查光环缓存
+		var index = x != null && y != null ? (x + "," + y) : "floor";
+		if (!core.status.checkBlock) core.status.checkBlock = {};
+		if (!core.status.checkBlock.cache) core.status.checkBlock.cache = {};
+		var cache = core.status.checkBlock.cache[index];
+		if (!cache) {
+			// 没有该点的缓存，则遍历每个图块
+			core.status.maps[floorId].blocks.forEach(function (block) {
+				if (!block.disable) {
+					// 获得该图块的ID
+					var id = block.event.id,
+						enemy = core.material.enemys[id];
+					// 检查是不是怪物，且是否拥有该特殊属性
+					if (enemy && core.hasSpecial(enemy.special, 25)) {
+						// 检查是否可叠加
+						if (enemy.add || cnt == 0) {
+							hp_buff += enemy.value || 0;
+							atk_buff += enemy.atkValue || 0;
+							def_buff += enemy.defValue || 0;
+							cnt++;
+						}
 					}
-				}
-				// 检查【支援】技能
-				if (enemy && core.hasSpecial(enemy.special, 26) &&
-					// 检查支援条件，坐标存在，距离为1，且不能是自己
-					// 其他类型的支援怪，比如十字之类的话.... 看着做是一样的
-					x != null && y != null && Math.abs(block.x - x) <= 1 && Math.abs(block.y - y) <= 1 && !(x == block.x && y == block.y)) {
-					// 记录怪物的x,y，ID
-					guards.push([block.x, block.y, id]);
-				}
+					// 检查【支援】技能
+					if (enemy && core.hasSpecial(enemy.special, 26) &&
+						// 检查支援条件，坐标存在，距离为1，且不能是自己
+						// 其他类型的支援怪，比如十字之类的话.... 看着做是一样的
+						x != null && y != null && Math.abs(block.x - x) <= 1 && Math.abs(block.y - y) <= 1 && !(x == block.x && y == block.y)) {
+						// 记录怪物的x,y，ID
+						guards.push([block.x, block.y, id]);
+					}
 
-				// TODO：如果有其他类型光环怪物在这里仿照添加检查
-			}
-		});
+					// TODO：如果有其他类型光环怪物在这里仿照添加检查
+				}
+			});
 
-		core.status.checkBlock.cache[index] = { "hp_buff": hp_buff, "atk_buff": atk_buff, "def_buff": def_buff, "guards": guards };
-	} else {
-		// 直接使用缓存数据
-		hp_buff = cache.hp_buff;
-		atk_buff = cache.atk_buff;
-		def_buff = cache.def_buff;
-		guards = cache.guards;
+			core.status.checkBlock.cache[index] = { "hp_buff": hp_buff, "atk_buff": atk_buff, "def_buff": def_buff, "guards": guards };
+		} else {
+			// 直接使用缓存数据
+			hp_buff = cache.hp_buff;
+			atk_buff = cache.atk_buff;
+			def_buff = cache.def_buff;
+			guards = cache.guards;
+		}
+
+		// 增加比例；如果要增加数值可以直接在这里修改
+		mon_hp *= (1 + hp_buff / 100);
+		mon_atk *= (1 + atk_buff / 100);
+		mon_def *= (1 + def_buff / 100);
 	}
-
-	// 增加比例；如果要增加数值可以直接在这里修改
-	mon_hp *= (1 + hp_buff / 100);
-	mon_atk *= (1 + atk_buff / 100);
-	mon_def *= (1 + def_buff / 100);
-	*/
 
 	// TODO：可以在这里新增其他的怪物数据变化
 	// 比如仿攻（怪物攻击不低于勇士攻击）：
@@ -770,7 +820,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		origin_hero_hp = hero_hp,
 		origin_hero_atk = hero_atk,
 		origin_hero_def = hero_def;
-	var hero_hpmax = core.status.hero.hpmax;
+	var hero_hpmax = core.getRealStatusOrDefault(core.status.hero, 'hpmax');
 	var hero_level = core.status.hero.lv;
 	// 勇士额外攻防
 	hero_atk += core.getFlag('greenAtk', 0);
@@ -853,9 +903,16 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 		init_damage += vampire_damage;
 	}
+	// 死亡
+	if (core.hasSpecial(mon_special, 126)) {
+		init_damage += enemy.v_126 / 100 * (hero_hpmax - hero_hp);
+	}
 
 	// 每回合怪物对勇士造成的战斗伤害
 	var per_damage = mon_atk - hero_def;
+	if (core.hasSpecial(mon_special, 122)) {
+		per_damage += hero_hpmax * enemy.v_122 / 100;
+	}
 
 	// 魔攻：战斗伤害就是怪物攻击力
 	if (core.hasSpecial(mon_special, 2)) per_damage = mon_atk;
@@ -1003,8 +1060,16 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 	// 怪物怒意狂击修正
 	if (core.hasSpecial(mon_special, 115) && turn > 1) {
-		var temp = turn - 1;
-		damage += temp * (temp + 1) / 2 * enemy.v_115;
+		if (mon_atk - hero_def > 0) {
+			var temp = turn - 1;
+			damage += temp * (temp + 1) / 2 * enemy.v_115;
+		} else {
+			var dmg = mon_atk - hero_def;
+			for (var zzz = 0; zzz < turn - 1; zzz++) {
+				dmg += enemy.v_115;
+				damage += Math.max(dmg, 0);
+			}
+		}
 	}
 
 	// 怪物斩杀修正
@@ -1038,7 +1103,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	damage *= dmg_ratio;
 
 	// 再扣去魔防
-	damage -= hero_mdef;
+	damage -= hero_mdef * core.getFlag('mdef_ratio', 1);
 
 	// -- 检查是否允许负伤
 	// -- if (!core.flags.enableNegativeDamage)
@@ -1173,7 +1238,8 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	case 80: // P：游戏主页
 		core.actions._clickGameInfo_openComments();
 		break;
-	case 49: // 快捷键1: 切换攻防
+	case 49: // 快捷键1: 使用便携血瓶
+		/*
 		if (core.hasItem('I_ex_atk') || core.hasItem('I_ex_def')) {
 			if (core.canUseItem('I_ex_atk')) {
 				core.status.route.push("key:49"); // 将按键记在录像中
@@ -1184,6 +1250,10 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 			} else {
 				core.drawTip('当前不能使用');
 			}
+		}*/
+		if (core.hasItem('bring_hp') && core.canUseItem('bring_hp')) {
+			core.status.route.push("key:49");
+			core.useItem('bring_hp', true); // 第二个参数true代表该次使用道具是被按键触发的，使用过程不计入录像
 		}
 		break;
 		/*case 50: // 快捷键2: 炸
@@ -1339,6 +1409,12 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	core.updateEnemys();
 
 	// TODO：增加自己的一些读档处理
+	if (core.getFlag('invisible', 0) == 1) {
+		core.setOpacity('hero', 0.5);
+	} else {
+		core.setOpacity('hero', 1);
+	}
+
 
 	// 切换到对应的楼层
 	core.changeFloor(data.floorId, null, data.hero.loc, 0, function () {
@@ -1500,7 +1576,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 		// 领域
 		// 如果要防止领域伤害，可以直接简单的将 flag:no_zone 设为true
-		if (enemy && core.hasSpecial(enemy.special, 15) && !core.hasFlag('no_zone')) {
+		if (enemy && !core.hasFlag('no_zone') && (core.hasSpecial(enemy.special, 15) || core.hasSpecial(enemy.special, 123) || core.hasSpecial(enemy.special, 125))) {
 			// 领域范围，默认为1
 			var range = enemy.range || 1;
 			// 是否是九宫格领域
@@ -1516,7 +1592,12 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 					if (nx < 0 || nx >= width || ny < 0 || ny >= height) continue;
 					// 如果是十字领域，则还需要满足 |dx|+|dy|<=range
 					if (!zoneSquare && Math.abs(dx) + Math.abs(dy) > range) continue;
-					damage[currloc] = (damage[currloc] || 0) + (enemy.value || 0);
+					if (core.hasSpecial(enemy.special, 15))
+						damage[currloc] = (damage[currloc] || 0) + (enemy.value || 0);
+					else if (core.hasSpecial(enemy.special, 123))
+						damage[currloc] = (damage[currloc] || 0) + Math.floor(core.getRealStatusOrDefault(core.status.hero, 'hpmax') * enemy.value / 100 || 0);
+					else if (core.hasSpecial(enemy.special, 125))
+						damage[currloc] = (damage[currloc] || 0) + Math.floor(core.status.hero.hp * enemy.value / 100 || 0);
 					type[currloc] = "领域伤害";
 				}
 			}
@@ -1566,7 +1647,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 		// 捕捉
 		// 如果要防止捕捉效果，可以直接简单的将 flag:no_ambush 设为true
-		if (enemy && core.enemys.hasSpecial(enemy.special, 27)) {
+		if (enemy && core.enemys.hasSpecial(enemy.special, 27) && !core.hasFlag("no_ambush")) {
 			// 给周围格子加上【捕捉】记号
 			for (var dir in core.utils.scan) {
 				var nx = x + core.utils.scan[dir].x,
@@ -1618,10 +1699,9 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 					damage[loc] = damage[loc] || 0;
 					var leftHp = core.status.hero.hp - damage[loc];
 					if (leftHp > 1) {
-						if (type == 1) {  // 夹爆
+						if (type == 1) { // 夹爆
 							damage[loc] = Math.max(damage[loc], core.status.hero.hp - 1);
-						}
-						else {	
+						} else {
 							// 上整/下整
 							var value = Math.floor((leftHp + (core.flags.betweenAttackCeil ? 1 : 0)) / 2);
 							// 是否不超过怪物伤害值

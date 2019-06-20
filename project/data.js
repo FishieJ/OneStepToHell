@@ -77,6 +77,16 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"MT6A",
 			"MT70",
 			"MT71",
+			"MT72",
+			"MT73",
+			"MT74",
+			"MT75",
+			"MT76",
+			"MT77",
+			"MT78",
+			"MT79",
+			"MT7A",
+			"MT80",
 			"MT81",
 			"MT82",
 			"MT83",
@@ -135,9 +145,11 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"attack2",
 			"attack3",
 			"blood",
+			"blood2",
 			"dark",
 			"dark2",
 			"explosion",
+			"explosion_small",
 			"hand",
 			"heal",
 			"ice",
@@ -154,7 +166,11 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"wuyu",
 			"xunjie",
 			"yongchang",
-			"zone"
+			"zone",
+			"mana_regen",
+			"poison",
+			"weak",
+			"purify"
 		],
 		"bgms": [
 			"1-3.mp3",
@@ -196,6 +212,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"boss0_pre.mp3",
 			"005-System05.ogg",
 			"044-Chest01.ogg",
+			"050-Explosion03.ogg",
 			"051-Explosion04.ogg",
 			"057-Wrong01.ogg",
 			"083-Monster05.ogg",
@@ -208,6 +225,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"103-Attack15.ogg",
 			"104-Attack16.ogg",
 			"105-Heal01.ogg",
+			"112-Heal08.ogg",
 			"118-Fire02.ogg",
 			"120-Ice01.ogg",
 			"124-Thunder02.ogg",
@@ -216,9 +234,12 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"143-Support01.ogg",
 			"159-Skill03.ogg",
 			"161-Skill05.ogg",
+			"163-Skill07.ogg",
 			"sound1634.mp3",
 			"Thunder5.ogg",
-			"WomanScream.ogg"
+			"WomanScream.ogg",
+			"Poison.ogg",
+			"Darkness4.ogg"
 		],
 		"nameMap": {
 			"背景图.jpg": "bg.jpg",
@@ -241,8 +262,12 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			]
 		],
 		"equipName": [
-			"武器",
-			"盾牌"
+			"饰品",
+			"饰品",
+			"饰品",
+			"饰品",
+			"饰品",
+			"饰品"
 		],
 		"startBgm": "1-3.mp3",
 		"statusLeftBackground": "url(project/images/ground.png) repeat",
@@ -1574,7 +1599,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					{
 						"type": "setValue",
 						"name": "status:manamax",
-						"value": "status:manamax+100"
+						"value": "status:manamax+150"
 					},
 					{
 						"type": "setValue",
@@ -1591,7 +1616,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"name": "status:mdef",
 						"value": "status:mdef+6000"
 					},
-					"升级！生命上限+500000，魔法上限+100，攻击+5000，防御+5000，护盾+6000",
+					"升级！生命上限+500000，魔法上限+150，攻击+5000，防御+5000，护盾+6000",
 					{
 						"type": "setValue",
 						"name": "flag:lightRadius",
@@ -1611,7 +1636,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					{
 						"type": "setValue",
 						"name": "flag:skill1_val",
-						"value": "4"
+						"value": "3.5"
 					},
 					{
 						"type": "setValue",
@@ -1631,6 +1656,28 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					"【强击】和【防御】效果和魔法消耗提升。",
 					{
 						"type": "setValue",
+						"name": "item:shield0",
+						"value": "1"
+					},
+					{
+						"type": "setValue",
+						"name": "flag:mdef_ratio",
+						"value": "2"
+					},
+					"领悟被动【高级护盾】。现在1点护盾可以抵挡2点伤害。",
+					{
+						"type": "setValue",
+						"name": "item:I341",
+						"value": "1"
+					},
+					{
+						"type": "setValue",
+						"name": "flag:mana_regen",
+						"value": "3"
+					},
+					"现在每场战斗后回复3点魔法。",
+					{
+						"type": "setValue",
 						"name": "item:skill4",
 						"value": "1"
 					},
@@ -1642,9 +1689,20 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					{
 						"type": "setValue",
 						"name": "flag:skill4_cost",
-						"value": "75"
+						"value": "50"
 					},
 					"领悟【红海技能】！主动技能【撕裂】：每回合开始时造成相当于对方5%当前生命的伤害。",
+					{
+						"type": "setValue",
+						"name": "item:talent",
+						"value": "1"
+					},
+					{
+						"type": "setValue",
+						"name": "flag:talentPoint",
+						"value": "5"
+					},
+					"开启天赋树！可以在道具栏中打开天赋列表。",
 					{
 						"type": "setValue",
 						"name": "status:hp",
@@ -1688,15 +1746,15 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					},
 					"\t[熙枫,heroine]成功了……",
 					"\t[hero]哇，小姐姐太厉害了吧？",
-					"\t[熙枫,heroine]别高兴太早，我刚才借用了你刚刚突破大境界的气势。以后要解毒的话得给我灌输一些魔力。",
+					"\t[熙枫,heroine]别高兴太早，我刚才借用了你突破大境界的力量。以后要解毒的话得给我灌输一些魔力。",
 					"\t[hero]哈哈，小意思，我突破到红海境界感觉自己魔法充裕了不少……",
 					"\t[熙枫,heroine]一次200点魔法。",
 					"\t[hero]什么？这么多？？",
 					"\t[熙枫,heroine]不过好消息是我可以把驱除出来的毒素利用起来，合成那种绿色的晶体给你卖钱。",
-					"\t[hero]唉，我真是又笨又穷。",
+					"\t[hero]唉，我真是又笨又穷。不过好歹是把解毒药的钱省了……",
 					"\t[hero]到了红海境界应该有能力去各处闯荡了吧？",
 					"\t[熙枫,heroine]自保应该不成问题，不过还是尽量小心，毕竟到处都是掌握了红海技能的怪物，太勉强自己会死的。",
-					"\t[hero]放心吧，我死不了！出发！"
+					"\t[hero]放心吧，我死不了！我先把刚刚驱除出来的毒素精华拿去卖钱，买点好东西，然后就出发！"
 				]
 			},
 			{
@@ -1722,12 +1780,12 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					{
 						"type": "setValue",
 						"name": "status:manamax",
-						"value": "status:manamax+100"
+						"value": "status:manamax+150"
 					},
 					{
 						"type": "setValue",
 						"name": "status:mana",
-						"value": "status:mana+100"
+						"value": "status:mana+150"
 					},
 					{
 						"type": "setValue",
@@ -1744,7 +1802,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"name": "status:mdef",
 						"value": "status:mdef+7200"
 					},
-					"升级！生命、生命上限+700000，魔法、魔法上限+100，攻击+6000，防御+6000，护盾+7200",
+					"升级！生命、生命上限+700000，魔法、魔法上限+150，攻击+6000，防御+6000，护盾+7200",
 					{
 						"type": "setValue",
 						"name": "flag:lightRadius",
@@ -1780,12 +1838,12 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					{
 						"type": "setValue",
 						"name": "status:manamax",
-						"value": "status:manamax+100"
+						"value": "status:manamax+150"
 					},
 					{
 						"type": "setValue",
 						"name": "status:mana",
-						"value": "status:mana+100"
+						"value": "status:mana+150"
 					},
 					{
 						"type": "setValue",
@@ -1802,7 +1860,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"name": "status:mdef",
 						"value": "status:mdef+8400"
 					},
-					"升级！生命、生命上限+900000，魔法、魔法上限+100，攻击+7000，防御+7000，护盾+8400",
+					"升级！生命、生命上限+900000，魔法、魔法上限+150，攻击+7000，防御+7000，护盾+8400",
 					{
 						"type": "setValue",
 						"name": "flag:lightRadius",
@@ -1838,12 +1896,12 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					{
 						"type": "setValue",
 						"name": "status:manamax",
-						"value": "status:manamax+100"
+						"value": "status:manamax+200"
 					},
 					{
 						"type": "setValue",
 						"name": "status:mana",
-						"value": "status:mana+100"
+						"value": "status:mana+200"
 					},
 					{
 						"type": "setValue",
@@ -1860,7 +1918,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"name": "status:mdef",
 						"value": "status:mdef+9600"
 					},
-					"升级！生命、生命上限+1200000，魔法、魔法上限+100，攻击+8000，防御+8000，护盾+9600",
+					"升级！生命、生命上限+1200000，魔法、魔法上限+200，攻击+8000，防御+8000，护盾+9600",
 					{
 						"type": "setValue",
 						"name": "flag:lightRadius",
@@ -1975,7 +2033,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 		"bombFourDirections": false,
 		"snowFourDirections": false,
 		"bigKeyIsBox": false,
-		"steelDoorWithoutKey": false,
+		"steelDoorWithoutKey": true,
 		"equipment": false,
 		"equipboxButton": false,
 		"iconInEquipbox": false,

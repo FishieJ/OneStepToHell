@@ -304,7 +304,17 @@ var icons_4665ee12_3a1f_44a4_bea3_0fccba634dc1 =
 		"E451": 135,
 		"E452": 136,
 		"E453": 137,
-		"E461": 138
+		"E461": 138,
+		"E467": 139,
+		"E468": 140,
+		"E469": 141,
+		"E470": 142,
+		"E471": 143,
+		"E472": 144,
+		"E473": 145,
+		"E474": 146,
+		"E475": 147,
+		"E477": 148
 	},
 	"enemy48": {
 		"angel": 0,
@@ -406,7 +416,11 @@ var icons_4665ee12_3a1f_44a4_bea3_0fccba634dc1 =
 		"coin": 82,
 		"expelPoison": 85,
 		"bring_hp": 26,
-		"bring_mana": 27
+		"bring_mana": 27,
+		"I476": 86,
+		"jumpShoe1": 87,
+		"invisibleWine": 88,
+		"talent": 89
 	},
 	"autotile": {
 		"autotile": 0,
