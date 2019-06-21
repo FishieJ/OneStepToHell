@@ -22,6 +22,11 @@ main.floors.MT66=
         {
             "type": "pauseBgm"
         },
+        "第三章 红海篇",
+        {
+            "type": "sleep",
+            "time": 500
+        },
         {
             "type": "setValue",
             "name": "item:skill3",

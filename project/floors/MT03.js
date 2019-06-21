@@ -12,7 +12,15 @@ main.floors.MT03=
     "item_ratio": 1,
     "defaultGround": "grass",
     "bgm": "11-13.mp3",
-    "firstArrive": [],
+    "firstArrive": [
+        {
+            "type": "if",
+            "condition": "flag:hard<3",
+            "true": [
+                "系统提示：本作具有升级系统，当你遇到难以解决的怪物时请注意清怪升级。"
+            ]
+        }
+    ],
     "eachArrive": [],
     "parallelDo": "",
     "events": {

@@ -1047,7 +1047,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				]
 			},
 			{
-				"need": "3500",
+				"need": "4000",
 				"title": "蓝海三阶",
 				"clear": true,
 				"action": [
@@ -1121,7 +1121,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				]
 			},
 			{
-				"need": "4500",
+				"need": "5000",
 				"title": "蓝海四阶",
 				"clear": true,
 				"action": [
@@ -1201,7 +1201,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				]
 			},
 			{
-				"need": "5000",
+				"need": "7500",
 				"title": "蓝海五阶",
 				"clear": true,
 				"action": [

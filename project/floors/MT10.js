@@ -131,6 +131,7 @@ main.floors.MT10=
                         "condition": "core.status.hero.experience >= 10",
                         "true": [
                             "怪物已清完！",
+                            "系统提示：继续前进将无法再返回此区域，请及时清理地上的资源。",
                             {
                                 "type": "hide",
                                 "time": 0

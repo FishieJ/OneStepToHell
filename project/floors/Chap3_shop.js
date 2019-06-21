@@ -838,29 +838,9 @@ main.floors.Chap3_shop=
             "\t[老头,man]测试人员的任务：1.尽量平衡各道具的性价比（也就是，收益除以价格）;2.开发骚操作，如有必要可以修改地图来有目的地创造骚操作的空间；3.可以考虑增加更多种类的道具。",
             "\t[老头,man]祝你好运！",
             {
-                "type": "setValue",
-                "name": "item:bring_hp",
-                "value": "1000"
-            },
-            {
-                "type": "setValue",
-                "name": "item:bring_mana",
-                "value": "1000"
-            },
-            {
-                "type": "setValue",
-                "name": "item:jumpShoe1",
-                "value": "1000"
-            },
-            {
-                "type": "setValue",
-                "name": "item:jumpShoes",
-                "value": "1000"
-            },
-            {
-                "type": "setValue",
-                "name": "item:invisibleWine",
-                "value": "1000"
+                "type": "addValue",
+                "name": "item:coin",
+                "value": "99999"
             },
             {
                 "type": "hide",
