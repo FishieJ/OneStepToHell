@@ -124,6 +124,7 @@ main.floors.MT82=
             "down"
         ],
         "10,0": [
+            "left",
             "down"
         ],
         "12,0": [

@@ -421,13 +421,13 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"I458": {
 			"cls": "tools",
-			"name": "绿色晶体",
+			"name": "毒雾结晶",
 			"text": "毒雾沼泽的特产。"
 		},
 		"I459": {
 			"cls": "tools",
 			"name": "毒素精华",
-			"text": "1000个毒素精华可以合成为1个绿色晶体。"
+			"text": "1000个毒素精华可以合成为1个毒雾结晶。"
 		},
 		"I462": {
 			"cls": "tools",
@@ -470,11 +470,6 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 			"hideInReplay": false,
 			"text": "抑制生命活力的怪石。生命上限降低20%。只能在当前生命值不会超出减少后的生命上限时装备。"
 		},
-		"jumpShoe1": {
-			"cls": "tools",
-			"name": "小跳跃靴",
-			"text": "能跳跃到前方一格的空地上"
-		},
 		"invisibleWine": {
 			"cls": "tools",
 			"name": "隐身药水",
@@ -484,6 +479,20 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 			"cls": "constants",
 			"name": "学习天赋",
 			"text": "打开天赋学习列表。目前有${flag:talentPoint}个天赋点。"
+		},
+		"execute": {
+			"cls": "constants",
+			"name": "[被动]斩杀",
+			"text": "战斗中，当敌人生命值小于${flag:execute_percentage}%时，每回合造成${flag:execute_atk_percentage}%的额外伤害。"
+		},
+		"I483": {
+			"cls": "items",
+			"name": "神秘卷轴"
+		},
+		"smallJump": {
+			"cls": "constants",
+			"name": "[地图技能]跳跃",
+			"text": "消耗${flag:smallJump_cost}点魔法，跳跃到前方一格的空地上。"
 		}
 	},
 	"itemEffect": {
@@ -611,9 +620,9 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"expelPoison": "// 直接判断是否可以使用即可\nvar curMana = core.status.hero.mana;\nvar cost = core.getFlag('expelPoison_cost', 641);\nif (curMana >= cost) {\n\tvar temp = core.getFlag('poison_stack', 0);\n\tif (temp == 0) {\n\t\tcore.insertAction([{ \"type\": \"insert\", \"loc\": [1, 0], \"floorId\": \"EventMap\" }]);\n\t} else {\n\t\tcore.status.hero.mana -= cost;\n\t\tcore.getItem('I459', temp);\n\t\tcore.setFlag('poison_stack', 0);\n\t\tcore.drawTip(\"你感觉很舒服。\");\n\t\tcore.drawAnimate('light2', core.status.hero.loc.x, core.status.hero.loc.y);\n\t}\n} else {\n\tcore.drawTip(\"魔法不足。\");\n}",
 		"bring_hp": "var heal = 50000;\ncore.drawAnimate('heal', core.status.hero.loc.x, core.status.hero.loc.y);\ncore.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });",
 		"bring_mana": "core.drawAnimate('mana_regen', core.status.hero.loc.x, core.status.hero.loc.y);\ncore.status.hero.mana += 50;",
-		"jumpShoe1": "core.insertAction({ \"type\": \"jumpHero\", \"loc\": [core.nextX(1), core.nextY(1)] });",
 		"invisibleWine": "core.setFlag('invisible', 1);\ncore.setOpacity('hero', 0.5);\ncore.setFlag('no_betweenAttack', true);\ncore.setFlag('no_zone', true);\ncore.setFlag('no_snipe', true);\ncore.setFlag('no_laser', true);\ncore.setFlag('no_ambush', true);",
-		"talent": "core.insertAction([{ \"type\": \"insert\", \"loc\": [0, 1], \"floorId\": \"EventMap\" }]);"
+		"talent": "core.insertAction([{ \"type\": \"insert\", \"loc\": [0, 1], \"floorId\": \"EventMap\" }]);",
+		"smallJump": "core.status.hero.mana -= core.getFlag('smallJump_cost', 30);\ncore.insertAction({ \"type\": \"jumpHero\", \"loc\": [core.nextX(1), core.nextY(1)] });"
 	},
 	"canUseItemEffect": {
 		"book": "true",
@@ -662,10 +671,10 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"expelPoison": "true",
 		"bring_hp": "true",
 		"bring_mana": "(function () {\n\treturn core.status.hero.mana < core.status.hero.manamax;\n})();",
-		"jumpShoe1": "(function () {\n\tvar nx = core.nextX(1),\n\t\tny = core.nextY(1);\n\treturn nx >= 0 && nx < core.bigmap.width && ny >= 0 && ny < core.bigmap.height && core.getBlockId(nx, ny) == null;\n})();",
 		"invisibleWine": "(function () {\n\treturn core.getFlag('invisible', 0) == 0;\n})();",
 		"shield1": "false",
-		"talent": "true"
+		"talent": "true",
+		"smallJump": "(function () {\n\tvar nx = core.nextX(1),\n\t\tny = core.nextY(1);\n\tvar cost = core.getFlag('smallJump_cost', 30);\n\treturn nx >= 0 && nx < core.bigmap.width && ny >= 0 && ny < core.bigmap.height && core.getBlockId(nx, ny) == null && cost <= core.status.hero.mana;\n})();"
 	},
 	"canEquip": {},
 	"equipCondition": {

@@ -195,39 +195,6 @@ main.floors.Chap3_shop=
                                         ]
                                     },
                                     {
-                                        "text": "小跳跃靴（-150金币）",
-                                        "color": [
-                                            255,
-                                            255,
-                                            102,
-                                            1
-                                        ],
-                                        "action": [
-                                            {
-                                                "type": "if",
-                                                "condition": "core.itemCount('coin') >= 150",
-                                                "true": [
-                                                    {
-                                                        "type": "addValue",
-                                                        "name": "item:coin",
-                                                        "value": "-150"
-                                                    },
-                                                    {
-                                                        "type": "addValue",
-                                                        "name": "item:jumpShoe1",
-                                                        "value": "1"
-                                                    }
-                                                ],
-                                                "false": [
-                                                    "\t[hero]钱不够了……",
-                                                    {
-                                                        "type": "revisit"
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    {
                                         "text": "便携式蓝瓶（-200金币）",
                                         "color": [
                                             102,
@@ -510,7 +477,7 @@ main.floors.Chap3_shop=
                                             },
                                             {
                                                 "type": "choices",
-                                                "text": "\t[权圣教商人,womanMagician]抑郁石可以封印你的一部分生命上限。装备后生命上限降低20%。价格\r[yellow]400\r[white]金币。",
+                                                "text": "\t[权圣教商人,womanMagician]抑郁石可以封印你的一部分生命上限。装备后生命上限降低\r[yellow]20%\r[white]。价格\r[yellow]400\r[white]金币。",
                                                 "choices": [
                                                     {
                                                         "text": "买！",
@@ -574,19 +541,19 @@ main.floors.Chap3_shop=
                                                 "false": [
                                                     {
                                                         "type": "choices",
-                                                        "text": "\t[权圣教商人,womanMagician]这个盾牌可以让你面对【净化】时封印自身的一部分护盾，从而使你受到的净化伤害减少。（当前净化倍数为${core.values.purify}，可以用\r[yellow]1000\r[white]金币减少1倍。）",
+                                                        "text": "\t[权圣教商人,womanMagician]这个盾牌可以让你面对【净化】时封印自身的一部分护盾，从而使你受到的净化伤害减少。（当前净化倍数为\r[yellow]${core.values.purify}\r[white]，可以用\r[yellow]${1000*(7-core.values.purify)}\r[white]金币减少1倍。）",
                                                         "choices": [
                                                             {
                                                                 "text": "买！",
                                                                 "action": [
                                                                     {
                                                                         "type": "if",
-                                                                        "condition": "core.itemCount('coin') >= 1000",
+                                                                        "condition": "core.itemCount('coin') >= 1000*(7-core.values.purify)",
                                                                         "true": [
                                                                             {
                                                                                 "type": "addValue",
                                                                                 "name": "item:coin",
-                                                                                "value": "-1000"
+                                                                                "value": "-1000*(7-core.values.purify)"
                                                                             },
                                                                             {
                                                                                 "type": "function",

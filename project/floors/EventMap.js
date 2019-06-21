@@ -102,7 +102,7 @@ main.floors.EventMap=
                         "action": [
                             {
                                 "type": "choices",
-                                "text": "\t[强击（${flag:skill1_lv}/3）,skill1]每级提升0.5倍额外伤害。当前强击造成的额外伤害是${flag:skill1_val-1}倍攻击力。",
+                                "text": "\t[强击（${flag:skill1_lv}/3）,skill1]每级提升\r[yellow]0.5\r[white]倍额外伤害。当前强击造成的额外伤害是\r[yellow]${flag:skill1_val-1}\r[white]倍攻击力。",
                                 "choices": [
                                     {
                                         "text": "确认",
@@ -193,7 +193,7 @@ main.floors.EventMap=
                         "action": [
                             {
                                 "type": "choices",
-                                "text": "\t[防御（${flag:skill2_lv}/3）,skill2]每级提升50%防御转化率。当前效果为将${flag:skill2_atk_ratio*100}%的攻击力以${flag:skill2_def_ratio*100}%的比例转化为防御。",
+                                "text": "\t[防御（${flag:skill2_lv}/3）,skill2]每级提升\r[yellow]50%\r[white]防御转化率。当前效果为将${flag:skill2_atk_ratio*100}%的攻击力以\r[yellow]${flag:skill2_def_ratio*100}%\r[white]的比例转化为防御。",
                                 "choices": [
                                     {
                                         "text": "确认",
@@ -284,7 +284,7 @@ main.floors.EventMap=
                         "action": [
                             {
                                 "type": "choices",
-                                "text": "\t[撕裂（${flag:skill4_lv}/4）,skill4]每级提升1.5%的流失量。当前效果为令敌人每回合开始时流失${flag:skill4_val}%的当前生命值。",
+                                "text": "\t[撕裂（${flag:skill4_lv}/4）,skill4]每级提升\r[yellow]1.5%\r[white]的流失量。当前效果为令敌人每回合开始时流失\r[yellow]${flag:skill4_val}%\r[white]的当前生命值。",
                                 "choices": [
                                     {
                                         "text": "确认",
@@ -375,7 +375,7 @@ main.floors.EventMap=
                         "action": [
                             {
                                 "type": "choices",
-                                "text": "\t[吸血（${flag:talent1_lv}/5）,I_vampire]每级提升\r[yellow]3%\r[white]的吸血。当前吸血比例为\r[yellow]${flag:vampire_ratio * 100}%\r[white]。",
+                                "text": "\t[吸血（${flag:talent1_lv}/5）,I_vampire]每级提升\r[yellow]2%\r[white]的吸血。当前吸血比例为\r[yellow]${flag:vampire_ratio * 100}%\r[white]。",
                                 "choices": [
                                     {
                                         "text": "确认",
@@ -408,7 +408,7 @@ main.floors.EventMap=
                                                     {
                                                         "type": "addValue",
                                                         "name": "flag:vampire_ratio",
-                                                        "value": "0.03"
+                                                        "value": "0.02"
                                                     },
                                                     {
                                                         "type": "addValue",
@@ -557,7 +557,7 @@ main.floors.EventMap=
                         "action": [
                             {
                                 "type": "choices",
-                                "text": "\t[高级护盾（${flag:talent3_lv}/5）,shield0]每级使得每点护盾可以多抵挡\r[yellow]0.5\r[white]点伤害。当前每点护盾可以抵挡\r[yellow]${flag:mdef_ratio}\r[white]点伤害。",
+                                "text": "\t[高级护盾（${flag:talent3_lv}/5）,shield0]每级使得每点护盾可以多抵挡\r[yellow]0.3\r[white]点伤害。当前每点护盾可以抵挡\r[yellow]${flag:mdef_ratio}\r[white]点伤害。",
                                 "choices": [
                                     {
                                         "text": "确认",
@@ -588,9 +588,23 @@ main.floors.EventMap=
                                                         "value": "-1"
                                                     },
                                                     {
+                                                        "type": "comment",
+                                                        "text": "为了避免js小数点后不准的问题，先×10再÷10"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:mdef_ratio",
+                                                        "value": "flag:mdef_ratio*10"
+                                                    },
+                                                    {
                                                         "type": "addValue",
                                                         "name": "flag:mdef_ratio",
-                                                        "value": "0.5"
+                                                        "value": "3"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:mdef_ratio",
+                                                        "value": "flag:mdef_ratio/10"
                                                     },
                                                     {
                                                         "type": "addValue",

@@ -1662,9 +1662,9 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					{
 						"type": "setValue",
 						"name": "flag:mdef_ratio",
-						"value": "2"
+						"value": "1.5"
 					},
-					"领悟被动【高级护盾】。现在1点护盾可以抵挡2点伤害。",
+					"领悟被动【高级护盾】。现在1点护盾可以抵挡1.5点伤害。",
 					{
 						"type": "setValue",
 						"name": "item:I341",
@@ -1700,9 +1700,9 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					{
 						"type": "setValue",
 						"name": "flag:talentPoint",
-						"value": "5"
+						"value": "3"
 					},
-					"开启天赋树！可以在道具栏中打开天赋列表。",
+					"开启天赋树！可以在道具栏中打开天赋列表。获得3点天赋。",
 					{
 						"type": "setValue",
 						"name": "status:hp",
@@ -1750,7 +1750,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					"\t[hero]哈哈，小意思，我突破到红海境界感觉自己魔法充裕了不少……",
 					"\t[熙枫,heroine]一次200点魔法。",
 					"\t[hero]什么？这么多？？",
-					"\t[熙枫,heroine]不过好消息是我可以把驱除出来的毒素利用起来，合成那种绿色的晶体给你卖钱。",
+					"\t[熙枫,heroine]不过好消息是这些驱除出来的毒素可以利用起来，拿来合成那种绿色的晶体。",
 					"\t[hero]唉，我真是又笨又穷。不过好歹是把解毒药的钱省了……",
 					"\t[hero]到了红海境界应该有能力去各处闯荡了吧？",
 					"\t[熙枫,heroine]自保应该不成问题，不过还是尽量小心，毕竟到处都是掌握了红海技能的怪物，太勉强自己会死的。",
@@ -1758,7 +1758,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				]
 			},
 			{
-				"need": "100000",
+				"need": "150000",
 				"title": "红海中阶",
 				"clear": true,
 				"action": [
@@ -1810,13 +1810,19 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					},
 					"灯光范围变大了。",
 					{
+						"type": "addValue",
+						"name": "status:talentPoint",
+						"value": "3"
+					},
+					"获得3点天赋。",
+					{
 						"type": "function",
 						"function": "function(){\ncore.drawHero();\n}"
 					}
 				]
 			},
 			{
-				"need": "100000",
+				"need": "220000",
 				"title": "红海高阶",
 				"clear": true,
 				"action": [
@@ -1868,13 +1874,19 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					},
 					"灯光范围变大了。",
 					{
+						"type": "addValue",
+						"name": "status:talentPoint",
+						"value": "3"
+					},
+					"获得3点天赋。",
+					{
 						"type": "function",
 						"function": "function(){\ncore.drawHero();\n}"
 					}
 				]
 			},
 			{
-				"need": "100000",
+				"need": "300000",
 				"title": "红海巅峰",
 				"clear": true,
 				"action": [
@@ -1925,6 +1937,12 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"value": "flag:lightRadius+25"
 					},
 					"灯光范围变大了。",
+					{
+						"type": "addValue",
+						"name": "status:talentPoint",
+						"value": "4"
+					},
+					"获得4点天赋。",
 					{
 						"type": "function",
 						"function": "function(){\ncore.drawHero();\n}"

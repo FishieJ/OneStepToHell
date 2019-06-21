@@ -328,7 +328,9 @@ var icons_4665ee12_3a1f_44a4_bea3_0fccba634dc1 =
 		"E422": 8,
 		"yeq_battle_final": 9,
 		"E445": 10,
-		"E448": 11
+		"E448": 11,
+		"E481": 12,
+		"E484": 13
 	},
 	"items": {
 		"yellowKey": 0,
@@ -418,9 +420,11 @@ var icons_4665ee12_3a1f_44a4_bea3_0fccba634dc1 =
 		"bring_hp": 26,
 		"bring_mana": 27,
 		"I476": 86,
-		"jumpShoe1": 87,
 		"invisibleWine": 88,
-		"talent": 89
+		"talent": 89,
+		"execute": 90,
+		"I483": 91,
+		"smallJump": 87
 	},
 	"autotile": {
 		"autotile": 0,

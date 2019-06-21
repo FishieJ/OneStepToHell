@@ -150,8 +150,8 @@ var enemys_fcae963b_31c9_42b4_b48c_bb48d09f3f80 =
 	"E451": {"name":"地狱马","hp":750000,"atk":86000,"def":58000,"money":0,"experience":2650,"point":0,"special":13,"level":"红海高阶","weak":4},
 	"E452": {"name":"牛头怪","hp":930000,"atk":72000,"def":51000,"money":0,"experience":2250,"point":0,"special":[8,16],"level":"红海高阶","value":0.2},
 	"E453": {"name":"邪影","hp":1500000,"atk":98000,"def":62000,"money":0,"experience":1000000,"point":0,"special":120,"level":"红海巅峰"},
-	"E461": {"name":"便携小莱姆","hp":50,"atk":4,"def":0,"money":0,"experience":0,"point":0,"special":0,"level":"萌新一段"},
-	"E467": {"name":"魔眼莱姆","hp":300000,"atk":39000,"def":19000,"money":0,"experience":1090,"point":0,"special":0,"level":"红海低阶"},
+	"E461": {"name":"便携小莱姆","hp":50,"atk":4,"def":0,"money":0,"experience":0,"point":0,"special":0,"level":"萌新一段","v_121":null},
+	"E467": {"name":"魔眼莱姆","hp":300000,"atk":39000,"def":19000,"money":0,"experience":1090,"point":0,"special":13,"level":"红海低阶","weak":2},
 	"E468": {"name":"四手魔影","hp":750000,"atk":0,"def":0,"money":0,"experience":2700,"point":0,"special":[4,10,100,102],"level":"红海高阶","value":21,"n":10,"defValue":30,"x":15},
 	"E469": {"name":"负剑莱姆","hp":260000,"atk":45000,"def":15000,"money":0,"experience":1270,"point":0,"special":0,"level":"红海低阶"},
 	"E470": {"name":"小石怪","hp":200000,"atk":37000,"def":28000,"money":0,"experience":1300,"point":0,"special":[8,120],"level":"红海低阶","value":0.05},
@@ -160,5 +160,7 @@ var enemys_fcae963b_31c9_42b4_b48c_bb48d09f3f80 =
 	"E473": {"name":"鲜红魔剑士","hp":600000,"atk":60000,"def":50000,"money":0,"experience":2660,"point":0,"special":100,"level":"红海高阶","x":50},
 	"E474": {"name":"鲜红魔卫","hp":850000,"atk":96000,"def":56000,"money":0,"experience":2750,"point":0,"special":16,"level":"红海高阶"},
 	"E475": {"name":"暗红烂泥","hp":1000000,"atk":38000,"def":18000,"money":0,"experience":1090,"point":0,"special":0,"level":"红海低阶"},
-	"E477": {"name":"鲜红百夫长","hp":600000,"atk":85000,"def":40000,"money":0,"experience":2320,"point":0,"special":0,"level":"红海高阶"}
+	"E477": {"name":"鲜红百夫长","hp":600000,"atk":85000,"def":40000,"money":0,"experience":2320,"point":0,"special":0,"level":"红海高阶"},
+	"E481": {"name":"毛毛熊","hp":750000,"atk":45000,"def":30000,"money":0,"experience":50000,"point":0,"special":[27,115],"level":"红海中阶","v_115":2000},
+	"E484": {"name":"黑蜂","hp":200000,"atk":60000,"def":10000,"money":0,"experience":50000,"point":0,"special":[12,99],"level":"红海中阶","poison":5000,"defValue":90}
 }

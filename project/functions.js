@@ -977,6 +977,21 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 	// 勇士的攻击回合数；为怪物生命除以每回合伤害向上取整
 	var turn = Math.ceil(mon_hp / hero_per_damage);
+	// "战斗中，当敌人生命值小于${flag:execute_percentage}%时，每回合造成${flag:execute_atk_percentage}%的额外伤害。"
+	// 拥有被动“斩杀”，重新计算回合数
+	if (core.hasItem('execute')) {
+		var perc = core.getFlag('execute_percentage', 20);
+		var inc_atk_ratio = core.getFlag('execute_atk_percentage', 30);
+		var cur_hp = mon_hp;
+		turn = 0;
+		while (cur_hp > 0) {
+			cur_hp -= hero_per_damage;
+			if (cur_hp / mon_hp < perc / 100) {
+				cur_hp -= inc_atk_ratio / 100 * hero_per_damage;
+			}
+			turn++;
+		}
+	}
 	// 开启了技能4：撕裂，且怪物不魔免，则重新计算回合数
 	if (core.getFlag('skill', 0) == 4 && !core.hasSpecial(mon_special, 120)) {
 		var cur_hp = mon_hp;
@@ -985,6 +1000,14 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		while (cur_hp > 0) {
 			cur_hp *= (1 - gouge_val);
 			cur_hp -= hero_per_damage;
+			// 斩杀额外伤害
+			if (core.hasItem('execute')) {
+				var perc = core.getFlag('execute_percentage', 20);
+				var inc_atk_ratio = core.getFlag('execute_atk_percentage', 30);
+				if (cur_hp / mon_hp < perc / 100) {
+					cur_hp -= inc_atk_ratio / 100 * hero_per_damage;
+				}
+			}
 			turn++;
 		}
 	}
