@@ -123,6 +123,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 		"images": [
 			"area3.jpg",
 			"area12.jpg",
+			"dawn.jpg",
 			"winskin.png",
 			"black.jpg",
 			"hero2.png"
@@ -1811,7 +1812,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					"灯光范围变大了。",
 					{
 						"type": "addValue",
-						"name": "status:talentPoint",
+						"name": "flag:talentPoint",
 						"value": "3"
 					},
 					"获得3点天赋。",
@@ -1875,7 +1876,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					"灯光范围变大了。",
 					{
 						"type": "addValue",
-						"name": "status:talentPoint",
+						"name": "flag:talentPoint",
 						"value": "3"
 					},
 					"获得3点天赋。",
@@ -1939,7 +1940,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					"灯光范围变大了。",
 					{
 						"type": "addValue",
-						"name": "status:talentPoint",
+						"name": "flag:talentPoint",
 						"value": "4"
 					},
 					"获得4点天赋。",

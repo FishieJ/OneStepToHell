@@ -33,7 +33,16 @@ main.floors.MT82=
             "loc": "hero"
         },
         "\t[hero]这……怎么有怪物在悬崖下面……",
-        "\t[熙枫,heroine]看来我们需要商人那里卖的\r[yellow]跳跃靴\r[white]了。"
+        {
+            "type": "if",
+            "condition": "core.hasItem('smallJump')",
+            "true": [
+                "\t[熙枫,heroine]可以用\r[yellow]跳跃\r[white]技能来穿过悬崖。"
+            ],
+            "false": [
+                "\t[熙枫,heroine]看来我们需要商人那里卖的\r[yellow]跳跃靴\r[white]了。"
+            ]
+        }
     ],
     "eachArrive": [
         {

@@ -492,7 +492,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"smallJump": {
 			"cls": "constants",
 			"name": "[地图技能]跳跃",
-			"text": "消耗${flag:smallJump_cost}点魔法，跳跃到前方一格的空地上。"
+			"text": "消耗${flag:smallJump_cost}点魔法，跳跃到前方一格的空地上。快捷键是W。"
 		}
 	},
 	"itemEffect": {

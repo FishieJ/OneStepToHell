@@ -1343,6 +1343,13 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 			core.useItem('skill4', true);
 		}
 		break;
+	case 87: // W: 跳跃
+		if (core.hasItem('smallJump')) {
+			core.status.route.push("key:87");
+			core.useItem('smallJump', true);
+
+		}
+		break;
 		// 在这里可以任意新增或编辑已有的快捷键内容
 		/*
 		case 0: // 使用该按键的keyCode
