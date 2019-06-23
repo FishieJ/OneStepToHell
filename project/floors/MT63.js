@@ -90,7 +90,7 @@ main.floors.MT63=
             "floorId": "MT62",
             "loc": [
                 12,
-                6
+                3
             ],
             "time": 0
         }

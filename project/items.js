@@ -452,7 +452,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"bring_hp": {
 			"cls": "tools",
 			"name": "便携式血瓶",
-			"text": "便于携带的血瓶，使用可以回复50000生命。快捷键是1。"
+			"text": "便于携带的血瓶，使用可以回复${flag:bring_hp_val}生命。境界越高效果越好。快捷键是1。"
 		},
 		"bring_mana": {
 			"cls": "tools",
@@ -493,6 +493,11 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 			"cls": "constants",
 			"name": "[地图技能]跳跃",
 			"text": "消耗${flag:smallJump_cost}点魔法，跳跃到前方一格的空地上。快捷键是W。"
+		},
+		"c_charge": {
+			"cls": "constants",
+			"name": "势如破竹",
+			"text": "每次战斗后额外叠加${flag:charge2_battle_extra}层冲锋。最多通过此效果获得${flag:charge2_battle_extra_max}层冲锋。\n当前通过此效果叠加了${flag:charge2_battle_extra_cur}层冲锋。"
 		}
 	},
 	"itemEffect": {
@@ -618,7 +623,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"I462": "core.insertAction({ \"type\": \"setBlock\", \"number\": \"E461\", \"loc\": [core.nextX(1), core.nextY(1)] });",
 		"tome": "if (core.status.hero.lv < 19)\n\tcore.status.hero.experience += 40000;\nelse\n\tcore.drawTip('没有效果。');",
 		"expelPoison": "// 直接判断是否可以使用即可\nvar curMana = core.status.hero.mana;\nvar cost = core.getFlag('expelPoison_cost', 641);\nif (curMana >= cost) {\n\tvar temp = core.getFlag('poison_stack', 0);\n\tif (temp == 0) {\n\t\tcore.insertAction([{ \"type\": \"insert\", \"loc\": [1, 0], \"floorId\": \"EventMap\" }]);\n\t} else {\n\t\tcore.status.hero.mana -= cost;\n\t\tcore.getItem('I459', temp);\n\t\tcore.setFlag('poison_stack', 0);\n\t\tcore.drawTip(\"你感觉很舒服。\");\n\t\tcore.drawAnimate('light2', core.status.hero.loc.x, core.status.hero.loc.y);\n\t}\n} else {\n\tcore.drawTip(\"魔法不足。\");\n}",
-		"bring_hp": "var heal = 50000;\ncore.drawAnimate('heal', core.status.hero.loc.x, core.status.hero.loc.y);\ncore.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });",
+		"bring_hp": "var heal = core.getFlag('bring_hp_val', 50000);\ncore.drawAnimate('heal', core.status.hero.loc.x, core.status.hero.loc.y);\ncore.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });",
 		"bring_mana": "core.drawAnimate('mana_regen', core.status.hero.loc.x, core.status.hero.loc.y);\ncore.status.hero.mana += 50;",
 		"invisibleWine": "core.setFlag('invisible', 1);\ncore.setOpacity('hero', 0.5);\ncore.setFlag('no_betweenAttack', true);\ncore.setFlag('no_zone', true);\ncore.setFlag('no_snipe', true);\ncore.setFlag('no_laser', true);\ncore.setFlag('no_ambush', true);",
 		"talent": "core.insertAction([{ \"type\": \"insert\", \"loc\": [0, 1], \"floorId\": \"EventMap\" }]);",

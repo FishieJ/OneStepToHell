@@ -101,84 +101,12 @@ main.floors.EventMap=
                         ],
                         "action": [
                             {
-                                "type": "choices",
-                                "text": "\t[强击（${flag:skill1_lv}/3）,skill1]每级提升\r[yellow]0.5\r[white]倍额外伤害。当前强击造成的额外伤害是\r[yellow]${flag:skill1_val-1}\r[white]倍攻击力。",
-                                "choices": [
-                                    {
-                                        "text": "确认",
-                                        "action": [
-                                            {
-                                                "type": "if",
-                                                "condition": "flag:skill1_lv >= 3",
-                                                "true": [
-                                                    "已达到满级。",
-                                                    {
-                                                        "type": "insert",
-                                                        "loc": [
-                                                            0,
-                                                            1
-                                                        ],
-                                                        "floorId": "EventMap"
-                                                    }
-                                                ],
-                                                "false": []
-                                            },
-                                            {
-                                                "type": "if",
-                                                "condition": "flag:talentPoint > 0",
-                                                "true": [
-                                                    {
-                                                        "type": "addValue",
-                                                        "name": "flag:talentPoint",
-                                                        "value": "-1"
-                                                    },
-                                                    {
-                                                        "type": "addValue",
-                                                        "name": "flag:skill1_val",
-                                                        "value": "0.5"
-                                                    },
-                                                    {
-                                                        "type": "addValue",
-                                                        "name": "flag:skill1_lv",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "insert",
-                                                        "loc": [
-                                                            0,
-                                                            1
-                                                        ],
-                                                        "floorId": "EventMap"
-                                                    }
-                                                ],
-                                                "false": [
-                                                    "天赋点不足。",
-                                                    {
-                                                        "type": "insert",
-                                                        "loc": [
-                                                            0,
-                                                            1
-                                                        ],
-                                                        "floorId": "EventMap"
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "text": "取消",
-                                        "action": [
-                                            {
-                                                "type": "insert",
-                                                "loc": [
-                                                    0,
-                                                    1
-                                                ],
-                                                "floorId": "EventMap"
-                                            }
-                                        ]
-                                    }
-                                ]
+                                "type": "insert",
+                                "loc": [
+                                    0,
+                                    2
+                                ],
+                                "floorId": "EventMap"
                             }
                         ]
                     },
@@ -192,84 +120,12 @@ main.floors.EventMap=
                         ],
                         "action": [
                             {
-                                "type": "choices",
-                                "text": "\t[防御（${flag:skill2_lv}/3）,skill2]每级提升\r[yellow]50%\r[white]防御转化率。当前效果为将${flag:skill2_atk_ratio*100}%的攻击力以\r[yellow]${flag:skill2_def_ratio*100}%\r[white]的比例转化为防御。",
-                                "choices": [
-                                    {
-                                        "text": "确认",
-                                        "action": [
-                                            {
-                                                "type": "if",
-                                                "condition": "flag:skill2_lv >= 3",
-                                                "true": [
-                                                    "已达到满级。",
-                                                    {
-                                                        "type": "insert",
-                                                        "loc": [
-                                                            0,
-                                                            1
-                                                        ],
-                                                        "floorId": "EventMap"
-                                                    }
-                                                ],
-                                                "false": []
-                                            },
-                                            {
-                                                "type": "if",
-                                                "condition": "flag:talentPoint > 0",
-                                                "true": [
-                                                    {
-                                                        "type": "addValue",
-                                                        "name": "flag:talentPoint",
-                                                        "value": "-1"
-                                                    },
-                                                    {
-                                                        "type": "addValue",
-                                                        "name": "flag:skill2_def_ratio",
-                                                        "value": "0.5"
-                                                    },
-                                                    {
-                                                        "type": "addValue",
-                                                        "name": "flag:skill2_lv",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "insert",
-                                                        "loc": [
-                                                            0,
-                                                            1
-                                                        ],
-                                                        "floorId": "EventMap"
-                                                    }
-                                                ],
-                                                "false": [
-                                                    "天赋点不足。",
-                                                    {
-                                                        "type": "insert",
-                                                        "loc": [
-                                                            0,
-                                                            1
-                                                        ],
-                                                        "floorId": "EventMap"
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "text": "取消",
-                                        "action": [
-                                            {
-                                                "type": "insert",
-                                                "loc": [
-                                                    0,
-                                                    1
-                                                ],
-                                                "floorId": "EventMap"
-                                            }
-                                        ]
-                                    }
-                                ]
+                                "type": "insert",
+                                "loc": [
+                                    1,
+                                    2
+                                ],
+                                "floorId": "EventMap"
                             }
                         ]
                     },
@@ -283,84 +139,12 @@ main.floors.EventMap=
                         ],
                         "action": [
                             {
-                                "type": "choices",
-                                "text": "\t[撕裂（${flag:skill4_lv}/4）,skill4]每级提升\r[yellow]1.5%\r[white]的流失量。当前效果为令敌人每回合开始时流失\r[yellow]${flag:skill4_val}%\r[white]的当前生命值。",
-                                "choices": [
-                                    {
-                                        "text": "确认",
-                                        "action": [
-                                            {
-                                                "type": "if",
-                                                "condition": "flag:skill4_lv >= 4",
-                                                "true": [
-                                                    "已达到满级。",
-                                                    {
-                                                        "type": "insert",
-                                                        "loc": [
-                                                            0,
-                                                            1
-                                                        ],
-                                                        "floorId": "EventMap"
-                                                    }
-                                                ],
-                                                "false": []
-                                            },
-                                            {
-                                                "type": "if",
-                                                "condition": "flag:talentPoint > 0",
-                                                "true": [
-                                                    {
-                                                        "type": "addValue",
-                                                        "name": "flag:talentPoint",
-                                                        "value": "-1"
-                                                    },
-                                                    {
-                                                        "type": "addValue",
-                                                        "name": "flag:skill4_val",
-                                                        "value": "1.5"
-                                                    },
-                                                    {
-                                                        "type": "addValue",
-                                                        "name": "flag:skill4_lv",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "insert",
-                                                        "loc": [
-                                                            0,
-                                                            1
-                                                        ],
-                                                        "floorId": "EventMap"
-                                                    }
-                                                ],
-                                                "false": [
-                                                    "天赋点不足。",
-                                                    {
-                                                        "type": "insert",
-                                                        "loc": [
-                                                            0,
-                                                            1
-                                                        ],
-                                                        "floorId": "EventMap"
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "text": "取消",
-                                        "action": [
-                                            {
-                                                "type": "insert",
-                                                "loc": [
-                                                    0,
-                                                    1
-                                                ],
-                                                "floorId": "EventMap"
-                                            }
-                                        ]
-                                    }
-                                ]
+                                "type": "insert",
+                                "loc": [
+                                    2,
+                                    2
+                                ],
+                                "floorId": "EventMap"
                             }
                         ]
                     },
@@ -374,84 +158,12 @@ main.floors.EventMap=
                         ],
                         "action": [
                             {
-                                "type": "choices",
-                                "text": "\t[吸血（${flag:talent1_lv}/5）,I_vampire]每级提升\r[yellow]2%\r[white]的吸血。当前吸血比例为\r[yellow]${flag:vampire_ratio * 100}%\r[white]。",
-                                "choices": [
-                                    {
-                                        "text": "确认",
-                                        "action": [
-                                            {
-                                                "type": "if",
-                                                "condition": "flag:talent1_lv >= 5",
-                                                "true": [
-                                                    "已达到满级。",
-                                                    {
-                                                        "type": "insert",
-                                                        "loc": [
-                                                            0,
-                                                            1
-                                                        ],
-                                                        "floorId": "EventMap"
-                                                    }
-                                                ],
-                                                "false": []
-                                            },
-                                            {
-                                                "type": "if",
-                                                "condition": "flag:talentPoint > 0",
-                                                "true": [
-                                                    {
-                                                        "type": "addValue",
-                                                        "name": "flag:talentPoint",
-                                                        "value": "-1"
-                                                    },
-                                                    {
-                                                        "type": "addValue",
-                                                        "name": "flag:vampire_ratio",
-                                                        "value": "0.02"
-                                                    },
-                                                    {
-                                                        "type": "addValue",
-                                                        "name": "flag:talent1_lv",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "insert",
-                                                        "loc": [
-                                                            0,
-                                                            1
-                                                        ],
-                                                        "floorId": "EventMap"
-                                                    }
-                                                ],
-                                                "false": [
-                                                    "天赋点不足。",
-                                                    {
-                                                        "type": "insert",
-                                                        "loc": [
-                                                            0,
-                                                            1
-                                                        ],
-                                                        "floorId": "EventMap"
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "text": "取消",
-                                        "action": [
-                                            {
-                                                "type": "insert",
-                                                "loc": [
-                                                    0,
-                                                    1
-                                                ],
-                                                "floorId": "EventMap"
-                                            }
-                                        ]
-                                    }
-                                ]
+                                "type": "insert",
+                                "loc": [
+                                    3,
+                                    2
+                                ],
+                                "floorId": "EventMap"
                             }
                         ]
                     },
@@ -465,84 +177,12 @@ main.floors.EventMap=
                         ],
                         "action": [
                             {
-                                "type": "choices",
-                                "text": "\t[回复魔法（${flag:talent2_lv}/5）,I341]每级使得战斗后多回复\r[yellow]2\r[white]点魔法。当前每场战斗后回复\r[yellow]${flag:mana_regen}\r[white]点魔法。",
-                                "choices": [
-                                    {
-                                        "text": "确认",
-                                        "action": [
-                                            {
-                                                "type": "if",
-                                                "condition": "flag:talent2_lv >= 5",
-                                                "true": [
-                                                    "已达到满级。",
-                                                    {
-                                                        "type": "insert",
-                                                        "loc": [
-                                                            0,
-                                                            1
-                                                        ],
-                                                        "floorId": "EventMap"
-                                                    }
-                                                ],
-                                                "false": []
-                                            },
-                                            {
-                                                "type": "if",
-                                                "condition": "flag:talentPoint > 0",
-                                                "true": [
-                                                    {
-                                                        "type": "addValue",
-                                                        "name": "flag:talentPoint",
-                                                        "value": "-1"
-                                                    },
-                                                    {
-                                                        "type": "addValue",
-                                                        "name": "flag:mana_regen",
-                                                        "value": "2"
-                                                    },
-                                                    {
-                                                        "type": "addValue",
-                                                        "name": "flag:talent2_lv",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "insert",
-                                                        "loc": [
-                                                            0,
-                                                            1
-                                                        ],
-                                                        "floorId": "EventMap"
-                                                    }
-                                                ],
-                                                "false": [
-                                                    "天赋点不足。",
-                                                    {
-                                                        "type": "insert",
-                                                        "loc": [
-                                                            0,
-                                                            1
-                                                        ],
-                                                        "floorId": "EventMap"
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "text": "取消",
-                                        "action": [
-                                            {
-                                                "type": "insert",
-                                                "loc": [
-                                                    0,
-                                                    1
-                                                ],
-                                                "floorId": "EventMap"
-                                            }
-                                        ]
-                                    }
-                                ]
+                                "type": "insert",
+                                "loc": [
+                                    4,
+                                    2
+                                ],
+                                "floorId": "EventMap"
                             }
                         ]
                     },
@@ -556,98 +196,12 @@ main.floors.EventMap=
                         ],
                         "action": [
                             {
-                                "type": "choices",
-                                "text": "\t[高级护盾（${flag:talent3_lv}/5）,shield0]每级使得每点护盾可以多抵挡\r[yellow]0.3\r[white]点伤害。当前每点护盾可以抵挡\r[yellow]${flag:mdef_ratio}\r[white]点伤害。",
-                                "choices": [
-                                    {
-                                        "text": "确认",
-                                        "action": [
-                                            {
-                                                "type": "if",
-                                                "condition": "flag:talent3_lv >= 5",
-                                                "true": [
-                                                    "已达到满级。",
-                                                    {
-                                                        "type": "insert",
-                                                        "loc": [
-                                                            0,
-                                                            1
-                                                        ],
-                                                        "floorId": "EventMap"
-                                                    }
-                                                ],
-                                                "false": []
-                                            },
-                                            {
-                                                "type": "if",
-                                                "condition": "flag:talentPoint > 0",
-                                                "true": [
-                                                    {
-                                                        "type": "addValue",
-                                                        "name": "flag:talentPoint",
-                                                        "value": "-1"
-                                                    },
-                                                    {
-                                                        "type": "comment",
-                                                        "text": "为了避免js小数点后不准的问题，先×10再÷10"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:mdef_ratio",
-                                                        "value": "flag:mdef_ratio*10"
-                                                    },
-                                                    {
-                                                        "type": "addValue",
-                                                        "name": "flag:mdef_ratio",
-                                                        "value": "3"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:mdef_ratio",
-                                                        "value": "flag:mdef_ratio/10"
-                                                    },
-                                                    {
-                                                        "type": "addValue",
-                                                        "name": "flag:talent3_lv",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "insert",
-                                                        "loc": [
-                                                            0,
-                                                            1
-                                                        ],
-                                                        "floorId": "EventMap"
-                                                    }
-                                                ],
-                                                "false": [
-                                                    "天赋点不足。",
-                                                    {
-                                                        "type": "insert",
-                                                        "loc": [
-                                                            0,
-                                                            1
-                                                        ],
-                                                        "floorId": "EventMap"
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "text": "取消",
-                                        "action": [
-                                            {
-                                                "type": "insert",
-                                                "loc": [
-                                                    0,
-                                                    1
-                                                ],
-                                                "floorId": "EventMap"
-                                            }
-                                        ]
-                                    }
-                                ]
+                                "type": "insert",
+                                "loc": [
+                                    5,
+                                    2
+                                ],
+                                "floorId": "EventMap"
                             }
                         ]
                     },
@@ -660,9 +214,512 @@ main.floors.EventMap=
                         ]
                     }
                 ]
-            },
+            }
+        ],
+        "0,2": [
             {
-                "type": "revisit"
+                "type": "choices",
+                "text": "\t[强击（${flag:skill1_lv}/3）,skill1]每级提升\r[yellow]0.5\r[white]倍额外伤害。当前强击造成的额外伤害是\r[yellow]${flag:skill1_val-1}\r[white]倍攻击力。",
+                "choices": [
+                    {
+                        "text": "确认",
+                        "action": [
+                            {
+                                "type": "if",
+                                "condition": "flag:skill1_lv >= 3",
+                                "true": [
+                                    "已达到满级。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "flag:talentPoint > 0",
+                                "true": [
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:talentPoint",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:skill1_val",
+                                        "value": "0.5"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:skill1_lv",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            2
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": [
+                                    "天赋点不足。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "取消",
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    0,
+                                    1
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "1,2": [
+            {
+                "type": "choices",
+                "text": "\t[防御（${flag:skill2_lv}/3）,skill2]每级提升\r[yellow]50%\r[white]防御转化率。当前效果为将${flag:skill2_atk_ratio*100}%的攻击力以\r[yellow]${flag:skill2_def_ratio*100}%\r[white]的比例转化为防御。",
+                "choices": [
+                    {
+                        "text": "确认",
+                        "action": [
+                            {
+                                "type": "if",
+                                "condition": "flag:skill2_lv >= 3",
+                                "true": [
+                                    "已达到满级。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "flag:talentPoint > 0",
+                                "true": [
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:talentPoint",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:skill2_def_ratio",
+                                        "value": "0.5"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:skill2_lv",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            2
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": [
+                                    "天赋点不足。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "取消",
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    0,
+                                    1
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "2,2": [
+            {
+                "type": "choices",
+                "text": "\t[撕裂（${flag:skill4_lv}/4）,skill4]每级提升\r[yellow]1.5%\r[white]的流失量。当前效果为令敌人每回合开始时流失\r[yellow]${flag:skill4_val}%\r[white]的当前生命值。",
+                "choices": [
+                    {
+                        "text": "确认",
+                        "action": [
+                            {
+                                "type": "if",
+                                "condition": "flag:skill4_lv >= 4",
+                                "true": [
+                                    "已达到满级。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "flag:talentPoint > 0",
+                                "true": [
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:talentPoint",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:skill4_val",
+                                        "value": "1.5"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:skill4_lv",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            2,
+                                            2
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": [
+                                    "天赋点不足。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "取消",
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    0,
+                                    1
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "3,2": [
+            {
+                "type": "choices",
+                "text": "\t[吸血（${flag:talent1_lv}/5）,I_vampire]每级提升\r[yellow]2%\r[white]的吸血。当前吸血比例为\r[yellow]${flag:vampire_ratio * 100}%\r[white]。",
+                "choices": [
+                    {
+                        "text": "确认",
+                        "action": [
+                            {
+                                "type": "if",
+                                "condition": "flag:talent1_lv >= 5",
+                                "true": [
+                                    "已达到满级。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "flag:talentPoint > 0",
+                                "true": [
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:talentPoint",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:vampire_ratio",
+                                        "value": "0.02"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:talent1_lv",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            3,
+                                            2
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": [
+                                    "天赋点不足。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "取消",
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    0,
+                                    1
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "4,2": [
+            {
+                "type": "choices",
+                "text": "\t[回复魔法（${flag:talent2_lv}/5）,I341]每级使得战斗后多回复\r[yellow]2\r[white]点魔法。当前每场战斗后回复\r[yellow]${flag:mana_regen}\r[white]点魔法。",
+                "choices": [
+                    {
+                        "text": "确认",
+                        "action": [
+                            {
+                                "type": "if",
+                                "condition": "flag:talent2_lv >= 5",
+                                "true": [
+                                    "已达到满级。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "flag:talentPoint > 0",
+                                "true": [
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:talentPoint",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:mana_regen",
+                                        "value": "2"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:talent2_lv",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            4,
+                                            2
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": [
+                                    "天赋点不足。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "取消",
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    0,
+                                    1
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "5,2": [
+            {
+                "type": "choices",
+                "text": "\t[高级护盾（${flag:talent3_lv}/5）,shield0]每级使得每点护盾可以多抵挡\r[yellow]0.3\r[white]点伤害。当前每点护盾可以抵挡\r[yellow]${flag:mdef_ratio}\r[white]点伤害。",
+                "choices": [
+                    {
+                        "text": "确认",
+                        "action": [
+                            {
+                                "type": "if",
+                                "condition": "flag:talent3_lv >= 5",
+                                "true": [
+                                    "已达到满级。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "flag:talentPoint > 0",
+                                "true": [
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:talentPoint",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "comment",
+                                        "text": "为了避免js小数点后不准的问题，先×10再÷10"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:mdef_ratio",
+                                        "value": "flag:mdef_ratio*10"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:mdef_ratio",
+                                        "value": "3"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:mdef_ratio",
+                                        "value": "flag:mdef_ratio/10"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:talent3_lv",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            5,
+                                            2
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": [
+                                    "天赋点不足。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "取消",
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    0,
+                                    1
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     },

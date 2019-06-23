@@ -340,11 +340,14 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	var damage = core.enemys.getDamage(enemyId, x, y);
 	if (damage == null) damage = core.status.hero.hp + 1;
 
-	if (damage < 0) {
-		core.insertAction({ "type": "insert", "name": "增加HP", "args": [-damage] });
-	} else {
-		// 扣减体力值
-		core.status.hero.hp -= damage;
+	// 扣减体力值
+	core.status.hero.hp -= damage;
+
+	// 统计溢出血量
+	if (core.status.hero.hp > core.getRealStatusOrDefault(core.status.hero, 'hpmax')) {
+		core.insertAction({ "type": "animate", "name": "heal", "loc": "hero", "async": true });
+		core.setFlag('hp_score', core.getFlag('hp_score', 0) + core.status.hero.hp - core.getRealStatusOrDefault(core.status.hero, 'hpmax'));
+		core.status.hero.hp = core.getRealStatusOrDefault(core.status.hero, 'hpmax');
 	}
 
 	// 记录
@@ -473,7 +476,14 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	if (core.hasItem('I_charge')) {
 		core.setFlag('charge_atk', 0);
 	} else if (core.hasItem('I_charge2')) {
-		core.setFlag('charge_atk', core.getFlag('charge_atk') + core.status.hero.atk * core.getFlag('charge_ratio') * core.getFlag('charge2_battle_extra', 0));
+		var charge2_battle_extra = core.getFlag('charge2_battle_extra', 0);
+		if (charge2_battle_extra > 0) {
+			var cur_stack = core.getFlag('charge2_battle_extra_cur', 0);
+			var stack_max = core.getFlag('charge2_battle_extra_max', 0);
+			var inc = Math.min(charge2_battle_extra, stack_max - cur_stack);
+			core.setFlag('charge2_battle_extra_cur', cur_stack + inc);
+			core.setFlag('charge_atk', core.getFlag('charge_atk') + core.status.hero.atk * core.getFlag('charge_ratio', 0.02) * inc);
+		}
 	}
 
 	// 更新吸攻防的flag
@@ -910,6 +920,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 	// 每回合怪物对勇士造成的战斗伤害
 	var per_damage = mon_atk - hero_def;
+	// 盛宴
 	if (core.hasSpecial(mon_special, 122)) {
 		per_damage += hero_hpmax * enemy.v_122 / 100;
 	}
@@ -958,6 +969,11 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	// 闪避
 	if (core.hasSpecial(mon_special, 99))
 		hero_per_damage *= (1 - (enemy.defValue / 100));
+
+	// 坚固
+	if (core.hasSpecial(mon_special, 3))
+		hero_per_damage = 1;
+
 	// 迟钝
 	if (core.hasSpecial(mon_special, 113))
 		mon_hp -= 10 * hero_per_damage;
@@ -1098,18 +1114,23 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	// 怪物斩杀修正
 	if (core.hasSpecial(mon_special, 104) && turn > 1) {
 		var cur_hp = hero_hp;
+		var mon_cur_hp = mon_hp;
 		for (var i = 1; i <= turn - 1; i++) {
 			// 勇士先攻击吸血
 			if (core.hasItem('I_vampire')) {
-				if (core.getFlag('skill', 0) == 1 && i == 1) { // 开启了技能1：强击 且 当前为首回合
-					var extra_damage = core.getFlag('skill1_val', 3) * hero_atk - mon_def;
-					extra_damage -= Math.max(hero_atk - mon_def, 0);
-					cur_hp += 0.2 * extra_damage;
+				if (core.getFlag('skill', 0) == 1 && i == 1 && !core.hasSpecial(mon_special, 120)) { // 开启了技能1：强击 且 当前为首回合 且 怪物不魔免
+					var extra_damage = (core.getFlag('skill1_val', 3) - 1) * hero_atk;
+					cur_hp += core.getFlag('vampire_ratio', 0.2) * extra_damage;
+				} else if (core.getFlag('skill', 0) == 4 && !core.hasSpecial(mon_special, 120)) { // 开启了技能4：撕裂 且 怪物不魔免
+					var extra_damage = mon_cur_hp * core.getFlag('skill4_val', 5) / 100;
+					cur_hp += core.getFlag('vampire_ratio', 0.2) * extra_damage;
+					// 更新怪物当前回合结束后的生命值
+					mon_cur_hp -= extra_damage;
+					mon_cur_hp -= hero_per_damage;
 				}
-				cur_hp += 0.2 * hero_per_damage; // 吸血计算
+				cur_hp += core.getFlag('vampire_ratio', 0.2) * hero_per_damage; // 吸血计算
 			}
 			var hero_hp_rate = cur_hp / hero_hpmax;
-			var extra_damage = 0;
 			if (hero_hp_rate < (enemy.range / 100)) { // 检测到满足斩杀条件
 				if (per_damage > 0)
 					extra_damage = (enemy.n / 100) * mon_atk;
@@ -1117,7 +1138,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 					extra_damage = (1 + (enemy.n / 100)) * mon_atk - hero_def;
 				damage += extra_damage; // 加到总伤害里面
 			}
-			// 更新当前回合结束后的生命值
+			// 更新勇士当前回合结束后的生命值
 			cur_hp -= per_damage + extra_damage;
 		}
 	}
@@ -1781,6 +1802,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		var cur_direction = core.status.hero.loc.direction;
 		if (last_direction != cur_direction) {
 			core.setFlag('charge_atk', 0);
+			core.setFlag('charge2_battle_extra_cur', 0);
 		}
 		var charge_atk = core.getFlag('charge_atk', 0);
 		core.setFlag('charge_atk', charge_atk + charge_ratio * core.status.hero.atk);

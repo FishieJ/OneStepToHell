@@ -151,6 +151,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"dark2",
 			"explosion",
 			"explosion_small",
+			"han",
 			"hand",
 			"heal",
 			"ice",
@@ -240,7 +241,8 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"Thunder5.ogg",
 			"WomanScream.ogg",
 			"Poison.ogg",
-			"Darkness4.ogg"
+			"Darkness4.ogg",
+			"Raise1.ogg"
 		],
 		"nameMap": {
 			"背景图.jpg": "bg.jpg",
@@ -263,8 +265,6 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			]
 		],
 		"equipName": [
-			"饰品",
-			"饰品",
 			"饰品",
 			"饰品",
 			"饰品",
@@ -1716,6 +1716,11 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					},
 					"最后，大境界突破，状态回满！",
 					{
+						"type": "setValue",
+						"name": "flag:bring_hp_val",
+						"value": "50000"
+					},
+					{
 						"type": "sleep",
 						"time": 1000
 					},
@@ -1817,13 +1822,18 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					},
 					"获得3点天赋。",
 					{
+						"type": "addValue",
+						"name": "flag:bring_hp_val",
+						"value": "30000"
+					},
+					{
 						"type": "function",
 						"function": "function(){\ncore.drawHero();\n}"
 					}
 				]
 			},
 			{
-				"need": "220000",
+				"need": "500000",
 				"title": "红海高阶",
 				"clear": true,
 				"action": [
@@ -1887,7 +1897,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				]
 			},
 			{
-				"need": "300000",
+				"need": "5000000",
 				"title": "红海巅峰",
 				"clear": true,
 				"action": [

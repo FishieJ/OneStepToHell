@@ -163,7 +163,9 @@ var icons_4665ee12_3a1f_44a4_bea3_0fccba634dc1 =
 		"N425": 20,
 		"N426": 21,
 		"N464": 22,
-		"N465": 23
+		"N465": 23,
+		"N485": 24,
+		"N486": 25
 	},
 	"enemys": {
 		"greenSlime": 0,
@@ -424,7 +426,8 @@ var icons_4665ee12_3a1f_44a4_bea3_0fccba634dc1 =
 		"talent": 89,
 		"execute": 90,
 		"I483": 91,
-		"smallJump": 87
+		"smallJump": 87,
+		"c_charge": 92
 	},
 	"autotile": {
 		"autotile": 0,
