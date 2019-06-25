@@ -206,6 +206,79 @@ main.floors.Area4_b=
                     "id": "evilBat"
                 },
                 {
+                    "type": "if",
+                    "condition": "flag:hard < 3",
+                    "true": [
+                        {
+                            "type": "setBlock",
+                            "number": "yellowKey",
+                            "loc": [
+                                6,
+                                7
+                            ]
+                        },
+                        {
+                            "type": "jump",
+                            "from": [
+                                6,
+                                7
+                            ],
+                            "to": [
+                                6,
+                                6
+                            ],
+                            "time": 500,
+                            "keep": true,
+                            "async": true
+                        },
+                        {
+                            "type": "setBlock",
+                            "number": "yellowKey",
+                            "loc": [
+                                6,
+                                7
+                            ]
+                        },
+                        {
+                            "type": "jump",
+                            "from": [
+                                6,
+                                7
+                            ],
+                            "to": [
+                                5,
+                                7
+                            ],
+                            "time": 500,
+                            "keep": true,
+                            "async": true
+                        },
+                        {
+                            "type": "setBlock",
+                            "number": "yellowKey",
+                            "loc": [
+                                6,
+                                7
+                            ]
+                        },
+                        {
+                            "type": "jump",
+                            "from": [
+                                6,
+                                7
+                            ],
+                            "to": [
+                                7,
+                                7
+                            ],
+                            "time": 500,
+                            "keep": true,
+                            "async": true
+                        }
+                    ],
+                    "false": []
+                },
+                {
                     "type": "hide",
                     "loc": [
                         [
@@ -241,6 +314,10 @@ main.floors.Area4_b=
                     "value": 90,
                     "time": 2000,
                     "async": true
+                },
+                {
+                    "type": "sleep",
+                    "time": 1000
                 },
                 "\t[hero]……",
                 "\t[hero]可恶，怎么突然就出手了……",
