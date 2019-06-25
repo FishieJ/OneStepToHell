@@ -662,8 +662,11 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[99, "闪避", function (enemy) { return "灵巧的身法能够躲闪攻击。受到的普通攻击伤害降低" + (enemy.defValue || 0) + "%。"; }, "#c3c3c3"],
 		[100, "穿刺", function (enemy) { return "攻击能够穿透一部分防御。无视对手" + (enemy.x || 0) + "%的防御力。"; }],
 		[101, "夹爆", "【血海奥义】某个著名红海技能的上位版本\n经过两只相同的怪物中间，勇士生命值变成1。", "#ff0000"],
-		[102, "上位威压", function (enemy) { var diff = (enemy.value || 0) - core.status.hero.lv; if (diff >= 0) return "上位者的气质震慑对手。每比对手高出一级，便在先前基础上进一步削弱对手" + Math.floor(enemy.n) + "%的攻防，当前对方比你高" + diff + "级";
-			else return "被上位者的气质震慑。每比对手低出一级，便在先前基础上进一步削弱自身" + Math.floor(enemy.n) + "%的攻防，当前对方比你低" + -diff + "级"; }, "#b113ff"],
+		[102, "上位威压", function (enemy) {
+			var diff = (enemy.value || 0) - core.status.hero.lv;
+			if (diff >= 0) return "上位者的气质震慑对手。双方等级较高者每比对手高出一级，便在先前基础上进一步削弱对手" + Math.floor(enemy.n) + "%的攻防，当前对方比你高" + diff + "级";
+			else return "被上位者的气质震慑。双方等级较高者每比对手高出一级，便在先前基础上进一步削弱对手" + Math.floor(enemy.n) + "%的攻防，当前你比对方高" + diff + "级";
+		}, "#b113ff"],
 		[103, "强击", function (enemy) { return "一次强力的攻击。怪物首回合获得" + (enemy.atkValue || 0) + "倍攻击力。"; }, "#b30000"],
 		[104, "斩杀", function (enemy) { return "一旦对手势弱，攻击就会更加致命。战斗中，若勇士生命值低于" + (enemy.range || 0) + "%，则怪物攻击力提升" + (enemy.n || 0) + "%。"; }],
 		[105, "重甲", function (enemy) { return "无视对手" + (enemy.defValue || 0) + "%的攻击力。"; }, "#b9822d"],

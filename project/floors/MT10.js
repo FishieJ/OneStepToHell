@@ -133,6 +133,14 @@ main.floors.MT10=
                             "怪物已清完！",
                             "系统提示：继续前进将无法再返回此区域，请及时清理地上的资源。",
                             {
+                                "type": "if",
+                                "condition": "core.platform.isPC",
+                                "true": [
+                                    "单击地图可以瞬移，用来快速赶路。"
+                                ],
+                                "false": []
+                            },
+                            {
                                 "type": "hide",
                                 "time": 0
                             }

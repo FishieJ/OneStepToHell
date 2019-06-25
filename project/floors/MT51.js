@@ -18,6 +18,10 @@ main.floors.MT51=
             "value": "flag:darkRatio+0.01"
         },
         {
+            "type": "function",
+            "function": "function(){\ncore.setFlag('bgLight', [\n\t[16, 104, 150],\n\t[16, 200, 150],\n]);\ncore.drawMap();\n}"
+        },
+        {
             "type": "sleep",
             "time": 500
         },

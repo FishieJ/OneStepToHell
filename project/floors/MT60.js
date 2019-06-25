@@ -430,6 +430,83 @@ main.floors.MT60=
                     ],
                     "time": 0
                 },
+                {
+                    "type": "if",
+                    "condition": "flag:hard < 3",
+                    "true": [
+                        {
+                            "type": "setBlock",
+                            "number": "yellowKey",
+                            "loc": [
+                                6,
+                                1
+                            ]
+                        },
+                        {
+                            "type": "jump",
+                            "from": [
+                                6,
+                                1
+                            ],
+                            "to": [
+                                3,
+                                2
+                            ],
+                            "time": 500,
+                            "keep": true,
+                            "async": true
+                        },
+                        {
+                            "type": "setBlock",
+                            "number": "yellowKey",
+                            "loc": [
+                                6,
+                                1
+                            ]
+                        },
+                        {
+                            "type": "jump",
+                            "from": [
+                                6,
+                                1
+                            ],
+                            "to": [
+                                9,
+                                2
+                            ],
+                            "time": 500,
+                            "keep": true,
+                            "async": true
+                        },
+                        {
+                            "type": "setBlock",
+                            "number": "yellowKey",
+                            "loc": [
+                                6,
+                                1
+                            ]
+                        },
+                        {
+                            "type": "jump",
+                            "from": [
+                                6,
+                                1
+                            ],
+                            "to": [
+                                6,
+                                7
+                            ],
+                            "time": 500,
+                            "keep": true,
+                            "async": true
+                        }
+                    ],
+                    "false": []
+                },
+                {
+                    "type": "sleep",
+                    "time": 1000
+                },
                 "\t[hero]呼……终于走了……这个叫叶芊的女孩好强……",
                 "\t[熙枫,heroine]叶芊……在整个艾奇王国都是有名的顶尖天才，你能在她手下走上几个回合已经很不容易了。",
                 "\t[hero]而且我能感觉到她还隐藏了很多实力……为什么，同为蓝海九阶，差距竟然如此之大……",

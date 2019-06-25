@@ -18,11 +18,28 @@ main.floors.Chap3_m=
             "function": "function(){\ncore.setFlag('darkRatio', 0);\ncore.setFlag('bgLight', []);\ncore.drawMap();\n}"
         },
         {
+            "type": "if",
+            "condition": "core.status.hero.lv < 19",
+            "true": [
+                {
+                    "type": "setValue",
+                    "name": "flag:skill1_cost",
+                    "value": "12"
+                },
+                {
+                    "type": "setValue",
+                    "name": "flag:skill2_cost",
+                    "value": "8"
+                }
+            ],
+            "false": []
+        },
+        {
             "type": "sleep",
             "time": 1000
         },
-        "\t[hero]呼……终于逃出这里了……",
-        "\t[熙枫,heroine]这红海战场的野外遍地都是红海生物，先去商域休整一下吧。"
+        "\t[hero]呼……终于逃出这鬼地方了……",
+        "\t[熙枫,heroine]这红海战场的野外遍地都是红海生物，以你现在的实力很难应付，先去商域休整一下吧。"
     ],
     "eachArrive": [
         {
