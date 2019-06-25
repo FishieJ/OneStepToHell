@@ -271,7 +271,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"jumpShoes": {
 			"cls": "tools",
 			"name": "跳跃靴",
-			"text": "能跳跃到前方两格的空地上"
+			"text": "能跳跃到前方两格的空地上。使用后减少2层冲锋效果。"
 		},
 		"skill1": {
 			"cls": "constants",
@@ -492,7 +492,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"smallJump": {
 			"cls": "constants",
 			"name": "[地图技能]跳跃",
-			"text": "消耗${flag:smallJump_cost}点魔法，跳跃到前方一格的空地上。快捷键是W。"
+			"text": "消耗${flag:smallJump_cost}点魔法，跳跃到前方一格的空地上，并减少1层冲锋效果。快捷键是W。"
 		},
 		"c_charge": {
 			"cls": "constants",
@@ -600,7 +600,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"poisonWine": "core.setFlag('poison_stack', 0);\n\ncore.drawAnimate('light2', core.status.hero.loc.x, core.status.hero.loc.y);",
 		"weakWine": "core.setFlag('weak_stack', 0);\n\ncore.drawAnimate('light2', core.status.hero.loc.x, core.status.hero.loc.y);\nvar buffVal = Math.pow(0.95, core.getFlag('weak_stack', 0));\ncore.setBuff('atk', buffVal);\ncore.setBuff('def', buffVal);",
 		"superWine": "core.removeFlag('poison');\nif (core.hasFlag('weak')) {\n\tcore.removeFlag('weak');\n\tif (core.values.weakValue>=1) { // >=1：直接扣数值\n\t\tcore.status.hero.atk += core.values.weakValue;\n\t\tcore.status.hero.def += core.values.weakValue;\n\t}\n\telse { // <1：扣比例\n\t\tcore.setFlag(\"equip_atk_buff\", core.getFlag(\"equip_atk_buff\", 1) + core.values.weakValue);\n\t\tcore.setFlag(\"equip_def_buff\", core.getFlag(\"equip_def_buff\", 1) + core.values.weakValue);\n\t}\n}\ncore.removeFlag('curse');",
-		"jumpShoes": "core.insertAction({\"type\":\"jumpHero\",\"loc\":[core.nextX(2),core.nextY(2)]});",
+		"jumpShoes": "core.insertAction({ \"type\": \"jumpHero\", \"loc\": [core.nextX(2), core.nextY(2)] });\n\nvar charge_ratio = core.getFlag('charge_ratio', 0.02);\nvar charge_atk = core.getFlag('charge_atk', 0);\ncore.setFlag('charge_atk', Math.max(charge_atk - 2 * charge_ratio * core.status.hero.atk, 0));",
 		"redPotion": "core.status.hero.hp += core.values.redPotion",
 		"bluePotion": "core.status.hero.hp += core.values.bluePotion",
 		"greenPotion": "core.status.hero.hp += core.values.greenPotion",
@@ -627,7 +627,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"bring_mana": "core.drawAnimate('mana_regen', core.status.hero.loc.x, core.status.hero.loc.y);\ncore.status.hero.mana += 50;",
 		"invisibleWine": "core.setFlag('invisible', 1);\ncore.setOpacity('hero', 0.5);\ncore.setFlag('no_betweenAttack', true);\ncore.setFlag('no_zone', true);\ncore.setFlag('no_snipe', true);\ncore.setFlag('no_laser', true);\ncore.setFlag('no_ambush', true);",
 		"talent": "core.insertAction([{ \"type\": \"insert\", \"loc\": [0, 1], \"floorId\": \"EventMap\" }]);",
-		"smallJump": "core.status.hero.mana -= core.getFlag('smallJump_cost', 30);\ncore.insertAction({ \"type\": \"jumpHero\", \"loc\": [core.nextX(1), core.nextY(1)] });"
+		"smallJump": "core.status.hero.mana -= core.getFlag('smallJump_cost', 30);\ncore.insertAction({ \"type\": \"jumpHero\", \"loc\": [core.nextX(1), core.nextY(1)] });\n\nvar charge_ratio = core.getFlag('charge_ratio', 0.02);\nvar charge_atk = core.getFlag('charge_atk', 0);\ncore.setFlag('charge_atk', Math.max(charge_atk - charge_ratio * core.status.hero.atk, 0));"
 	},
 	"canUseItemEffect": {
 		"book": "true",

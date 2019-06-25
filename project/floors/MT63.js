@@ -64,7 +64,7 @@ main.floors.MT63=
                     {
                         "type": "setValue",
                         "name": "flag:smallJump_cost",
-                        "value": "30"
+                        "value": "50"
                     },
                     "\t[hero]多谢！",
                     "\t[镇仙域少女,npc2]客气。我先走啦，拜拜~",

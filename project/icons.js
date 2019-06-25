@@ -316,7 +316,11 @@ var icons_4665ee12_3a1f_44a4_bea3_0fccba634dc1 =
 		"E473": 145,
 		"E474": 146,
 		"E475": 147,
-		"E477": 148
+		"E477": 148,
+		"E488": 149,
+		"E489": 150,
+		"E490": 151,
+		"E491": 152
 	},
 	"enemy48": {
 		"angel": 0,
@@ -446,6 +450,7 @@ var icons_4665ee12_3a1f_44a4_bea3_0fccba634dc1 =
 		"autotile13": 0,
 		"autotile14": 0,
 		"autotile15": 0,
-		"autotile16": 0
+		"autotile16": 0,
+		"autotile17": 0
 	}
 }

@@ -633,7 +633,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	// 可以直接写字符串，也可以写个function将怪物传进去
 	return [
 		[1, "先攻", "先发制人。怪物首先攻击。"],
-		[2, "魔攻", "魔法攻击无法被护甲抵挡。怪物无视勇士的防御。", "#b6b0ff"],
+		[2, "魔攻", "穿透护甲直接造成伤害。怪物无视勇士的防御。", "#b6b0ff"],
 		[3, "坚固", "很硬。勇士每回合最多只能对怪物造成1点伤害。", "#b9822d"],
 		[4, "2连击", "怪物每回合攻击2次"],
 		[5, "3连击", "怪物每回合攻击3次"],
@@ -662,7 +662,8 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[99, "闪避", function (enemy) { return "灵巧的身法能够躲闪攻击。受到的普通攻击伤害降低" + (enemy.defValue || 0) + "%。"; }, "#c3c3c3"],
 		[100, "穿刺", function (enemy) { return "攻击能够穿透一部分防御。无视对手" + (enemy.x || 0) + "%的防御力。"; }],
 		[101, "夹爆", "【血海奥义】某个著名红海技能的上位版本\n经过两只相同的怪物中间，勇士生命值变成1。", "#ff0000"],
-		[102, "上位威压", function (enemy) { return "上位者的气质震慑对手。每比对手高出一级，便在先前基础上进一步削弱对手" + Math.floor(enemy.n) + "%的攻防，当前对方比你高" + Math.max(0, (enemy.value || 0) - core.status.hero.lv) + "级"; }, "#b113ff"],
+		[102, "上位威压", function (enemy) { var diff = (enemy.value || 0) - core.status.hero.lv; if (diff >= 0) return "上位者的气质震慑对手。每比对手高出一级，便在先前基础上进一步削弱对手" + Math.floor(enemy.n) + "%的攻防，当前对方比你高" + diff + "级";
+			else return "被上位者的气质震慑。每比对手低出一级，便在先前基础上进一步削弱自身" + Math.floor(enemy.n) + "%的攻防，当前对方比你低" + -diff + "级"; }, "#b113ff"],
 		[103, "强击", function (enemy) { return "一次强力的攻击。怪物首回合获得" + (enemy.atkValue || 0) + "倍攻击力。"; }, "#b30000"],
 		[104, "斩杀", function (enemy) { return "一旦对手势弱，攻击就会更加致命。战斗中，若勇士生命值低于" + (enemy.range || 0) + "%，则怪物攻击力提升" + (enemy.n || 0) + "%。"; }],
 		[105, "重甲", function (enemy) { return "无视对手" + (enemy.defValue || 0) + "%的攻击力。"; }, "#b9822d"],
@@ -682,12 +683,12 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[119, "驱邪", "使对方体内的不洁之力尽数爆发。战斗开始时驱除勇士的所有光明/黑暗状态，每驱除1层便额外造成64100点伤害。", "#fff900"],
 		[120, "魔免", "免疫技能伤害。", "#c3c3c3"],
 		[121, "重伤", function (enemy) { return "抑制对手的生命。使对手受到的回复效果降低" + (enemy.v_121 || 0) + "%。"; }, "#b30000"],
-		[122, "盛宴", function (enemy) { return "【红海技能】吞噬血肉\n每次攻击造成对方最大生命值" + (enemy.v_122 || 0) + "%的额外伤害。"; }, "#ff00d2"],
+		[122, "盛宴", function (enemy) { return "【红海技能】撕扯对手的血肉\n每次攻击造成对方最大生命值" + (enemy.v_122 || 0) + "%的额外伤害。"; }, "#ff00d2"],
 		[123, "竭心", function (enemy) { return "【红海技能】心脏慢慢停止跳动\n经过怪物周围" + (enemy.zoneSquare ? "九宫格" : "十字") + "范围内" + (enemy.range || 1) + "格时自动减最大生命的" + (enemy.value || 0) + "%"; }, "#ff00d2"],
 		[124, "血怨", "【红海技能】死亡的怨念缠绕着对手。似乎是某个血海奥义的劣化版本\n战斗后，勇士的生命值变成一半。", "#ff00d2"],
-		[125, "血域", function (enemy) { return "【红海技能】生命慢慢流逝\n经过怪物周围" + (enemy.zoneSquare ? "九宫格" : "十字") + "范围内" + (enemy.range || 1) + "格时自动减当前生命的" + (enemy.value || 0) + "%"; }, "#ff00d2"],
+		[125, "血域", function (enemy) { return "【红海技能】生命在流逝\n经过怪物周围" + (enemy.zoneSquare ? "九宫格" : "十字") + "范围内" + (enemy.range || 1) + "格时自动减当前生命的" + (enemy.value || 0) + "%"; }, "#ff00d2"],
 		[126, "死亡", function (enemy) { return "【红海技能】引诱对手走向死亡\n战斗开始时，造成对方已损失生命值" + enemy.v_126 + "%的伤害。"; }, "#b30000"],
-		[199, "死亡镰刀", function (enemy) { return "【红海技能】似乎是某个血海奥义的劣化版本\n第5回合结束时，造成相当于对方已损失生命值100%的伤害。"; }, "#ff00d2"],
+		[199, "死亡镰刀", function (enemy) { return "【红海技能】似乎是某个血海奥义的劣化版本。第5回合结束时，造成相当于对方已损失生命值100%的伤害。"; }, "#ff00d2"],
 	];
 },
         "getEnemyInfo": function (enemy, hero, x, y, floorId) {
@@ -728,7 +729,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	// 光环检查
 	// 在这里判定是否需要遍历全图（由于光环需要遍历全图，应尽可能不需要以减少计算量，尤其是大地图）
 	var query = function () {
-		var floorIds = ["MTx"]; // 在这里给出所有需要遍历的楼层（即有光环或支援等）
+		var floorIds = ["MT70", "MT78", "MT79", "MT87", "MT88", "MT89", "MT90"]; // 在这里给出所有需要遍历的楼层（即有光环或支援等）
 		return core.inArray(floorIds, floorId); // 也可以写其他的判定条件
 	};
 
@@ -856,9 +857,14 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 	// 上位威压
 	if (core.hasSpecial(mon_special, 102)) {
-		var levelDif = Math.max(0, (enemy.value || 0) - hero_level);
-		hero_atk *= Math.pow((1 - enemy.n / 100.0), levelDif);
-		hero_def *= Math.pow((1 - enemy.n / 100.0), levelDif);
+		var levelDif = (enemy.value || 0) - hero_level;
+		if (levelDif >= 0) {
+			hero_atk *= Math.pow((1 - enemy.n / 100.0), levelDif);
+			hero_def *= Math.pow((1 - enemy.n / 100.0), levelDif);
+		} else {
+			mon_atk *= Math.pow((1 - enemy.n / 100.0), -levelDif);
+			mon_def *= Math.pow((1 - enemy.n / 100.0), -levelDif);
+		}
 	}
 
 	if (core.getFlag('skill', 0) == 2) { // 开启了技能2：防御
@@ -1113,8 +1119,9 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 	// 怪物斩杀修正
 	if (core.hasSpecial(mon_special, 104) && turn > 1) {
-		var cur_hp = hero_hp;
+		var cur_hp = hero_hp + hero_mdef - init_damage;
 		var mon_cur_hp = mon_hp;
+		var poison = core.getFlag('poison_stack', 0);
 		for (var i = 1; i <= turn - 1; i++) {
 			// 勇士先攻击吸血
 			if (core.hasItem('I_vampire')) {
@@ -1137,10 +1144,38 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 				else
 					extra_damage = (1 + (enemy.n / 100)) * mon_atk - hero_def;
 				damage += extra_damage; // 加到总伤害里面
+			} else {
+				extra_damage = 0;
 			}
 			// 更新勇士当前回合结束后的生命值
-			cur_hp -= per_damage + extra_damage;
+			cur_hp -= per_damage + extra_damage + poison;
 		}
+	}
+	// 死亡镰刀修正
+	if (core.hasSpecial(mon_special, 199) && turn > 5) {
+		var cur_hp = hero_hp + hero_mdef - init_damage;
+		var mon_cur_hp = mon_hp;
+		var poison = core.getFlag('poison_stack', 0);
+		for (var i = 1; i <= 5; i++) {
+			// 勇士先攻击吸血
+			if (core.hasItem('I_vampire')) {
+				if (core.getFlag('skill', 0) == 1 && i == 1 && !core.hasSpecial(mon_special, 120)) { // 开启了技能1：强击 且 当前为首回合 且 怪物不魔免
+					var extra_damage = (core.getFlag('skill1_val', 3) - 1) * hero_atk;
+					cur_hp += core.getFlag('vampire_ratio', 0.2) * extra_damage;
+				} else if (core.getFlag('skill', 0) == 4 && !core.hasSpecial(mon_special, 120)) { // 开启了技能4：撕裂 且 怪物不魔免
+					var extra_damage = mon_cur_hp * core.getFlag('skill4_val', 5) / 100;
+					cur_hp += core.getFlag('vampire_ratio', 0.2) * extra_damage;
+					// 更新怪物当前回合结束后的生命值
+					mon_cur_hp -= extra_damage;
+					mon_cur_hp -= hero_per_damage;
+				}
+				cur_hp += core.getFlag('vampire_ratio', 0.2) * hero_per_damage; // 吸血计算
+			}
+			// 更新勇士当前回合结束后的生命值
+			cur_hp -= per_damage + poison;
+		}
+		// 伤害修正
+		damage += hero_hpmax - cur_hp;
 	}
 
 	// 光暗修正

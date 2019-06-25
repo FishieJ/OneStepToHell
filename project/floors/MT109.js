@@ -23,7 +23,7 @@ main.floors.MT109=
     ],
     "firstArrive": [],
     "eachArrive": [],
-    "parallelDo": "",
+    "parallelDo": null,
     "events": {},
     "changeFloor": {
         "6,9": {

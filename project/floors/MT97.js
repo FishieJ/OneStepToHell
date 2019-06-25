@@ -1,8 +1,8 @@
-main.floors.MT91=
+main.floors.MT97=
 {
-    "floorId": "MT91",
-    "title": "主塔 91 层",
-    "name": "91",
+    "floorId": "MT97",
+    "title": "刀剑翠域",
+    "name": "刀剑翠域",
     "width": 13,
     "height": 13,
     "canFlyTo": true,
@@ -10,26 +10,15 @@ main.floors.MT91=
     "cannotViewMap": false,
     "images": [],
     "item_ratio": 1,
-    "defaultGround": "grass",
+    "defaultGround": "grass2",
+    "bgm": "6-7.mp3",
+    "color": null,
+    "weather": null,
     "firstArrive": [],
     "eachArrive": [],
     "parallelDo": "",
     "events": {},
-    "changeFloor": {
-        "6,9": {
-            "floorId": "MT101",
-            "stair": "upFloor",
-            "time": 500
-        },
-        "2,12": {
-            "floorId": "MT90",
-            "loc": [
-                6,
-                3
-            ],
-            "time": 500
-        }
-    },
+    "changeFloor": {},
     "afterBattle": {},
     "afterGetItem": {},
     "afterOpenDoor": {},
@@ -44,26 +33,15 @@ main.floors.MT91=
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
-    [  0,  0,  0,  0,  0,  0, 94,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
-    [  0,  0, 93,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0]
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0]
 ],
     "bgmap": [
 
 ],
     "fgmap": [
 
-],
-    "bgm": "5-6.mp3",
-    "color": [
-        0,
-        0,
-        0,
-        0.3
-    ],
-    "weather": [
-        "fog",
-        8
-    ]
+]
 }

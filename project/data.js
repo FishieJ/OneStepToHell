@@ -98,6 +98,15 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"MT89",
 			"MT90",
 			"MT91",
+			"MT92",
+			"MT93",
+			"MT94",
+			"MT95",
+			"MT96",
+			"MT97",
+			"MT98",
+			"MT99",
+			"MT100",
 			"MT101",
 			"MT102",
 			"MT103",
@@ -124,6 +133,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"area3.jpg",
 			"area12.jpg",
 			"dawn.jpg",
+			"morning.jpg",
 			"winskin.png",
 			"black.jpg",
 			"hero2.png"
@@ -1816,6 +1826,10 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					},
 					"灯光范围变大了。",
 					{
+						"type": "function",
+						"function": "function(){\ncore.drawHero();\n}"
+					},
+					{
 						"type": "addValue",
 						"name": "flag:talentPoint",
 						"value": "3"
@@ -1824,11 +1838,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					{
 						"type": "addValue",
 						"name": "flag:bring_hp_val",
-						"value": "30000"
-					},
-					{
-						"type": "function",
-						"function": "function(){\ncore.drawHero();\n}"
+						"value": "50000"
 					}
 				]
 			},
@@ -1885,19 +1895,24 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					},
 					"灯光范围变大了。",
 					{
+						"type": "function",
+						"function": "function(){\ncore.drawHero();\n}"
+					},
+					{
 						"type": "addValue",
 						"name": "flag:talentPoint",
 						"value": "3"
 					},
 					"获得3点天赋。",
 					{
-						"type": "function",
-						"function": "function(){\ncore.drawHero();\n}"
+						"type": "addValue",
+						"name": "flag:bring_hp_val",
+						"value": "50000"
 					}
 				]
 			},
 			{
-				"need": "5000000",
+				"need": "1000000",
 				"title": "红海巅峰",
 				"clear": true,
 				"action": [
@@ -1949,14 +1964,19 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					},
 					"灯光范围变大了。",
 					{
+						"type": "function",
+						"function": "function(){\ncore.drawHero();\n}"
+					},
+					{
 						"type": "addValue",
 						"name": "flag:talentPoint",
 						"value": "4"
 					},
 					"获得4点天赋。",
 					{
-						"type": "function",
-						"function": "function(){\ncore.drawHero();\n}"
+						"type": "addValue",
+						"name": "flag:bring_hp_val",
+						"value": "100000"
 					}
 				]
 			},

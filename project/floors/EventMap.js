@@ -465,7 +465,7 @@ main.floors.EventMap=
         "3,2": [
             {
                 "type": "choices",
-                "text": "\t[吸血（${flag:talent1_lv}/5）,I_vampire]每级提升\r[yellow]2%\r[white]的吸血。当前吸血比例为\r[yellow]${flag:vampire_ratio * 100}%\r[white]。",
+                "text": "\t[吸血（${flag:talent1_lv}/5）,I_vampire]每级提升\r[yellow]2%\r[white]的吸血。当前吸血比例为\r[yellow]${Math.floor(flag:vampire_ratio * 100)}%\r[white]。",
                 "choices": [
                     {
                         "text": "确认",
