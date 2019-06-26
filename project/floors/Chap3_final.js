@@ -31,13 +31,18 @@ main.floors.Chap3_final=
             "function": "function(){\ncore.drawMap();\n}"
         },
         {
+            "type": "setValue",
+            "name": "flag:charge_atk",
+            "value": "0"
+        },
+        {
             "type": "sleep",
             "time": 1000
         },
         "\t[hero]（竟然还没死……）",
-        "\t[熙枫,heroine]（毕竟是血海强者，不过他们此时也一定不好受，你能做到这点已经非常厉害了……）",
-        "\t[神秘黑影,N425]\b[down,6,3]可恶……不能就这样让这小子跑了……",
-        "\t[神秘黑影,N425]\b[down,6,3]你能拼命，我们难道就不能吗？秘技——\r[red]献祭之术！\r[white]",
+        "\t[熙枫,heroine]（毕竟是血海强者，不过他们此时也一定不好受，你已经非常厉害了……）",
+        "\t[邪恶黑影,N425]\b[down,6,3]可恶……不能就这样让这小子跑了……",
+        "\t[邪恶黑影,N425]\b[down,6,3]你能拼命，我们难道就不能吗？秘技——\r[red]献祭之术！\r[white]",
         {
             "type": "playSound",
             "name": "Zombie02.wav"
@@ -85,8 +90,8 @@ main.floors.Chap3_final=
             "type": "sleep",
             "time": 1000
         },
-        "\t[熙枫,heroine]你……你这恶魔！",
-        "\t[神秘黑影,N425]\b[down,6,3]哈哈哈哈，我现在感觉可是前所未有的强大，如今你还有什么办法吗？",
+        "\t[熙枫,heroine]你……你这恶魔！竟然不惜牺牲同伴的性命！",
+        "\t[邪恶黑影,N425]\b[down,6,3]哈哈哈哈，献祭了这两个蠢货，我现在可是前所未有的强大，这小子也是强弩之末了，如今你还有什么办法吗？",
         {
             "type": "animate",
             "name": "darkattack",
@@ -205,7 +210,7 @@ main.floors.Chap3_final=
             ]
         },
         "\t[熙枫,heroine]\b[down,6,5]毕竟，这件事本来跟你没有关系的。",
-        "\t[熙枫,heroine]\b[down,6,5]好好活下去……",
+        "\t[熙枫,heroine]\b[down,6,5]\r[yellow]好好活下去……\r[white]",
         {
             "type": "animate",
             "name": "darkattack",
@@ -226,8 +231,8 @@ main.floors.Chap3_final=
                 "up"
             ]
         },
-        "\t[神秘黑影,N425]\b[down,6,3]等等，不对劲，你想干什么……",
-        "\t[熙枫,heroine]\b[down,6,4]来好好尝尝这种力量吧。",
+        "\t[邪恶黑影,N425]\b[down,6,3]等等，不对劲，你想干什么……",
+        "\t[熙枫,heroine]\b[down,6,4]来好好感受这种力量吧。",
         {
             "type": "vibrate",
             "time": 2000,
@@ -264,7 +269,18 @@ main.floors.Chap3_final=
             "time": 2000,
             "async": true
         },
-        "\t[神秘黑影,N425]\b[down,6,3]谔谔啊啊啊啊啊！",
+        {
+            "type": "hideStatusBar"
+        },
+        {
+            "type": "sleep",
+            "time": 500
+        },
+        {
+            "type": "playSound",
+            "name": "Zombie02.wav"
+        },
+        "\t[邪恶黑影,N425]\b[down,6,3]谔谔啊啊啊啊啊！",
         "即将进入存档页面。",
         {
             "type": "callSave"
@@ -329,7 +345,7 @@ main.floors.Chap3_final=
                 12
             ],
             "direction": "up",
-            "time": 2000
+            "time": 1500
         }
     ],
     "eachArrive": [],

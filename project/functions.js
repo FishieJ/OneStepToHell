@@ -647,7 +647,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[8, "反伤", function (enemy) { return "来犯之敌，自讨苦吃。战斗时，勇士攻击的" + Math.floor(100 * enemy.value || 0) + "%也会同时伤害到自身"; }, "#bd26ce"],
 		[9, "净化", "【红海技能】用对手的护盾反制对手\n战斗前，怪物附加勇士护盾的" + core.values.purify + "倍作为伤害", "#00d2d4"],
 		[10, "模仿", "【红海技能】遇弱则弱，遇强则强\n怪物的攻防与勇士基础攻防相等。", "#ff00d2"],
-		[11, "吸血", function (enemy) { return "【红海技能】最常见的红海技能\n战斗前，怪物首先吸取角色的" + Math.floor(100 * enemy.value || 0) + "%生命（约" + Math.floor((enemy.value || 0) * core.getStatus('hp')) + "点）作为伤害" + (enemy.add ? "，并把伤害数值加到自身生命上" : ""); }, "#ff00d2"],
+		[11, "吸血", function (enemy) { return "【红海技能】最常见的红海技能\n战斗前，怪物首先移除角色的" + Math.floor(100 * enemy.value || 0) + "%当前生命（约" + Math.floor((enemy.value || 0) * core.getStatus('hp')) + "点）作为伤害" + (enemy.add ? "，并把伤害数值加到自身生命上" : ""); }, "#ff00d2"],
 		[12, "中毒", function (enemy) { return "【红海技能】战斗后，勇士陷入中毒状态，在接下来的战斗中每回合损失生命" + enemy.poison + "点，效果可叠加。"; }, "#4aff60"],
 		[13, "衰弱", function (enemy) { return "【红海技能】战斗后，勇士获得" + enemy.weak + "层衰弱状态，每层使得战斗中攻防下降" + (core.values.weakValue >= 1 ? core.values.weakValue + "点" : parseInt(core.values.weakValue * 100) + "%") + "。每次战斗减少1层。"; }, "#feccd0"],
 		[14, "霜寒", function (enemy) { return "怪物对敌人施加霜寒诅咒。战斗后，你获得" + enemy.n + "层霜寒状态，每层使你普通攻击造成的伤害降低1%，加法叠加。"; }, "#747dff"],

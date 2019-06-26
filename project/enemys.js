@@ -167,9 +167,9 @@ var enemys_fcae963b_31c9_42b4_b48c_bb48d09f3f80 =
 	"E489": {"name":"狂暴神符","hp":100,"atk":0,"def":0,"money":0,"experience":1000,"point":0,"special":25,"level":"蓝海巅峰","atkValue":25,"add":true},
 	"E490": {"name":"坚毅神符","hp":100,"atk":0,"def":0,"money":0,"experience":1000,"point":0,"special":25,"level":"蓝海巅峰","defValue":25,"add":true},
 	"E491": {"name":"绿色史莱姆","hp":15000000,"atk":8000000,"def":2550000,"money":0,"experience":0,"point":0,"special":[6,11,20,22],"level":"血海王者","n":18,"value":0.4,"damage":127623},
-	"E494": {"name":"神秘黑影","hp":3000000,"atk":250000,"def":135000,"money":0,"experience":1000000,"point":0,"special":[11,128],"level":"血海初成","value":0.25},
-	"E495": {"name":"神秘黑影","hp":1000000,"atk":220000,"def":130000,"money":0,"experience":800000,"point":0,"special":[100,116],"level":"血海初成","x":10},
-	"E496": {"name":"神秘黑影","hp":2500000,"atk":240000,"def":120000,"money":0,"experience":800000,"point":0,"special":[4,99],"level":"血海初成","defValue":90,"v_121":null},
-	"E497": {"name":"狂暴怨魂","hp":100,"atk":100,"def":0,"money":0,"experience":0,"point":0,"special":[18,19,129],"level":"半步血海","value":10000,"zoneSquare":true,"range":3,"atkValue":10,"add":true},
-	"E498": {"name":"衰退怨魂","hp":100,"atk":100,"def":0,"money":0,"experience":0,"point":0,"special":[18,19,129],"level":"半步血海","value":10000,"atkValue":-10,"add":true,"range":2,"zoneSquare":true}
+	"E494": {"name":"邪恶黑影","hp":3000000,"atk":250000,"def":135000,"money":0,"experience":1000000,"point":0,"special":[11,128],"level":"血海初成","value":0.25},
+	"E495": {"name":"恶毒黑影","hp":1000000,"atk":220000,"def":130000,"money":0,"experience":800000,"point":0,"special":[100,116],"level":"血海初成","x":10},
+	"E496": {"name":"阴魂黑影","hp":2500000,"atk":240000,"def":120000,"money":0,"experience":900000,"point":0,"special":[4,99],"level":"血海初成","defValue":90,"v_121":null},
+	"E497": {"name":"狂暴之力","hp":100,"atk":100,"def":0,"money":0,"experience":0,"point":0,"special":[18,19,129],"level":"半步血海","value":10000,"zoneSquare":true,"range":3,"atkValue":10,"add":true},
+	"E498": {"name":"衰退之力","hp":100,"atk":100,"def":0,"money":0,"experience":0,"point":0,"special":[18,19,129],"level":"半步血海","value":10000,"atkValue":-10,"add":true,"range":2,"zoneSquare":true}
 }

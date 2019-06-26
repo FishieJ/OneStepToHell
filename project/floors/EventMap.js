@@ -721,6 +721,78 @@ main.floors.EventMap=
                     }
                 ]
             }
+        ],
+        "0,3": [
+            {
+                "type": "addValue",
+                "name": "item:coin",
+                "value": "core.itemCount('I458')*1000"
+            },
+            {
+                "type": "setValue",
+                "name": "item:I458",
+                "value": "0"
+            },
+            {
+                "type": "addValue",
+                "name": "item:coin",
+                "value": "core.itemCount('bring_hp')*100"
+            },
+            {
+                "type": "setValue",
+                "name": "item:bring_hp",
+                "value": "0"
+            },
+            {
+                "type": "addValue",
+                "name": "item:coin",
+                "value": "core.itemCount('bring_mana')*200"
+            },
+            {
+                "type": "setValue",
+                "name": "item:bring_mana",
+                "value": "0"
+            },
+            {
+                "type": "addValue",
+                "name": "item:coin",
+                "value": "core.itemCount('weakWine')*300"
+            },
+            {
+                "type": "setValue",
+                "name": "item:weakWine",
+                "value": "0"
+            },
+            {
+                "type": "addValue",
+                "name": "item:coin",
+                "value": "core.itemCount('jumpShoes')*300"
+            },
+            {
+                "type": "setValue",
+                "name": "item:jumpShoes",
+                "value": "0"
+            },
+            {
+                "type": "addValue",
+                "name": "item:coin",
+                "value": "core.itemCount('invisibleWine')*400"
+            },
+            {
+                "type": "setValue",
+                "name": "item:invisibleWine",
+                "value": "0"
+            },
+            {
+                "type": "addValue",
+                "name": "item:coin",
+                "value": "core.itemCount('I462')*100"
+            },
+            {
+                "type": "setValue",
+                "name": "item:I462",
+                "value": "0"
+            }
         ]
     },
     "changeFloor": {},
