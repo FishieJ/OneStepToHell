@@ -97,6 +97,8 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"MT88",
 			"MT89",
 			"MT90",
+			"Chap3_boss",
+			"Chap3_final",
 			"MT91",
 			"MT92",
 			"MT93",
@@ -136,7 +138,8 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"morning.jpg",
 			"winskin.png",
 			"black.jpg",
-			"hero2.png"
+			"hero2.png",
+			"hero3.png"
 		],
 		"tilesets": [
 			"001-Grassland01.png",
@@ -159,6 +162,8 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"blood2",
 			"dark",
 			"dark2",
+			"dark3",
+			"darkattack",
 			"explosion",
 			"explosion_small",
 			"han",
@@ -243,6 +248,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"124-Thunder02.ogg",
 			"136-Light02.ogg",
 			"139-Darkness02.ogg",
+			"140-Darkness03.ogg",
 			"143-Support01.ogg",
 			"159-Skill03.ogg",
 			"161-Skill05.ogg",
@@ -251,8 +257,10 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"Thunder5.ogg",
 			"WomanScream.ogg",
 			"Poison.ogg",
+			"Darkness3.ogg",
 			"Darkness4.ogg",
-			"Raise1.ogg"
+			"Raise1.ogg",
+			"Zombie02.wav"
 		],
 		"nameMap": {
 			"背景图.jpg": "bg.jpg",
@@ -2042,7 +2050,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 		]
 	},
 	"values": {
-		"lavaDamage": 100,
+		"lavaDamage": 10000,
 		"poisonDamage": 10,
 		"weakValue": 0.05,
 		"redJewel": 1,

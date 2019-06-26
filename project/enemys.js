@@ -131,7 +131,7 @@ var enemys_fcae963b_31c9_42b4_b48c_bb48d09f3f80 =
 	"E432": {"name":"鲜红剑士","hp":300000,"atk":44000,"def":16000,"money":0,"experience":1340,"point":0,"special":[4,115],"level":"红海低阶","v_115":500},
 	"E433": {"name":"红髅","hp":250000,"atk":46000,"def":12000,"money":0,"experience":1220,"point":0,"special":126,"level":"红海低阶","v_121":50,"v_126":20},
 	"E434": {"name":"红髅士兵","hp":330000,"atk":52000,"def":15000,"money":0,"experience":1400,"point":0,"special":[104,126],"level":"红海低阶","value":null,"v_121":60,"n":20,"range":30,"v_126":20},
-	"E435": {"name":"骷髅妖皇","hp":1000000,"atk":80000,"def":50000,"money":0,"experience":250000,"point":0,"special":[2,9,123,199],"level":"红海巅峰","zoneSquare":true,"range":2,"value":5},
+	"E435": {"name":"骷髅妖皇","hp":1000000,"atk":80000,"def":50000,"money":0,"experience":250000,"point":0,"special":[2,9,123,127],"level":"红海巅峰","zoneSquare":true,"range":2,"value":5},
 	"E436": {"name":"骷髅精英","hp":650000,"atk":80000,"def":40000,"money":0,"experience":2720,"point":0,"special":[7,122],"level":"红海高阶","v_122":2,"value":3},
 	"E437": {"name":"骷髅铁卫","hp":980000,"atk":81000,"def":59000,"money":0,"experience":2640,"point":0,"special":[9,120],"level":"红海高阶"},
 	"E438": {"name":"铠甲红髅","hp":400000,"atk":38000,"def":22000,"money":0,"experience":1290,"point":0,"special":126,"level":"红海低阶","v_121":50,"v_126":30},
@@ -166,5 +166,10 @@ var enemys_fcae963b_31c9_42b4_b48c_bb48d09f3f80 =
 	"E488": {"name":"活力神符","hp":100,"atk":0,"def":0,"money":0,"experience":1000,"point":0,"special":25,"level":"蓝海巅峰","value":50,"add":true},
 	"E489": {"name":"狂暴神符","hp":100,"atk":0,"def":0,"money":0,"experience":1000,"point":0,"special":25,"level":"蓝海巅峰","atkValue":25,"add":true},
 	"E490": {"name":"坚毅神符","hp":100,"atk":0,"def":0,"money":0,"experience":1000,"point":0,"special":25,"level":"蓝海巅峰","defValue":25,"add":true},
-	"E491": {"name":"绿色史莱姆","hp":15000000,"atk":8000000,"def":2550000,"money":0,"experience":0,"point":0,"special":[6,11,20,22],"level":"血海王者","n":18,"value":0.4,"damage":127623}
+	"E491": {"name":"绿色史莱姆","hp":15000000,"atk":8000000,"def":2550000,"money":0,"experience":0,"point":0,"special":[6,11,20,22],"level":"血海王者","n":18,"value":0.4,"damage":127623},
+	"E494": {"name":"神秘黑影","hp":3000000,"atk":250000,"def":135000,"money":0,"experience":1000000,"point":0,"special":[11,128],"level":"血海初成","value":0.25},
+	"E495": {"name":"神秘黑影","hp":1000000,"atk":220000,"def":130000,"money":0,"experience":800000,"point":0,"special":[100,116],"level":"血海初成","x":10},
+	"E496": {"name":"神秘黑影","hp":2500000,"atk":240000,"def":120000,"money":0,"experience":800000,"point":0,"special":[4,99],"level":"血海初成","defValue":90,"v_121":null},
+	"E497": {"name":"狂暴怨魂","hp":100,"atk":100,"def":0,"money":0,"experience":0,"point":0,"special":[18,19,129],"level":"半步血海","value":10000,"zoneSquare":true,"range":3,"atkValue":10,"add":true},
+	"E498": {"name":"衰退怨魂","hp":100,"atk":100,"def":0,"money":0,"experience":0,"point":0,"special":[18,19,129],"level":"半步血海","value":10000,"atkValue":-10,"add":true,"range":2,"zoneSquare":true}
 }

@@ -259,6 +259,9 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	} else {
 		heroAnimateName = heroNormalAttack;
 	}
+	if (core.getFlag('morph', 0) == 1) { // 变身
+		heroAnimateName = 'darkattack';
+	}
 
 	// 技能动画
 	function drawHeroAnimate(animate_name) {
@@ -275,7 +278,9 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 	var enemy = core.material.enemys[enemyId];
 	var special = enemy.special;
-	if (core.enemys.hasSpecial(special, 9)) {
+	if (core.enemys.hasSpecial(special, 128)) {
+		drawEnemyAnimate('dark');
+	} else if (core.enemys.hasSpecial(special, 9)) {
 		drawEnemyAnimate('purify');
 	} else if (core.enemys.hasSpecial(special, 11)) {
 		drawEnemyAnimate('blood');
@@ -650,13 +655,13 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[16, "夹击", "【红海技能】两方合击，瞬间将对手打个半死\n经过两只相同的怪物中间，勇士生命值变成一半。", "#ff00d2"],
 		[17, "仇恨", "战斗前，怪物附加之前积累的仇恨值作为伤害" + (core.flags.hatredDecrease ? "；战斗后，释放一半的仇恨值" : "") + "。（每杀死一个怪物获得" + (core.values.hatred || 0) + "点仇恨值）"],
 		[18, "阻击", function (enemy) { return "经过怪物的十字领域时自动减生命" + (enemy.value || 0) + "点，同时怪物后退一格"; }],
-		[19, "自爆", "【血海奥义】同归于尽吧！\n战斗后，勇士的生命值变成1"],
+		[19, "自爆", "【血海奥义】同归于尽吧！\n战斗后，勇士的生命值变成1", "#ff0000"],
 		[20, "无敌", "勇士无法打败怪物，除非拥有十字架"],
 		[21, "退化", function (enemy) { return "战斗后勇士永久下降" + (enemy.atkValue || 0) + "点攻击和" + (enemy.defValue || 0) + "点防御"; }],
 		[22, "固伤", function (enemy) { return "战斗前，怪物对勇士造成" + (enemy.damage || 0) + "点固定伤害，无视勇士护盾。"; }],
 		[23, "重生", "怪物被击败后，角色转换楼层则怪物将再次出现"],
 		[24, "射击", function (enemy) { return "经过怪物同行或同列时自动减生命" + (enemy.value || 0) + "点"; }],
-		[25, "光环", function (enemy) { return "同楼层所有怪物生命提升" + (enemy.value || 0) + "%，攻击提升" + (enemy.atkValue || 0) + "%，防御提升" + (enemy.defValue || 0) + "%，" + (enemy.add ? "可叠加" : "不可叠加"); }],
+		[25, "光环", function (enemy) { return "同楼层所有怪物生命提升" + (enemy.value || 0) + "%，攻击提升" + (enemy.atkValue || 0) + "%，防御提升" + (enemy.defValue || 0) + "%，" + (enemy.add ? "线性叠加" : "不可叠加"); }, "#fff900"],
 		[26, "支援", "当周围一圈的怪物受到攻击时将上前支援，并组成小队战斗。"],
 		[27, "捕捉", "当走到怪物周围十字时会强制进行战斗。"],
 		[99, "闪避", function (enemy) { return "灵巧的身法能够躲闪攻击。受到的普通攻击伤害降低" + (enemy.defValue || 0) + "%。"; }, "#c3c3c3"],
@@ -691,7 +696,12 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[124, "血怨", "【红海技能】死亡的怨念缠绕着对手。似乎是某个血海奥义的劣化版本\n战斗后，勇士的生命值变成一半。", "#ff00d2"],
 		[125, "血域", function (enemy) { return "【红海技能】生命在流逝\n经过怪物周围" + (enemy.zoneSquare ? "九宫格" : "十字") + "范围内" + (enemy.range || 1) + "格时自动减当前生命的" + (enemy.value || 0) + "%"; }, "#ff00d2"],
 		[126, "死亡", function (enemy) { return "【红海技能】引诱对手走向死亡\n战斗开始时，造成对方已损失生命值" + enemy.v_126 + "%的伤害。"; }, "#b30000"],
-		[199, "死亡镰刀", function (enemy) { return "【红海技能】似乎是某个血海奥义的劣化版本。第5回合结束时，造成相当于对方已损失生命值100%的伤害。"; }, "#ff00d2"],
+		[127, "死亡镰刀", function (enemy) { return "【红海技能】似乎是某个血海奥义的劣化版本。第5回合结束时，造成相当于对方已损失生命值100%的伤害。"; }, "#ff00d2"],
+		[128, "邪恶净化", "【血海奥义】运用至邪之力打击对手\n移除对方的护盾，并造成100万额外伤害。", "#b113ff"],
+		[129, function (enemy) {
+			if (enemy.atkValue > 0) return "狂暴光环";
+			return "衰退光环";
+		}, function (enemy) { var x = enemy.range * 2 + 1; return (enemy.atkValue > 0 ? "增加" : "减少") + "以自身为中心" + x + "*" + x + "范围内所有友军" + (Math.abs(enemy.atkValue) || 0) + "%的攻击力，线性叠加。"; }, "#fff900"],
 	];
 },
         "getEnemyInfo": function (enemy, hero, x, y, floorId) {
@@ -732,7 +742,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	// 光环检查
 	// 在这里判定是否需要遍历全图（由于光环需要遍历全图，应尽可能不需要以减少计算量，尤其是大地图）
 	var query = function () {
-		var floorIds = ["MT70", "MT78", "MT79", "MT87", "MT88", "MT89", "MT90"]; // 在这里给出所有需要遍历的楼层（即有光环或支援等）
+		var floorIds = ["MT70", "MT78", "MT79", "MT87", "MT88", "MT89", "MT90", "Chap3_boss"]; // 在这里给出所有需要遍历的楼层（即有光环或支援等）
 		return core.inArray(floorIds, floorId); // 也可以写其他的判定条件
 	};
 
@@ -755,7 +765,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 					// 获得该图块的ID
 					var id = block.event.id,
 						enemy = core.material.enemys[id];
-					// 检查是不是怪物，且是否拥有该特殊属性
+					// 全图光环，检查是不是怪物，且是否拥有该特殊属性
 					if (enemy && core.hasSpecial(enemy.special, 25)) {
 						// 检查是否可叠加
 						if (enemy.add || cnt == 0) {
@@ -764,6 +774,12 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 							def_buff += enemy.defValue || 0;
 							cnt++;
 						}
+					}
+					// 范围光环
+					if (core.isset(enemy) && core.hasSpecial(enemy.special, 129) && core.isset(x) && core.isset(y) &&
+						Math.abs(block.x - x) <= enemy.range && Math.abs(block.y - y) <= enemy.range) {
+						atk_buff += enemy.atkValue;
+						cnt++;
 					}
 					// 检查【支援】技能
 					if (enemy && core.hasSpecial(enemy.special, 26) &&
@@ -925,6 +941,11 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	// 死亡
 	if (core.hasSpecial(mon_special, 126)) {
 		init_damage += enemy.v_126 / 100 * (hero_hpmax - hero_hp);
+	}
+	// 邪恶净化
+	if (core.hasSpecial(mon_special, 128)) {
+		hero_mdef = 0;
+		init_damage += 1000000;
 	}
 
 	// 每回合怪物对勇士造成的战斗伤害

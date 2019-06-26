@@ -811,7 +811,12 @@ main.floors.Chap3_shop=
                 {
                     "type": "hide",
                     "time": 500
-                }
+                },
+                {
+                    "type": "sleep",
+                    "time": 500
+                },
+                "\t[hero]（现在就使用它吧。）"
             ]
         },
         "6,3": {

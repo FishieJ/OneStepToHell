@@ -149,6 +149,63 @@ main.floors.Chap3_m=
                 ],
                 "time": 500
             }
+        ],
+        "6,10": [
+            {
+                "type": "if",
+                "condition": "core.itemCount('redKey') < 3",
+                "true": [
+                    "\t[hero]现在还不是进去的时候。",
+                    {
+                        "type": "exit"
+                    }
+                ],
+                "false": []
+            },
+            {
+                "type": "confirm",
+                "text": "确定准备好了吗？",
+                "yes": [
+                    {
+                        "type": "function",
+                        "function": "function(){\ncore.setFlag('darkRatio', 0.6);\n}"
+                    },
+                    {
+                        "type": "setValue",
+                        "name": "flag:charge_atk",
+                        "value": "0"
+                    },
+                    {
+                        "type": "setValue",
+                        "name": "flag:last_direction",
+                        "value": "null"
+                    },
+                    {
+                        "type": "changeFloor",
+                        "floorId": "Chap3_boss",
+                        "loc": [
+                            6,
+                            0
+                        ],
+                        "direction": "down",
+                        "time": 1000
+                    }
+                ],
+                "no": [
+                    {
+                        "type": "moveHero",
+                        "time": 100,
+                        "steps": [
+                            "up"
+                        ]
+                    },
+                    {
+                        "type": "setValue",
+                        "name": "flag:charge_atk",
+                        "value": "0"
+                    }
+                ]
+            }
         ]
     },
     "changeFloor": {},
@@ -167,7 +224,7 @@ main.floors.Chap3_m=
     [241,257,473,474,477,  0,  0,  0,  0,  0,  0,  0,  0],
     [323,  0,  0, 92,  0,  0,  0,  0,  0, 93,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
-    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  0,  0,  0, 93,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0]
 ],

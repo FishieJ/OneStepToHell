@@ -230,50 +230,6 @@ main.floors.Area4_b=
                             "time": 500,
                             "keep": true,
                             "async": true
-                        },
-                        {
-                            "type": "setBlock",
-                            "number": "yellowKey",
-                            "loc": [
-                                6,
-                                7
-                            ]
-                        },
-                        {
-                            "type": "jump",
-                            "from": [
-                                6,
-                                7
-                            ],
-                            "to": [
-                                5,
-                                7
-                            ],
-                            "time": 500,
-                            "keep": true,
-                            "async": true
-                        },
-                        {
-                            "type": "setBlock",
-                            "number": "yellowKey",
-                            "loc": [
-                                6,
-                                7
-                            ]
-                        },
-                        {
-                            "type": "jump",
-                            "from": [
-                                6,
-                                7
-                            ],
-                            "to": [
-                                7,
-                                7
-                            ],
-                            "time": 500,
-                            "keep": true,
-                            "async": true
                         }
                     ],
                     "false": []
