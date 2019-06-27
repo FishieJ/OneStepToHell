@@ -164,6 +164,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"dark2",
 			"dark3",
 			"darkattack",
+			"darkexplode",
 			"explosion",
 			"explosion_small",
 			"han",
@@ -231,6 +232,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"044-Chest01.ogg",
 			"050-Explosion03.ogg",
 			"051-Explosion04.ogg",
+			"054-Cannon03.ogg",
 			"057-Wrong01.ogg",
 			"083-Monster05.ogg",
 			"087-Action02.ogg",
@@ -1717,8 +1719,13 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"value": "1"
 					},
 					{
-						"type": "setValue",
+						"type": "addValue",
 						"name": "flag:talentPoint",
+						"value": "3"
+					},
+					{
+						"type": "addValue",
+						"name": "item:talentPoint",
 						"value": "3"
 					},
 					"开启天赋树！可以在道具栏中打开天赋列表。获得3点天赋。",
@@ -1777,7 +1784,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					"\t[熙枫,heroine]不过好消息是这些驱除出来的毒素可以利用起来，拿来合成那种绿色的晶体。",
 					"\t[hero]唉，我真是又笨又穷。不过好歹是把解毒药的钱省了……",
 					"\t[hero]到了红海境界应该有能力去各处闯荡了吧？",
-					"\t[熙枫,heroine]自保应该不成问题，不过还是尽量小心，毕竟到处都是掌握了红海技能的怪物，太勉强自己会死的。",
+					"\t[熙枫,heroine]挑一些软柿子捏应该不成问题，不过还是尽量小心，毕竟到处都是掌握了红海技能的怪物，太勉强自己会死的。",
 					"\t[hero]放心吧，我死不了！我先把刚刚驱除出来的毒素精华拿去卖钱，买点好东西，然后就出发！"
 				]
 			},
@@ -1842,12 +1849,30 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"name": "flag:talentPoint",
 						"value": "3"
 					},
+					{
+						"type": "addValue",
+						"name": "item:talentPoint",
+						"value": "3"
+					},
 					"获得3点天赋。",
 					{
 						"type": "addValue",
 						"name": "flag:bring_hp_val",
 						"value": "50000"
-					}
+					},
+					"\t[熙枫,heroine]恭喜你晋入红海中阶。",
+					"\t[hero]咦，你的态度应该是“这是理所应当的”吧？",
+					"\t[熙枫,heroine]即使有我在，你以红海低阶的境界能适应这野外的环境，也是极为不易了。",
+					"\t[熙枫,heroine]要知道，在两大宗派里，红海低阶的弟子都只敢组队抱团，或者跟随老牌弟子行动，免得丧命于各种各样的红海技能。",
+					"\t[hero]毕竟，我也不是独身一人啊。",
+					"\t[熙枫,heroine]……",
+					{
+						"type": "sleep",
+						"time": 500
+					},
+					"\t[熙枫,heroine]总之，能够达到红海中阶，我倒是不用担心你了。",
+					"\t[熙枫,heroine]只要记住，不要太勉强自己去挑战强敌。",
+					"\t[hero]放心，我自有分寸。"
 				]
 			},
 			{
@@ -1911,12 +1936,36 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"name": "flag:talentPoint",
 						"value": "3"
 					},
+					{
+						"type": "addValue",
+						"name": "item:talentPoint",
+						"value": "3"
+					},
 					"获得3点天赋。",
 					{
 						"type": "addValue",
 						"name": "flag:bring_hp_val",
 						"value": "50000"
-					}
+					},
+					"\t[hero]红海高阶了，很快我在这野外就难寻敌手了吧。",
+					"\t[熙枫,heroine]先把最强大的野外生物都干掉再说这话吧。",
+					"\t[熙枫,heroine]你应该很快就会遇到具有\r[yellow]光环\r[white]属性的怪物了。它们自身没有战斗力，却能够令附近的怪物大幅增强。",
+					"\t[hero]还有这么神奇的属性？这是个什么原理？",
+					"\t[熙枫,heroine]这背后是一种极为高深的力量，即便是血海强者也极难参透。",
+					"\t[hero]这……你说过存在比血海还高的境界，难道跟这个有关？",
+					"\t[熙枫,heroine]具体我也不清楚，甚至血海之上的境界划分我都不知道，毕竟我全盛时期也不过是初入血海境界而已，根本接触不到那么高的层次。",
+					"\t[hero]小姐姐现在恢复到全盛时期几成实力了？",
+					"\t[熙枫,heroine]一成都没有。",
+					{
+						"type": "animate",
+						"name": "wuyu",
+						"loc": "hero",
+						"async": true
+					},
+					"\t[hero]啊？？",
+					"\t[熙枫,heroine]不说别的，光是\r[red]红海巅峰\r[white]和\r[red]血海初成\r[white]之间的差距就极大了，何况你连红海巅峰都没有。",
+					"\t[熙枫,heroine]现在还是走好眼前的路吧。如果遇到\r[yellow]光环\r[white]怪物，可以考虑用道具绕过其他怪物，先把它们打掉。",
+					"\t[hero]……明白。"
 				]
 			},
 			{
@@ -1980,12 +2029,39 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"name": "flag:talentPoint",
 						"value": "4"
 					},
+					{
+						"type": "addValue",
+						"name": "item:talentPoint",
+						"value": "4"
+					},
 					"获得4点天赋。",
 					{
 						"type": "addValue",
 						"name": "flag:bring_hp_val",
 						"value": "100000"
-					}
+					},
+					"\t[hero]如今的我，算是站在红海阶位的顶端了吧，离那血海境界也只有一步之遥。",
+					"\t[熙枫,heroine]的确是了。",
+					"\t[hero]那小姐姐是不是可以给我讲一些你以前的故事了，比如你是怎么获得升级这么快的能力的，你为什么对红海战场这么熟悉……",
+					"\t[熙枫,heroine]不行，现在还不是闲下来的时候。",
+					{
+						"type": "animate",
+						"name": "wuyu",
+						"loc": "hero",
+						"async": true
+					},
+					"\t[hero]可是我真的有好多的问题想问你。",
+					"\t[熙枫,heroine]我们的敌人都是血海强者。而且，我总感觉他们早就该出现的……",
+					"\t[hero]别想那么多了，我这就去把残余的怪物清完，然后进入\r[yellow]月光大道\r[white]突破血海！",
+					"\t[hero]等我突破到血海境界，应该就不怕他们了吧？",
+					"\t[熙枫,heroine]按理说是这样，但是……我总觉得你立了个大大的flag。",
+					"\t[hero]唉，不对啊，小姐姐怎么突然变得这么悲观了？",
+					"\t[熙枫,heroine]……",
+					{
+						"type": "sleep",
+						"time": 500
+					},
+					"\t[熙枫,heroine]也许是我多虑了吧。"
 				]
 			},
 			{

@@ -42,7 +42,8 @@ main.floors.Chap3_final=
         "\t[hero]（竟然还没死……）",
         "\t[熙枫,heroine]（毕竟是血海强者，不过他们此时也一定不好受，你已经非常厉害了……）",
         "\t[邪恶黑影,N425]\b[down,6,3]可恶……不能就这样让这小子跑了……",
-        "\t[邪恶黑影,N425]\b[down,6,3]你能拼命，我们难道就不能吗？秘技——\r[red]献祭之术！\r[white]",
+        "\t[邪恶黑影,N425]\b[down,6,3]你能拼命，我们难道就不能吗？",
+        "\t[邪恶黑影,N425]\b[down,6,3]秘技——\r[red]献祭之术！\r[white]",
         {
             "type": "playSound",
             "name": "Zombie02.wav"
@@ -91,7 +92,8 @@ main.floors.Chap3_final=
             "time": 1000
         },
         "\t[熙枫,heroine]你……你这恶魔！竟然不惜牺牲同伴的性命！",
-        "\t[邪恶黑影,N425]\b[down,6,3]哈哈哈哈，献祭了这两个蠢货，我现在可是前所未有的强大，这小子也是强弩之末了，如今你还有什么办法吗？",
+        "\t[邪恶黑影,N425]\b[down,6,3]哈哈哈哈，我早就想吸收他们的力量了，一直没有机会，这还得多亏你们，把他俩打成重伤！",
+        "\t[邪恶黑影,N425]\b[down,6,3]如今献祭了这两个蠢货，我可是前所未有的强大，反观这小子却是强弩之末了，现在你还有什么办法吗？",
         {
             "type": "animate",
             "name": "darkattack",
@@ -210,7 +212,9 @@ main.floors.Chap3_final=
             ]
         },
         "\t[熙枫,heroine]\b[down,6,5]毕竟，这件事本来跟你没有关系的。",
-        "\t[熙枫,heroine]\b[down,6,5]\r[yellow]好好活下去……\r[white]",
+        "\t[熙枫,heroine]\b[down,6,5]多谢你这一天一夜的努力付出，我……很开心。",
+        "\t[熙枫,heroine]\b[down,6,5]请\r[yellow]好好活下去\r[white]……",
+        "\t[hero]\b[up,hero]不！不！！",
         {
             "type": "animate",
             "name": "darkattack",

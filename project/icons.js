@@ -439,7 +439,8 @@ var icons_4665ee12_3a1f_44a4_bea3_0fccba634dc1 =
 		"execute": 90,
 		"I483": 91,
 		"smallJump": 87,
-		"c_charge": 92
+		"c_charge": 92,
+		"talentPoint": 93
 	},
 	"autotile": {
 		"autotile": 0,

@@ -493,7 +493,7 @@ main.floors.Chap3_boss=
                 "time": 1000
             },
             "\t[hero]这……这……是什么阵法？",
-            "\t[熙枫,heroine]（太好了，我还以为他失去理智了……）",
+            "\t[熙枫,heroine]（呼，我还以为他失去理智了……）",
             {
                 "type": "sleep",
                 "time": 500
@@ -580,7 +580,7 @@ main.floors.Chap3_boss=
                 "false": [
                     {
                         "type": "function",
-                        "function": "function(){\ncore.setBgLight([\n\t[368, 240, 250],\n]);\n}"
+                        "function": "function(){\ncore.setBgLight([\n\t[48, 240, 250],\n]);\n}"
                     }
                 ]
             }
@@ -669,6 +669,7 @@ main.floors.Chap3_boss=
                 "time": 1000
             },
             "\t[熙枫,heroine]（等等，不对劲……）",
+            "\t[熙枫,heroine]（该来的还是来了……）",
             {
                 "type": "sleep",
                 "time": 500

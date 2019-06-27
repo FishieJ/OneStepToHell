@@ -437,7 +437,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"tome": {
 			"cls": "tools",
 			"name": "知识之书",
-			"text": "《拆塔心理学》，作者：元仝"
+			"text": "《拆塔心理学浅谈》，似乎还有非浅谈的版本"
 		},
 		"coin": {
 			"cls": "tools",
@@ -446,7 +446,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"expelPoison": {
 			"cls": "constants",
-			"name": "驱毒",
+			"name": "清洁术",
 			"text": "消耗${flag:expelPoison_cost}点魔法，驱除所有中毒效果，并按照驱除层数获得毒素精华。"
 		},
 		"bring_hp": {
@@ -498,6 +498,11 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 			"cls": "constants",
 			"name": "势如破竹",
 			"text": "每次战斗后额外叠加${flag:charge2_battle_extra}层冲锋。最多通过此效果获得${flag:charge2_battle_extra_max}层冲锋。\n当前通过此效果叠加了${flag:charge2_battle_extra_cur}层冲锋。"
+		},
+		"talentPoint": {
+			"cls": "tools",
+			"name": "天赋点",
+			"text": "可以用来学习天赋，或者留到最后算分"
 		}
 	},
 	"itemEffect": {
@@ -679,7 +684,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"invisibleWine": "(function () {\n\treturn core.getFlag('invisible', 0) == 0;\n})();",
 		"shield1": "false",
 		"talent": "true",
-		"smallJump": "(function () {\n\tvar nx = core.nextX(1),\n\t\tny = core.nextY(1);\n\tvar cost = core.getFlag('smallJump_cost', 30);\n\treturn nx >= 0 && nx < core.bigmap.width && ny >= 0 && ny < core.bigmap.height && core.getBlockId(nx, ny) == null && cost <= core.status.hero.mana;\n})();"
+		"smallJump": "(function () {\n\tvar nx = core.nextX(1),\n\t\tny = core.nextY(1);\n\tvar cost = core.getFlag('smallJump_cost', 30);\n\treturn nx >= 0 && nx < core.bigmap.width && ny >= 0 && ny < core.bigmap.height && core.getBlockId(nx, ny) == null && cost <= core.status.hero.mana;\n})();",
+		"talentPoint": null
 	},
 	"canEquip": {},
 	"equipCondition": {

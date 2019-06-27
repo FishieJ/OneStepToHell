@@ -36,7 +36,7 @@ var enemys_fcae963b_31c9_42b4_b48c_bb48d09f3f80 =
 	"poisonBat": {"name":"紫蝙蝠","hp":140000,"atk":44000,"def":8000,"money":0,"experience":1020,"point":0,"special":[4,13],"level":"红海低阶","weak":2},
 	"steelRock": {"name":"铁头怪","hp":40,"atk":90,"def":60,"money":0,"experience":15,"point":0,"special":3,"level":"萌新七段"},
 	"skeletonPriest": {"name":"骷髅法师","hp":480000,"atk":10000,"def":38000,"money":0,"experience":1860,"point":0,"special":[2,24],"value":10000,"level":"红海中阶"},
-	"skeletonKing": {"name":"骷髅尊者","hp":800000,"atk":101000,"def":53000,"money":0,"experience":3000,"point":0,"special":[8,102],"level":"红海高阶","value":0.1,"n":10},
+	"skeletonKing": {"name":"骷髅尊者","hp":800000,"atk":101000,"def":53000,"money":0,"experience":3000,"point":0,"special":[1,8],"level":"红海高阶","value":0.1,"n":null},
 	"skeletonWizard": {"name":"白髅巫师","hp":660000,"atk":90000,"def":31000,"money":0,"experience":2200,"point":0,"special":[9,123],"level":"红海高阶","zoneSquare":true,"value":5},
 	"redSkeletonCaption": {"name":"骷髅武士","hp":450000,"atk":61000,"def":23000,"money":0,"experience":1960,"point":0,"special":122,"level":"红海中阶","v_122":1.5},
 	"badHero": {"name":"鲜红狂战士","hp":999999,"atk":81000,"def":44000,"money":0,"experience":2300,"point":0,"special":[7,124],"level":"红海高阶","value":3},

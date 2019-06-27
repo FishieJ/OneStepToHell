@@ -409,6 +409,7 @@ var maps_90f36752_8815_4be8_b32b_d7fad1d0542e =
 	"497": {"cls":"enemys","id":"E497"},
 	"498": {"cls":"enemys","id":"E498"},
 	"499": {"cls":"npc48","id":"N499"},
+	"500": {"cls":"items","id":"talentPoint"},
 	"10072": {"cls":"tileset","id":"X10072","noPass":"false"},
 	"10075": {"cls":"tileset","id":"X10075","noPass":"false"},
 	"10138": {"cls":"tileset","id":"X10138","noPass":false},

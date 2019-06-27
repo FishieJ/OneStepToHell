@@ -191,7 +191,7 @@ main.floors.EventMap=
                         "color": [
                             68,
                             255,
-                            102,
+                            255,
                             1
                         ],
                         "action": [
@@ -199,6 +199,25 @@ main.floors.EventMap=
                                 "type": "insert",
                                 "loc": [
                                     5,
+                                    2
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "清洁术（${flag:poison_lv}/2）",
+                        "color": [
+                            68,
+                            255,
+                            102,
+                            1
+                        ],
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    6,
                                     2
                                 ],
                                 "floorId": "EventMap"
@@ -247,6 +266,11 @@ main.floors.EventMap=
                                     {
                                         "type": "addValue",
                                         "name": "flag:talentPoint",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "item:talentPoint",
                                         "value": "-1"
                                     },
                                     {
@@ -333,6 +357,11 @@ main.floors.EventMap=
                                     },
                                     {
                                         "type": "addValue",
+                                        "name": "item:talentPoint",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
                                         "name": "flag:skill2_def_ratio",
                                         "value": "0.5"
                                     },
@@ -411,6 +440,11 @@ main.floors.EventMap=
                                     {
                                         "type": "addValue",
                                         "name": "flag:talentPoint",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "item:talentPoint",
                                         "value": "-1"
                                     },
                                     {
@@ -497,6 +531,11 @@ main.floors.EventMap=
                                     },
                                     {
                                         "type": "addValue",
+                                        "name": "item:talentPoint",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
                                         "name": "flag:vampire_ratio",
                                         "value": "0.02"
                                     },
@@ -579,6 +618,11 @@ main.floors.EventMap=
                                     },
                                     {
                                         "type": "addValue",
+                                        "name": "item:talentPoint",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
                                         "name": "flag:mana_regen",
                                         "value": "2"
                                     },
@@ -657,6 +701,11 @@ main.floors.EventMap=
                                     {
                                         "type": "addValue",
                                         "name": "flag:talentPoint",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "item:talentPoint",
                                         "value": "-1"
                                     },
                                     {
@@ -792,6 +841,93 @@ main.floors.EventMap=
                 "type": "setValue",
                 "name": "item:I462",
                 "value": "0"
+            }
+        ],
+        "6,2": [
+            {
+                "type": "choices",
+                "text": "\t[清洁术（${flag:poison_lv}/2）,expelPoison]每级使得清洁术耗蓝减少\r[yellow]95\r[white]点。当前耗蓝\r[yellow]${flag:expelPoison_cost}\r[white]点。",
+                "choices": [
+                    {
+                        "text": "确认",
+                        "action": [
+                            {
+                                "type": "if",
+                                "condition": "flag:poison_lv >= 2",
+                                "true": [
+                                    "已达到满级。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "flag:talentPoint > 0",
+                                "true": [
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:talentPoint",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "item:talentPoint",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:expelPoison_cost",
+                                        "value": "-95"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:poison_lv",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            6,
+                                            2
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": [
+                                    "天赋点不足。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "取消",
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    0,
+                                    1
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     },
