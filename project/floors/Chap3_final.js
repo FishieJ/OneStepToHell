@@ -7,7 +7,7 @@ main.floors.Chap3_final=
     "height": 13,
     "canFlyTo": true,
     "canUseQuickShop": true,
-    "cannotViewMap": false,
+    "cannotViewMap": true,
     "cannotMoveDirectly": false,
     "images": [],
     "item_ratio": 100,
@@ -41,9 +41,10 @@ main.floors.Chap3_final=
         },
         "\t[hero]（竟然还没死……）",
         "\t[熙枫,heroine]（毕竟是血海强者，不过他们此时也一定不好受，你已经非常厉害了……）",
-        "\t[邪恶黑影,N425]\b[down,6,3]可恶……不能就这样让这小子跑了……",
-        "\t[邪恶黑影,N425]\b[down,6,3]你能拼命，我们难道就不能吗？",
-        "\t[邪恶黑影,N425]\b[down,6,3]秘技——\r[red]献祭之术！\r[white]",
+        "\t[恶毒黑影,N425]\b[down,5,3]可恶……不能让这小子就这么跑了……",
+        "\t[阴魂黑影,N425]\b[down,7,3]老大，现在怎么办？",
+        "\t[邪恶黑影,N425]\b[down,6,3]哈哈哈哈……\r[red]一切，都在我的掌握之中\r[white]。",
+        "\t[邪恶黑影,N425]\b[down,6,3]秘技——\r[red]献祭魔咒！\r[white]",
         {
             "type": "playSound",
             "name": "Zombie02.wav"
@@ -236,7 +237,9 @@ main.floors.Chap3_final=
             ]
         },
         "\t[邪恶黑影,N425]\b[down,6,3]等等，不对劲，你想干什么……",
+        "\t[邪恶黑影,N425]\b[down,6,3]自爆！你要自爆！你疯了吗？等等！……",
         "\t[熙枫,heroine]\b[down,6,4]来好好感受这种力量吧。",
+        "\t[邪恶黑影,N425]\b[down,6,3]这对你有什么好处吗？我理解不了！我理解不了啊！！",
         {
             "type": "vibrate",
             "time": 2000,
@@ -285,6 +288,112 @@ main.floors.Chap3_final=
             "name": "Zombie02.wav"
         },
         "\t[邪恶黑影,N425]\b[down,6,3]谔谔啊啊啊啊啊！",
+        {
+            "type": "hide",
+            "loc": [
+                [
+                    6,
+                    3
+                ]
+            ],
+            "time": 500
+        },
+        {
+            "type": "setBlock",
+            "number": "X80087",
+            "loc": [
+                6,
+                4
+            ]
+        },
+        {
+            "type": "setBlock",
+            "number": "X80087",
+            "loc": [
+                5,
+                4
+            ]
+        },
+        {
+            "type": "setBlock",
+            "number": "X80087",
+            "loc": [
+                6,
+                3
+            ]
+        },
+        {
+            "type": "setBlock",
+            "number": "X80087",
+            "loc": [
+                7,
+                4
+            ]
+        },
+        {
+            "type": "setBlock",
+            "number": "X80087",
+            "loc": [
+                6,
+                5
+            ]
+        },
+        {
+            "type": "setBlock",
+            "number": "X80087",
+            "loc": [
+                6,
+                2
+            ]
+        },
+        {
+            "type": "setBlock",
+            "number": "X80087",
+            "loc": [
+                7,
+                3
+            ]
+        },
+        {
+            "type": "setBlock",
+            "number": "X80087",
+            "loc": [
+                8,
+                4
+            ]
+        },
+        {
+            "type": "setBlock",
+            "number": "X80087",
+            "loc": [
+                7,
+                5
+            ]
+        },
+        {
+            "type": "setBlock",
+            "number": "X80087",
+            "loc": [
+                6,
+                6
+            ]
+        },
+        {
+            "type": "setBlock",
+            "number": "X80087",
+            "loc": [
+                5,
+                5
+            ]
+        },
+        {
+            "type": "setBlock",
+            "number": "X80087",
+            "loc": [
+                5,
+                3
+            ]
+        },
         "即将进入存档页面。",
         {
             "type": "callSave"

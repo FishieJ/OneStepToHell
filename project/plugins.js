@@ -195,7 +195,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		});
 
 		core.control.updateViewport();
-	}
+	};
 
 },
     "setBgLight": function () {
@@ -252,6 +252,10 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 			var allSpecialList = core.enemys.getSpecials();
 			for (var tmp = 0; tmp < allSpecialList.length; tmp++) {
 				var cur = allSpecialList[tmp];
+				// 若属性名称是函数，获取返回值
+				if (typeof (function () {}) == typeof (cur[1])) {
+					cur[1] = cur[1](enemy);
+				}
 				if (specialName == cur[1]) {
 					if (cur.length > 3) // 定义了该特技的颜色
 						return cur[3];
@@ -363,6 +367,57 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 			}
 			content_top += 24;
 		}
+	};
+
+	// 血怨等属性伤害提示
+	core.ui._drawBook_drawDamage = function (index, enemy, offset, position) {
+		core.setTextAlign('ui', 'center');
+		var damage = enemy.damage,
+			color = '#FFFF00';
+		if (damage == null) {
+			damage = '无法战斗';
+			color = '#FF0000';
+		} else {
+			if (damage >= core.status.hero.hp) color = '#FF0000';
+			if (damage <= 0) color = '#00FF00';
+			damage = core.formatBigNumber(damage);
+			if (core.enemys.hasSpecial(enemy, 124) || core.enemys.hasSpecial(enemy, 19)) damage += "+";
+			if (core.enemys.hasSpecial(enemy, 126) || core.enemys.hasSpecial(enemy, 127)) damage += "-";
+			if (core.enemys.hasSpecial(enemy, 11)) damage += "^";
+			if (core.enemys.hasSpecial(enemy, 122)) damage += "*";
+			if (core.enemys.hasSpecial(enemy, 14) || core.enemys.hasSpecial(enemy, 109)) damage += "~";
+		}
+		if (enemy.notBomb) damage += "[b]";
+		core.fillText('ui', damage, offset, position, color, this._buildFont(13, true));
+	};
+	core.enemys.getDamageString = function (enemy, x, y, floorId) {
+		if (typeof enemy == 'string') enemy = core.material.enemys[enemy];
+		var damage = this.getDamage(enemy, x, y, floorId);
+
+		var color = '#000000';
+
+		if (damage == null) {
+			damage = "???";
+			color = '#FF0000';
+		} else {
+			if (damage <= 0) color = '#00FF00';
+			else if (damage < core.status.hero.hp / 3) color = '#FFFFFF';
+			else if (damage < core.status.hero.hp * 2 / 3) color = '#FFFF00';
+			else if (damage < core.status.hero.hp) color = '#FF7F00';
+			else color = '#FF0000';
+
+			damage = core.formatBigNumber(damage, true);
+			if (core.enemys.hasSpecial(enemy, 124) || core.enemys.hasSpecial(enemy, 19)) damage += "+";
+			if (core.enemys.hasSpecial(enemy, 126) || core.enemys.hasSpecial(enemy, 127)) damage += "-";
+			if (core.enemys.hasSpecial(enemy, 11)) damage += "^";
+			if (core.enemys.hasSpecial(enemy, 122)) damage += "*";
+			if (core.enemys.hasSpecial(enemy, 14) || core.enemys.hasSpecial(enemy, 109)) damage += "~";
+		}
+
+		return {
+			"damage": damage,
+			"color": color
+		};
 	};
 }
 }

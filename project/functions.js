@@ -87,13 +87,29 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		// 请注意：
 		// 成绩统计时是按照hp进行上传并排名，因此光在这里改${status:hp}是无效的
 		// 如需按照其他的的分数统计方式，请先将hp设置为你的得分
-		//core.setStatus('hp', core.itemCount('yellowKey') + core.itemCount('blueKey') * 4 + core.itemCount('redKey') * 15);
-		core.setStatus('hp', core.status.hero.hp + core.getFlag('hp_score', 0));
+		var total = core.status.hero.hp + core.getFlag('hp_score', 0);
+		var str = "正在统计分数……\n溢出生命和剩余生命值共" + total + "点，转化为等量分数\n";
+		if (reason == "蓝海王中王") {
+			total += 100000 * core.itemCount('yellowKey');
+			str += core.itemCount('yellowKey') + "把黄钥匙，共" + 100000 * core.itemCount('yellowKey') + "分\n";
+		} else if (reason == "红海王中王") {
+			total += 1000000 * core.itemCount('yellowKey') + 4000000 * core.itemCount('blueKey');
+			str += core.itemCount('yellowKey') + "把黄钥匙，共" + 1000000 * core.itemCount('yellowKey') + "分\n";
+			str += core.itemCount('blueKey') + "把蓝钥匙，共" + 4000000 * core.itemCount('blueKey') + "分\n";
+			total += 1000 * core.itemCount('coin') + 1000000 * core.itemCount('talentPoint') * core.itemCount('talentPoint');
+			str += core.itemCount('coin') + "金币，共" + 1000 * core.itemCount('coin') + "分\n";
+			str += core.itemCount('talentPoint') + "剩余天赋点，共" + 1000000 * core.itemCount('talentPoint') * core.itemCount('talentPoint') + "分\n";
+		} else if (reason == "血海王中王") {
+
+		}
+		str += "总计分数：" + total;
+		core.setStatus('hp', total);
 		core.drawText([
+			str,
 			"\t[" + (reason || "恭喜通关") + "]你的分数是${status:hp}。"
 		], function () {
 			core.events.gameOver(reason || '', replaying, norank);
-		})
+		});
 	});
 },
         "lose": function(reason) {
@@ -642,7 +658,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	return [
 		[1, "先攻", "先发制人。怪物首先攻击。"],
 		[2, "魔攻", "穿透护甲直接造成伤害。怪物无视勇士的防御。", "#b6b0ff"],
-		[3, "坚固", "很硬。勇士每回合最多只能对怪物造成1点伤害。", "#b9822d"],
+		[3, "坚固", "很硬。勇士每次普通攻击最多只能对怪物造成1点伤害。", "#b9822d"],
 		[4, "2连击", "怪物每回合攻击2次"],
 		[5, "3连击", "怪物每回合攻击3次"],
 		[6, function (enemy) { return (enemy.n || 4) + "连击"; }, function (enemy) { return "怪物每回合攻击" + (enemy.n || 4) + "次"; }],
@@ -660,11 +676,28 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[18, "阻击", function (enemy) { return "经过怪物的十字领域时自动减生命" + (enemy.value || 0) + "点，同时怪物后退一格"; }],
 		[19, "自爆", "【血海奥义】同归于尽吧！\n战斗后，勇士的生命值变成1", "#ff0000"],
 		[20, "无敌", "勇士无法打败怪物，除非拥有十字架"],
-		[21, "退化", function (enemy) { return "战斗后勇士永久下降" + (enemy.atkValue || 0) + "点攻击和" + (enemy.defValue || 0) + "点防御"; }],
+		[21, "退化", function (enemy) { return "【血海奥义】对敌人造成永久性不可逆的能力损伤\n战斗后勇士永久下降" + (enemy.atkValue || 0) + "点攻击和" + (enemy.defValue || 0) + "点防御"; }],
 		[22, "固伤", function (enemy) { return "战斗前，怪物对勇士造成" + (enemy.damage || 0) + "点固定伤害，无视勇士护盾。"; }],
 		[23, "重生", "怪物被击败后，角色转换楼层则怪物将再次出现"],
 		[24, "射击", function (enemy) { return "经过怪物同行或同列时自动减生命" + (enemy.value || 0) + "点"; }],
-		[25, "光环", function (enemy) { return "同楼层所有怪物生命提升" + (enemy.value || 0) + "%，攻击提升" + (enemy.atkValue || 0) + "%，防御提升" + (enemy.defValue || 0) + "%，" + (enemy.add ? "线性叠加" : "不可叠加"); }, "#fff900"],
+		[25, function (enemy) {
+			if (enemy.value)
+				return "活力光环";
+			if (enemy.atkValue)
+				return "狂暴光环";
+			if (enemy.defValue)
+				return "坚毅光环";
+		}, function (enemy) {
+			var str = "同地图所有怪物";
+			if (enemy.value)
+				str += "生命提升" + (enemy.value || 0) + "%，";
+			if (enemy.atkValue)
+				str += "攻击提升" + (enemy.atkValue || 0) + "%，";
+			if (enemy.defValue)
+				str += "防御提升" + (enemy.defValue || 0) + "%，";
+			str += (enemy.add ? "线性叠加" : "不可叠加");
+			return str;
+		}, "#fff900"],
 		[26, "支援", "当周围一圈的怪物受到攻击时将上前支援，并组成小队战斗。"],
 		[27, "捕捉", "当走到怪物周围十字时会强制进行战斗。"],
 		[99, "闪避", function (enemy) { return "灵巧的身法能够躲闪攻击。受到的普通攻击伤害降低" + (enemy.defValue || 0) + "%。"; }, "#c3c3c3"],
@@ -736,9 +769,9 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		mon_def = hero_def;
 	}
 	// 坚固
-	if (core.hasSpecial(mon_special, 3) && mon_def < hero_atk - 1) {
-		mon_def = hero_atk - 1;
-	}
+	//if (core.hasSpecial(mon_special, 3) && mon_def < hero_atk - 1) {
+	//	mon_def = hero_atk - 1;
+	//}
 
 	// ------ 支援 ------
 	var guards = [];
@@ -1005,7 +1038,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 	// 坚固
 	if (core.hasSpecial(mon_special, 3))
-		hero_per_damage = 1;
+		hero_per_damage = Math.min(hero_per_damage, 1);
 
 	// 迟钝
 	if (core.hasSpecial(mon_special, 113))
@@ -1344,7 +1377,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	case 80: // P：游戏主页
 		core.actions._clickGameInfo_openComments();
 		break;
-	case 49: // 快捷键1: 使用便携血瓶
+	case 49: // 快捷键1: 使用便携血瓶 或 破墙
 		/*
 		if (core.hasItem('I_ex_atk') || core.hasItem('I_ex_def')) {
 			if (core.canUseItem('I_ex_atk')) {
@@ -1360,6 +1393,9 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		if (core.hasItem('bring_hp') && core.canUseItem('bring_hp')) {
 			core.status.route.push("key:49");
 			core.useItem('bring_hp', true); // 第二个参数true代表该次使用道具是被按键触发的，使用过程不计入录像
+		} else if (core.hasItem('pickaxe') && core.canUseItem('pickaxe')) {
+			core.status.route.push("key:49");
+			core.useItem('pickaxe', true); // 第二个参数true代表该次使用道具是被按键触发的，使用过程不计入录像
 		}
 		break;
 		/*case 50: // 快捷键2: 炸
@@ -1918,6 +1954,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 		// 清空冲锋flag
 		core.setFlag('charge_atk', 0);
+		core.setFlag('charge2_battle_extra_cur', 0);
 		core.updateStatusBar();
 		return true;
 	}
