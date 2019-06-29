@@ -120,6 +120,11 @@ main.floors.Chap3_final=
             "name": "status:def",
             "value": "-50000"
         },
+        {
+            "type": "setValue",
+            "name": "flag:morph",
+            "value": "0"
+        },
         "\t[hero]\b[up,hero]谔谔，变回来了……完蛋了吗……",
         {
             "type": "sleep",

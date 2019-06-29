@@ -929,6 +929,18 @@ main.floors.EventMap=
                     }
                 ]
             }
+        ],
+        "3,0": [
+            {
+                "type": "setValue",
+                "name": "flag:charge_atk",
+                "value": "0"
+            },
+            {
+                "type": "setValue",
+                "name": "flag:last_direction",
+                "value": "null"
+            }
         ]
     },
     "changeFloor": {},

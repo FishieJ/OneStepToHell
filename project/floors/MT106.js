@@ -15,7 +15,7 @@ main.floors.MT106=
         false
     ],
     "item_ratio": 1,
-    "defaultGround": "ground2",
+    "defaultGround": "white",
     "bgm": "7-9.mp3",
     "weather": [
         "fog",

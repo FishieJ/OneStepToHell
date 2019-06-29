@@ -471,6 +471,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	if (core.enemys.hasSpecial(special, 21)) {
 		core.status.hero.atk -= (enemy.atkValue || 0);
 		core.status.hero.def -= (enemy.defValue || 0);
+		core.status.hero.mdef -= (enemy.value || 0);
 		if (core.status.hero.atk < 0) core.status.hero.atk = 0;
 		if (core.status.hero.def < 0) core.status.hero.def = 0;
 	}
@@ -676,7 +677,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[18, "阻击", function (enemy) { return "经过怪物的十字领域时自动减生命" + (enemy.value || 0) + "点，同时怪物后退一格"; }],
 		[19, "自爆", "【血海奥义】同归于尽吧！\n战斗后，勇士的生命值变成1", "#ff0000"],
 		[20, "无敌", "勇士无法打败怪物，除非拥有十字架"],
-		[21, "退化", function (enemy) { return "【血海奥义】对敌人造成永久性不可逆的能力损伤\n战斗后勇士永久下降" + (enemy.atkValue || 0) + "点攻击和" + (enemy.defValue || 0) + "点防御"; }],
+		[21, "退化", function (enemy) { return "【血海奥义】对敌人造成永久性不可逆的能力损伤\n战斗后勇士永久下降" + (enemy.atkValue || 0) + "点攻击，" + (enemy.defValue || 0) + "点防御，以及" + (enemy.value || 0) + "点护盾"; }],
 		[22, "固伤", function (enemy) { return "战斗前，怪物对勇士造成" + (enemy.damage || 0) + "点固定伤害，无视勇士护盾。"; }],
 		[23, "重生", "怪物被击败后，角色转换楼层则怪物将再次出现"],
 		[24, "射击", function (enemy) { return "经过怪物同行或同列时自动减生命" + (enemy.value || 0) + "点"; }],

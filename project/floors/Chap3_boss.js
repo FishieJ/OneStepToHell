@@ -7,7 +7,7 @@ main.floors.Chap3_boss=
     "height": 13,
     "canFlyTo": true,
     "canUseQuickShop": true,
-    "cannotViewMap": false,
+    "cannotViewMap": true,
     "cannotMoveDirectly": false,
     "images": [],
     "item_ratio": 100,
@@ -29,6 +29,10 @@ main.floors.Chap3_boss=
         {
             "type": "loadBgm",
             "name": "boss2.mp3"
+        },
+        {
+            "type": "loadBgm",
+            "name": "5-6.mp3"
         }
     ],
     "eachArrive": [],

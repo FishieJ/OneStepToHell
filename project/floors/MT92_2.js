@@ -17,6 +17,10 @@ main.floors.MT92_2=
         8
     ],
     "firstArrive": [
+        {
+            "type": "sleep",
+            "time": 500
+        },
         "\t[熙枫,heroine]\b[up,5,6]咦，这里怎么有一只好可爱的小黄鸡？",
         {
             "type": "jump",

@@ -2126,6 +2126,102 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					},
 					"最后，大境界突破，状态回满！"
 				]
+			},
+			{
+				"need": "100000000",
+				"title": "血海大成",
+				"clear": true,
+				"action": [
+					{
+						"type": "animate",
+						"name": "upgrade",
+						"loc": "hero"
+					},
+					{
+						"type": "setValue",
+						"name": "status:hpmax",
+						"value": "status:hpmax+3000000"
+					},
+					{
+						"type": "setValue",
+						"name": "status:hp",
+						"value": "status:hp+3000000"
+					},
+					{
+						"type": "setValue",
+						"name": "status:manamax",
+						"value": "status:manamax+200"
+					},
+					{
+						"type": "setValue",
+						"name": "status:mana",
+						"value": "status:mana+200"
+					},
+					{
+						"type": "setValue",
+						"name": "status:atk",
+						"value": "status:atk+20000"
+					},
+					{
+						"type": "setValue",
+						"name": "status:def",
+						"value": "status:def+20000"
+					},
+					{
+						"type": "setValue",
+						"name": "status:mdef",
+						"value": "status:mdef+24000"
+					},
+					"升级！生命、生命上限+3000000，魔法、魔法上限+200，攻击+20000，防御+20000，护盾+24000"
+				]
+			},
+			{
+				"need": "100000000",
+				"title": "血海王者",
+				"clear": true,
+				"action": [
+					{
+						"type": "animate",
+						"name": "upgrade",
+						"loc": "hero"
+					},
+					{
+						"type": "setValue",
+						"name": "status:hpmax",
+						"value": "status:hpmax+3000000"
+					},
+					{
+						"type": "setValue",
+						"name": "status:hp",
+						"value": "status:hp+3000000"
+					},
+					{
+						"type": "setValue",
+						"name": "status:manamax",
+						"value": "status:manamax+200"
+					},
+					{
+						"type": "setValue",
+						"name": "status:mana",
+						"value": "status:mana+200"
+					},
+					{
+						"type": "setValue",
+						"name": "status:atk",
+						"value": "status:atk+20000"
+					},
+					{
+						"type": "setValue",
+						"name": "status:def",
+						"value": "status:def+20000"
+					},
+					{
+						"type": "setValue",
+						"name": "status:mdef",
+						"value": "status:mdef+24000"
+					},
+					"升级！生命、生命上限+3000000，魔法、魔法上限+200，攻击+20000，防御+20000，护盾+24000"
+				]
 			}
 		]
 	},

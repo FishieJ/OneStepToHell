@@ -1,8 +1,8 @@
 main.floors.MT101=
 {
     "floorId": "MT101",
-    "title": "主塔 101 层",
-    "name": "101",
+    "title": "朝圣之路",
+    "name": "朝圣之路",
     "width": 13,
     "height": 13,
     "canFlyTo": true,
@@ -15,8 +15,15 @@ main.floors.MT101=
         false
     ],
     "item_ratio": 1,
-    "defaultGround": "ground2",
-    "firstArrive": [],
+    "defaultGround": "white",
+    "firstArrive": [
+        {
+            "type": "sleep",
+            "time": 500
+        },
+        "\t[hero]已经破晓了吗……",
+        "\t[hero]熙枫，挺住，我一定会让你醒来的！"
+    ],
     "eachArrive": [],
     "parallelDo": "",
     "events": {},
