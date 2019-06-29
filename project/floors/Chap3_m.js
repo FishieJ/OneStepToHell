@@ -51,18 +51,17 @@ main.floors.Chap3_m=
     "events": {
         "3,3": [
             {
-                "type": "function",
-                "function": "function(){\ncore.setFlag('darkRatio', 0.6);\n}"
+                "type": "setValue",
+                "name": "flag:darkRatio",
+                "value": "0.6"
             },
             {
-                "type": "setValue",
-                "name": "flag:charge_atk",
-                "value": "0"
-            },
-            {
-                "type": "setValue",
-                "name": "flag:last_direction",
-                "value": "null"
+                "type": "insert",
+                "loc": [
+                    3,
+                    0
+                ],
+                "floorId": "EventMap"
             },
             {
                 "type": "changeFloor",
@@ -76,18 +75,17 @@ main.floors.Chap3_m=
         ],
         "9,3": [
             {
-                "type": "function",
-                "function": "function(){\ncore.setFlag('darkRatio', 0.8);\n}"
+                "type": "setValue",
+                "name": "flag:darkRatio",
+                "value": "0.8"
             },
             {
-                "type": "setValue",
-                "name": "flag:charge_atk",
-                "value": "0"
-            },
-            {
-                "type": "setValue",
-                "name": "flag:last_direction",
-                "value": "null"
+                "type": "insert",
+                "loc": [
+                    3,
+                    0
+                ],
+                "floorId": "EventMap"
             },
             {
                 "type": "changeFloor",
@@ -102,18 +100,17 @@ main.floors.Chap3_m=
         ],
         "3,8": [
             {
-                "type": "function",
-                "function": "function(){\ncore.setFlag('darkRatio', 0.6);\n}"
+                "type": "setValue",
+                "name": "flag:darkRatio",
+                "value": "0.6"
             },
             {
-                "type": "setValue",
-                "name": "flag:charge_atk",
-                "value": "0"
-            },
-            {
-                "type": "setValue",
-                "name": "flag:last_direction",
-                "value": "null"
+                "type": "insert",
+                "loc": [
+                    3,
+                    0
+                ],
+                "floorId": "EventMap"
             },
             {
                 "type": "changeFloor",
@@ -127,18 +124,17 @@ main.floors.Chap3_m=
         ],
         "9,8": [
             {
-                "type": "function",
-                "function": "function(){\ncore.setFlag('darkRatio', 0.6);\n}"
+                "type": "setValue",
+                "name": "flag:darkRatio",
+                "value": "0.6"
             },
             {
-                "type": "setValue",
-                "name": "flag:charge_atk",
-                "value": "0"
-            },
-            {
-                "type": "setValue",
-                "name": "flag:last_direction",
-                "value": "null"
+                "type": "insert",
+                "loc": [
+                    3,
+                    0
+                ],
+                "floorId": "EventMap"
             },
             {
                 "type": "changeFloor",
@@ -167,18 +163,17 @@ main.floors.Chap3_m=
                 "text": "确定准备好了吗？",
                 "yes": [
                     {
-                        "type": "function",
-                        "function": "function(){\ncore.setFlag('darkRatio', 0.6);\n}"
+                        "type": "setValue",
+                        "name": "flag:darkRatio",
+                        "value": "0.6"
                     },
                     {
-                        "type": "setValue",
-                        "name": "flag:charge_atk",
-                        "value": "0"
-                    },
-                    {
-                        "type": "setValue",
-                        "name": "flag:last_direction",
-                        "value": "null"
+                        "type": "insert",
+                        "loc": [
+                            3,
+                            0
+                        ],
+                        "floorId": "EventMap"
                     },
                     {
                         "type": "changeFloor",
@@ -200,9 +195,12 @@ main.floors.Chap3_m=
                         ]
                     },
                     {
-                        "type": "setValue",
-                        "name": "flag:charge_atk",
-                        "value": "0"
+                        "type": "insert",
+                        "loc": [
+                            3,
+                            0
+                        ],
+                        "floorId": "EventMap"
                     }
                 ]
             }

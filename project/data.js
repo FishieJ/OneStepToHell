@@ -932,7 +932,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"name": "status:mdef",
 						"value": "status:mdef+100"
 					},
-					"晋升为蓝海境界！生命上限+4000，攻击+80，防御+80，护盾+100",
+					"晋升为蓝海一阶！生命上限+4000，攻击+80，防御+80，护盾+100",
 					{
 						"type": "setValue",
 						"name": "status:manamax",
@@ -1641,7 +1641,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"name": "status:mdef",
 						"value": "status:mdef+6000"
 					},
-					"升级！生命上限+500000，魔法上限+150，攻击+5000，防御+5000，护盾+6000",
+					"晋升为红海低阶！生命上限+500000，魔法上限+150，攻击+5000，防御+5000，护盾+6000",
 					{
 						"type": "setValue",
 						"name": "flag:lightRadius",
@@ -2085,35 +2085,32 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					},
 					{
 						"type": "setValue",
-						"name": "status:hp",
-						"value": "status:hp+3000000"
-					},
-					{
-						"type": "setValue",
 						"name": "status:manamax",
 						"value": "status:manamax+200"
 					},
 					{
 						"type": "setValue",
-						"name": "status:mana",
-						"value": "status:mana+200"
-					},
-					{
-						"type": "setValue",
 						"name": "status:atk",
-						"value": "status:atk+20000"
+						"value": "status:atk+30000"
 					},
 					{
 						"type": "setValue",
 						"name": "status:def",
-						"value": "status:def+20000"
+						"value": "status:def+30000"
 					},
 					{
 						"type": "setValue",
 						"name": "status:mdef",
-						"value": "status:mdef+24000"
+						"value": "status:mdef+36000"
 					},
-					"升级！生命、生命上限+3000000，魔法、魔法上限+200，攻击+20000，防御+20000，护盾+24000",
+					"晋升为血海初成！生命上限+3000000，魔法上限+200，攻击+30000，防御+30000，护盾+36000",
+					{
+						"type": "addValue",
+						"name": "flag:talentPoint",
+						"value": "6"
+					},
+					"获得6点天赋。",
+					"领悟\r[red]血海奥义【魔化】\r[white]！",
 					{
 						"type": "setValue",
 						"name": "status:hp",

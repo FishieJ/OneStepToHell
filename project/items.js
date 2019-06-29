@@ -503,6 +503,11 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 			"cls": "tools",
 			"name": "天赋点",
 			"text": "可以用来学习天赋，或者留到最后算分"
+		},
+		"I536": {
+			"cls": "items",
+			"name": "魔法结晶",
+			"text": "血海篇的魔法结晶，效果是正常版的10%"
 		}
 	},
 	"itemEffect": {
@@ -545,7 +550,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"I454": "var heal = core.values.redPotion * 10 * ratio;\ncore.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });",
 		"I455": "var heal = core.values.bluePotion * 10 * ratio;\ncore.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });",
 		"I456": "var heal = core.values.yellowPotion * 10 * ratio;\ncore.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });",
-		"I457": "var heal = core.values.greenPotion * 10 * ratio;\ncore.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });"
+		"I457": "var heal = core.values.greenPotion * 10 * ratio;\ncore.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });",
+		"I536": "core.status.hero.mana += core.values.manaCrystal * ratio * 0.1"
 	},
 	"itemEffectTip": {
 		"redJewel": "'，攻击+'+core.values.redJewel * ratio",
@@ -587,7 +593,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"I454": "'，生命+'+core.values.redPotion*10*ratio",
 		"I455": "'，生命+'+core.values.bluePotion*10*ratio",
 		"I456": "'，生命+'+core.values.yellowPotion*10*ratio",
-		"I457": "'，生命+'+core.values.greenPotion*10*ratio"
+		"I457": "'，生命+'+core.values.greenPotion*10*ratio",
+		"I536": "'，魔法+'+core.values.manaCrystal * ratio * 0.1"
 	},
 	"useItemEffect": {
 		"book": "core.ui.drawBook(0);",

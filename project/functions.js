@@ -297,7 +297,9 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 	var enemy = core.material.enemys[enemyId];
 	var special = enemy.special;
-	if (core.enemys.hasSpecial(special, 128)) {
+	if (core.enemys.hasSpecial(special, 19)) {
+		drawEnemyAnimate('explosion');
+	} else if (core.enemys.hasSpecial(special, 128)) {
 		drawEnemyAnimate('dark');
 	} else if (core.enemys.hasSpecial(special, 9)) {
 		drawEnemyAnimate('purify');
@@ -309,8 +311,6 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		drawEnemyAnimate('weak');
 	} else if (core.enemys.hasSpecial(special, 14) || core.enemys.hasSpecial(special, 109)) {
 		drawEnemyAnimate('ice');
-	} else if (core.enemys.hasSpecial(special, 19)) {
-		drawEnemyAnimate('explosion');
 	} else if (core.enemys.hasSpecial(special, 103)) {
 		drawEnemyAnimate('skill1');
 	} else if (core.enemys.hasSpecial(special, 104)) {

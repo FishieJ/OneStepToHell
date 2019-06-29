@@ -7,7 +7,7 @@ main.floors.EventMap=
     "height": 13,
     "canFlyTo": true,
     "canUseQuickShop": true,
-    "cannotViewMap": false,
+    "cannotViewMap": true,
     "cannotMoveDirectly": false,
     "images": [],
     "item_ratio": 1,
@@ -773,6 +773,10 @@ main.floors.EventMap=
         ],
         "0,3": [
             {
+                "type": "comment",
+                "text": "第三章结尾，将所有物品换算为金币。"
+            },
+            {
                 "type": "addValue",
                 "name": "item:coin",
                 "value": "core.itemCount('I458')*1000"
@@ -840,6 +844,16 @@ main.floors.EventMap=
             {
                 "type": "setValue",
                 "name": "item:I462",
+                "value": "0"
+            },
+            {
+                "type": "addValue",
+                "name": "item:coin",
+                "value": "core.itemCount('I476')*400"
+            },
+            {
+                "type": "setValue",
+                "name": "item:I476",
                 "value": "0"
             }
         ],
@@ -932,6 +946,10 @@ main.floors.EventMap=
         ],
         "3,0": [
             {
+                "type": "comment",
+                "text": "清除所有冲锋状态。"
+            },
+            {
                 "type": "setValue",
                 "name": "flag:charge_atk",
                 "value": "0"
@@ -940,6 +958,11 @@ main.floors.EventMap=
                 "type": "setValue",
                 "name": "flag:last_direction",
                 "value": "null"
+            },
+            {
+                "type": "setValue",
+                "name": "flag:charge2_battle_extra_cur",
+                "value": "0"
             }
         ]
     },

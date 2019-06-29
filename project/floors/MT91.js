@@ -52,8 +52,9 @@ main.floors.MT91=
             "time": 0
         },
         {
-            "type": "function",
-            "function": "function(){\ncore.drawMap();\n}"
+            "type": "setGlobalValue",
+            "name": "lavaDamage",
+            "value": 100000
         },
         {
             "type": "setValue",
@@ -125,6 +126,36 @@ main.floors.MT91=
                 "type": "hide",
                 "time": 0
             }
+        ],
+        "6,11": [
+            {
+                "type": "switch",
+                "condition": "flag:hard",
+                "caseList": [
+                    {
+                        "case": "1",
+                        "action": [
+                            "检测到正在游玩乱撞难度，获得100个便携式蓝瓶，请不要忘记使用！",
+                            {
+                                "type": "addValue",
+                                "name": "item:bring_mana",
+                                "value": "100"
+                            }
+                        ]
+                    },
+                    {
+                        "case": "2",
+                        "action": [
+                            "检测到正在游玩简单难度，获得10个便携式蓝瓶！",
+                            {
+                                "type": "addValue",
+                                "name": "item:bring_mana",
+                                "value": "10"
+                            }
+                        ]
+                    }
+                ]
+            }
         ]
     },
     "changeFloor": {},
@@ -169,8 +200,8 @@ main.floors.MT91=
     [  1,  1,  1,  0,512,  0,514,  1,  1,517,  0,514,  0],
     [  0,517,  0, 29,  1,  0,  1,  0, 27,  0,  1,  1,520],
     [515,  1,513,  1,  1,  0,  1,512,  0,  1,  1,  1,  0],
-    [  0,  1,  0, 31,  1,  0,  0,  0,  1,  1,380,  1, 27],
-    [ 28,  1, 28,  0,512,  0,  0,  1,  1, 28,  0,516,  0]
+    [  0,  1,  0, 31,512,  0,  0,  0,  1,  1,536,  1, 27],
+    [ 28,  1, 28,  0,  1,  1,  0,  1,  1, 28,  0,516,  0]
 ],
     "bgmap": [
 
