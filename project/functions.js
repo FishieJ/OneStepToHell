@@ -96,8 +96,8 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 			total += 1000000 * core.itemCount('yellowKey') + 4000000 * core.itemCount('blueKey');
 			str += core.itemCount('yellowKey') + "把黄钥匙，共" + 1000000 * core.itemCount('yellowKey') + "分\n";
 			str += core.itemCount('blueKey') + "把蓝钥匙，共" + 4000000 * core.itemCount('blueKey') + "分\n";
-			total += 1000 * core.itemCount('coin') + 1000000 * core.itemCount('talentPoint') * core.itemCount('talentPoint');
-			str += core.itemCount('coin') + "金币，共" + 1000 * core.itemCount('coin') + "分\n";
+			total += 2500 * core.itemCount('coin') + 1000000 * core.itemCount('talentPoint') * core.itemCount('talentPoint');
+			str += core.itemCount('coin') + "金币，共" + 2500 * core.itemCount('coin') + "分\n";
 			str += core.itemCount('talentPoint') + "剩余天赋点，共" + 1000000 * core.itemCount('talentPoint') * core.itemCount('talentPoint') + "分\n";
 		} else if (reason == "血海王中王") {
 
@@ -779,7 +779,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	// 光环检查
 	// 在这里判定是否需要遍历全图（由于光环需要遍历全图，应尽可能不需要以减少计算量，尤其是大地图）
 	var query = function () {
-		var floorIds = ["MT70", "MT78", "MT79", "MT87", "MT88", "MT89", "MT90", "Chap3_boss"]; // 在这里给出所有需要遍历的楼层（即有光环或支援等）
+		var floorIds = ["MT70", "MT78", "MT79", "MT87", "MT88", "MT89", "MT90", "Chap3_boss", "MT100"]; // 在这里给出所有需要遍历的楼层（即有光环或支援等）
 		return core.inArray(floorIds, floorId); // 也可以写其他的判定条件
 	};
 

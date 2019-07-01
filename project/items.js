@@ -121,7 +121,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"shield1": {
 			"cls": "constants",
-			"name": "铁盾",
+			"name": "青岚盾（一阶）",
 			"text": "【被动效果】抵抗净化效果。净化效果变为5倍。",
 			"equip": {
 				"type": "无需装备"
@@ -129,7 +129,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"shield2": {
 			"cls": "constants",
-			"name": "银盾",
+			"name": "青岚盾（二阶）",
 			"text": "【被动效果】抵抗净化效果。净化效果变为4倍。",
 			"equip": {
 				"type": "无需装备"
@@ -137,7 +137,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"shield3": {
 			"cls": "constants",
-			"name": "骑士盾",
+			"name": "青岚盾（三阶）",
 			"text": "【被动效果】抵抗净化效果。净化效果变为3倍。",
 			"equip": {
 				"type": "无需装备"
@@ -145,7 +145,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"shield4": {
 			"cls": "constants",
-			"name": "圣盾",
+			"name": "青岚盾（四阶）",
 			"text": "【被动效果】抵抗净化效果。净化效果变为2倍。",
 			"equip": {
 				"type": "无需装备"
@@ -153,7 +153,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"shield5": {
 			"cls": "constants",
-			"name": "神圣盾",
+			"name": "青岚盾（五阶）",
 			"text": "【被动效果】抵抗净化效果。净化效果变为1倍。",
 			"equip": {
 				"type": "无需装备"
