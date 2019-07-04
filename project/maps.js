@@ -240,7 +240,7 @@ var maps_90f36752_8815_4be8_b32b_d7fad1d0542e =
 	"328": {"cls":"enemys","id":"E328"},
 	"329": {"cls":"enemys","id":"E329"},
 	"330": {"cls":"npcs","id":"N330"},
-	"331": {"cls":"items","id":"I331"},
+	"331": {"cls":"items","id":"I_resetTalent"},
 	"332": {"cls":"items","id":"I_hard_1"},
 	"333": {"cls":"items","id":"I_hp_score"},
 	"334": {"cls":"items","id":"bring_hp"},

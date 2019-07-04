@@ -258,7 +258,7 @@ main.floors.EventMap=
         "0,2": [
             {
                 "type": "choices",
-                "text": "\t[强击（${flag:skill1_lv}/3）,skill1]每级提升\r[yellow]0.5\r[white]倍额外伤害。当前强击造成的额外伤害是\r[yellow]${flag:skill1_val-1}\r[white]倍攻击力。",
+                "text": "\t[强击（${flag:skill1_lv}/3）,skill1]\r[red][攻击类]\r[white]每级提升\r[yellow]0.5\r[white]倍额外伤害。当前强击造成的额外伤害是\r[yellow]${flag:skill1_val-1}\r[white]倍攻击力。",
                 "choices": [
                     {
                         "text": "确认",
@@ -345,7 +345,7 @@ main.floors.EventMap=
         "1,2": [
             {
                 "type": "choices",
-                "text": "\t[防御（${flag:skill2_lv}/3）,skill2]每级提升\r[yellow]50%\r[white]防御转化率。当前效果为将${flag:skill2_atk_ratio*100}%的攻击力以\r[yellow]${flag:skill2_def_ratio*100}%\r[white]的比例转化为防御。",
+                "text": "\t[防御（${flag:skill2_lv}/3）,skill2]\r[blue][防御类]\r[white]每级提升\r[yellow]50%\r[white]防御转化率。当前效果为将${flag:skill2_atk_ratio*100}%的攻击力以\r[yellow]${flag:skill2_def_ratio*100}%\r[white]的比例转化为防御。",
                 "choices": [
                     {
                         "text": "确认",
@@ -432,7 +432,7 @@ main.floors.EventMap=
         "2,2": [
             {
                 "type": "choices",
-                "text": "\t[撕裂（${flag:skill4_lv}/4）,skill4]每级提升\r[yellow]1.5%\r[white]的流失量。当前效果为令敌人每回合开始时流失\r[yellow]${flag:skill4_val}%\r[white]的当前生命值。",
+                "text": "\t[撕裂（${flag:skill4_lv}/4）,skill4]\r[red][攻击类]\r[white]每级提升\r[yellow]1.5%\r[white]的流失量。当前效果为令敌人每回合开始时流失\r[yellow]${flag:skill4_val}%\r[white]的当前生命值。",
                 "choices": [
                     {
                         "text": "确认",
@@ -519,7 +519,7 @@ main.floors.EventMap=
         "3,2": [
             {
                 "type": "choices",
-                "text": "\t[吸血（${flag:talent1_lv}/5）,I_vampire]每级提升\r[yellow]2%\r[white]的吸血。当前吸血比例为\r[yellow]${Math.floor(flag:vampire_ratio * 100)}%\r[white]。",
+                "text": "\t[吸血（${flag:talent1_lv}/5）,I_vampire]\r[blue][防御类]\r[white]每级提升\r[yellow]4%\r[white]的吸血。当前吸血比例为\r[yellow]${Math.floor(flag:vampire_ratio * 100)}%\r[white]。",
                 "choices": [
                     {
                         "text": "确认",
@@ -557,7 +557,7 @@ main.floors.EventMap=
                                     {
                                         "type": "addValue",
                                         "name": "flag:vampire_ratio",
-                                        "value": "0.02"
+                                        "value": "0.04"
                                     },
                                     {
                                         "type": "addValue",
@@ -606,7 +606,7 @@ main.floors.EventMap=
         "4,2": [
             {
                 "type": "choices",
-                "text": "\t[回复魔法（${flag:talent2_lv}/6）,I341]每级使得战斗后多回复\r[yellow]2\r[white]点魔法。当前每场战斗后回复\r[yellow]${flag:mana_regen}\r[white]点魔法。",
+                "text": "\t[回复魔法（${flag:talent2_lv}/6）,I341]\r[red][攻击类]\r[white]每级使得战斗后多回复\r[yellow]2\r[white]点魔法。当前每场战斗后回复\r[yellow]${flag:mana_regen}\r[white]点魔法。",
                 "choices": [
                     {
                         "text": "确认",
@@ -693,7 +693,7 @@ main.floors.EventMap=
         "5,2": [
             {
                 "type": "choices",
-                "text": "\t[高级护盾（${flag:talent3_lv}/5）,shield0]每级使得每点护盾可以多抵挡\r[yellow]0.3\r[white]点伤害。当前每点护盾可以抵挡\r[yellow]${flag:mdef_ratio}\r[white]点伤害。",
+                "text": "\t[高级护盾（${flag:talent3_lv}/5）,shield0]\r[blue][防御类]\r[white]每级使得每点护盾可以多抵挡\r[yellow]0.3\r[white]点伤害。当前每点护盾可以抵挡\r[yellow]${flag:mdef_ratio}\r[white]点伤害。",
                 "choices": [
                     {
                         "text": "确认",
@@ -880,7 +880,7 @@ main.floors.EventMap=
         "6,2": [
             {
                 "type": "choices",
-                "text": "\t[清洁术（${flag:poison_lv}/2）,expelPoison]每级使得清洁术耗蓝减少\r[yellow]95\r[white]点。当前耗蓝\r[yellow]${flag:expelPoison_cost}\r[white]点。",
+                "text": "\t[清洁术（${flag:poison_lv}/2）,expelPoison]\r[green][咸鱼类]\r[white]每级使得清洁术耗蓝减少\r[yellow]99\r[white]点。当前耗蓝\r[yellow]${flag:expelPoison_cost}\r[white]点。",
                 "choices": [
                     {
                         "text": "确认",
@@ -918,7 +918,7 @@ main.floors.EventMap=
                                     {
                                         "type": "addValue",
                                         "name": "flag:expelPoison_cost",
-                                        "value": "-95"
+                                        "value": "-99"
                                     },
                                     {
                                         "type": "addValue",
@@ -1350,7 +1350,7 @@ main.floors.EventMap=
         "0,5": [
             {
                 "type": "choices",
-                "text": "\t[高级强击（${flag:skill1_lv2}/3）,skill1]每级提升\r[yellow]1\r[white]倍额外伤害。当前强击造成的额外伤害是\r[yellow]${flag:skill1_val-1}\r[white]倍攻击力。",
+                "text": "\t[高级强击（${flag:skill1_lv2}/3）,skill1]\r[red][攻击类]\r[white]每级提升\r[yellow]1\r[white]倍额外伤害。当前强击造成的额外伤害是\r[yellow]${flag:skill1_val-1}\r[white]倍攻击力。",
                 "choices": [
                     {
                         "text": "确认",
@@ -1453,7 +1453,7 @@ main.floors.EventMap=
         "1,5": [
             {
                 "type": "choices",
-                "text": "\t[斩杀（${flag:execute_lv}/3）,execute]每级提升\r[yellow]10%\r[white]斩杀触发百分比。当前斩杀触发百分比为\r[yellow]${flag:execute_percentage}%\r[white]。",
+                "text": "\t[斩杀（${flag:execute_lv}/3）,execute]\r[red][攻击类]\r[white]每级提升\r[yellow]10%\r[white]斩杀触发百分比。当前斩杀触发百分比为\r[yellow]${flag:execute_percentage}%\r[white]。",
                 "choices": [
                     {
                         "text": "确认",
@@ -1556,7 +1556,7 @@ main.floors.EventMap=
         "0,6": [
             {
                 "type": "choices",
-                "text": "\t[冲锋（${flag:charge_lv}/5）,I_charge2]每级提升\r[yellow]0.4%\r[white]每层冲锋攻击力。当前每层冲锋提升攻击力为\r[yellow]${(100*flag:charge_ratio).toFixed(1)}%\r[white]。",
+                "text": "\t[冲锋（${flag:charge_lv}/5）,I_charge2]\r[blue][防御类]\r[white]每级提升\r[yellow]0.4%\r[white]每层冲锋攻击力。当前每层冲锋提升攻击力为\r[yellow]${(100*flag:charge_ratio).toFixed(1)}%\r[white]。",
                 "choices": [
                     {
                         "text": "确认",
@@ -1669,7 +1669,7 @@ main.floors.EventMap=
         "1,6": [
             {
                 "type": "choices",
-                "text": "\t[势如破竹（${flag:c_charge_lv}/3）,c_charge]每级使得每场战斗额外叠加\r[yellow]1\r[white]层冲锋，并提升\r[yellow]5\r[white]层叠加上限。\n当前每次战斗叠加\r[yellow]${flag:charge2_battle_extra}\r[white]层冲锋，叠加上限为\r[yellow]${flag:charge2_battle_extra_max}\r[white]层。",
+                "text": "\t[势如破竹（${flag:c_charge_lv}/3）,c_charge]\r[blue][防御类]\r[white]每级使得每场战斗额外叠加\r[yellow]1\r[white]层冲锋，并提升\r[yellow]5\r[white]层叠加上限。\n当前每次战斗叠加\r[yellow]${flag:charge2_battle_extra}\r[white]层冲锋，叠加上限为\r[yellow]${flag:charge2_battle_extra_max}\r[white]层。",
                 "choices": [
                     {
                         "text": "确认",
@@ -1777,7 +1777,7 @@ main.floors.EventMap=
         "2,5": [
             {
                 "type": "choices",
-                "text": "\t[魔化（${flag:morph_lv}/5）,I_morph]每级使魔化额外提供\r[yellow]500000\r[white]点生命、\r[yellow]10000\r[white]点攻击、\r[yellow]5000\r[white]点防御，且冷却时间减少\r[yellow]1\r[white]次战斗。\n当前魔化提升\r[yellow]${flag:skill5_hpmax}\r[white]点生命、\r[yellow]${flag:skill5_atk}\r[white]点攻击力和\r[yellow]${flag:skill5_def}\r[white]点防御，冷却\r[yellow]${flag:skill5_cooldown}\r[white]次战斗。",
+                "text": "\t[魔化（${flag:morph_lv}/5）,I_morph]\r[red][攻击类]\r[white]每级使魔化额外提供\r[yellow]500000\r[white]点生命、\r[yellow]10000\r[white]点攻击、\r[yellow]5000\r[white]点防御，且冷却时间减少\r[yellow]1\r[white]次战斗。\n当前魔化提升\r[yellow]${flag:skill5_hpmax}\r[white]点生命、\r[yellow]${flag:skill5_atk}\r[white]点攻击力和\r[yellow]${flag:skill5_def}\r[white]点防御，冷却\r[yellow]${flag:skill5_cooldown}\r[white]次战斗。",
                 "choices": [
                     {
                         "text": "确认",
@@ -1911,7 +1911,7 @@ main.floors.EventMap=
         "2,6": [
             {
                 "type": "choices",
-                "text": "\t[高级防御（${flag:skill2_lv2}/3）,skill2]每级提升\r[yellow]1%\r[white]攻击转化和\r[yellow]50%\r[white]防御转化率。\n当前效果为将\r[yellow]${(flag:skill2_atk_ratio*100).toFixed(0)}%\r[white]的攻击力以\r[yellow]${flag:skill2_def_ratio*100}%\r[white]的比例转化为防御。",
+                "text": "\t[高级防御（${flag:skill2_lv2}/3）,skill2]\r[blue][防御类]\r[white]每级提升\r[yellow]1%\r[white]攻击转化和\r[yellow]50%\r[white]防御转化率。\n当前效果为将\r[yellow]${(flag:skill2_atk_ratio*100).toFixed(0)}%\r[white]的攻击力以\r[yellow]${flag:skill2_def_ratio*100}%\r[white]的比例转化为防御。",
                 "choices": [
                     {
                         "text": "确认",

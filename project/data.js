@@ -2069,7 +2069,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				]
 			},
 			{
-				"need": "8000000",
+				"need": "8500000",
 				"title": "半步血海",
 				"clear": true,
 				"action": [

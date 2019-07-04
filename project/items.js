@@ -279,10 +279,6 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 			"text": "消耗${flag:skill1_cost}点魔法，首回合额外造成${flag:skill1_val-1}倍攻击的伤害。快捷键为2。",
 			"hideInReplay": false
 		},
-		"I331": {
-			"cls": "items",
-			"name": "新物品"
-		},
 		"I341": {
 			"cls": "constants",
 			"name": "[被动]回复魔法",
@@ -523,6 +519,11 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 			"cls": "constants",
 			"name": "魔化冷却中...",
 			"text": "还需要${flag:morph_cooldown}次战斗才能再使用【魔化】。"
+		},
+		"I_resetTalent": {
+			"cls": "constants",
+			"name": "【测试用】天赋重置",
+			"text": "可以重置红海阶段的所有天赋"
 		}
 	},
 	"itemEffect": {
@@ -655,7 +656,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"invisibleWine": "core.setFlag('invisible', 1);\ncore.setOpacity('hero', 0.5);\ncore.setFlag('no_betweenAttack', true);\ncore.setFlag('no_zone', true);\ncore.setFlag('no_snipe', true);\ncore.setFlag('no_laser', true);\ncore.setFlag('no_ambush', true);",
 		"talent": "if (core.status.hero.lv < 24)\n\tcore.insertAction([{ \"type\": \"insert\", \"loc\": [0, 1], \"floorId\": \"EventMap\" }]);\nelse\n\tcore.insertAction([{ \"type\": \"insert\", \"loc\": [0, 4], \"floorId\": \"EventMap\" }]);",
 		"smallJump": "core.status.hero.mana -= core.getFlag('smallJump_cost', 30);\ncore.insertAction({ \"type\": \"jumpHero\", \"loc\": [core.nextX(1), core.nextY(1)] });\n\nvar charge_ratio = core.getFlag('charge_ratio', 0.02);\nvar charge_atk = core.getFlag('charge_atk', 0);\ncore.setFlag('charge_atk', Math.max(charge_atk - charge_ratio * core.status.hero.atk, 0));",
-		"I_morph": "// 直接判断是否可以使用即可\nvar curMana = core.status.hero.mana;\nvar cost = core.getFlag('skill5_cost', 641);\nif (curMana >= cost) {\n\tcore.status.hero.mana -= cost;\n\tcore.insertAction([{ \"type\": \"insert\", \"loc\": [12, 0], \"floorId\": \"EventMap\" }]);\n} else {\n\tcore.drawTip(\"魔法不足。\");\n}"
+		"I_morph": "// 直接判断是否可以使用即可\nvar curMana = core.status.hero.mana;\nvar cost = core.getFlag('skill5_cost', 641);\nif (curMana >= cost) {\n\tcore.status.hero.mana -= cost;\n\tcore.insertAction([{ \"type\": \"insert\", \"loc\": [12, 0], \"floorId\": \"EventMap\" }]);\n} else {\n\tcore.drawTip(\"魔法不足。\");\n}",
+		"I_resetTalent": "var list = [\"skill1_lv\", \"skill2_lv\", \"skill4_lv\", \"talent1_lv\", \"talent2_lv\", \"talent3_lv\", \"poison_lv\"];\nfor (var i in list) {\n\tvar z = core.getFlag(list[i], 0);\n\tconsole.log(list[i], z);\n\tif (z > 0) {\n\t\tcore.addFlag('talentPoint', z);\n\t\tcore.setFlag(list[i], 0);\n\t}\n}\ncore.setFlag('skill1_val', 3.5);\ncore.setFlag('skill2_def_ratio', 3);\ncore.setFlag('skill4_val', 5);\ncore.setFlag('vampire_ratio', 0.2);\ncore.setFlag('mana_regen', 3);\ncore.setFlag('mdef_ratio', 1.5);\ncore.drawTip('重置成功');"
 	},
 	"canUseItemEffect": {
 		"book": "true",
@@ -709,7 +711,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"talent": "true",
 		"smallJump": "(function () {\n\tvar nx = core.nextX(1),\n\t\tny = core.nextY(1);\n\tvar cost = core.getFlag('smallJump_cost', 30);\n\treturn nx >= 0 && nx < core.bigmap.width && ny >= 0 && ny < core.bigmap.height && core.getBlockId(nx, ny) == null && cost <= core.status.hero.mana;\n})();",
 		"talentPoint": null,
-		"I_morph": "(function () {\n\treturn core.getFlag('morph', 0) == 0 && core.getFlag('morph_cooldown', 0) == 0;\n})();"
+		"I_morph": "(function () {\n\treturn core.getFlag('morph', 0) == 0 && core.getFlag('morph_cooldown', 0) == 0;\n})();",
+		"I_resetTalent": "true"
 	},
 	"canEquip": {},
 	"equipCondition": {

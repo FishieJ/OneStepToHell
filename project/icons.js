@@ -429,7 +429,6 @@ var icons_4665ee12_3a1f_44a4_bea3_0fccba634dc1 =
 		"hammer": 48,
 		"jumpShoes": 49,
 		"skill1": 30,
-		"I331": 5,
 		"I341": 38,
 		"I342": 39,
 		"I_ex_atk": 36,
@@ -479,7 +478,8 @@ var icons_4665ee12_3a1f_44a4_bea3_0fccba634dc1 =
 		"I536": 94,
 		"I_morph": 95,
 		"I_morphed": 96,
-		"I_morph_cooldown": 97
+		"I_morph_cooldown": 97,
+		"I_resetTalent": 5
 	},
 	"autotile": {
 		"autotile": 0,
