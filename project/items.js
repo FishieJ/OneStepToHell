@@ -275,7 +275,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"skill1": {
 			"cls": "constants",
-			"name": "技能：强击",
+			"name": "技能：强击 [2]",
 			"text": "消耗${flag:skill1_cost}点魔法，首回合额外造成${flag:skill1_val-1}倍攻击的伤害。快捷键为2。",
 			"hideInReplay": false
 		},
@@ -375,7 +375,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"skill2": {
 			"cls": "constants",
-			"name": "技能：防御",
+			"name": "技能：防御 [3]",
 			"text": "消耗${flag:skill2_cost}点魔法，减少${(flag:skill2_atk_ratio*100).toFixed(0)}%的攻击，将减少数值的${flag:skill2_def_ratio*100}%转化为防御。快捷键为3。"
 		},
 		"skill3": {
@@ -412,7 +412,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"skill4": {
 			"cls": "constants",
-			"name": "【红海技能】撕裂",
+			"name": "【红海技能】撕裂 [4]",
 			"text": "消耗${flag:skill4_cost}点魔法，使对方每回合开始时流失${flag:skill4_val}%的当前生命。此伤害可以触发【吸血】效果。快捷键为4。"
 		},
 		"I458": {
@@ -447,12 +447,12 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"bring_hp": {
 			"cls": "tools",
-			"name": "便携式血瓶",
+			"name": "便携式血瓶 [1]",
 			"text": "便于携带的血瓶，使用可以回复${flag:bring_hp_val}生命。境界越高效果越好。快捷键是1。"
 		},
 		"bring_mana": {
 			"cls": "tools",
-			"name": "便携式蓝瓶",
+			"name": "便携式蓝瓶 [F2]",
 			"text": "便于携带的蓝瓶，使用可以回复50魔法。快捷键是F2。"
 		},
 		"I476": {
@@ -487,7 +487,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"smallJump": {
 			"cls": "constants",
-			"name": "[地图技能]跳跃",
+			"name": "[地图技能]跳跃 [W]",
 			"text": "消耗${flag:smallJump_cost}点魔法，跳跃到前方一格的空地上，并减少1层冲锋效果。快捷键是W。"
 		},
 		"c_charge": {
@@ -507,7 +507,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"I_morph": {
 			"cls": "constants",
-			"name": "【血海奥义】魔化",
+			"name": "【血海奥义】魔化 [5]",
 			"text": "消耗${flag:skill5_cost}点魔法，进入魔化状态，提升${flag:skill5_hpmax}点生命及生命上限、${flag:skill5_atk}点攻击力和${flag:skill5_def}点防御力，并暂时免疫地图伤害，持续${flag:skill5_duration}次战斗。效果结束后需要经过${flag:skill5_cooldown}次战斗才能再次使用。快捷键为5。"
 		},
 		"I_morphed": {
