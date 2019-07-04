@@ -88,6 +88,10 @@ main.floors.EventMap=
         ],
         "0,1": [
             {
+                "type": "comment",
+                "text": "红海天赋"
+            },
+            {
                 "type": "choices",
                 "text": "\t[天赋选择,talent]选择要强化的技能。目前有${flag:talentPoint}个天赋点。",
                 "choices": [
@@ -95,8 +99,8 @@ main.floors.EventMap=
                         "text": "强击（${flag:skill1_lv}/3）",
                         "color": [
                             255,
-                            187,
-                            68,
+                            85,
+                            85,
                             1
                         ],
                         "action": [
@@ -111,30 +115,11 @@ main.floors.EventMap=
                         ]
                     },
                     {
-                        "text": "防御（${flag:skill2_lv}/3）",
-                        "color": [
-                            255,
-                            187,
-                            68,
-                            1
-                        ],
-                        "action": [
-                            {
-                                "type": "insert",
-                                "loc": [
-                                    1,
-                                    2
-                                ],
-                                "floorId": "EventMap"
-                            }
-                        ]
-                    },
-                    {
                         "text": "撕裂（${flag:skill4_lv}/4）",
                         "color": [
                             255,
-                            68,
-                            68,
+                            85,
+                            85,
                             1
                         ],
                         "action": [
@@ -149,30 +134,11 @@ main.floors.EventMap=
                         ]
                     },
                     {
-                        "text": "吸血（${flag:talent1_lv}/5）",
+                        "text": "回复魔法（${flag:talent2_lv}/6）",
                         "color": [
                             255,
-                            238,
-                            0,
-                            1
-                        ],
-                        "action": [
-                            {
-                                "type": "insert",
-                                "loc": [
-                                    3,
-                                    2
-                                ],
-                                "floorId": "EventMap"
-                            }
-                        ]
-                    },
-                    {
-                        "text": "回复魔法（${flag:talent2_lv}/5）",
-                        "color": [
-                            17,
-                            68,
-                            255,
+                            85,
+                            85,
                             1
                         ],
                         "action": [
@@ -187,11 +153,49 @@ main.floors.EventMap=
                         ]
                     },
                     {
+                        "text": "防御（${flag:skill2_lv}/3）",
+                        "color": [
+                            68,
+                            204,
+                            221,
+                            1
+                        ],
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    1,
+                                    2
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "吸血（${flag:talent1_lv}/5）",
+                        "color": [
+                            68,
+                            204,
+                            221,
+                            1
+                        ],
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    3,
+                                    2
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    },
+                    {
                         "text": "高级护盾（${flag:talent3_lv}/5）",
                         "color": [
                             68,
-                            255,
-                            255,
+                            204,
+                            221,
                             1
                         ],
                         "action": [
@@ -208,9 +212,9 @@ main.floors.EventMap=
                     {
                         "text": "清洁术（${flag:poison_lv}/2）",
                         "color": [
-                            68,
-                            255,
-                            102,
+                            160,
+                            247,
+                            83,
                             1
                         ],
                         "action": [
@@ -228,7 +232,23 @@ main.floors.EventMap=
                         "text": "离开",
                         "action": [
                             {
-                                "type": "exit"
+                                "type": "if",
+                                "condition": "core.status.hero.lv < 24",
+                                "true": [
+                                    {
+                                        "type": "exit"
+                                    }
+                                ],
+                                "false": [
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            4
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -586,14 +606,14 @@ main.floors.EventMap=
         "4,2": [
             {
                 "type": "choices",
-                "text": "\t[回复魔法（${flag:talent2_lv}/5）,I341]每级使得战斗后多回复\r[yellow]2\r[white]点魔法。当前每场战斗后回复\r[yellow]${flag:mana_regen}\r[white]点魔法。",
+                "text": "\t[回复魔法（${flag:talent2_lv}/6）,I341]每级使得战斗后多回复\r[yellow]2\r[white]点魔法。当前每场战斗后回复\r[yellow]${flag:mana_regen}\r[white]点魔法。",
                 "choices": [
                     {
                         "text": "确认",
                         "action": [
                             {
                                 "type": "if",
-                                "condition": "flag:talent2_lv >= 5",
+                                "condition": "flag:talent2_lv >= 6",
                                 "true": [
                                     "已达到满级。",
                                     {
@@ -963,6 +983,1037 @@ main.floors.EventMap=
                 "type": "setValue",
                 "name": "flag:charge2_battle_extra_cur",
                 "value": "0"
+            }
+        ],
+        "12,0": [
+            {
+                "type": "comment",
+                "text": "进入魔化状态"
+            },
+            {
+                "type": "animate",
+                "name": "dark3",
+                "loc": "hero",
+                "async": true
+            },
+            {
+                "type": "sleep",
+                "time": 500
+            },
+            {
+                "type": "setHeroIcon",
+                "name": "hero3.png"
+            },
+            {
+                "type": "setValue",
+                "name": "flag:morph",
+                "value": "1"
+            },
+            {
+                "type": "addValue",
+                "name": "status:hpmax",
+                "value": "flag:skill5_hpmax"
+            },
+            {
+                "type": "addValue",
+                "name": "status:hp",
+                "value": "flag:skill5_hpmax"
+            },
+            {
+                "type": "addValue",
+                "name": "status:atk",
+                "value": "flag:skill5_atk"
+            },
+            {
+                "type": "addValue",
+                "name": "status:def",
+                "value": "flag:skill5_def"
+            },
+            {
+                "type": "setValue",
+                "name": "flag:morph_duration",
+                "value": "flag:skill5_duration"
+            },
+            {
+                "type": "setValue",
+                "name": "item:I_morphed",
+                "value": "1"
+            },
+            {
+                "type": "setValue",
+                "name": "item:I_morph",
+                "value": "0"
+            },
+            {
+                "type": "if",
+                "condition": "flag:hard > 1",
+                "true": [
+                    {
+                        "type": "setValue",
+                        "name": "flag:no_zone",
+                        "value": "true"
+                    },
+                    {
+                        "type": "setValue",
+                        "name": "flag:no_laser",
+                        "value": "true"
+                    },
+                    {
+                        "type": "setValue",
+                        "name": "flag:no_betweenAttack",
+                        "value": "true"
+                    }
+                ],
+                "false": []
+            },
+            {
+                "type": "setValue",
+                "name": "flag:no_snipe",
+                "value": "true"
+            }
+        ],
+        "12,1": [
+            {
+                "type": "comment",
+                "text": "退出魔化状态"
+            },
+            {
+                "type": "animate",
+                "name": "darkattack",
+                "loc": "hero",
+                "async": true
+            },
+            {
+                "type": "setHeroIcon",
+                "name": "hero2.png"
+            },
+            {
+                "type": "setValue",
+                "name": "flag:morph",
+                "value": "0"
+            },
+            {
+                "type": "addValue",
+                "name": "status:hpmax",
+                "value": "-flag:skill5_hpmax"
+            },
+            {
+                "type": "addValue",
+                "name": "status:atk",
+                "value": "-flag:skill5_atk"
+            },
+            {
+                "type": "addValue",
+                "name": "status:def",
+                "value": "-flag:skill5_def"
+            },
+            {
+                "type": "setValue",
+                "name": "item:I_morphed",
+                "value": "0"
+            },
+            {
+                "type": "setValue",
+                "name": "item:I_morph_cooldown",
+                "value": "1"
+            },
+            {
+                "type": "if",
+                "condition": "flag:hard > 1",
+                "true": [
+                    {
+                        "type": "setValue",
+                        "name": "flag:no_zone",
+                        "value": "false"
+                    },
+                    {
+                        "type": "setValue",
+                        "name": "flag:no_laser",
+                        "value": "false"
+                    },
+                    {
+                        "type": "setValue",
+                        "name": "flag:no_betweenAttack",
+                        "value": "false"
+                    }
+                ],
+                "false": []
+            },
+            {
+                "type": "setValue",
+                "name": "flag:no_snipe",
+                "value": "false"
+            },
+            {
+                "type": "setValue",
+                "name": "flag:morph_cooldown",
+                "value": "flag:skill5_cooldown"
+            }
+        ],
+        "1,1": [
+            {
+                "type": "comment",
+                "text": "血海天赋"
+            },
+            {
+                "type": "choices",
+                "text": "\t[天赋选择,talent]选择要强化的技能。目前有${flag:talentPoint}个天赋点。",
+                "choices": [
+                    {
+                        "text": "高级强击（${flag:skill1_lv2}/3）",
+                        "color": [
+                            255,
+                            85,
+                            85,
+                            1
+                        ],
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    0,
+                                    5
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "斩杀（${flag:execute_lv}/3）",
+                        "color": [
+                            255,
+                            85,
+                            85,
+                            1
+                        ],
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    1,
+                                    5
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "魔化（${flag:morph_lv}/5）",
+                        "color": [
+                            255,
+                            85,
+                            85,
+                            1
+                        ],
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    2,
+                                    5
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "高级防御（${flag:skill2_lv2}/3）",
+                        "color": [
+                            68,
+                            204,
+                            221,
+                            1
+                        ],
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    2,
+                                    6
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "冲锋（${flag:charge_lv}/5）",
+                        "color": [
+                            68,
+                            204,
+                            221,
+                            1
+                        ],
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    0,
+                                    6
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "势如破竹（${flag:c_charge_lv}/3）",
+                        "color": [
+                            68,
+                            204,
+                            221,
+                            1
+                        ],
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    1,
+                                    6
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "离开",
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    0,
+                                    4
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "0,4": [
+            {
+                "type": "comment",
+                "text": "天赋选择"
+            },
+            {
+                "type": "choices",
+                "text": "\t[天赋选择,talent]选择天赋类别。目前有${flag:talentPoint}个天赋点。",
+                "choices": [
+                    {
+                        "text": "红海天赋",
+                        "color": [
+                            255,
+                            119,
+                            255,
+                            1
+                        ],
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    0,
+                                    1
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "血海天赋",
+                        "color": [
+                            255,
+                            68,
+                            68,
+                            1
+                        ],
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    1,
+                                    1
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "离开",
+                        "action": [
+                            {
+                                "type": "exit"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "0,5": [
+            {
+                "type": "choices",
+                "text": "\t[高级强击（${flag:skill1_lv2}/3）,skill1]每级提升\r[yellow]1\r[white]倍额外伤害。当前强击造成的额外伤害是\r[yellow]${flag:skill1_val-1}\r[white]倍攻击力。",
+                "choices": [
+                    {
+                        "text": "确认",
+                        "action": [
+                            {
+                                "type": "if",
+                                "condition": "flag:skill1_lv < 3",
+                                "true": [
+                                    "需要【强击】点满才能学习。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "flag:skill1_lv2 >= 3",
+                                "true": [
+                                    "已达到满级。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "flag:talentPoint > 0",
+                                "true": [
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:talentPoint",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "item:talentPoint",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:skill1_val",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:skill1_lv2",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            5
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": [
+                                    "天赋点不足。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "取消",
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    1,
+                                    1
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "1,5": [
+            {
+                "type": "choices",
+                "text": "\t[斩杀（${flag:execute_lv}/3）,execute]每级提升\r[yellow]10%\r[white]斩杀触发百分比。当前斩杀触发百分比为\r[yellow]${flag:execute_percentage}%\r[white]。",
+                "choices": [
+                    {
+                        "text": "确认",
+                        "action": [
+                            {
+                                "type": "if",
+                                "condition": "flag:skill4_lv < 4",
+                                "true": [
+                                    "需要【撕裂】点满才能学习。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "flag:execute_lv >= 3",
+                                "true": [
+                                    "已达到满级。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "flag:talentPoint > 0",
+                                "true": [
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:talentPoint",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "item:talentPoint",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:execute_percentage",
+                                        "value": "10"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:execute_lv",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            5
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": [
+                                    "天赋点不足。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "取消",
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    1,
+                                    1
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "0,6": [
+            {
+                "type": "choices",
+                "text": "\t[冲锋（${flag:charge_lv}/5）,I_charge2]每级提升\r[yellow]0.4%\r[white]每层冲锋攻击力。当前每层冲锋提升攻击力为\r[yellow]${(100*flag:charge_ratio).toFixed(1)}%\r[white]。",
+                "choices": [
+                    {
+                        "text": "确认",
+                        "action": [
+                            {
+                                "type": "if",
+                                "condition": "flag:talent1_lv < 5",
+                                "true": [
+                                    "需要【吸血】点满才能学习。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "flag:charge_lv >= 5",
+                                "true": [
+                                    "已达到满级。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "flag:talentPoint > 0",
+                                "true": [
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:talentPoint",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "item:talentPoint",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:charge_ratio",
+                                        "value": "flag:charge_ratio*1000"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:charge_ratio",
+                                        "value": "4"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:charge_ratio",
+                                        "value": "flag:charge_ratio/1000"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:charge_lv",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            6
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": [
+                                    "天赋点不足。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "取消",
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    1,
+                                    1
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "1,6": [
+            {
+                "type": "choices",
+                "text": "\t[势如破竹（${flag:c_charge_lv}/3）,c_charge]每级使得每场战斗额外叠加\r[yellow]1\r[white]层冲锋，并提升\r[yellow]5\r[white]层叠加上限。\n当前每次战斗叠加\r[yellow]${flag:charge2_battle_extra}\r[white]层冲锋，叠加上限为\r[yellow]${flag:charge2_battle_extra_max}\r[white]层。",
+                "choices": [
+                    {
+                        "text": "确认",
+                        "action": [
+                            {
+                                "type": "if",
+                                "condition": "flag:talent3_lv < 5",
+                                "true": [
+                                    "需要【高级护盾】点满才能学习。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "flag:c_charge_lv >= 3",
+                                "true": [
+                                    "已达到满级。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "flag:talentPoint > 0",
+                                "true": [
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:talentPoint",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "item:talentPoint",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:charge2_battle_extra",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:charge2_battle_extra_max",
+                                        "value": "5"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:c_charge_lv",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            6
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": [
+                                    "天赋点不足。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "取消",
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    1,
+                                    1
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "2,5": [
+            {
+                "type": "choices",
+                "text": "\t[魔化（${flag:morph_lv}/5）,I_morph]每级使魔化额外提供\r[yellow]500000\r[white]点生命、\r[yellow]10000\r[white]点攻击、\r[yellow]5000\r[white]点防御，且冷却时间减少\r[yellow]1\r[white]次战斗。\n当前魔化提升\r[yellow]${flag:skill5_hpmax}\r[white]点生命、\r[yellow]${flag:skill5_atk}\r[white]点攻击力和\r[yellow]${flag:skill5_def}\r[white]点防御，冷却\r[yellow]${flag:skill5_cooldown}\r[white]次战斗。",
+                "choices": [
+                    {
+                        "text": "确认",
+                        "action": [
+                            {
+                                "type": "if",
+                                "condition": "flag:talent2_lv < 6",
+                                "true": [
+                                    "需要【回复魔法】点满才能学习。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "flag:morph_lv >= 5",
+                                "true": [
+                                    "已达到满级。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "core.hasItem('I_morphed')",
+                                "true": [
+                                    "当前正处于魔化状态，无法学习此天赋。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "flag:talentPoint > 0",
+                                "true": [
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:talentPoint",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "item:talentPoint",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:morph_lv",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:skill5_hpmax",
+                                        "value": "500000"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:skill5_atk",
+                                        "value": "10000"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:skill5_def",
+                                        "value": "5000"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:skill5_cooldown",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            2,
+                                            5
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": [
+                                    "天赋点不足。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "取消",
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    1,
+                                    1
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "2,6": [
+            {
+                "type": "choices",
+                "text": "\t[高级防御（${flag:skill2_lv2}/3）,skill2]每级提升\r[yellow]1%\r[white]攻击转化和\r[yellow]50%\r[white]防御转化率。\n当前效果为将\r[yellow]${(flag:skill2_atk_ratio*100).toFixed(0)}%\r[white]的攻击力以\r[yellow]${flag:skill2_def_ratio*100}%\r[white]的比例转化为防御。",
+                "choices": [
+                    {
+                        "text": "确认",
+                        "action": [
+                            {
+                                "type": "if",
+                                "condition": "flag:skill2_lv < 3",
+                                "true": [
+                                    "需要【防御】点满才能学习。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "flag:skill2_lv2 >= 3",
+                                "true": [
+                                    "已达到满级。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "flag:talentPoint > 0",
+                                "true": [
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:talentPoint",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "item:talentPoint",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:skill2_atk_ratio",
+                                        "value": "0.01"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:skill2_def_ratio",
+                                        "value": "0.5"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:skill2_lv2",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            2,
+                                            6
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": [
+                                    "天赋点不足。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "取消",
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    1,
+                                    1
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     },

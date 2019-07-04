@@ -476,7 +476,10 @@ var icons_4665ee12_3a1f_44a4_bea3_0fccba634dc1 =
 		"smallJump": 87,
 		"c_charge": 92,
 		"talentPoint": 93,
-		"I536": 94
+		"I536": 94,
+		"I_morph": 95,
+		"I_morphed": 96,
+		"I_morph_cooldown": 97
 	},
 	"autotile": {
 		"autotile": 0,

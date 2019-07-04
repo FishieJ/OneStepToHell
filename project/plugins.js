@@ -216,7 +216,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 			col3 = left + width * 17 / 25;
 		core.fillText('ui', '生命', col1, position, '#A0F753', f13);
 		core.fillText('ui', core.formatBigNumber(enemy.hp || 0), col1 + 30, position, null, b13);
-		core.fillText('ui', '攻', col2, position, '#FF0000', f13);
+		core.fillText('ui', '攻', col2, position, '#FF5555', f13);
 		core.fillText('ui', core.formatBigNumber(enemy.atk || 0), col2 + 15, position, null, b13);
 		core.fillText('ui', '防', col3, position, '#45D1E0', f13);
 		core.fillText('ui', core.formatBigNumber(enemy.def || 0), col3 + 15, position, null, b13);
@@ -418,6 +418,18 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 			"damage": damage,
 			"color": color
 		};
+	};
+
+	// 临界表只显示下5个临界而不是10个
+	core.ui._drawBookDetail_turnAndCriticals = function (enemy, floorId, texts) {
+		var damageInfo = core.getDamageInfo(enemy, null, null, null, floorId);
+		texts.push("战斗回合数：" + ((damageInfo || {}).turn || 0));
+		// 临界表
+		var criticals = core.enemys.nextCriticals(enemy, 5, null, null, floorId).map(function (v) {
+			return core.formatBigNumber(v[0]) + ":" + core.formatBigNumber(v[1]);
+		});
+		while (criticals[0] == '0:0') criticals.shift();
+		texts.push("临界表：" + JSON.stringify(criticals));
 	};
 }
 }

@@ -27,8 +27,8 @@ var enemys_fcae963b_31c9_42b4_b48c_bb48d09f3f80 =
 	"yellowKnight": {"name":"金骑士","hp":640000,"atk":350000,"def":30000,"money":0,"experience":8300,"point":0,"special":0,"level":"半步血海"},
 	"redKnight": {"name":"鲜红骑士","hp":500000,"atk":61000,"def":28000,"money":0,"experience":1990,"point":0,"special":[103,115],"level":"红海中阶","v_115":1000,"atkValue":3},
 	"darkKnight": {"name":"黑骑士","hp":0,"atk":0,"def":0,"money":0,"experience":0,"point":0,"special":0},
-	"blackKing": {"name":"黑衣魔王","hp":1000000,"atk":200000,"def":200000,"money":0,"experience":100000,"point":0,"special":[21,22],"notBomb":true,"level":"血海初成","defValue":33333,"atkValue":88888,"damage":1000000,"value":66666},
-	"yellowKing": {"name":"黄衣魔王","hp":4000000,"atk":210000,"def":150000,"money":0,"experience":100000,"point":0,"special":[21,22],"level":"血海初成","atkValue":55000,"defValue":33000,"damage":4000000,"value":22000},
+	"blackKing": {"name":"黑衣魔王","hp":1000000,"atk":200000,"def":200000,"money":0,"experience":1000000,"point":0,"special":[21,22],"notBomb":true,"level":"血海初成","defValue":33333,"atkValue":88888,"damage":1000000,"value":66666},
+	"yellowKing": {"name":"黄衣魔王","hp":4000000,"atk":210000,"def":150000,"money":0,"experience":1000000,"point":0,"special":[21,22],"level":"血海初成","atkValue":55000,"defValue":33000,"damage":4000000,"value":22000},
 	"greenKing": {"name":"绿武士","hp":420000,"atk":45000,"def":19000,"money":0,"experience":1260,"point":0,"special":[12,16],"level":"红海低阶","poison":500},
 	"blueKnight": {"name":"蓝骑士","hp":400,"atk":70,"def":15,"money":0,"experience":0,"point":0,"special":[1,8],"level":"未知境界","value":0.1},
 	"goldSlime": {"name":"金莱姆","hp":555,"atk":45,"def":15,"money":0,"experience":10,"point":0,"special":0,"level":"萌新四段"},
@@ -182,9 +182,9 @@ var enemys_fcae963b_31c9_42b4_b48c_bb48d09f3f80 =
 	"E519": {"name":"大蝙蝠","hp":600000,"atk":1000000,"def":8000,"money":0,"experience":6500,"point":0,"special":0,"level":"半步血海"},
 	"E520": {"name":"初级卫兵","hp":500000,"atk":380000,"def":120000,"money":0,"experience":6800,"point":0,"special":16,"level":"半步血海"},
 	"E521": {"name":"初级法师","hp":600000,"atk":160000,"def":40000,"money":0,"experience":8200,"point":0,"special":2,"level":"半步血海"},
-	"E522": {"name":"紫衣魔王","hp":2000000,"atk":195000,"def":150000,"money":0,"experience":100000,"point":0,"special":[21,22],"level":"血海初成","atkValue":44440,"defValue":66660,"damage":2000000,"value":33330},
-	"E523": {"name":"青衣魔王","hp":3000000,"atk":160000,"def":230000,"money":0,"experience":100000,"point":0,"special":[21,22],"atkValue":99900,"defValue":11100,"level":"血海初成","damage":3000000,"value":99900},
-	"E524": {"name":"橙衣魔王","hp":5000000,"atk":400000,"def":30000,"money":0,"experience":100000,"point":0,"special":[21,22],"level":"血海初成","damage":5000000,"atkValue":50000,"defValue":50000,"value":60000},
+	"E522": {"name":"紫衣魔王","hp":2000000,"atk":195000,"def":150000,"money":0,"experience":1000000,"point":0,"special":[21,22],"level":"血海初成","atkValue":44440,"defValue":66660,"damage":2000000,"value":33330},
+	"E523": {"name":"青衣魔王","hp":3000000,"atk":160000,"def":230000,"money":0,"experience":1000000,"point":0,"special":[21,22],"atkValue":99900,"defValue":11100,"level":"血海初成","damage":3000000,"value":99900},
+	"E524": {"name":"橙衣魔王","hp":5000000,"atk":400000,"def":30000,"money":0,"experience":1000000,"point":0,"special":[21,22],"level":"血海初成","damage":5000000,"atkValue":50000,"defValue":50000,"value":60000},
 	"E525": {"name":"真滑稽","hp":1000000,"atk":180000,"def":60000,"money":0,"experience":9100,"point":0,"special":0,"level":"半步血海"},
 	"E526": {"name":"假滑稽","hp":900000,"atk":220000,"def":20000,"money":0,"experience":9300,"point":0,"special":[1,9],"level":"半步血海"},
 	"E527": {"name":"冥中脚","hp":1100000,"atk":170000,"def":60000,"money":0,"experience":9500,"point":0,"special":8,"value":0.3,"level":"血海初成"},
@@ -195,5 +195,5 @@ var enemys_fcae963b_31c9_42b4_b48c_bb48d09f3f80 =
 	"E532": {"name":"血海亡魂","hp":3000000,"atk":215000,"def":120000,"money":0,"experience":15000,"point":0,"special":[11,22,101],"level":"血海初成","damage":300,"value":0.333333333333},
 	"E533": {"name":"石奋","hp":600000,"atk":180000,"def":150000,"money":0,"experience":10800,"point":0,"special":[3],"value":null,"level":"血海初成"},
 	"E534": {"name":"火蝙蝠","hp":500000,"atk":330000,"def":70000,"money":0,"experience":9700,"point":0,"special":11,"level":"血海初成","value":0.333333333333},
-	"E535": {"name":"伊似柳","hp":14600000,"atk":641,"def":641,"money":0,"experience":14600,"point":0,"special":[10,102],"zoneSquare":true,"n":10,"value":23,"level":"血海初成"}
+	"E535": {"name":"伊似柳","hp":14600000,"atk":641,"def":641,"money":0,"experience":14600,"point":0,"special":[10,102],"zoneSquare":true,"n":10,"value":24,"level":"血海初成"}
 }

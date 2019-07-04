@@ -511,6 +511,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		}
 	}
 
+	/*
 	// 更新吸攻防的flag
 	// 模仿
 	if (core.hasSpecial(special, 10)) {
@@ -522,7 +523,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		enemy.def = core.status.hero.atk - 1;
 	}
 	core.setFlag('lastAtk', enemy.atk);
-	core.setFlag('lastDef', enemy.def);
+	core.setFlag('lastDef', enemy.def);*/
 	core.updateStatusBar();
 
 	// 隐身药水效果消失
@@ -540,6 +541,27 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 			core.setFlag('no_ambush', 0);
 		}
 		core.drawMap(); // 更新地图显伤
+	}
+
+	// 魔化
+	var dur = core.getFlag('morph_duration');
+	if (dur > 0) {
+		dur--;
+		core.setFlag('morph_duration', dur);
+		if (dur == 0) {
+			core.insertAction([{ "type": "insert", "loc": [12, 1], "floorId": "EventMap" }]);
+		}
+	}
+	var cd = core.getFlag('morph_cooldown', 0);
+	if (cd > 0) {
+		cd--;
+		core.setFlag('morph_cooldown', cd);
+		if (cd == 0) {
+			core.playSound('Darkness3.ogg');
+			core.drawTip('【魔化】准备就绪。');
+			core.getItem('I_morph_cooldown', -1);
+			core.getItem('I_morph', 1);
+		}
 	}
 
 	// 如果有加点
@@ -594,8 +616,9 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		core.playSound('005-System05.ogg');
 	else if (itemId == 'I_ex_def') {
 
-	}
-	else
+	} else if (itemId == 'I_morphed' || itemId == 'I_morph' || itemId == 'I_morph_cooldown') {
+
+	} else
 		core.playSound('item.mp3');
 
 	var todo = [];
@@ -672,13 +695,13 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[13, "衰弱", function (enemy) { return "【红海技能】战斗后，勇士获得" + enemy.weak + "层衰弱状态，每层使得战斗中攻防下降" + (core.values.weakValue >= 1 ? core.values.weakValue + "点" : parseInt(core.values.weakValue * 100) + "%") + "。每次战斗减少1层。"; }, "#feccd0"],
 		[14, "霜寒", function (enemy) { return "怪物对敌人施加霜寒诅咒。战斗后，你获得" + enemy.n + "层霜寒状态，每层使你普通攻击造成的伤害降低1%，加法叠加。"; }, "#747dff"],
 		[15, "领域", function (enemy) { return "经过怪物周围" + (enemy.zoneSquare ? "九宫格" : "十字") + "范围内" + (enemy.range || 1) + "格时自动减生命" + (enemy.value || 0) + "点"; }],
-		[16, "夹击", "【红海技能】两方合击，瞬间将对手打个半死\n经过两只相同的怪物中间，勇士生命值变成一半。", "#ff00d2"],
+		[16, "夹击", "【红海技能】瞬间将对手打个半死\n经过两只相同的怪物中间，勇士生命值变成一半。", "#ff00d2"],
 		[17, "仇恨", "战斗前，怪物附加之前积累的仇恨值作为伤害" + (core.flags.hatredDecrease ? "；战斗后，释放一半的仇恨值" : "") + "。（每杀死一个怪物获得" + (core.values.hatred || 0) + "点仇恨值）"],
 		[18, "阻击", function (enemy) { return "经过怪物的十字领域时自动减生命" + (enemy.value || 0) + "点，同时怪物后退一格"; }],
-		[19, "自爆", "【血海奥义】同归于尽吧！\n战斗后，勇士的生命值变成1", "#ff0000"],
-		[20, "无敌", "勇士无法打败怪物，除非拥有十字架"],
-		[21, "退化", function (enemy) { return "【血海奥义】对敌人造成永久性不可逆的能力损伤\n战斗后勇士永久下降" + (enemy.atkValue || 0) + "点攻击，" + (enemy.defValue || 0) + "点防御，以及" + (enemy.value || 0) + "点护盾"; }],
-		[22, "固伤", function (enemy) { return "战斗前，怪物对勇士造成" + (enemy.damage || 0) + "点固定伤害，无视勇士护盾。"; }],
+		[19, "自爆", "【血海奥义】同归于尽吧！\n战斗结束后，勇士的生命值变成1", "#ff0000"],
+		[20, "无敌", "【？？？】无法认知的力量\n勇士无法打败怪物，除非拥有[？？？]", "#fbff00"],
+		[21, "退化", function (enemy) { return "【血海奥义】对敌人造成永久性不可逆的能力损伤\n战斗后勇士永久下降" + (enemy.atkValue || 0) + "点攻击，" + (enemy.defValue || 0) + "点防御，以及" + (enemy.value || 0) + "点护盾"; }, "#ff0000"],
+		[22, "固伤", function (enemy) { return "【红海技能】不讲道理的生命扣除\n战斗结束前，怪物对勇士造成" + (enemy.damage || 0) + "点固定伤害，无视勇士护盾。"; }],
 		[23, "重生", "怪物被击败后，角色转换楼层则怪物将再次出现"],
 		[24, "射击", function (enemy) { return "经过怪物同行或同列时自动减生命" + (enemy.value || 0) + "点"; }],
 		[25, function (enemy) {
@@ -703,7 +726,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[27, "捕捉", "当走到怪物周围十字时会强制进行战斗。"],
 		[99, "闪避", function (enemy) { return "灵巧的身法能够躲闪攻击。受到的普通攻击伤害降低" + (enemy.defValue || 0) + "%。"; }, "#c3c3c3"],
 		[100, "穿刺", function (enemy) { return "攻击能够穿透一部分防御。无视对手" + (enemy.x || 0) + "%的防御力。"; }],
-		[101, "夹爆", "【血海奥义】某个著名红海技能的上位版本\n经过两只相同的怪物中间，勇士生命值变成1。", "#ff0000"],
+		[101, "夹爆", "【血海奥义】瞬间将对手打得奄奄一息\n经过两只相同的怪物中间，勇士生命值变成1。", "#ff0000"],
 		[102, "上位威压", function (enemy) {
 			var diff = (enemy.value || 0) - core.status.hero.lv;
 			if (diff >= 0) return "上位者的气质震慑对手。双方等级较高者每比对手高出一级，便在先前基础上进一步削弱对手" + Math.floor(enemy.n) + "%的攻防，当前对方比你高" + diff + "级";
@@ -730,7 +753,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[121, "重伤", function (enemy) { return "抑制对手的生命。使对手受到的回复效果降低" + (enemy.v_121 || 0) + "%。"; }, "#b30000"],
 		[122, "盛宴", function (enemy) { return "【红海技能】撕扯对手的血肉\n每次攻击造成对方最大生命值" + (enemy.v_122 || 0) + "%的额外伤害。"; }, "#ff00d2"],
 		[123, "竭心", function (enemy) { return "【红海技能】心脏慢慢停止跳动\n经过怪物周围" + (enemy.zoneSquare ? "九宫格" : "十字") + "范围内" + (enemy.range || 1) + "格时自动减最大生命的" + (enemy.value || 0) + "%"; }, "#ff00d2"],
-		[124, "血怨", "【红海技能】死亡的怨念缠绕着对手。似乎是某个血海奥义的劣化版本\n战斗后，勇士的生命值变成一半。", "#ff00d2"],
+		[124, "血怨", "【红海技能】死亡的怨念缠绕着对手。似乎是某个血海奥义的劣化版本\n战斗结束后，勇士的生命值变成一半。", "#ff00d2"],
 		[125, "血域", function (enemy) { return "【红海技能】生命在流逝\n经过怪物周围" + (enemy.zoneSquare ? "九宫格" : "十字") + "范围内" + (enemy.range || 1) + "格时自动减当前生命的" + (enemy.value || 0) + "%"; }, "#ff00d2"],
 		[126, "死亡", function (enemy) { return "【红海技能】引诱对手走向死亡\n战斗开始时，造成对方已损失生命值" + enemy.v_126 + "%的伤害。"; }, "#b30000"],
 		[127, "死亡镰刀", function (enemy) { return "【红海技能】似乎是某个血海奥义的劣化版本。第5回合结束时，造成相当于对方已损失生命值100%的伤害。"; }, "#ff00d2"],
@@ -1454,7 +1477,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 			core.useItem('skill2', true);
 		}
 		break;
-	case 52: // 4: 感受温暖
+	case 52: // 4: 感受温暖/撕裂
 		if (core.hasItem('skill3')) {
 			core.status.route.push("key:52");
 			core.useItem('skill3', true);
@@ -1463,11 +1486,22 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 			core.useItem('skill4', true);
 		}
 		break;
+	case 53: // 5: 黑化
+		if (core.hasItem('I_morph')) {
+			core.status.route.push("key:53");
+			core.useItem('I_morph', true);
+		}
+		break;
 	case 87: // W: 跳跃
 		if (core.hasItem('smallJump')) {
 			core.status.route.push("key:87");
 			core.useItem('smallJump', true);
-
+		}
+		break;
+	case 113: // F2: 便携式蓝瓶
+		if (core.hasItem('bring_mana')) {
+			core.status.route.push("key:113");
+			core.useItem('bring_mana', true);
 		}
 		break;
 		// 在这里可以任意新增或编辑已有的快捷键内容

@@ -2069,6 +2069,37 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				]
 			},
 			{
+				"need": "8000000",
+				"title": "半步血海",
+				"clear": true,
+				"action": [
+					{
+						"type": "animate",
+						"name": "upgrade",
+						"loc": "hero"
+					},
+					"晋升为半步血海！严格来讲这并不是一个境界，因此提升比较小。",
+					{
+						"type": "addValue",
+						"name": "flag:talentPoint",
+						"value": "1"
+					},
+					{
+						"type": "addValue",
+						"name": "item:talentPoint",
+						"value": "1"
+					},
+					"获得1点天赋。",
+					{
+						"type": "sleep",
+						"time": 500
+					},
+					"\t[hero]竟然升级了……",
+					"\t[hero]虽说那些力量十分虚浮，不过还是有一些沉淀下来了啊。面对这些血海初成的怪物又多了一分把握。",
+					"\t[hero]刚才家伙口气倒是够大，竟然说“一切疑问”都会迎刃而解，那我真是迫不及待了。"
+				]
+			},
+			{
 				"need": "10000000",
 				"title": "血海初成",
 				"clear": true,
@@ -2081,7 +2112,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					{
 						"type": "setValue",
 						"name": "status:hpmax",
-						"value": "status:hpmax+3000000"
+						"value": "status:hpmax+5000000"
 					},
 					{
 						"type": "setValue",
@@ -2103,14 +2134,54 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"name": "status:mdef",
 						"value": "status:mdef+36000"
 					},
-					"晋升为血海初成！生命上限+3000000，魔法上限+200，攻击+30000，防御+30000，护盾+36000",
+					"晋升为血海初成！生命上限+5000000，魔法上限+200，攻击+30000，防御+30000，护盾+36000",
 					{
 						"type": "addValue",
 						"name": "flag:talentPoint",
-						"value": "6"
+						"value": "5"
 					},
-					"获得6点天赋。",
-					"领悟\r[red]血海奥义【魔化】\r[white]！",
+					{
+						"type": "addValue",
+						"name": "item:talentPoint",
+						"value": "5"
+					},
+					"获得5点天赋。",
+					{
+						"type": "setValue",
+						"name": "item:I_morph",
+						"value": "1"
+					},
+					{
+						"type": "setValue",
+						"name": "flag:skill5_cost",
+						"value": "300"
+					},
+					{
+						"type": "setValue",
+						"name": "flag:skill5_hpmax",
+						"value": "5000000"
+					},
+					{
+						"type": "setValue",
+						"name": "flag:skill5_atk",
+						"value": "100000"
+					},
+					{
+						"type": "setValue",
+						"name": "flag:skill5_def",
+						"value": "50000"
+					},
+					{
+						"type": "setValue",
+						"name": "flag:skill5_duration",
+						"value": "5"
+					},
+					{
+						"type": "setValue",
+						"name": "flag:skill5_cooldown",
+						"value": "10"
+					},
+					"领悟\r[red]【血海奥义】魔化\r[white]！",
 					{
 						"type": "setValue",
 						"name": "status:hp",

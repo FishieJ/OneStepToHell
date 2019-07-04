@@ -169,7 +169,7 @@ main.floors.MT94_2=
             "type": "sleep",
             "time": 1000
         },
-        "\t[熙枫,heroine]\b[down,6,3]……终究，还是不忍心看着他们就这么送命吗……",
+        "\t[熙枫,heroine]\b[down,6,3]……终究，还是不忍心看着她们就这么送命吗……",
         "\t[熙枫,heroine]\b[down,6,3]赶快，把她们带回去疗伤……",
         {
             "type": "hide",

@@ -1,8 +1,8 @@
 main.floors.MT102=
 {
     "floorId": "MT102",
-    "title": "主塔 102 层",
-    "name": "102",
+    "title": "朝圣之路",
+    "name": "朝圣之路",
     "width": 13,
     "height": 13,
     "canFlyTo": true,
@@ -19,7 +19,7 @@ main.floors.MT102=
     "bgm": "7-9.mp3",
     "weather": [
         "fog",
-        8
+        4
     ],
     "firstArrive": [],
     "eachArrive": [],

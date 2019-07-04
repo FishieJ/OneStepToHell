@@ -366,7 +366,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"I_charge2": {
 			"cls": "constants",
 			"name": "[被动]冲锋！",
-			"text": "向同一方向连续移动后攻击力提升，战斗后效果不消失。每移动一步攻击力提升基础数值的${100*flag:charge_ratio}%。"
+			"text": "向同一方向连续移动后攻击力提升，战斗后效果不消失。每移动一步攻击力提升基础数值的${(100*flag:charge_ratio).toFixed(1)}%。"
 		},
 		"I_hp_score": {
 			"cls": "constants",
@@ -380,7 +380,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"skill2": {
 			"cls": "constants",
 			"name": "技能：防御",
-			"text": "消耗${flag:skill2_cost}点魔法，减少${flag:skill2_atk_ratio*100}%的攻击，将减少数值的${flag:skill2_def_ratio*100}%转化为防御。快捷键为3。"
+			"text": "消耗${flag:skill2_cost}点魔法，减少${(flag:skill2_atk_ratio*100).toFixed(0)}%的攻击，将减少数值的${flag:skill2_def_ratio*100}%转化为防御。快捷键为3。"
 		},
 		"skill3": {
 			"cls": "constants",
@@ -457,7 +457,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"bring_mana": {
 			"cls": "tools",
 			"name": "便携式蓝瓶",
-			"text": "便于携带的蓝瓶，使用可以回复50魔法。"
+			"text": "便于携带的蓝瓶，使用可以回复50魔法。快捷键是F2。"
 		},
 		"I476": {
 			"cls": "equips",
@@ -508,6 +508,21 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 			"cls": "items",
 			"name": "魔法结晶",
 			"text": "血海篇的魔法结晶，效果是正常版的10%"
+		},
+		"I_morph": {
+			"cls": "constants",
+			"name": "【血海奥义】魔化",
+			"text": "消耗${flag:skill5_cost}点魔法，进入魔化状态，提升${flag:skill5_hpmax}点生命及生命上限、${flag:skill5_atk}点攻击力和${flag:skill5_def}点防御力，并暂时免疫地图伤害，持续${flag:skill5_duration}次战斗。效果结束后需要经过${flag:skill5_cooldown}次战斗才能再次使用。快捷键为5。"
+		},
+		"I_morphed": {
+			"cls": "constants",
+			"name": "【血海奥义】魔化",
+			"text": "你正处于魔化状态，让敌人感受真正的恐怖吧！\n剩余战斗次数：${flag:morph_duration}"
+		},
+		"I_morph_cooldown": {
+			"cls": "constants",
+			"name": "魔化冷却中...",
+			"text": "还需要${flag:morph_cooldown}次战斗才能再使用【魔化】。"
 		}
 	},
 	"itemEffect": {
@@ -625,7 +640,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"I_ex_atk": "core.getItem('I_ex_atk', -1);\ncore.getItem('I_ex_def', 1);",
 		"I_ex_def": "core.getItem('I_ex_def', -1);\ncore.getItem('I_ex_atk', 1);",
 		"I_charge": "core.insertAction([\n\t\"当前基础攻击力为: \\r[red]\" + core.status.hero.atk + \"\\r[white]\\n\" +\n\t\"每移动一步攻击力提升\\r[red]\" + core.getFlag('charge_point') + \"\\r[white]点。\\n\" +\n\t\"改变移动方向后效果消失。\",\n\t\"注意，如果使用瞬移功能，冲锋效果也会立即消失。\",\n]);",
-		"I_charge2": "core.insertAction([\n\t\"当前基础攻击力为: \\r[red]\" + core.status.hero.atk + \"\\r[white]\\n\" +\n\t\"每移动一步攻击力提升基础攻击力的\\r[red]\" + 100 * core.getFlag('charge_ratio') + \"\\r[white]%，也就是\\n\\r[red]\" + core.getFlag('charge_ratio') * core.status.hero.atk + \"\\r[white]点。计算时向下取整。\\n\" +\n\t\"改变移动方向后效果消失。\",\n\t\"注意，如果使用瞬移功能，冲锋效果也会立即消失。\",\n]);",
+		"I_charge2": "core.insertAction([\n\t\"当前基础攻击力为: \\r[red]\" + core.status.hero.atk + \"\\r[white]\\n\" +\n\t\"每移动一步攻击力提升基础攻击力的\\r[red]\" + (100 * core.getFlag('charge_ratio')).toFixed(1) + \"\\r[white]%，也就是\\n\\r[red]\" + core.getFlag('charge_ratio') * core.status.hero.atk + \"\\r[white]点。计算时向下取整。\\n\" +\n\t\"改变移动方向后效果消失。\",\n\t\"注意，如果使用瞬移功能，冲锋效果也会立即消失。\",\n]);",
 		"I_vampire": "core.insertAction([\n\t\"蝙蝠血、毛虫血、软泥血、石头血，你想要哪个？\",\n\t\"我全都要！\"\n]);",
 		"I_hp_score": "core.insertAction([\n\t\"当前溢出HP值为：\\r[red]\" + core.getFlag('hp_score') + \"\\r[white]。\\n\",\n]);",
 		"skill2": "// 防御的flag:skill为2\nif (core.getFlag('skill', 0) != 2) { // 判断当前是否已经开了该技能\n\tif (core.getStatus('mana') >= core.getFlag('skill2_cost', 0)) { // 这里要写当前能否开技能的条件判断，比如魔力值至少要多少\n\t\tcore.setFlag('skill', 2); // 开技能2\n\t\tvar val = core.getFlag('skill2_def_ratio', 3);\n\t\tcore.setFlag('skillName', '防御 ' + val); // 设置技能名\n\t} else {\n\t\tcore.drawTip(\"魔力不足，无法开启技能\");\n\t}\n} else { // 关闭技能\n\tcore.setFlag('skill', 0); // 关闭技能状态\n\tcore.setFlag('skillName', '无');\n}",
@@ -638,8 +653,9 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"bring_hp": "var heal = core.getFlag('bring_hp_val', 50000);\ncore.drawAnimate('heal', core.status.hero.loc.x, core.status.hero.loc.y);\ncore.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });",
 		"bring_mana": "core.drawAnimate('mana_regen', core.status.hero.loc.x, core.status.hero.loc.y);\ncore.status.hero.mana += 50;",
 		"invisibleWine": "core.setFlag('invisible', 1);\ncore.setOpacity('hero', 0.5);\ncore.setFlag('no_betweenAttack', true);\ncore.setFlag('no_zone', true);\ncore.setFlag('no_snipe', true);\ncore.setFlag('no_laser', true);\ncore.setFlag('no_ambush', true);",
-		"talent": "core.insertAction([{ \"type\": \"insert\", \"loc\": [0, 1], \"floorId\": \"EventMap\" }]);",
-		"smallJump": "core.status.hero.mana -= core.getFlag('smallJump_cost', 30);\ncore.insertAction({ \"type\": \"jumpHero\", \"loc\": [core.nextX(1), core.nextY(1)] });\n\nvar charge_ratio = core.getFlag('charge_ratio', 0.02);\nvar charge_atk = core.getFlag('charge_atk', 0);\ncore.setFlag('charge_atk', Math.max(charge_atk - charge_ratio * core.status.hero.atk, 0));"
+		"talent": "if (core.status.hero.lv < 24)\n\tcore.insertAction([{ \"type\": \"insert\", \"loc\": [0, 1], \"floorId\": \"EventMap\" }]);\nelse\n\tcore.insertAction([{ \"type\": \"insert\", \"loc\": [0, 4], \"floorId\": \"EventMap\" }]);",
+		"smallJump": "core.status.hero.mana -= core.getFlag('smallJump_cost', 30);\ncore.insertAction({ \"type\": \"jumpHero\", \"loc\": [core.nextX(1), core.nextY(1)] });\n\nvar charge_ratio = core.getFlag('charge_ratio', 0.02);\nvar charge_atk = core.getFlag('charge_atk', 0);\ncore.setFlag('charge_atk', Math.max(charge_atk - charge_ratio * core.status.hero.atk, 0));",
+		"I_morph": "// 直接判断是否可以使用即可\nvar curMana = core.status.hero.mana;\nvar cost = core.getFlag('skill5_cost', 641);\nif (curMana >= cost) {\n\tcore.status.hero.mana -= cost;\n\tcore.insertAction([{ \"type\": \"insert\", \"loc\": [12, 0], \"floorId\": \"EventMap\" }]);\n} else {\n\tcore.drawTip(\"魔法不足。\");\n}"
 	},
 	"canUseItemEffect": {
 		"book": "true",
@@ -692,7 +708,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"shield1": "false",
 		"talent": "true",
 		"smallJump": "(function () {\n\tvar nx = core.nextX(1),\n\t\tny = core.nextY(1);\n\tvar cost = core.getFlag('smallJump_cost', 30);\n\treturn nx >= 0 && nx < core.bigmap.width && ny >= 0 && ny < core.bigmap.height && core.getBlockId(nx, ny) == null && cost <= core.status.hero.mana;\n})();",
-		"talentPoint": null
+		"talentPoint": null,
+		"I_morph": "(function () {\n\treturn core.getFlag('morph', 0) == 0 && core.getFlag('morph_cooldown', 0) == 0;\n})();"
 	},
 	"canEquip": {},
 	"equipCondition": {

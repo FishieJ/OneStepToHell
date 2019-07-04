@@ -1,8 +1,8 @@
 main.floors.MT108=
 {
     "floorId": "MT108",
-    "title": "主塔 108 层",
-    "name": "108",
+    "title": "朝圣之路",
+    "name": "朝圣之路",
     "width": 13,
     "height": 13,
     "canFlyTo": true,
@@ -17,10 +17,7 @@ main.floors.MT108=
     "item_ratio": 1,
     "defaultGround": "white",
     "bgm": "7-9.mp3",
-    "weather": [
-        "fog",
-        2
-    ],
+    "weather": null,
     "firstArrive": [],
     "eachArrive": [],
     "parallelDo": "",

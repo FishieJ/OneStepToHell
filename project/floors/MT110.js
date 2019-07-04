@@ -1,8 +1,8 @@
 main.floors.MT110=
 {
     "floorId": "MT110",
-    "title": "主塔 110 层",
-    "name": "110",
+    "title": "朝圣之路",
+    "name": "朝圣之路",
     "width": 13,
     "height": 13,
     "canFlyTo": true,
