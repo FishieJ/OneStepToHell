@@ -512,7 +512,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"I_morphed": {
 			"cls": "constants",
-			"name": "【血海奥义】魔化",
+			"name": "魔化中...",
 			"text": "你正处于魔化状态，让敌人感受真正的恐怖吧！\n剩余战斗次数：${flag:morph_duration}"
 		},
 		"I_morph_cooldown": {

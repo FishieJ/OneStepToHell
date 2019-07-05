@@ -2358,6 +2358,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 		"enableMoveDirectly": true,
 		"enableDisabledShop": true,
 		"disableShopOnDamage": false,
-		"checkConsole": false
+		"checkConsole": false,
+		"flyRecordPosition": true
 	}
 }
