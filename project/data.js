@@ -163,6 +163,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 		"animates": [
 			"attack2",
 			"attack3",
+			"attack4",
 			"blood",
 			"blood2",
 			"dark",
@@ -258,6 +259,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"139-Darkness02.ogg",
 			"140-Darkness03.ogg",
 			"143-Support01.ogg",
+			"157-Skill01.ogg",
 			"159-Skill03.ogg",
 			"161-Skill05.ogg",
 			"163-Skill07.ogg",
@@ -1732,7 +1734,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"name": "item:talentPoint",
 						"value": "3"
 					},
-					"开启天赋树！可以在道具栏中打开天赋列表。获得3点天赋。",
+					"开启天赋！可以在道具栏中打开天赋列表。获得3点天赋。",
 					{
 						"type": "setValue",
 						"name": "status:hp",
@@ -2135,6 +2137,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"value": "status:mdef+36000"
 					},
 					"晋升为血海初成！生命上限+5000000，魔法上限+200，攻击+30000，防御+30000，护盾+36000",
+					"普通攻击动画已改变！",
 					{
 						"type": "addValue",
 						"name": "flag:talentPoint",
@@ -2146,6 +2149,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"value": "5"
 					},
 					"获得5点天赋。",
+					"开启血海阶段的天赋。",
 					{
 						"type": "setValue",
 						"name": "item:I_morph",

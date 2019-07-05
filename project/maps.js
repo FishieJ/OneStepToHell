@@ -119,6 +119,7 @@ var maps_90f36752_8815_4be8_b32b_d7fad1d0542e =
 	"154": {"cls":"autotile","id":"autotile15","noPass":true},
 	"155": {"cls":"autotile","id":"autotile16","noPass":"false"},
 	"156": {"cls":"autotile","id":"autotile17","noPass":true},
+	"157": {"cls":"autotile","id":"autotile18","noPass":true},
 	"161": {"cls":"terrains","id":"arrowUp","noPass":false,"cannotOut":["left","right","down"],"cannotIn":["down"]},
 	"162": {"cls":"terrains","id":"arrowDown","noPass":false,"cannotOut":["left","right","up"],"cannotIn":["up"]},
 	"163": {"cls":"terrains","id":"arrowLeft","noPass":false,"cannotOut":["up","down","right"],"cannotIn":["right"]},

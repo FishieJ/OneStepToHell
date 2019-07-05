@@ -259,6 +259,9 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	if (core.status.hero.lv >= 19) { // 红海
 		heroNormalAttack = 'attack3';
 	}
+	if (core.status.hero.lv >= 24) { // 血海
+		heroNormalAttack = 'attack4';
+	}
 
 	if (core.flags.enableSkill) {
 		// 检测当前开启的技能类型
@@ -474,6 +477,12 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		core.status.hero.mdef -= (enemy.value || 0);
 		if (core.status.hero.atk < 0) core.status.hero.atk = 0;
 		if (core.status.hero.def < 0) core.status.hero.def = 0;
+	}
+	// 伯化
+	if (core.enemys.hasSpecial(special, 133)) {
+		core.addFlag('bo_hp', (enemy.value || 0));
+		core.addFlag('bo_atk', (enemy.atkValue || 0));
+		core.addFlag('bo_def', (enemy.defValue || 0));
 	}
 	// 增加仇恨值
 	core.setFlag('hatred', core.getFlag('hatred', 0) + core.values.hatred);
@@ -699,7 +708,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[17, "仇恨", "战斗前，怪物附加之前积累的仇恨值作为伤害" + (core.flags.hatredDecrease ? "；战斗后，释放一半的仇恨值" : "") + "。（每杀死一个怪物获得" + (core.values.hatred || 0) + "点仇恨值）"],
 		[18, "阻击", function (enemy) { return "经过怪物的十字领域时自动减生命" + (enemy.value || 0) + "点，同时怪物后退一格"; }],
 		[19, "自爆", "【血海奥义】同归于尽吧！\n战斗结束后，勇士的生命值变成1", "#ff0000"],
-		[20, "无敌", "【？？？】无法认知的力量\n勇士无法打败怪物，除非拥有[？？？]", "#fbff00"],
+		[20, "无敌", "【？？？】无法认知的神秘力量\n勇士无法打败怪物，除非拥有[？？？]", "#fbff00"],
 		[21, "退化", function (enemy) { return "【血海奥义】对敌人造成永久性不可逆的能力损伤\n战斗后勇士永久下降" + (enemy.atkValue || 0) + "点攻击，" + (enemy.defValue || 0) + "点防御，以及" + (enemy.value || 0) + "点护盾"; }, "#ff0000"],
 		[22, "固伤", function (enemy) { return "【红海技能】不讲道理的生命扣除\n战斗结束前，怪物对勇士造成" + (enemy.damage || 0) + "点固定伤害，无视勇士护盾。"; }],
 		[23, "重生", "怪物被击败后，角色转换楼层则怪物将再次出现"],
@@ -762,6 +771,27 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 			if (enemy.atkValue > 0) return "狂暴光环";
 			return "衰退光环";
 		}, function (enemy) { var x = enemy.range * 2 + 1; return (enemy.atkValue > 0 ? "增加" : "减少") + "以自身为中心" + x + "*" + x + "范围内所有友军" + (Math.abs(enemy.atkValue) || 0) + "%的攻击力，线性叠加。"; }, "#fff900"],
+		[130, "审判之剑", "【血海奥义】剥夺对手装备的剑盾，且如果对方是魔王，则使其攻防减半", "#ff0000"],
+		[131, "无敌斩", "【血海奥义】以无敌的姿态爆发出暴雨般的斩击\n战前以2倍攻击力先攻9次", "#ff0000"],
+		[132, "混乱", "战斗中，勇士攻防互换", "#c3c3c3"],
+		[133, "伯化", function (enemy) {
+			var str = "【血海奥义】无法认知的神秘力量\n战斗后，所有拥有该属性的怪物提升";
+			if (enemy.value) {
+				str += enemy.value + "点生命，";
+			}
+			if (enemy.atkValue) {
+				str += enemy.atkValue + "点攻击力，";
+			}
+			if (enemy.defValue) {
+				str += enemy.defValue + "点防御力，";
+			}
+			str += "可叠加。";
+			return str;
+		}, "#fff900"],
+		[134, "域爆", function (enemy) { return "【血海奥义】领域之极致\n经过怪物周围" + (enemy.zoneSquare ? "九宫格" : "十字") + "范围内" + (enemy.range || 1) + "格时生命变为1点"; }, "#ff0000"],
+		[135, "阻爆", function (enemy) { return "【血海奥义】阻击之极致\n经过怪物的十字领域时生命变为1点，同时怪物后退一格"; }, "#ff0000"],
+		[136, "射爆", function (enemy) { return "【血海奥义】射击之极致\n经过怪物同行或同列时生命变为1点"; }, "#ff0000"],
+		[137, "超模仿", "【血海奥义】遇弱则强，遇强则更强\n怪物的攻防是勇士基础攻防的1.2倍。", "#ff0000"],
 	];
 },
         "getEnemyInfo": function (enemy, hero, x, y, floorId) {
@@ -787,10 +817,21 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	var mon_money = enemy.money,
 		mon_experience = enemy.experience,
 		mon_point = enemy.point;
+	// 伯化
+	if (core.hasSpecial(mon_special, 133)) {
+		mon_hp += core.getFlag('bo_hp', 0);
+		mon_atk += core.getFlag('bo_atk', 0);
+		mon_def += core.getFlag('bo_def', 0);
+	}
 	// 模仿
 	if (core.hasSpecial(mon_special, 10)) {
 		mon_atk = hero_atk;
 		mon_def = hero_def;
+	}
+	// 超模仿
+	if (core.hasSpecial(mon_special, 137)) {
+		mon_atk = 1.2 * hero_atk;
+		mon_def = 1.2 * hero_def;
 	}
 	// 坚固
 	//if (core.hasSpecial(mon_special, 3) && mon_def < hero_atk - 1) {
@@ -953,6 +994,13 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		hero_def += inc_def;
 	}
 
+	// 混乱
+	if (core.hasSpecial(mon_special, 132)) {
+		var tmp = hero_def;
+		hero_def = hero_atk;
+		hero_atk = tmp;
+	}
+
 	// 穿刺
 	if (core.hasSpecial(mon_special, 100))
 		hero_def *= (1 - (enemy.x / 100));
@@ -1006,6 +1054,10 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	if (core.hasSpecial(mon_special, 128)) {
 		hero_mdef = 0;
 		init_damage += 1000000;
+	}
+	// 无敌斩
+	if (core.hasSpecial(mon_special, 131)) {
+		init_damage += (mon_atk * 2 - hero_def) * 9;
 	}
 
 	// 每回合怪物对勇士造成的战斗伤害
@@ -1201,6 +1253,10 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		}
 	}
 
+	var heal_ratio = 1;
+	if (core.hasSpecial(mon_special, 121)) {
+		heal_ratio -= enemy.v_121 / 100;
+	}
 	// 怪物斩杀修正
 	if (core.hasSpecial(mon_special, 104) && turn > 1) {
 		var cur_hp = hero_hp + hero_mdef - init_damage;
@@ -1211,15 +1267,15 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 			if (core.hasItem('I_vampire')) {
 				if (core.getFlag('skill', 0) == 1 && i == 1 && !core.hasSpecial(mon_special, 120)) { // 开启了技能1：强击 且 当前为首回合 且 怪物不魔免
 					var extra_damage = (core.getFlag('skill1_val', 3) - 1) * hero_atk;
-					cur_hp += core.getFlag('vampire_ratio', 0.2) * extra_damage;
+					cur_hp += core.getFlag('vampire_ratio', 0.2) * extra_damage * heal_ratio;
 				} else if (core.getFlag('skill', 0) == 4 && !core.hasSpecial(mon_special, 120)) { // 开启了技能4：撕裂 且 怪物不魔免
 					var extra_damage = mon_cur_hp * core.getFlag('skill4_val', 5) / 100;
-					cur_hp += core.getFlag('vampire_ratio', 0.2) * extra_damage;
+					cur_hp += core.getFlag('vampire_ratio', 0.2) * extra_damage * heal_ratio;
 					// 更新怪物当前回合结束后的生命值
 					mon_cur_hp -= extra_damage;
 					mon_cur_hp -= hero_per_damage;
 				}
-				cur_hp += core.getFlag('vampire_ratio', 0.2) * hero_per_damage; // 吸血计算
+				cur_hp += core.getFlag('vampire_ratio', 0.2) * hero_per_damage * heal_ratio; // 吸血计算
 			}
 			var hero_hp_rate = cur_hp / hero_hpmax;
 			if (hero_hp_rate < (enemy.range / 100)) { // 检测到满足斩杀条件
@@ -1273,10 +1329,6 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	// 护盾不能负伤
 	damage = Math.max(0, damage);
 
-	var heal_ratio = 1;
-	if (core.hasSpecial(mon_special, 121)) {
-		heal_ratio -= enemy.v_121 / 100;
-	}
 	// 勇士吸血
 	if (core.hasItem('I_vampire')) {
 		// 炫目之光
@@ -1760,7 +1812,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 		// 领域
 		// 如果要防止领域伤害，可以直接简单的将 flag:no_zone 设为true
-		if (enemy && !core.hasFlag('no_zone') && (core.hasSpecial(enemy.special, 15) || core.hasSpecial(enemy.special, 123) || core.hasSpecial(enemy.special, 125))) {
+		if (enemy && !core.hasFlag('no_zone') && (core.hasSpecial(enemy.special, 15) || core.hasSpecial(enemy.special, 123) || core.hasSpecial(enemy.special, 125) || core.hasSpecial(enemy.special, 134))) {
 			// 领域范围，默认为1
 			var range = enemy.range || 1;
 			// 是否是九宫格领域
@@ -1782,6 +1834,8 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 						damage[currloc] = (damage[currloc] || 0) + Math.floor(core.getRealStatusOrDefault(core.status.hero, 'hpmax') * enemy.value / 100 || 0);
 					else if (core.hasSpecial(enemy.special, 125))
 						damage[currloc] = (damage[currloc] || 0) + Math.floor(core.status.hero.hp * enemy.value / 100 || 0);
+					else if (core.hasSpecial(enemy.special, 134))
+						damage[currloc] = Math.max((damage[currloc] || 0), core.status.hero.hp - 1);
 					type[currloc] = "领域伤害";
 				}
 			}
@@ -1789,13 +1843,16 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 		// 阻击
 		// 如果要防止阻击伤害，可以直接简单的将 flag:no_snipe 设为true
-		if (enemy && core.hasSpecial(enemy.special, 18) && !core.hasFlag('no_snipe')) {
+		if (enemy && !core.hasFlag('no_snipe') && (core.hasSpecial(enemy.special, 18) || core.hasSpecial(enemy.special, 135))) {
 			for (var dir in core.utils.scan) {
 				var nx = x + core.utils.scan[dir].x,
 					ny = y + core.utils.scan[dir].y,
 					currloc = nx + "," + ny;
 				if (nx < 0 || nx >= width || ny < 0 || ny >= height) continue;
-				damage[currloc] = (damage[currloc] || 0) + (enemy.value || 0);
+				if (core.hasSpecial(enemy.special, 18))
+					damage[currloc] = (damage[currloc] || 0) + (enemy.value || 0);
+				else if (core.hasSpecial(enemy.special, 135))
+					damage[currloc] = Math.max((damage[currloc] || 0), core.status.hero.hp - 1);
 				type[currloc] = "阻击伤害";
 
 				var rdir = core.reverseDirection(dir);
@@ -1812,18 +1869,24 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 		// 激光
 		// 如果要防止激光伤害，可以直接简单的将 flag:no_laser 设为true
-		if (enemy && core.hasSpecial(enemy.special, 24) && !core.hasFlag("no_laser")) {
+		if (enemy && !core.hasFlag("no_laser") && (core.hasSpecial(enemy.special, 24) || core.hasSpecial(enemy.special, 136))) {
 			for (var nx = 0; nx < width; nx++) {
 				var currloc = nx + "," + y;
 				if (nx != x) {
-					damage[currloc] = (damage[currloc] || 0) + (enemy.value || 0);
+					if (core.hasSpecial(enemy.special, 24))
+						damage[currloc] = (damage[currloc] || 0) + (enemy.value || 0);
+					else if (core.hasSpecial(enemy.special, 136))
+						damage[currloc] = Math.max((damage[currloc] || 0), core.status.hero.hp - 1);
 					type[currloc] = "激光伤害";
 				}
 			}
 			for (var ny = 0; ny < height; ny++) {
 				var currloc = x + "," + ny;
 				if (ny != y) {
-					damage[currloc] = (damage[currloc] || 0) + (enemy.value || 0);
+					if (core.hasSpecial(enemy.special, 24))
+						damage[currloc] = (damage[currloc] || 0) + (enemy.value || 0);
+					else if (core.hasSpecial(enemy.special, 136))
+						damage[currloc] = Math.max((damage[currloc] || 0), core.status.hero.hp - 1);
 					type[currloc] = "激光伤害";
 				}
 			}
