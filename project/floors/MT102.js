@@ -14,16 +14,46 @@ main.floors.MT102=
         "dawn.jpg",
         false
     ],
-    "item_ratio": 1,
+    "item_ratio": 3000,
     "defaultGround": "white",
     "bgm": "7-9.mp3",
     "weather": [
         "fog",
-        4
+        3
     ],
-    "firstArrive": [],
+    "firstArrive": [
+        {
+            "type": "sleep",
+            "time": 500
+        },
+        {
+            "type": "animate",
+            "name": "wuyu",
+            "loc": "hero"
+        },
+        "\t[伯力巫师,E554]你是何人？难道是来参拜伯力之神的？",
+        "\t[hero]我没空跟你废话，受死吧！",
+        "\t[伯力巫师,E554]你！休想！",
+        {
+            "type": "move",
+            "loc": [
+                1,
+                9
+            ],
+            "time": 100,
+            "keep": true,
+            "steps": [
+                "right"
+            ]
+        },
+        "\t[hero]（伯力巫师……我看看跟普通的巫师有什么不一样）",
+        {
+            "type": "callBook"
+        },
+        "\t[hero]阻爆……若是换作一般人恐怕还真的会十分头疼，然而我有\r[yellow]魔化\r[white]和\r[yellow]跳跃\r[white]两种应对方法，今日谁都别想挡我！"
+    ],
     "eachArrive": [],
-    "parallelDo": "// 辣鸡作者：这个脚本是小艾写的，出自于《梦》，辣鸡作者只不过是把竖向移动改成了横向移动\nif (core.getFlag('morning', 0)) {\n\tvar lastTime = core.getFlag('lastWeatherTime', 0);\n\t// 每多少毫秒重绘一次；天气效果默认都是30\n\tif (timestamp - lastTime > 60) {\n\t\tcore.clearMap('weather'); // 清空天气层\n\t\tvar lastOffsetX = core.getFlag('lastOffsetX', 0); // 上次的offset\n\t\tvar image = core.material.images.images['morning.jpg']; // 获得图片，这里写图片名\n\t\tvar width = image.width,\n\t\t\theight = image.height; // 获得宽高\n\t\t// 绘制下一次，参见drawImage的API：http://www.w3school.com.cn/tags/canvas_drawimage.asp\n\t\tif (lastOffsetX + 416 > width) { // 需要首尾相接\n\t\t\t// 尾部\n\t\t\tcore.canvas.bg.drawImage(image, lastOffsetX, 0, width - lastOffsetX, height, 0, 0, width - lastOffsetX, height);\n\t\t\t// 首部\n\t\t\tcore.canvas.bg.drawImage(image, 0, 0, lastOffsetX + 416 - width, height, width - lastOffsetX, 0, lastOffsetX + 416 - width, height);\n\t\t} else { // 不需要，直接绘制\n\t\t\tcore.canvas.bg.drawImage(image, lastOffsetX, 0, width, 416, 0, 0, width, 416);\n\t\t}\n\t\t// 移动图片\n\t\tlastOffsetX -= 1; // 这里是每次移动的像素\n\t\tif (lastOffsetX < 0) lastOffsetX += height;\n\t\tcore.setFlag('lastOffsetX', lastOffsetX);\n\t\tcore.setFlag('lastWeatherTime', timestamp); // 记录时间\n\t}\n}",
+    "parallelDo": "",
     "events": {},
     "changeFloor": {
         "12,6": {
@@ -34,6 +64,14 @@ main.floors.MT102=
             ],
             "direction": "right",
             "time": 0
+        },
+        "0,9": {
+            "floorId": "MT101",
+            "loc": [
+                12,
+                9
+            ],
+            "time": 0
         }
     },
     "afterBattle": {},
@@ -41,19 +79,19 @@ main.floors.MT102=
     "afterOpenDoor": {},
     "cannotMove": {},
     "map": [
-    [  0,  0,157,  0,  0,  0,157,  0,  0,  0,  0,  0,157],
-    [  0,157,157,  0,157,  0,157,  0,157,157,157,  0,157],
-    [  0,  0,  0,  0,157,  0,  0,  0,157,  0,  0,  0,157],
-    [157,157,157,  0,157,157,  0,157,157,  0,157,157,157],
-    [  0,157,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
-    [  0,157,  0,157,157,157,  0,157,157,157,157,  0,157],
-    [  0,  0,  0,  0,157,  0,  0,  0,157,  0,  0,  0, 94],
-    [157,157,157,  0,  0,  0, 82,  0,  0,  0,157,157,157],
-    [  0,  0,157,  0,157,  0,  0,  0,157,  0,157,  0,  0],
-    [  0,  0,  0,  0,157,157,  0,157,157,  0,157,157,  0],
-    [157,157,  0,  0,  0,  0,  0,  0,  0,  0,157,  0,  0],
-    [  0,  0,  0,157,157,157,  0,157,157,  0,157,  0,157],
-    [  0, 93,  0,  0,157,  0,  0,  0,157,  0,  0,  0,  0]
+    [ 28,454,157,  0,563,  0,157,  0,569,  0,454,  0,157],
+    [243,157,157, 28,157, 27,157, 28,157,157,157, 27,157],
+    [  0, 27,557,  0,157,  0,454,  0,157,  0,570,  0,157],
+    [157,157,157, 34,157,157,568,157,157, 32,157,157,157],
+    [454,157,  0,  0, 81,  0,  0, 28,  0,  0,563,  0,  0],
+    [  0,157,571,157,157,157,243,157,157,157,157, 28,157],
+    [ 27,563,  0,  0,157,349,  0,351,157,  0,563,  0, 94],
+    [157,157,157, 27,563,  0,564,  0,556, 28,157,157,157],
+    [  0, 30,157,  0,157,352,  0,350,157,  0, 82,455,349],
+    [ 92,554,  0, 21,157,157,242,157,157, 33,157,157,570],
+    [157,157,563,  0,243,  0, 28,  0,563,  0,157,350,  0],
+    [ 27,242,  0,157,157,157,242,157,157,567,157,249,157],
+    [454,157, 28,454,157,454, 27,454,157,  0, 27,  0, 29]
 ],
     "bgmap": [
 

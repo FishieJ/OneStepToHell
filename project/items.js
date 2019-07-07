@@ -3,15 +3,18 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 	"items": {
 		"yellowKey": {
 			"cls": "keys",
-			"name": "黄钥匙"
+			"name": "黄钥匙",
+			"text": "看起来很普通的钥匙"
 		},
 		"blueKey": {
 			"cls": "keys",
-			"name": "蓝钥匙"
+			"name": "蓝钥匙",
+			"text": "看起来有些高级的钥匙"
 		},
 		"redKey": {
 			"cls": "keys",
-			"name": "红钥匙"
+			"name": "红钥匙",
+			"text": "看起来不太常见的钥匙"
 		},
 		"redJewel": {
 			"cls": "items",
@@ -115,7 +118,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"shield0": {
 			"cls": "constants",
-			"name": "[被动]高级护盾",
+			"name": "{被动}高级护盾",
 			"text": "每1点护盾可以在战斗中抵挡${flag:mdef_ratio}点伤害",
 			"equip": null
 		},
@@ -206,7 +209,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"greenKey": {
 			"cls": "tools",
 			"name": "绿钥匙",
-			"text": "可以打开一扇绿门"
+			"text": "颜色十分鲜艳的钥匙"
 		},
 		"steelKey": {
 			"cls": "tools",
@@ -275,13 +278,13 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"skill1": {
 			"cls": "constants",
-			"name": "技能：强击 [2]",
+			"name": "技能：强击 (2)",
 			"text": "消耗${flag:skill1_cost}点魔法，首回合额外造成${flag:skill1_val-1}倍攻击的伤害。快捷键为2。",
 			"hideInReplay": false
 		},
 		"I341": {
 			"cls": "constants",
-			"name": "[被动]回复魔法",
+			"name": "{被动}回复魔法",
 			"text": "每场战斗后回复${flag:mana_regen}点魔法"
 		},
 		"I342": {
@@ -302,7 +305,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"I_vampire": {
 			"cls": "constants",
-			"name": "[被动]吸血",
+			"name": "{被动}吸血",
 			"text": "战斗中造成伤害的${flag:vampire_ratio*100}%治疗自身"
 		},
 		"I349": {
@@ -356,12 +359,12 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"I_charge": {
 			"cls": "constants",
-			"name": "[被动]次级冲锋",
+			"name": "{被动}次级冲锋",
 			"text": "向同一方向连续移动后攻击力提升，战斗后或者进行瞬移后效果消失。每移动一步攻击力提升${flag:charge_point}点。"
 		},
 		"I_charge2": {
 			"cls": "constants",
-			"name": "[被动]冲锋！",
+			"name": "{被动}冲锋！",
 			"text": "向同一方向连续移动后攻击力提升，战斗后效果不消失。每移动一步攻击力提升基础数值的${(100*flag:charge_ratio).toFixed(1)}%。"
 		},
 		"I_hp_score": {
@@ -375,12 +378,12 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"skill2": {
 			"cls": "constants",
-			"name": "技能：防御 [3]",
+			"name": "技能：防御 (3)",
 			"text": "消耗${flag:skill2_cost}点魔法，减少${(flag:skill2_atk_ratio*100).toFixed(0)}%的攻击，将减少数值的${flag:skill2_def_ratio*100}%转化为防御。快捷键为3。"
 		},
 		"skill3": {
 			"cls": "constants",
-			"name": "感受温暖",
+			"name": "感受温暖 (4)",
 			"text": "感受小姐姐释放的温暖。消耗${flag:skill3_cost}点魔法，驱除所有严寒诅咒状态。快捷键为4。"
 		},
 		"I_hard_1": {
@@ -412,7 +415,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"skill4": {
 			"cls": "constants",
-			"name": "【红海技能】撕裂 [4]",
+			"name": "【红海技能】撕裂 (4)",
 			"text": "消耗${flag:skill4_cost}点魔法，使对方每回合开始时流失${flag:skill4_val}%的当前生命。此伤害可以触发【吸血】效果。快捷键为4。"
 		},
 		"I458": {
@@ -447,12 +450,12 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"bring_hp": {
 			"cls": "tools",
-			"name": "便携式血瓶 [1]",
+			"name": "便携式血瓶 (1)",
 			"text": "便于携带的血瓶，使用可以回复${flag:bring_hp_val}生命。境界越高效果越好。快捷键是1。"
 		},
 		"bring_mana": {
 			"cls": "tools",
-			"name": "便携式蓝瓶 [F2]",
+			"name": "便携式蓝瓶 (F2)",
 			"text": "便于携带的蓝瓶，使用可以回复50魔法。快捷键是F2。"
 		},
 		"I476": {
@@ -478,7 +481,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"execute": {
 			"cls": "constants",
-			"name": "[被动]斩杀",
+			"name": "{被动}斩杀",
 			"text": "战斗中，当敌人生命值小于${flag:execute_percentage}%时，每回合造成${flag:execute_atk_percentage}%的额外伤害。"
 		},
 		"I483": {
@@ -487,12 +490,12 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"smallJump": {
 			"cls": "constants",
-			"name": "[地图技能]跳跃 [W]",
+			"name": "【地图技能】跳跃 [W]",
 			"text": "消耗${flag:smallJump_cost}点魔法，跳跃到前方一格的空地上，并减少1层冲锋效果。快捷键是W。"
 		},
 		"c_charge": {
 			"cls": "constants",
-			"name": "势如破竹",
+			"name": "{被动}势如破竹",
 			"text": "每次战斗后额外叠加${flag:charge2_battle_extra}层冲锋。最多通过此效果获得${flag:charge2_battle_extra_max}层冲锋。\n当前通过此效果叠加了${flag:charge2_battle_extra_cur}层冲锋。"
 		},
 		"talentPoint": {
@@ -507,8 +510,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"I_morph": {
 			"cls": "constants",
-			"name": "【血海奥义】魔化 [5]",
-			"text": "消耗${flag:skill5_cost}点魔法，进入魔化状态，提升${flag:skill5_hpmax}点生命及生命上限、${flag:skill5_atk}点攻击力和${flag:skill5_def}点防御力，并暂时免疫地图伤害，持续${flag:skill5_duration}次战斗。效果结束后需要经过${flag:skill5_cooldown}次战斗才能再次使用。快捷键为5。"
+			"name": "【血海奥义】魔化 (5)",
+			"text": "消耗${flag:skill5_cost}点魔法，进入魔化状态，提升${flag:skill5_hpmax}点生命及生命上限、${flag:skill5_atk}点攻击力和${flag:skill5_def}点防御力，并暂时免疫自爆、吸血、死亡以及地图伤害特技，持续${flag:skill5_duration}次战斗。效果结束后需要经过${flag:skill5_cooldown}次战斗才能再次使用。快捷键为5。"
 		},
 		"I_morphed": {
 			"cls": "constants",
@@ -657,7 +660,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"talent": "if (core.status.hero.lv < 24)\n\tcore.insertAction([{ \"type\": \"insert\", \"loc\": [0, 1], \"floorId\": \"EventMap\" }]);\nelse\n\tcore.insertAction([{ \"type\": \"insert\", \"loc\": [0, 4], \"floorId\": \"EventMap\" }]);",
 		"smallJump": "core.status.hero.mana -= core.getFlag('smallJump_cost', 30);\ncore.insertAction({ \"type\": \"jumpHero\", \"loc\": [core.nextX(1), core.nextY(1)] });\n\nvar charge_ratio = core.getFlag('charge_ratio', 0.02);\nvar charge_atk = core.getFlag('charge_atk', 0);\ncore.setFlag('charge_atk', Math.max(charge_atk - charge_ratio * core.status.hero.atk, 0));",
 		"I_morph": "// 直接判断是否可以使用即可\nvar curMana = core.status.hero.mana;\nvar cost = core.getFlag('skill5_cost', 641);\nif (curMana >= cost) {\n\tcore.status.hero.mana -= cost;\n\tcore.insertAction([{ \"type\": \"insert\", \"loc\": [12, 0], \"floorId\": \"EventMap\" }]);\n} else {\n\tcore.drawTip(\"魔法不足。\");\n}",
-		"I_resetTalent": "var list = [\"skill1_lv\", \"skill2_lv\", \"skill4_lv\", \"talent1_lv\", \"talent2_lv\", \"talent3_lv\", \"poison_lv\"];\nfor (var i in list) {\n\tvar z = core.getFlag(list[i], 0);\n\tconsole.log(list[i], z);\n\tif (z > 0) {\n\t\tcore.addFlag('talentPoint', z);\n\t\tcore.setFlag(list[i], 0);\n\t}\n}\ncore.setFlag('skill1_val', 3.5);\ncore.setFlag('skill2_def_ratio', 3);\ncore.setFlag('skill4_val', 5);\ncore.setFlag('vampire_ratio', 0.2);\ncore.setFlag('mana_regen', 3);\ncore.setFlag('mdef_ratio', 1.5);\ncore.drawTip('重置成功');"
+		"I_resetTalent": "var list = [\"skill1_lv\", \"skill2_lv\", \"skill4_lv\", \"talent1_lv\", \"talent2_lv\", \"talent3_lv\", \"poison_lv\"];\nfor (var i in list) {\n\tvar z = core.getFlag(list[i], 0);\n\tconsole.log(list[i], z);\n\tif (z > 0) {\n\t\tcore.addFlag('talentPoint', z);\n\t\tcore.setFlag(list[i], 0);\n\t}\n}\ncore.setFlag('skill1_val', 3.5);\ncore.setFlag('skill2_def_ratio', 3);\ncore.setFlag('skill4_val', 5);\ncore.setFlag('vampire_ratio', 0.2);\ncore.setFlag('mana_regen', 3);\ncore.setFlag('mdef_ratio', 1.5);\ncore.drawTip('重置成功');",
+		"I_morphed": "core.insertAction([\n\t\"你现在对以下怪物特技免疫：吸血、死亡、自爆，以及地图伤害类技能，如夹击、夹爆、领域、域爆等等。简而言之就是不需要控制血量百分比了！\",\n]);"
 	},
 	"canUseItemEffect": {
 		"book": "true",
@@ -712,7 +716,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"smallJump": "(function () {\n\tvar nx = core.nextX(1),\n\t\tny = core.nextY(1);\n\tvar cost = core.getFlag('smallJump_cost', 30);\n\treturn nx >= 0 && nx < core.bigmap.width && ny >= 0 && ny < core.bigmap.height && core.getBlockId(nx, ny) == null && cost <= core.status.hero.mana;\n})();",
 		"talentPoint": null,
 		"I_morph": "(function () {\n\treturn core.getFlag('morph', 0) == 0 && core.getFlag('morph_cooldown', 0) == 0;\n})();",
-		"I_resetTalent": "true"
+		"I_resetTalent": "true",
+		"I_morphed": "true"
 	},
 	"canEquip": {},
 	"equipCondition": {

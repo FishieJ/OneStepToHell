@@ -1114,6 +1114,11 @@ main.floors.EventMap=
             },
             {
                 "type": "setValue",
+                "name": "flag:morph_cooldown",
+                "value": "flag:skill5_cooldown"
+            },
+            {
+                "type": "setValue",
                 "name": "item:I_morph_cooldown",
                 "value": "1"
             },
@@ -1143,11 +1148,6 @@ main.floors.EventMap=
                 "type": "setValue",
                 "name": "flag:no_snipe",
                 "value": "false"
-            },
-            {
-                "type": "setValue",
-                "name": "flag:morph_cooldown",
-                "value": "flag:skill5_cooldown"
             }
         ],
         "1,1": [

@@ -282,7 +282,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		if (core.getFlag('skill', 0) != 0)
 			heroAnimateName = 'darkexplode';
 		else
-			heroAnimateName = 'darkattack';
+			heroAnimateName = 'morphattack';
 	}
 
 	// 技能动画
@@ -462,13 +462,15 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	if (core.flags.hatredDecrease && core.enemys.hasSpecial(special, 17)) {
 		core.setFlag('hatred', Math.floor(core.getFlag('hatred', 0) / 2));
 	}
-	// 血怨
-	if (core.enemys.hasSpecial(special, 124)) {
-		core.status.hero.hp = Math.floor(core.status.hero.hp / 2);
-	}
-	// 自爆
-	if (core.enemys.hasSpecial(special, 19)) {
-		core.status.hero.hp = 1;
+	if (core.getFlag('morph', 0) == 0) { // 魔化免疫血怨和自爆
+		// 血怨
+		if (core.enemys.hasSpecial(special, 124)) {
+			core.status.hero.hp = Math.floor(core.status.hero.hp / 2);
+		}
+		// 自爆
+		if (core.enemys.hasSpecial(special, 19)) {
+			core.status.hero.hp = 1;
+		}
 	}
 	// 退化
 	if (core.enemys.hasSpecial(special, 21)) {
@@ -771,27 +773,40 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 			if (enemy.atkValue > 0) return "狂暴光环";
 			return "衰退光环";
 		}, function (enemy) { var x = enemy.range * 2 + 1; return (enemy.atkValue > 0 ? "增加" : "减少") + "以自身为中心" + x + "*" + x + "范围内所有友军" + (Math.abs(enemy.atkValue) || 0) + "%的攻击力，线性叠加。"; }, "#fff900"],
-		[130, "审判之剑", "【血海奥义】剥夺对手装备的剑盾，且如果对方是魔王，则使其攻防减半", "#ff0000"],
+		[130, "审判之剑", "【血海奥义】传说此招曾经击败过一位想要复仇的魔王\n剥夺对手拥有的剑盾，且如果对方是魔王，则使其攻防减半", "#ff0000"],
 		[131, "无敌斩", "【血海奥义】以无敌的姿态爆发出暴雨般的斩击\n战前以2倍攻击力先攻9次", "#ff0000"],
 		[132, "混乱", "战斗中，勇士攻防互换", "#c3c3c3"],
 		[133, "伯化", function (enemy) {
 			var str = "【血海奥义】无法认知的神秘力量\n战斗后，所有拥有该属性的怪物提升";
+			var addstr = "";
 			if (enemy.value) {
-				str += enemy.value + "点生命，";
+				addstr += enemy.value + "点生命，";
 			}
 			if (enemy.atkValue) {
-				str += enemy.atkValue + "点攻击力，";
+				addstr += enemy.atkValue + "点攻击力，";
 			}
 			if (enemy.defValue) {
-				str += enemy.defValue + "点防御力，";
+				addstr += enemy.defValue + "点防御力，";
 			}
-			str += "可叠加。";
-			return str;
-		}, "#fff900"],
+			if (addstr) {
+				addstr += "可叠加。";
+				str += addstr;
+				return str;
+			}
+			return "【血海奥义】无法认知的神秘力量\n此怪物享受伯化加成，但战斗后不会提供额外伯化效果。";
+		}, "#00d2d4"],
 		[134, "域爆", function (enemy) { return "【血海奥义】领域之极致\n经过怪物周围" + (enemy.zoneSquare ? "九宫格" : "十字") + "范围内" + (enemy.range || 1) + "格时生命变为1点"; }, "#ff0000"],
 		[135, "阻爆", function (enemy) { return "【血海奥义】阻击之极致\n经过怪物的十字领域时生命变为1点，同时怪物后退一格"; }, "#ff0000"],
 		[136, "射爆", function (enemy) { return "【血海奥义】射击之极致\n经过怪物同行或同列时生命变为1点"; }, "#ff0000"],
 		[137, "超模仿", "【血海奥义】遇弱则强，遇强则更强\n怪物的攻防是勇士基础攻防的1.2倍。", "#ff0000"],
+		[138, function (enemy) {
+			if (enemy.defValue > 0) return "坚韧光环";
+			return "软弱光环";
+		}, function (enemy) { var x = enemy.range * 2 + 1; return (enemy.defValue > 0 ? "增加" : "减少") + "以自身为中心" + x + "*" + x + "范围内所有友军" + (Math.abs(enemy.defValue) || 0) + "%的防御力，线性叠加。"; }, "#fff900"],
+		[139, function (enemy) {
+			if (enemy.value > 0) return "活力光环";
+			return "抑郁光环";
+		}, function (enemy) { var x = enemy.range * 2 + 1; return (enemy.value > 0 ? "增加" : "减少") + "以自身为中心" + x + "*" + x + "范围内所有友军" + (Math.abs(enemy.value) || 0) + "%的生命，线性叠加。"; }, "#fff900"],
 	];
 },
         "getEnemyInfo": function (enemy, hero, x, y, floorId) {
@@ -843,7 +858,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	// 光环检查
 	// 在这里判定是否需要遍历全图（由于光环需要遍历全图，应尽可能不需要以减少计算量，尤其是大地图）
 	var query = function () {
-		var floorIds = ["MT70", "MT78", "MT79", "MT87", "MT88", "MT89", "MT90", "Chap3_boss", "MT100"]; // 在这里给出所有需要遍历的楼层（即有光环或支援等）
+		var floorIds = ["MT70", "MT78", "MT79", "MT87", "MT88", "MT89", "MT90", "Chap3_boss", "MT100", "MT104", "MT105", "MT106", "MT108", "MT109", "MT110"]; // 在这里给出所有需要遍历的楼层（即有光环或支援等）
 		return core.inArray(floorIds, floorId); // 也可以写其他的判定条件
 	};
 
@@ -879,7 +894,17 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 					// 范围光环
 					if (core.isset(enemy) && core.hasSpecial(enemy.special, 129) && core.isset(x) && core.isset(y) &&
 						Math.abs(block.x - x) <= enemy.range && Math.abs(block.y - y) <= enemy.range) {
-						atk_buff += enemy.atkValue;
+						atk_buff += enemy.atkValue || 0;
+						cnt++;
+					}
+					if (core.isset(enemy) && core.hasSpecial(enemy.special, 138) && core.isset(x) && core.isset(y) &&
+						Math.abs(block.x - x) <= enemy.range && Math.abs(block.y - y) <= enemy.range) {
+						def_buff += enemy.defValue || 0;
+						cnt++;
+					}
+					if (core.isset(enemy) && core.hasSpecial(enemy.special, 139) && core.isset(x) && core.isset(y) &&
+						Math.abs(block.x - x) <= enemy.range && Math.abs(block.y - y) <= enemy.range) {
+						hp_buff += enemy.value || 0;
 						cnt++;
 					}
 					// 检查【支援】技能
@@ -1037,7 +1062,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 		// 如果有神圣盾免疫吸血等可以在这里写
 		// 也可以用hasItem和hasEquip来判定装备
-		// if (core.hasFlag('shield5')) vampire_damage = 0;
+		if (core.getFlag('morph', 0)) vampire_damage = 0;
 
 		vampire_damage = Math.floor(vampire_damage) || 0;
 		// 加到自身
@@ -1047,7 +1072,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		init_damage += vampire_damage;
 	}
 	// 死亡
-	if (core.hasSpecial(mon_special, 126)) {
+	if (core.hasSpecial(mon_special, 126) && !core.getFlag('morph', 0)) {
 		init_damage += enemy.v_126 / 100 * (hero_hpmax - hero_hp);
 	}
 	// 邪恶净化

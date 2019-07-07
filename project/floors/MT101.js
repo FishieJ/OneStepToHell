@@ -14,7 +14,7 @@ main.floors.MT101=
         "dawn.jpg",
         false
     ],
-    "item_ratio": 1,
+    "item_ratio": 3000,
     "defaultGround": "white",
     "firstArrive": [
         {
@@ -25,12 +25,15 @@ main.floors.MT101=
         "\t[hero]熙枫，挺住，我一定会让你醒来的！"
     ],
     "eachArrive": [],
-    "parallelDo": "// 辣鸡作者：这个脚本是小艾写的，出自于《梦》，辣鸡作者只不过是把竖向移动改成了横向移动\nif (core.getFlag('morning', 0)) {\n\tvar lastTime = core.getFlag('lastWeatherTime', 0);\n\t// 每多少毫秒重绘一次；天气效果默认都是30\n\tif (timestamp - lastTime > 60) {\n\t\tcore.clearMap('weather'); // 清空天气层\n\t\tvar lastOffsetX = core.getFlag('lastOffsetX', 0); // 上次的offset\n\t\tvar image = core.material.images.images['morning.jpg']; // 获得图片，这里写图片名\n\t\tvar width = image.width,\n\t\t\theight = image.height; // 获得宽高\n\t\t// 绘制下一次，参见drawImage的API：http://www.w3school.com.cn/tags/canvas_drawimage.asp\n\t\tif (lastOffsetX + 416 > width) { // 需要首尾相接\n\t\t\t// 尾部\n\t\t\tcore.canvas.bg.drawImage(image, lastOffsetX, 0, width - lastOffsetX, height, 0, 0, width - lastOffsetX, height);\n\t\t\t// 首部\n\t\t\tcore.canvas.bg.drawImage(image, 0, 0, lastOffsetX + 416 - width, height, width - lastOffsetX, 0, lastOffsetX + 416 - width, height);\n\t\t} else { // 不需要，直接绘制\n\t\t\tcore.canvas.bg.drawImage(image, lastOffsetX, 0, width, 416, 0, 0, width, 416);\n\t\t}\n\t\t// 移动图片\n\t\tlastOffsetX -= 1; // 这里是每次移动的像素\n\t\tif (lastOffsetX < 0) lastOffsetX += height;\n\t\tcore.setFlag('lastOffsetX', lastOffsetX);\n\t\tcore.setFlag('lastWeatherTime', timestamp); // 记录时间\n\t}\n}",
+    "parallelDo": "",
     "events": {},
     "changeFloor": {
-        "6,9": {
+        "12,9": {
             "floorId": "MT102",
-            "stair": "upFloor",
+            "loc": [
+                0,
+                9
+            ],
             "time": 0
         }
     },
@@ -39,19 +42,19 @@ main.floors.MT101=
     "afterOpenDoor": {},
     "cannotMove": {},
     "map": [
-    [563,242,243,567,571,568,564,570,569,565,550,552,556],
-    [555,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
-    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
-    [  0,157,157,157,157,157,157,  0,157,157,  0,  0,  0],
-    [  0,157,  0,  0,  0,  0,157,  0,  0,157,157,  0,550],
-    [  0,157,  0,  0,  0,  0,157,  0,  0,  0,157,  0,550],
-    [  0,  0,  0,157,157,  0,  0,  0,  0,157,157,  0,550],
-    [  0,  0,  0,157,157,  0,  0,  0,  0,157,  0,  0,550],
-    [  0,  0,  0,  0,  0,  0,  0,  0,  0,157,  0,  0,550],
-    [  0,  0,  0,  0,  0,  0, 94,  0,  0,157,  0,  0,  0],
-    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
-    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
-    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0]
+    [  0, 28,  0,563,  0, 27, 29,  0,157, 31,157,353,  0],
+    [571,157,157,157,157,157,157,567,157, 28,249,  0, 21],
+    [ 21,  0, 27,  0,243, 31,157,  0,243,  0,157, 33,  0],
+    [157,157,157, 32,157,  0,157, 27,157,571,157,157, 82],
+    [157, 27,157,157,157,242,157,157,157,  0,563, 28, 31],
+    [157,  0,567,  0, 31,  0,  0,557,  0,  0,157,157,157],
+    [  0, 21,157,157,157,157,564,157,157, 81, 27,454,157],
+    [157,157,157, 31, 27,563,  0,  0,  0,  0,242,157,157],
+    [157, 31,157,157,157,  0,157,157,157, 81,157, 28, 34],
+    [157, 27,157, 28,157, 34,157, 32,157,  0,242,  0, 94],
+    [  0,  0,243,  0,242,  0,157,  0,  0,569,157,157,157],
+    [242,157,157,157,157,157,157,242,157, 27,157, 27, 22],
+    [  0,536,  0,243, 34,  0, 27,  0,157,  0, 34,563, 34]
 ],
     "bgmap": [
 
@@ -62,6 +65,6 @@ main.floors.MT101=
     "bgm": "7-9.mp3",
     "weather": [
         "fog",
-        5
+        4
     ]
 }

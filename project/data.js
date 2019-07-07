@@ -180,6 +180,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"iceblast",
 			"light",
 			"light2",
+			"morphattack",
 			"skill1",
 			"skill2",
 			"skill3",
@@ -238,6 +239,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"044-Chest01.ogg",
 			"050-Explosion03.ogg",
 			"051-Explosion04.ogg",
+			"053-Cannon02.ogg",
 			"054-Cannon03.ogg",
 			"057-Wrong01.ogg",
 			"082-Monster04.ogg",
@@ -847,17 +849,17 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"value": "status:mdef+16"
 					},
 					"升级！生命、生命上限+800，攻击+10，防御+10，护盾+16",
-					{
-						"type": "setValue",
-						"name": "item:I_charge",
-						"value": "1"
-					},
+					"习得被动技能【次级冲锋】。打开物品栏查看详情。",
 					{
 						"type": "setValue",
 						"name": "flag:charge_point",
 						"value": "5"
 					},
-					"习得被动技能【次级冲锋】。打开物品栏查看详情。"
+					{
+						"type": "setValue",
+						"name": "item:I_charge",
+						"value": "1"
+					}
 				]
 			},
 			{
@@ -954,18 +956,13 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					},
 					{
 						"type": "setValue",
-						"name": "item:I_charge2",
-						"value": "1"
-					},
-					{
-						"type": "setValue",
 						"name": "flag:charge_ratio",
 						"value": "0.02"
 					},
 					"被动技能【次级冲锋】变为【冲锋！】，每步提升基础攻击力的2%。",
 					{
 						"type": "setValue",
-						"name": "item:skill1",
+						"name": "item:I_charge2",
 						"value": "1"
 					},
 					{
@@ -979,6 +976,11 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"value": "12"
 					},
 					"领悟主动技能【强击】：首回合获得2倍攻击力，消耗12点魔法。",
+					{
+						"type": "setValue",
+						"name": "item:skill1",
+						"value": "1"
+					},
 					"普通攻击动画已改变！",
 					{
 						"type": "setValue",
@@ -1041,11 +1043,6 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					"升级！生命、生命上限+6000，魔法、魔法上限+20，攻击+120，防御+120，护盾+150",
 					{
 						"type": "setValue",
-						"name": "item:skill2",
-						"value": "1"
-					},
-					{
-						"type": "setValue",
 						"name": "flag:skill2_atk_ratio",
 						"value": "0.05"
 					},
@@ -1060,6 +1057,11 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"value": "8"
 					},
 					"领悟主动技能【防御】：下场战斗中攻击力降低5%，降低数值的2倍转化为防御力，消耗8点魔法。",
+					{
+						"type": "setValue",
+						"name": "item:skill2",
+						"value": "1"
+					},
 					{
 						"type": "sleep",
 						"time": 500
@@ -1681,31 +1683,26 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"value": "25"
 					},
 					"【强击】和【防御】效果和魔法消耗提升。",
-					{
-						"type": "setValue",
-						"name": "item:shield0",
-						"value": "1"
-					},
+					"领悟被动【高级护盾】。现在1点护盾可以抵挡1.5点伤害。",
 					{
 						"type": "setValue",
 						"name": "flag:mdef_ratio",
 						"value": "1.5"
 					},
-					"领悟被动【高级护盾】。现在1点护盾可以抵挡1.5点伤害。",
 					{
 						"type": "setValue",
-						"name": "item:I341",
+						"name": "item:shield0",
 						"value": "1"
 					},
+					"现在每场战斗后回复3点魔法。",
 					{
 						"type": "setValue",
 						"name": "flag:mana_regen",
 						"value": "3"
 					},
-					"现在每场战斗后回复3点魔法。",
 					{
 						"type": "setValue",
-						"name": "item:skill4",
+						"name": "item:I341",
 						"value": "1"
 					},
 					{
@@ -1721,9 +1718,15 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					"领悟【红海技能】！主动技能【撕裂】：每回合开始时造成相当于对方5%当前生命的伤害。",
 					{
 						"type": "setValue",
+						"name": "item:skill4",
+						"value": "1"
+					},
+					{
+						"type": "setValue",
 						"name": "item:talent",
 						"value": "1"
 					},
+					"开启天赋！可以在道具栏中打开天赋列表。获得3点天赋。",
 					{
 						"type": "addValue",
 						"name": "flag:talentPoint",
@@ -1734,7 +1737,6 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"name": "item:talentPoint",
 						"value": "3"
 					},
-					"开启天赋！可以在道具栏中打开天赋列表。获得3点天赋。",
 					{
 						"type": "setValue",
 						"name": "status:hp",
@@ -1850,6 +1852,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"type": "function",
 						"function": "function(){\ncore.drawHero();\n}"
 					},
+					"获得3点天赋。",
 					{
 						"type": "addValue",
 						"name": "flag:talentPoint",
@@ -1860,7 +1863,6 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"name": "item:talentPoint",
 						"value": "3"
 					},
-					"获得3点天赋。",
 					{
 						"type": "addValue",
 						"name": "flag:bring_hp_val",
@@ -1937,6 +1939,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"type": "function",
 						"function": "function(){\ncore.drawHero();\n}"
 					},
+					"获得3点天赋。",
 					{
 						"type": "addValue",
 						"name": "flag:talentPoint",
@@ -1947,7 +1950,6 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"name": "item:talentPoint",
 						"value": "3"
 					},
-					"获得3点天赋。",
 					{
 						"type": "addValue",
 						"name": "flag:bring_hp_val",
@@ -2030,6 +2032,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"type": "function",
 						"function": "function(){\ncore.drawHero();\n}"
 					},
+					"获得4点天赋。",
 					{
 						"type": "addValue",
 						"name": "flag:talentPoint",
@@ -2040,7 +2043,6 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"name": "item:talentPoint",
 						"value": "4"
 					},
-					"获得4点天赋。",
 					{
 						"type": "addValue",
 						"name": "flag:bring_hp_val",
@@ -2081,6 +2083,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"loc": "hero"
 					},
 					"晋升为半步血海！严格来讲这并不是一个境界，因此提升比较小。",
+					"获得1点天赋。",
 					{
 						"type": "addValue",
 						"name": "flag:talentPoint",
@@ -2091,7 +2094,6 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"name": "item:talentPoint",
 						"value": "1"
 					},
-					"获得1点天赋。",
 					{
 						"type": "sleep",
 						"time": 500
@@ -2138,6 +2140,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					},
 					"晋升为血海初成！生命上限+5000000，魔法上限+200，攻击+30000，防御+30000，护盾+36000",
 					"普通攻击动画已改变！",
+					"获得5点天赋。",
 					{
 						"type": "addValue",
 						"name": "flag:talentPoint",
@@ -2148,13 +2151,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"name": "item:talentPoint",
 						"value": "5"
 					},
-					"获得5点天赋。",
 					"开启血海阶段的天赋。",
-					{
-						"type": "setValue",
-						"name": "item:I_morph",
-						"value": "1"
-					},
 					{
 						"type": "setValue",
 						"name": "flag:skill5_cost",
@@ -2186,6 +2183,11 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"value": "10"
 					},
 					"领悟\r[red]【血海奥义】魔化\r[white]！",
+					{
+						"type": "setValue",
+						"name": "item:I_morph",
+						"value": "1"
+					},
 					{
 						"type": "setValue",
 						"name": "status:hp",
