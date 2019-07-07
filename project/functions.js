@@ -807,6 +807,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 			if (enemy.value > 0) return "活力光环";
 			return "抑郁光环";
 		}, function (enemy) { var x = enemy.range * 2 + 1; return (enemy.value > 0 ? "增加" : "减少") + "以自身为中心" + x + "*" + x + "范围内所有友军" + (Math.abs(enemy.value) || 0) + "%的生命，线性叠加。"; }, "#fff900"],
+		[140, "中子束", "【血海奥义】极少有人有幸见到这个技能\n怪物每回合普攻2次，魔攻1次。", "#ff0000"],
 	];
 },
         "getEnemyInfo": function (enemy, hero, x, y, floorId) {
@@ -1101,6 +1102,12 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	if (core.hasSpecial(mon_special, 4)) per_damage *= 2;
 	if (core.hasSpecial(mon_special, 5)) per_damage *= 3;
 	if (core.hasSpecial(mon_special, 6)) per_damage *= (enemy.n || 4);
+
+	// 中子束
+	if (core.hasSpecial(mon_special, 140)) {
+		per_damage *= 2;
+		per_damage += mon_atk;
+	}
 
 	// 每回合的反击伤害；反击是按照勇士的攻击次数来计算回合
 	var counterDamage = 0;
@@ -1669,12 +1676,16 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	// 刷新怪物数据
 	core.updateEnemys();
 
-	// TODO：增加自己的一些读档处理
+	// 增加自己的一些读档处理
+	// 隐身药水
 	if (core.getFlag('invisible', 0) == 1) {
 		core.setOpacity('hero', 0.5);
 	} else {
 		core.setOpacity('hero', 1);
 	}
+	// 给11区和12区地图parallelDo用的
+	core.setFlag('lastTime', 0);
+	core.setFlag('lastWeatherTime', 0);
 
 
 	// 切换到对应的楼层

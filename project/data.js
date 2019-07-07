@@ -2202,7 +2202,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				]
 			},
 			{
-				"need": "100000000",
+				"need": "25000000",
 				"title": "血海大成",
 				"clear": true,
 				"action": [
@@ -2214,39 +2214,50 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					{
 						"type": "setValue",
 						"name": "status:hpmax",
-						"value": "status:hpmax+3000000"
+						"value": "status:hpmax+10000000"
 					},
 					{
 						"type": "setValue",
 						"name": "status:hp",
-						"value": "status:hp+3000000"
+						"value": "status:hp+10000000"
 					},
 					{
 						"type": "setValue",
 						"name": "status:manamax",
-						"value": "status:manamax+200"
+						"value": "status:manamax+300"
 					},
 					{
 						"type": "setValue",
 						"name": "status:mana",
-						"value": "status:mana+200"
+						"value": "status:mana+300"
 					},
 					{
 						"type": "setValue",
 						"name": "status:atk",
-						"value": "status:atk+20000"
+						"value": "status:atk+50000"
 					},
 					{
 						"type": "setValue",
 						"name": "status:def",
-						"value": "status:def+20000"
+						"value": "status:def+50000"
 					},
 					{
 						"type": "setValue",
 						"name": "status:mdef",
-						"value": "status:mdef+24000"
+						"value": "status:mdef+60000"
 					},
-					"升级！生命、生命上限+3000000，魔法、魔法上限+200，攻击+20000，防御+20000，护盾+24000"
+					"升级！生命、生命上限+10000000，魔法、魔法上限+300，攻击+50000，防御+50000，护盾+60000",
+					"获得6点天赋。",
+					{
+						"type": "addValue",
+						"name": "flag:talentPoint",
+						"value": "6"
+					},
+					{
+						"type": "addValue",
+						"name": "item:talentPoint",
+						"value": "6"
+					}
 				]
 			},
 			{
