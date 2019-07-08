@@ -859,7 +859,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	// 光环检查
 	// 在这里判定是否需要遍历全图（由于光环需要遍历全图，应尽可能不需要以减少计算量，尤其是大地图）
 	var query = function () {
-		var floorIds = ["MT70", "MT78", "MT79", "MT87", "MT88", "MT89", "MT90", "Chap3_boss", "MT100", "MT104", "MT105", "MT106", "MT108", "MT109", "MT110"]; // 在这里给出所有需要遍历的楼层（即有光环或支援等）
+		var floorIds = ["MT70", "MT78", "MT79", "MT7A", "MT87", "MT88", "MT89", "MT90", "Chap3_boss", "MT100", "MT104", "MT105", "MT106", "MT108", "MT109", "MT110"]; // 在这里给出所有需要遍历的楼层（即有光环或支援等）
 		return core.inArray(floorIds, floorId); // 也可以写其他的判定条件
 	};
 

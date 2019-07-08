@@ -153,7 +153,7 @@ var enemys_fcae963b_31c9_42b4_b48c_bb48d09f3f80 =
 	"E461": {"name":"便携小莱姆","hp":50,"atk":4,"def":0,"money":0,"experience":0,"point":0,"special":0,"level":"萌新一段","v_121":null},
 	"E467": {"name":"魔眼莱姆","hp":300000,"atk":39000,"def":19000,"money":0,"experience":1090,"point":0,"special":13,"level":"红海低阶","weak":2},
 	"E468": {"name":"四手魔影","hp":750000,"atk":0,"def":0,"money":0,"experience":2700,"point":0,"special":[4,10,99,100,102],"level":"红海高阶","value":21,"n":10,"defValue":50,"x":10},
-	"E469": {"name":"负剑莱姆","hp":260000,"atk":45000,"def":15000,"money":0,"experience":1270,"point":0,"special":0,"level":"红海低阶"},
+	"E469": {"name":"负剑莱姆","hp":260000,"atk":45000,"def":15000,"money":0,"experience":1270,"point":0,"special":[1,7],"level":"红海低阶","value":1.5},
 	"E470": {"name":"小石怪","hp":200000,"atk":37000,"def":28000,"money":0,"experience":1300,"point":0,"special":[8,120],"level":"红海低阶","value":0.05},
 	"E471": {"name":"大石怪","hp":300000,"atk":50000,"def":36000,"money":0,"experience":1950,"point":0,"special":[8,120],"level":"红海中阶","value":0.1},
 	"E472": {"name":"骷髅骑士","hp":700000,"atk":94000,"def":43000,"money":0,"experience":2440,"point":0,"special":[103,104],"level":"红海高阶","atkValue":4,"n":50,"range":25},
