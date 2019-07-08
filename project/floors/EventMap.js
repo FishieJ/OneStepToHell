@@ -519,7 +519,7 @@ main.floors.EventMap=
         "3,2": [
             {
                 "type": "choices",
-                "text": "\t[吸血（${flag:talent1_lv}/5）,I_vampire]\r[blue][防御类]\r[white]每级提升\r[yellow]4%\r[white]的吸血。当前吸血比例为\r[yellow]${Math.floor(flag:vampire_ratio * 100)}%\r[white]。",
+                "text": "\t[吸血（${flag:talent1_lv}/5）,I_vampire]\r[blue][防御类]\r[white]每级提升\r[yellow]3%\r[white]的吸血。当前吸血比例为\r[yellow]${Math.floor(flag:vampire_ratio * 100)}%\r[white]。",
                 "choices": [
                     {
                         "text": "确认",
@@ -557,7 +557,7 @@ main.floors.EventMap=
                                     {
                                         "type": "addValue",
                                         "name": "flag:vampire_ratio",
-                                        "value": "0.04"
+                                        "value": "0.03"
                                     },
                                     {
                                         "type": "addValue",
@@ -1777,7 +1777,7 @@ main.floors.EventMap=
         "2,5": [
             {
                 "type": "choices",
-                "text": "\t[魔化（${flag:morph_lv}/5）,I_morph]\r[red][攻击类]\r[white]每级使魔化额外提供\r[yellow]500000\r[white]点生命、\r[yellow]10000\r[white]点攻击、\r[yellow]5000\r[white]点防御，且冷却时间减少\r[yellow]1\r[white]次战斗。\n当前魔化提升\r[yellow]${flag:skill5_hpmax}\r[white]点生命、\r[yellow]${flag:skill5_atk}\r[white]点攻击力和\r[yellow]${flag:skill5_def}\r[white]点防御，冷却\r[yellow]${flag:skill5_cooldown}\r[white]次战斗。",
+                "text": "\t[魔化（${flag:morph_lv}/5）,I_morph]\r[red][攻击类]\r[white]每级使魔化额外提供\r[yellow]500000\r[white]点生命、\r[yellow]10000\r[white]点攻击、\r[yellow]5000\r[white]点防御，且冷却时间减少\r[yellow]1\r[white]次战斗，魔法消耗降低20点。\n当前魔化提升\r[yellow]${flag:skill5_hpmax}\r[white]点生命、\r[yellow]${flag:skill5_atk}\r[white]点攻击力和\r[yellow]${flag:skill5_def}\r[white]点防御，冷却\r[yellow]${flag:skill5_cooldown}\r[white]次战斗，魔法消耗\r[yellow]${flag:skill5_cost}\r[white]点。",
                 "choices": [
                     {
                         "text": "确认",
@@ -1868,6 +1868,11 @@ main.floors.EventMap=
                                         "type": "addValue",
                                         "name": "flag:skill5_cooldown",
                                         "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:skill5_cost",
+                                        "value": "-20"
                                     },
                                     {
                                         "type": "insert",

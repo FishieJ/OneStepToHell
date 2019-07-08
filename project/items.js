@@ -306,7 +306,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"I_vampire": {
 			"cls": "constants",
 			"name": "{被动}吸血",
-			"text": "战斗中造成伤害的${flag:vampire_ratio*100}%治疗自身"
+			"text": "战斗中造成伤害的${(flag:vampire_ratio*100).toFixed(0)}%治疗自身"
 		},
 		"I349": {
 			"cls": "items",
@@ -490,7 +490,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"smallJump": {
 			"cls": "constants",
-			"name": "【地图技能】跳跃 [W]",
+			"name": "【地图技能】跳跃 (W)",
 			"text": "消耗${flag:smallJump_cost}点魔法，跳跃到前方一格的空地上，并减少1层冲锋效果。快捷键是W。"
 		},
 		"c_charge": {
