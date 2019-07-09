@@ -93,7 +93,7 @@ main.floors.EventMap=
             },
             {
                 "type": "choices",
-                "text": "\t[天赋选择,talent]选择要强化的技能。目前有${flag:talentPoint}个天赋点。",
+                "text": "\t[天赋选择,talent]选择要强化的技能。目前有${item:talentPoint}个天赋点。",
                 "choices": [
                     {
                         "text": "强击（${flag:skill1_lv}/3）",
@@ -281,13 +281,8 @@ main.floors.EventMap=
                             },
                             {
                                 "type": "if",
-                                "condition": "flag:talentPoint > 0",
+                                "condition": "item:talentPoint > 0",
                                 "true": [
-                                    {
-                                        "type": "addValue",
-                                        "name": "flag:talentPoint",
-                                        "value": "-1"
-                                    },
                                     {
                                         "type": "addValue",
                                         "name": "item:talentPoint",
@@ -368,13 +363,8 @@ main.floors.EventMap=
                             },
                             {
                                 "type": "if",
-                                "condition": "flag:talentPoint > 0",
+                                "condition": "item:talentPoint > 0",
                                 "true": [
-                                    {
-                                        "type": "addValue",
-                                        "name": "flag:talentPoint",
-                                        "value": "-1"
-                                    },
                                     {
                                         "type": "addValue",
                                         "name": "item:talentPoint",
@@ -432,7 +422,7 @@ main.floors.EventMap=
         "2,2": [
             {
                 "type": "choices",
-                "text": "\t[撕裂（${flag:skill4_lv}/4）,skill4]\r[red][攻击类]\r[white]每级提升\r[yellow]1.5%\r[white]的流失量。当前效果为令敌人每回合开始时流失\r[yellow]${flag:skill4_val}%\r[white]的当前生命值。",
+                "text": "\t[撕裂（${flag:skill4_lv}/4）,skill4]\r[red][攻击类]\r[white]每级提升\r[yellow]1.5%\r[white]的流失量，并减少\r[yellow]5\r[white]点魔法消耗。当前效果为令敌人每回合开始时流失\r[yellow]${flag:skill4_val}%\r[white]的当前生命值，消耗\r[yellow]${flag:skill4_cost}\r[white]点魔法。",
                 "choices": [
                     {
                         "text": "确认",
@@ -455,13 +445,8 @@ main.floors.EventMap=
                             },
                             {
                                 "type": "if",
-                                "condition": "flag:talentPoint > 0",
+                                "condition": "item:talentPoint > 0",
                                 "true": [
-                                    {
-                                        "type": "addValue",
-                                        "name": "flag:talentPoint",
-                                        "value": "-1"
-                                    },
                                     {
                                         "type": "addValue",
                                         "name": "item:talentPoint",
@@ -471,6 +456,11 @@ main.floors.EventMap=
                                         "type": "addValue",
                                         "name": "flag:skill4_val",
                                         "value": "1.5"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:skill4_cost",
+                                        "value": "-5"
                                     },
                                     {
                                         "type": "addValue",
@@ -542,13 +532,8 @@ main.floors.EventMap=
                             },
                             {
                                 "type": "if",
-                                "condition": "flag:talentPoint > 0",
+                                "condition": "item:talentPoint > 0",
                                 "true": [
-                                    {
-                                        "type": "addValue",
-                                        "name": "flag:talentPoint",
-                                        "value": "-1"
-                                    },
                                     {
                                         "type": "addValue",
                                         "name": "item:talentPoint",
@@ -629,13 +614,8 @@ main.floors.EventMap=
                             },
                             {
                                 "type": "if",
-                                "condition": "flag:talentPoint > 0",
+                                "condition": "item:talentPoint > 0",
                                 "true": [
-                                    {
-                                        "type": "addValue",
-                                        "name": "flag:talentPoint",
-                                        "value": "-1"
-                                    },
                                     {
                                         "type": "addValue",
                                         "name": "item:talentPoint",
@@ -716,13 +696,8 @@ main.floors.EventMap=
                             },
                             {
                                 "type": "if",
-                                "condition": "flag:talentPoint > 0",
+                                "condition": "item:talentPoint > 0",
                                 "true": [
-                                    {
-                                        "type": "addValue",
-                                        "name": "flag:talentPoint",
-                                        "value": "-1"
-                                    },
                                     {
                                         "type": "addValue",
                                         "name": "item:talentPoint",
@@ -867,6 +842,10 @@ main.floors.EventMap=
                 "value": "0"
             },
             {
+                "type": "function",
+                "function": "function(){\ncore.unloadEquip(\"0\");\ncore.unloadEquip(\"1\");\ncore.unloadEquip(\"2\");\ncore.unloadEquip(\"3\");\n}"
+            },
+            {
                 "type": "addValue",
                 "name": "item:coin",
                 "value": "core.itemCount('I476')*400"
@@ -903,13 +882,8 @@ main.floors.EventMap=
                             },
                             {
                                 "type": "if",
-                                "condition": "flag:talentPoint > 0",
+                                "condition": "item:talentPoint > 0",
                                 "true": [
-                                    {
-                                        "type": "addValue",
-                                        "name": "flag:talentPoint",
-                                        "value": "-1"
-                                    },
                                     {
                                         "type": "addValue",
                                         "name": "item:talentPoint",
@@ -1157,7 +1131,7 @@ main.floors.EventMap=
             },
             {
                 "type": "choices",
-                "text": "\t[天赋选择,talent]选择要强化的技能。目前有${flag:talentPoint}个天赋点。",
+                "text": "\t[天赋选择,talent]选择要强化的技能。目前有${item:talentPoint}个天赋点。",
                 "choices": [
                     {
                         "text": "高级强击（${flag:skill1_lv2}/3）",
@@ -1296,7 +1270,7 @@ main.floors.EventMap=
             },
             {
                 "type": "choices",
-                "text": "\t[天赋选择,talent]选择天赋类别。目前有${flag:talentPoint}个天赋点。",
+                "text": "\t[天赋选择,talent]选择天赋类别。目前有${item:talentPoint}个天赋点。",
                 "choices": [
                     {
                         "text": "红海天赋",
@@ -1389,13 +1363,8 @@ main.floors.EventMap=
                             },
                             {
                                 "type": "if",
-                                "condition": "flag:talentPoint > 0",
+                                "condition": "item:talentPoint > 0",
                                 "true": [
-                                    {
-                                        "type": "addValue",
-                                        "name": "flag:talentPoint",
-                                        "value": "-1"
-                                    },
                                     {
                                         "type": "addValue",
                                         "name": "item:talentPoint",
@@ -1492,13 +1461,8 @@ main.floors.EventMap=
                             },
                             {
                                 "type": "if",
-                                "condition": "flag:talentPoint > 0",
+                                "condition": "item:talentPoint > 0",
                                 "true": [
-                                    {
-                                        "type": "addValue",
-                                        "name": "flag:talentPoint",
-                                        "value": "-1"
-                                    },
                                     {
                                         "type": "addValue",
                                         "name": "item:talentPoint",
@@ -1595,13 +1559,8 @@ main.floors.EventMap=
                             },
                             {
                                 "type": "if",
-                                "condition": "flag:talentPoint > 0",
+                                "condition": "item:talentPoint > 0",
                                 "true": [
-                                    {
-                                        "type": "addValue",
-                                        "name": "flag:talentPoint",
-                                        "value": "-1"
-                                    },
                                     {
                                         "type": "addValue",
                                         "name": "item:talentPoint",
@@ -1708,13 +1667,8 @@ main.floors.EventMap=
                             },
                             {
                                 "type": "if",
-                                "condition": "flag:talentPoint > 0",
+                                "condition": "item:talentPoint > 0",
                                 "true": [
-                                    {
-                                        "type": "addValue",
-                                        "name": "flag:talentPoint",
-                                        "value": "-1"
-                                    },
                                     {
                                         "type": "addValue",
                                         "name": "item:talentPoint",
@@ -1777,7 +1731,7 @@ main.floors.EventMap=
         "2,5": [
             {
                 "type": "choices",
-                "text": "\t[魔化（${flag:morph_lv}/5）,I_morph]\r[red][攻击类]\r[white]每级使魔化额外提供\r[yellow]500000\r[white]点生命、\r[yellow]10000\r[white]点攻击、\r[yellow]5000\r[white]点防御，且冷却时间减少\r[yellow]1\r[white]次战斗，魔法消耗降低20点。\n当前魔化提升\r[yellow]${flag:skill5_hpmax}\r[white]点生命、\r[yellow]${flag:skill5_atk}\r[white]点攻击力和\r[yellow]${flag:skill5_def}\r[white]点防御，冷却\r[yellow]${flag:skill5_cooldown}\r[white]次战斗，魔法消耗\r[yellow]${flag:skill5_cost}\r[white]点。",
+                "text": "\t[魔化（${flag:morph_lv}/5）,I_morph]\r[red][攻击类]\r[white]每级使魔化额外提供\r[yellow]500000\r[white]点生命、\r[yellow]10000\r[white]点攻击、\r[yellow]5000\r[white]点防御，且冷却时间减少\r[yellow]1\r[white]次战斗，魔法消耗降低\r[yellow]20\r[white]点。\n当前魔化提升\r[yellow]${flag:skill5_hpmax}\r[white]点生命、\r[yellow]${flag:skill5_atk}\r[white]点攻击力和\r[yellow]${flag:skill5_def}\r[white]点防御，冷却\r[yellow]${flag:skill5_cooldown}\r[white]次战斗，魔法消耗\r[yellow]${flag:skill5_cost}\r[white]点。",
                 "choices": [
                     {
                         "text": "确认",
@@ -1832,13 +1786,8 @@ main.floors.EventMap=
                             },
                             {
                                 "type": "if",
-                                "condition": "flag:talentPoint > 0",
+                                "condition": "item:talentPoint > 0",
                                 "true": [
-                                    {
-                                        "type": "addValue",
-                                        "name": "flag:talentPoint",
-                                        "value": "-1"
-                                    },
                                     {
                                         "type": "addValue",
                                         "name": "item:talentPoint",
@@ -1955,13 +1904,8 @@ main.floors.EventMap=
                             },
                             {
                                 "type": "if",
-                                "condition": "flag:talentPoint > 0",
+                                "condition": "item:talentPoint > 0",
                                 "true": [
-                                    {
-                                        "type": "addValue",
-                                        "name": "flag:talentPoint",
-                                        "value": "-1"
-                                    },
                                     {
                                         "type": "addValue",
                                         "name": "item:talentPoint",
@@ -2019,6 +1963,904 @@ main.floors.EventMap=
                         ]
                     }
                 ]
+            }
+        ],
+        "0,8": [
+            {
+                "type": "choices",
+                "text": "\t[强击（${flag:skill1_lv}/3）,skill1]\r[red][攻击类]\r[white]每级提升\r[yellow]0.5\r[white]倍额外伤害。当前强击造成的额外伤害是\r[yellow]${flag:skill1_val-1}\r[white]倍攻击力。",
+                "choices": [
+                    {
+                        "text": "确认",
+                        "action": [
+                            {
+                                "type": "if",
+                                "condition": "flag:skill1_lv <= 0",
+                                "true": [
+                                    "已经达到0级，无法重置。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            7
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "flag:skill1_lv2 > 0",
+                                "true": [
+                                    "已经点了后置天赋，无法重置。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            7
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "item:sword0 > 0",
+                                "true": [
+                                    {
+                                        "type": "addValue",
+                                        "name": "item:talentPoint",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "item:sword0",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:skill1_val",
+                                        "value": "-0.5"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:skill1_lv",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            8
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": [
+                                    "没有重置机会了。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            7
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "取消",
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    0,
+                                    7
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "1,8": [
+            {
+                "type": "choices",
+                "text": "\t[防御（${flag:skill2_lv}/3）,skill2]\r[blue][防御类]\r[white]每级提升\r[yellow]50%\r[white]防御转化率。当前效果为将${flag:skill2_atk_ratio*100}%的攻击力以\r[yellow]${flag:skill2_def_ratio*100}%\r[white]的比例转化为防御。",
+                "choices": [
+                    {
+                        "text": "确认",
+                        "action": [
+                            {
+                                "type": "if",
+                                "condition": "flag:skill2_lv <= 0",
+                                "true": [
+                                    "已经达到0级，无法重置。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            7
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "flag:skill2_lv2 > 0",
+                                "true": [
+                                    "已经点了后置天赋，无法重置。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            7
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "item:sword0 > 0",
+                                "true": [
+                                    {
+                                        "type": "addValue",
+                                        "name": "item:talentPoint",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "item:sword0",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:skill2_def_ratio",
+                                        "value": "-0.5"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:skill2_lv",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            8
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": [
+                                    "没有重置机会了。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            7
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "取消",
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    0,
+                                    7
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "2,8": [
+            {
+                "type": "choices",
+                "text": "\t[撕裂（${flag:skill4_lv}/4）,skill4]\r[red][攻击类]\r[white]每级提升\r[yellow]1.5%\r[white]的流失量，并减少\r[yellow]5\r[white]点魔法消耗。当前效果为令敌人每回合开始时流失\r[yellow]${flag:skill4_val}%\r[white]的当前生命值，消耗\r[yellow]${flag:skill4_cost}\r[white]点魔法。",
+                "choices": [
+                    {
+                        "text": "确认",
+                        "action": [
+                            {
+                                "type": "if",
+                                "condition": "flag:skill4_lv <= 0",
+                                "true": [
+                                    "已经达到0级，无法重置。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            7
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "flag:execute_lv > 0",
+                                "true": [
+                                    "已经点了后置天赋，无法重置。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            7
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "item:sword0 > 0",
+                                "true": [
+                                    {
+                                        "type": "addValue",
+                                        "name": "item:talentPoint",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "item:sword0",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:skill4_val",
+                                        "value": "-1.5"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:skill4_cost",
+                                        "value": "5"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:skill4_lv",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            2,
+                                            8
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": [
+                                    "没有重置机会了。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            7
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "取消",
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    0,
+                                    7
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "3,8": [
+            {
+                "type": "choices",
+                "text": "\t[吸血（${flag:talent1_lv}/5）,I_vampire]\r[blue][防御类]\r[white]每级提升\r[yellow]3%\r[white]的吸血。当前吸血比例为\r[yellow]${Math.floor(flag:vampire_ratio * 100)}%\r[white]。",
+                "choices": [
+                    {
+                        "text": "确认",
+                        "action": [
+                            {
+                                "type": "if",
+                                "condition": "flag:talent1_lv <= 0",
+                                "true": [
+                                    "已经达到0级，无法重置。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            7
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "flag:charge_lv > 0",
+                                "true": [
+                                    "已经点了后置天赋，无法重置。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            7
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "item:sword0 > 0",
+                                "true": [
+                                    {
+                                        "type": "addValue",
+                                        "name": "item:sword0",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "item:talentPoint",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:vampire_ratio",
+                                        "value": "-0.03"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:talent1_lv",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            3,
+                                            8
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": [
+                                    "没有重置机会了。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            7
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "取消",
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    0,
+                                    7
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "4,8": [
+            {
+                "type": "choices",
+                "text": "\t[回复魔法（${flag:talent2_lv}/6）,I341]\r[red][攻击类]\r[white]每级使得战斗后多回复\r[yellow]2\r[white]点魔法。当前每场战斗后回复\r[yellow]${flag:mana_regen}\r[white]点魔法。",
+                "choices": [
+                    {
+                        "text": "确认",
+                        "action": [
+                            {
+                                "type": "if",
+                                "condition": "flag:talent2_lv <= 0",
+                                "true": [
+                                    "已经达到0级，无法重置。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            7
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "flag:morph_lv > 0",
+                                "true": [
+                                    "已经点了后置天赋，无法重置。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            7
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "item:sword0 > 0",
+                                "true": [
+                                    {
+                                        "type": "addValue",
+                                        "name": "item:sword0",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "item:talentPoint",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:mana_regen",
+                                        "value": "-2"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:talent2_lv",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            4,
+                                            8
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": [
+                                    "没有重置机会了。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            7
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "取消",
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    0,
+                                    7
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "5,8": [
+            {
+                "type": "choices",
+                "text": "\t[高级护盾（${flag:talent3_lv}/5）,shield0]\r[blue][防御类]\r[white]每级使得每点护盾可以多抵挡\r[yellow]0.3\r[white]点伤害。当前每点护盾可以抵挡\r[yellow]${flag:mdef_ratio}\r[white]点伤害。",
+                "choices": [
+                    {
+                        "text": "确认",
+                        "action": [
+                            {
+                                "type": "if",
+                                "condition": "flag:talent3_lv <= 0",
+                                "true": [
+                                    "已经达到0级，无法重置。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            7
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "flag:c_charge_lv > 0",
+                                "true": [
+                                    "已经点了后置天赋，无法重置。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            7
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "item:sword0 > 0",
+                                "true": [
+                                    {
+                                        "type": "addValue",
+                                        "name": "item:sword0",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "item:talentPoint",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "comment",
+                                        "text": "为了避免js小数点后不准的问题，先×10再÷10"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:mdef_ratio",
+                                        "value": "flag:mdef_ratio*10"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:mdef_ratio",
+                                        "value": "-3"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:mdef_ratio",
+                                        "value": "flag:mdef_ratio/10"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:talent3_lv",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            5,
+                                            8
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": [
+                                    "没有重置机会了。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            7
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "取消",
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    0,
+                                    7
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "6,8": [
+            {
+                "type": "choices",
+                "text": "\t[清洁术（${flag:poison_lv}/2）,expelPoison]\r[green][咸鱼类]\r[white]每级使得清洁术耗蓝减少\r[yellow]99\r[white]点。当前耗蓝\r[yellow]${flag:expelPoison_cost}\r[white]点。",
+                "choices": [
+                    {
+                        "text": "确认",
+                        "action": [
+                            {
+                                "type": "if",
+                                "condition": "flag:poison_lv <= 0",
+                                "true": [
+                                    "已经达到0级，无法重置。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            7
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "item:sword0 > 0",
+                                "true": [
+                                    {
+                                        "type": "addValue",
+                                        "name": "item:sword0",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "item:talentPoint",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:expelPoison_cost",
+                                        "value": "99"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:poison_lv",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            6,
+                                            8
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": [
+                                    "没有重置机会了。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            0,
+                                            7
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "取消",
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    0,
+                                    7
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "0,7": [
+            {
+                "type": "comment",
+                "text": "重置红海天赋"
+            },
+            {
+                "type": "choices",
+                "text": "\t[重置天赋选择,I_resetTalent]选择要重置的技能。目前有${item:sword0}次重置机会。",
+                "choices": [
+                    {
+                        "text": "强击（${flag:skill1_lv}/3）",
+                        "color": [
+                            255,
+                            85,
+                            85,
+                            1
+                        ],
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    0,
+                                    8
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "撕裂（${flag:skill4_lv}/4）",
+                        "color": [
+                            255,
+                            85,
+                            85,
+                            1
+                        ],
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    2,
+                                    8
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "回复魔法（${flag:talent2_lv}/6）",
+                        "color": [
+                            255,
+                            85,
+                            85,
+                            1
+                        ],
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    4,
+                                    8
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "防御（${flag:skill2_lv}/3）",
+                        "color": [
+                            68,
+                            204,
+                            221,
+                            1
+                        ],
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    1,
+                                    8
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "吸血（${flag:talent1_lv}/5）",
+                        "color": [
+                            68,
+                            204,
+                            221,
+                            1
+                        ],
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    3,
+                                    8
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "高级护盾（${flag:talent3_lv}/5）",
+                        "color": [
+                            68,
+                            204,
+                            221,
+                            1
+                        ],
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    5,
+                                    8
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "清洁术（${flag:poison_lv}/2）",
+                        "color": [
+                            160,
+                            247,
+                            83,
+                            1
+                        ],
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    6,
+                                    8
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "离开",
+                        "action": [
+                            {
+                                "type": "exit"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "10,0": [
+            {
+                "type": "comment",
+                "text": "状态回满，并将当前生命均作为溢出生命值"
+            },
+            {
+                "type": "addValue",
+                "name": "flag:hp_score",
+                "value": "status:hp"
+            },
+            {
+                "type": "setValue",
+                "name": "status:hp",
+                "value": "status:hpmax"
+            },
+            {
+                "type": "setValue",
+                "name": "status:mana",
+                "value": "status:manamax"
             }
         ]
     },

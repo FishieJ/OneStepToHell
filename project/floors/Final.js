@@ -7,7 +7,7 @@ main.floors.Final=
     "height": 13,
     "canFlyTo": true,
     "canUseQuickShop": true,
-    "cannotViewMap": false,
+    "cannotViewMap": true,
     "images": [
         -288,
         -96,

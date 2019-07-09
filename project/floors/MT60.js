@@ -7,7 +7,7 @@ main.floors.MT60=
     "height": 13,
     "canFlyTo": true,
     "canUseQuickShop": true,
-    "cannotViewMap": false,
+    "cannotViewMap": true,
     "images": [],
     "item_ratio": 50,
     "defaultGround": "grass2",

@@ -828,14 +828,12 @@ main.floors.Chap3_boss=
             },
             "进入魔化状态，血量上限增加500万，攻击增加10万，防御增加5万！",
             {
-                "type": "setValue",
-                "name": "status:hp",
-                "value": "status:hpmax"
-            },
-            {
-                "type": "setValue",
-                "name": "status:mana",
-                "value": "status:manamax"
+                "type": "insert",
+                "loc": [
+                    10,
+                    0
+                ],
+                "floorId": "EventMap"
             },
             "状态回满！",
             "\t[熙枫,heroine]（这……竟然黑化了……）",

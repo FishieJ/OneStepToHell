@@ -57,14 +57,10 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 			"text": "'，生命+'+core.values.greenPotion"
 		},
 		"sword0": {
-			"cls": "items",
-			"name": "破旧的剑",
-			"text": "一把已经生锈的剑",
-			"equip": {
-				"type": 0,
-				"atk": 0,
-				"animate": "sword"
-			}
+			"cls": "tools",
+			"name": "重置机会",
+			"text": "可以重置一个消耗在红海天赋的天赋点",
+			"equip": null
 		},
 		"sword1": {
 			"cls": "items",
@@ -172,8 +168,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"book": {
 			"cls": "constants",
-			"name": "怪物手册",
-			"text": "用意志侦测对方的能力。"
+			"name": "怪物手册 (X)",
+			"text": "用意志侦测对方的能力。快捷键是X。"
 		},
 		"fly": {
 			"cls": "constants",
@@ -477,7 +473,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"talent": {
 			"cls": "constants",
 			"name": "学习天赋",
-			"text": "打开天赋学习列表。目前有${flag:talentPoint}个天赋点。"
+			"text": "打开天赋学习列表。目前有${item:talentPoint}个天赋点。"
 		},
 		"execute": {
 			"cls": "constants",
@@ -511,7 +507,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"I_morph": {
 			"cls": "constants",
 			"name": "【血海奥义】魔化 (5)",
-			"text": "消耗${flag:skill5_cost}点魔法，进入魔化状态，提升${flag:skill5_hpmax}点生命及生命上限、${flag:skill5_atk}点攻击力和${flag:skill5_def}点防御力，并暂时免疫自爆、吸血、死亡以及地图伤害特技，持续${flag:skill5_duration}次战斗。效果结束后需要经过${flag:skill5_cooldown}次战斗才能再次使用。快捷键为5。"
+			"text": "消耗${flag:skill5_cost}点魔法，进入魔化状态，提升${flag:skill5_hpmax}点生命及生命上限、${flag:skill5_atk}点攻击力和${flag:skill5_def}点防御力，并暂时免疫自爆、吸血、苦痛以及地图伤害特技，持续${flag:skill5_duration}次战斗。效果结束后需要经过${flag:skill5_cooldown}次战斗才能再次使用。快捷键为5。"
 		},
 		"I_morphed": {
 			"cls": "constants",
@@ -525,8 +521,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"I_resetTalent": {
 			"cls": "constants",
-			"name": "【测试用】天赋重置",
-			"text": "可以重置红海阶段的所有天赋"
+			"name": "天赋重置器",
+			"text": "消耗重置机会可以重置红海阶段的天赋"
 		}
 	},
 	"itemEffect": {
@@ -538,7 +534,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"bluePotion": "var heal = core.values.bluePotion * ratio;\ncore.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });",
 		"yellowPotion": "var heal = core.values.yellowPotion * ratio;\ncore.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });",
 		"greenPotion": "var heal = core.values.greenPotion * ratio;\ncore.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });",
-		"sword0": "core.status.hero.atk += 0",
+		"sword0": null,
 		"sword1": "core.status.hero.atk += 10",
 		"sword2": "core.status.hero.atk += 20",
 		"sword3": "core.status.hero.atk += 40",
@@ -581,7 +577,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"bluePotion": "'，生命+'+core.values.bluePotion * ratio",
 		"yellowPotion": "'，生命+'+core.values.yellowPotion * ratio",
 		"greenPotion": "'，生命+'+core.values.greenPotion * ratio",
-		"sword0": "'，攻击+0'",
+		"sword0": null,
 		"sword1": "'，攻击+10'",
 		"sword2": "'，攻击+20'",
 		"sword3": "'，攻击+40'",
@@ -660,7 +656,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"talent": "if (core.status.hero.lv < 24)\n\tcore.insertAction([{ \"type\": \"insert\", \"loc\": [0, 1], \"floorId\": \"EventMap\" }]);\nelse\n\tcore.insertAction([{ \"type\": \"insert\", \"loc\": [0, 4], \"floorId\": \"EventMap\" }]);",
 		"smallJump": "core.status.hero.mana -= core.getFlag('smallJump_cost', 30);\ncore.insertAction({ \"type\": \"jumpHero\", \"loc\": [core.nextX(1), core.nextY(1)] });\n\nvar charge_ratio = core.getFlag('charge_ratio', 0.02);\nvar charge_atk = core.getFlag('charge_atk', 0);\ncore.setFlag('charge_atk', Math.max(charge_atk - charge_ratio * core.status.hero.atk, 0));",
 		"I_morph": "// 直接判断是否可以使用即可\nvar curMana = core.status.hero.mana;\nvar cost = core.getFlag('skill5_cost', 641);\nif (curMana >= cost) {\n\tcore.status.hero.mana -= cost;\n\tcore.insertAction([{ \"type\": \"insert\", \"loc\": [12, 0], \"floorId\": \"EventMap\" }]);\n} else {\n\tcore.drawTip(\"魔法不足。\");\n}",
-		"I_resetTalent": "var list = [\"skill1_lv\", \"skill2_lv\", \"skill4_lv\", \"talent1_lv\", \"talent2_lv\", \"talent3_lv\", \"poison_lv\"];\nfor (var i in list) {\n\tvar z = core.getFlag(list[i], 0);\n\tconsole.log(list[i], z);\n\tif (z > 0) {\n\t\tcore.addFlag('talentPoint', z);\n\t\tcore.setFlag(list[i], 0);\n\t}\n}\ncore.setFlag('skill1_val', 3.5);\ncore.setFlag('skill2_def_ratio', 3);\ncore.setFlag('skill4_val', 5);\ncore.setFlag('vampire_ratio', 0.2);\ncore.setFlag('mana_regen', 3);\ncore.setFlag('mdef_ratio', 1.5);\ncore.drawTip('重置成功');",
+		"I_resetTalent": "core.insertAction([{ \"type\": \"insert\", \"loc\": [0, 7], \"floorId\": \"EventMap\" }]);\n\n/*var list = [\"skill1_lv\", \"skill2_lv\", \"skill4_lv\", \"talent1_lv\", \"talent2_lv\", \"talent3_lv\", \"poison_lv\"];\nfor (var i in list) {\n\tvar z = core.getFlag(list[i], 0);\n\tconsole.log(list[i], z);\n\tif (z > 0) {\n\t\tcore.addFlag('talentPoint', z);\n\t\tcore.setFlag(list[i], 0);\n\t}\n}\ncore.setFlag('skill1_val', 3.5);\ncore.setFlag('skill2_def_ratio', 3);\ncore.setFlag('skill4_val', 5);\ncore.setFlag('vampire_ratio', 0.2);\ncore.setFlag('mana_regen', 3);\ncore.setFlag('mdef_ratio', 1.5);\ncore.drawTip('重置成功');*/",
 		"I_morphed": "core.insertAction([\n\t\"你现在对以下怪物特技免疫：吸血、死亡、自爆，以及地图伤害类技能，如夹击、夹爆、领域、域爆等等。简而言之就是不需要控制血量百分比了！\",\n]);"
 	},
 	"canUseItemEffect": {

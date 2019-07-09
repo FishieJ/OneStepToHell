@@ -165,6 +165,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"attack2",
 			"attack3",
 			"attack4",
+			"blackmagic",
 			"blood",
 			"blood2",
 			"dark",
@@ -174,6 +175,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"darkexplode",
 			"explosion",
 			"explosion_small",
+			"fire",
 			"han",
 			"hand",
 			"heal",
@@ -182,12 +184,19 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"light",
 			"light2",
 			"morphattack",
+			"omnislash",
 			"skill1",
 			"skill2",
 			"skill3",
 			"sword",
+			"sword1",
+			"sword2",
 			"sword3",
+			"sword4",
+			"sword5",
 			"thunder",
+			"thunder3",
+			"tuihua",
 			"upgrade",
 			"wuyu",
 			"xunjie",
@@ -245,25 +254,32 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"057-Wrong01.ogg",
 			"082-Monster04.ogg",
 			"083-Monster05.ogg",
+			"086-Action01.ogg",
 			"087-Action02.ogg",
 			"089-Attack01.ogg",
 			"090-Attack02.ogg",
 			"092-Attack04.ogg",
 			"094-Attack06.ogg",
+			"096-Attack08.ogg",
 			"102-Attack14.ogg",
 			"103-Attack15.ogg",
 			"104-Attack16.ogg",
 			"105-Heal01.ogg",
 			"112-Heal08.ogg",
 			"118-Fire02.ogg",
+			"119-Fire03.ogg",
 			"120-Ice01.ogg",
 			"124-Thunder02.ogg",
+			"125-Thunder03.ogg",
 			"136-Light02.ogg",
+			"138-Darkness01.ogg",
 			"139-Darkness02.ogg",
 			"140-Darkness03.ogg",
 			"143-Support01.ogg",
+			"152-Support10.ogg",
 			"157-Skill01.ogg",
 			"159-Skill03.ogg",
+			"160-Skill04.ogg",
 			"161-Skill05.ogg",
 			"163-Skill07.ogg",
 			"sound1634.mp3",
@@ -273,7 +289,8 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"Darkness3.ogg",
 			"Darkness4.ogg",
 			"Raise1.ogg",
-			"Zombie02.wav"
+			"Zombie02.wav",
+			"MSLASH.ogg"
 		],
 		"nameMap": {
 			"背景图.jpg": "bg.jpg",
@@ -984,14 +1001,12 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					},
 					"普通攻击动画已改变！",
 					{
-						"type": "setValue",
-						"name": "status:hp",
-						"value": "status:hpmax"
-					},
-					{
-						"type": "setValue",
-						"name": "status:mana",
-						"value": "status:manamax"
+						"type": "insert",
+						"loc": [
+							10,
+							0
+						],
+						"floorId": "EventMap"
 					},
 					"最后，大境界突破，状态回满！"
 				]
@@ -1714,7 +1729,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					{
 						"type": "setValue",
 						"name": "flag:skill4_cost",
-						"value": "50"
+						"value": "60"
 					},
 					"领悟【红海技能】！主动技能【撕裂】：每回合开始时造成相当于对方5%当前生命的伤害。",
 					{
@@ -1730,23 +1745,16 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					"开启天赋！可以在道具栏中打开天赋列表。获得3点天赋。",
 					{
 						"type": "addValue",
-						"name": "flag:talentPoint",
-						"value": "3"
-					},
-					{
-						"type": "addValue",
 						"name": "item:talentPoint",
 						"value": "3"
 					},
 					{
-						"type": "setValue",
-						"name": "status:hp",
-						"value": "status:hpmax"
-					},
-					{
-						"type": "setValue",
-						"name": "status:mana",
-						"value": "status:manamax"
+						"type": "insert",
+						"loc": [
+							10,
+							0
+						],
+						"floorId": "EventMap"
 					},
 					"最后，大境界突破，状态回满！",
 					{
@@ -1842,7 +1850,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"name": "status:mdef",
 						"value": "status:mdef+7200"
 					},
-					"升级！生命、生命上限+700000，魔法、魔法上限+150，攻击+6000，防御+6000，护盾+7200",
+					"晋升为红海中阶！生命、生命上限+700000，魔法、魔法上限+150，攻击+6000，防御+6000，护盾+7200",
 					{
 						"type": "setValue",
 						"name": "flag:lightRadius",
@@ -1854,11 +1862,6 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"function": "function(){\ncore.drawHero();\n}"
 					},
 					"获得3点天赋。",
-					{
-						"type": "addValue",
-						"name": "flag:talentPoint",
-						"value": "3"
-					},
 					{
 						"type": "addValue",
 						"name": "item:talentPoint",
@@ -1929,7 +1932,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"name": "status:mdef",
 						"value": "status:mdef+8400"
 					},
-					"升级！生命、生命上限+900000，魔法、魔法上限+150，攻击+7000，防御+7000，护盾+8400",
+					"晋升为红海高阶！生命、生命上限+900000，魔法、魔法上限+150，攻击+7000，防御+7000，护盾+8400",
 					{
 						"type": "setValue",
 						"name": "flag:lightRadius",
@@ -1941,11 +1944,6 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"function": "function(){\ncore.drawHero();\n}"
 					},
 					"获得3点天赋。",
-					{
-						"type": "addValue",
-						"name": "flag:talentPoint",
-						"value": "3"
-					},
 					{
 						"type": "addValue",
 						"name": "item:talentPoint",
@@ -2022,7 +2020,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"name": "status:mdef",
 						"value": "status:mdef+9600"
 					},
-					"升级！生命、生命上限+1200000，魔法、魔法上限+200，攻击+8000，防御+8000，护盾+9600",
+					"晋升为红海巅峰！生命、生命上限+1200000，魔法、魔法上限+200，攻击+8000，防御+8000，护盾+9600",
 					{
 						"type": "setValue",
 						"name": "flag:lightRadius",
@@ -2034,11 +2032,6 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"function": "function(){\ncore.drawHero();\n}"
 					},
 					"获得4点天赋。",
-					{
-						"type": "addValue",
-						"name": "flag:talentPoint",
-						"value": "4"
-					},
 					{
 						"type": "addValue",
 						"name": "item:talentPoint",
@@ -2085,11 +2078,6 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					},
 					"晋升为半步血海！严格来讲这并不是一个境界，因此提升比较小。",
 					"获得1点天赋。",
-					{
-						"type": "addValue",
-						"name": "flag:talentPoint",
-						"value": "1"
-					},
 					{
 						"type": "addValue",
 						"name": "item:talentPoint",
@@ -2144,11 +2132,6 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					"获得5点天赋。",
 					{
 						"type": "addValue",
-						"name": "flag:talentPoint",
-						"value": "5"
-					},
-					{
-						"type": "addValue",
 						"name": "item:talentPoint",
 						"value": "5"
 					},
@@ -2189,15 +2172,48 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"name": "item:I_morph",
 						"value": "1"
 					},
+					"获得若干次重置天赋点的机会。",
 					{
 						"type": "setValue",
-						"name": "status:hp",
-						"value": "status:hpmax"
+						"name": "item:I_resetTalent",
+						"value": "1"
 					},
 					{
 						"type": "setValue",
-						"name": "status:mana",
-						"value": "status:manamax"
+						"name": "item:sword0",
+						"value": "2"
+					},
+					{
+						"type": "if",
+						"condition": "flag:hard <= 2",
+						"true": [
+							{
+								"type": "setValue",
+								"name": "item:sword0",
+								"value": "2"
+							}
+						],
+						"false": []
+					},
+					{
+						"type": "if",
+						"condition": "flag:hard <= 1",
+						"true": [
+							{
+								"type": "setValue",
+								"name": "item:sword0",
+								"value": "2"
+							}
+						],
+						"false": []
+					},
+					{
+						"type": "insert",
+						"loc": [
+							10,
+							0
+						],
+						"floorId": "EventMap"
 					},
 					"最后，大境界突破，状态回满！"
 				]
@@ -2247,13 +2263,8 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"name": "status:mdef",
 						"value": "status:mdef+60000"
 					},
-					"升级！生命、生命上限+10000000，魔法、魔法上限+300，攻击+50000，防御+50000，护盾+60000",
+					"晋升为血海大成！生命、生命上限+10000000，魔法、魔法上限+300，攻击+50000，防御+50000，护盾+60000",
 					"获得6点天赋。",
-					{
-						"type": "addValue",
-						"name": "flag:talentPoint",
-						"value": "6"
-					},
 					{
 						"type": "addValue",
 						"name": "item:talentPoint",
@@ -2263,7 +2274,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			},
 			{
 				"need": "100000000",
-				"title": "血海王者",
+				"title": "血海圆满",
 				"clear": true,
 				"action": [
 					{
@@ -2274,39 +2285,39 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					{
 						"type": "setValue",
 						"name": "status:hpmax",
-						"value": "status:hpmax+3000000"
+						"value": "status:hpmax+30000000"
 					},
 					{
 						"type": "setValue",
 						"name": "status:hp",
-						"value": "status:hp+3000000"
+						"value": "status:hp+30000000"
 					},
 					{
 						"type": "setValue",
 						"name": "status:manamax",
-						"value": "status:manamax+200"
+						"value": "status:manamax+500"
 					},
 					{
 						"type": "setValue",
 						"name": "status:mana",
-						"value": "status:mana+200"
+						"value": "status:mana+500"
 					},
 					{
 						"type": "setValue",
 						"name": "status:atk",
-						"value": "status:atk+20000"
+						"value": "status:atk+100000"
 					},
 					{
 						"type": "setValue",
 						"name": "status:def",
-						"value": "status:def+20000"
+						"value": "status:def+100000"
 					},
 					{
 						"type": "setValue",
 						"name": "status:mdef",
-						"value": "status:mdef+24000"
+						"value": "status:mdef+120000"
 					},
-					"升级！生命、生命上限+3000000，魔法、魔法上限+200，攻击+20000，防御+20000，护盾+24000"
+					"晋升为血海圆满！生命、生命上限+30000000，魔法、魔法上限+500，攻击+100000，防御+100000，护盾+120000"
 				]
 			}
 		]

@@ -300,8 +300,32 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 	var enemy = core.material.enemys[enemyId];
 	var special = enemy.special;
-	if (core.enemys.hasSpecial(special, 19)) {
+	if (enemyId == 'E572' || enemyId == 'E545') {
+		drawEnemyAnimate('sword4');
+	} else if (enemyId == 'E558') {
+		drawEnemyAnimate('sword5');
+	} else if (enemyId == 'E559' || enemyId == 'E560') {
+		drawEnemyAnimate('fire');
+	} else if (enemyId == 'E561' || enemyId == 'E562') {
+		drawEnemyAnimate('thunder');
+	} else if (enemyId == 'darkKnight') {
+		drawEnemyAnimate('dark2');
+	} else if (enemyId == 'E543') {
+		drawEnemyAnimate('dark');
+	} else if (enemyId == 'blackMagician') {
+		drawEnemyAnimate('blackmagic');
+	} else if (core.enemys.hasSpecial(special, 141)) {
+		drawEnemyAnimate('thunder3');
+	} else if (core.enemys.hasSpecial(special, 130)) {
+		drawEnemyAnimate('sword1');
+	} else if (core.enemys.hasSpecial(special, 19)) {
 		drawEnemyAnimate('explosion');
+	} else if (core.enemys.hasSpecial(special, 21)) {
+		drawEnemyAnimate('tuihua');
+	} else if (core.enemys.hasSpecial(special, 130)) {
+		drawEnemyAnimate('sword2');
+	} else if (core.enemys.hasSpecial(special, 131)) {
+		drawEnemyAnimate('omnislash');
 	} else if (core.enemys.hasSpecial(special, 128)) {
 		drawEnemyAnimate('dark');
 	} else if (core.enemys.hasSpecial(special, 9)) {
@@ -482,9 +506,9 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	}
 	// 伯化
 	if (core.enemys.hasSpecial(special, 133)) {
-		core.addFlag('bo_hp', (enemy.value || 0));
-		core.addFlag('bo_atk', (enemy.atkValue || 0));
-		core.addFlag('bo_def', (enemy.defValue || 0));
+		core.addFlag('bo_hp', (enemy.bo_hp || 0));
+		core.addFlag('bo_atk', (enemy.bo_atk || 0));
+		core.addFlag('bo_def', (enemy.bo_def || 0));
 	}
 	// 增加仇恨值
 	core.setFlag('hatred', core.getFlag('hatred', 0) + core.values.hatred);
@@ -766,34 +790,30 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[123, "竭心", function (enemy) { return "【红海技能】心脏慢慢停止跳动\n经过怪物周围" + (enemy.zoneSquare ? "九宫格" : "十字") + "范围内" + (enemy.range || 1) + "格时自动减最大生命的" + (enemy.value || 0) + "%"; }, "#ff00d2"],
 		[124, "血怨", "【红海技能】死亡的怨念缠绕着对手。似乎是某个血海奥义的劣化版本\n战斗结束后，勇士的生命值变成一半。", "#ff00d2"],
 		[125, "血域", function (enemy) { return "【红海技能】生命在流逝\n经过怪物周围" + (enemy.zoneSquare ? "九宫格" : "十字") + "范围内" + (enemy.range || 1) + "格时自动减当前生命的" + (enemy.value || 0) + "%"; }, "#ff00d2"],
-		[126, "死亡", function (enemy) { return "【红海技能】引诱对手走向死亡\n战斗开始时，造成对方已损失生命值" + enemy.v_126 + "%的伤害。"; }, "#b30000"],
+		[126, "苦痛", function (enemy) { return "【红海技能】引诱对手走向死亡\n战斗开始时，造成对方已损失生命值" + enemy.v_126 + "%的伤害。"; }, "#b30000"],
 		[127, "死亡镰刀", function (enemy) { return "【红海技能】似乎是某个血海奥义的劣化版本。第5回合结束时，造成相当于对方已损失生命值100%的伤害。"; }, "#ff00d2"],
 		[128, "邪恶净化", "【血海奥义】运用至邪之力打击对手\n移除对方的护盾，并造成100万额外伤害。", "#b113ff"],
-		[129, function (enemy) {
-			if (enemy.atkValue > 0) return "狂暴光环";
-			return "衰退光环";
-		}, function (enemy) { var x = enemy.range * 2 + 1; return (enemy.atkValue > 0 ? "增加" : "减少") + "以自身为中心" + x + "*" + x + "范围内所有友军" + (Math.abs(enemy.atkValue) || 0) + "%的攻击力，线性叠加。"; }, "#fff900"],
 		[130, "审判之剑", "【血海奥义】传说此招曾经击败过一位想要复仇的魔王\n剥夺对手拥有的剑盾，且如果对方是魔王，则使其攻防减半", "#ff0000"],
 		[131, "无敌斩", "【血海奥义】以无敌的姿态爆发出暴雨般的斩击\n战前以2倍攻击力先攻9次", "#ff0000"],
 		[132, "混乱", "战斗中，勇士攻防互换", "#c3c3c3"],
 		[133, "伯化", function (enemy) {
-			var str = "【血海奥义】无法认知的神秘力量\n战斗后，所有拥有该属性的怪物提升";
+			var str = "【血海奥义】伯力之神的力量\n战斗后，所有拥有该属性的怪物提升";
 			var addstr = "";
-			if (enemy.value) {
-				addstr += enemy.value + "点生命，";
+			if (enemy.bo_hp) {
+				addstr += enemy.bo_hp + "点生命，";
 			}
-			if (enemy.atkValue) {
-				addstr += enemy.atkValue + "点攻击力，";
+			if (enemy.bo_atk) {
+				addstr += enemy.bo_atk + "点攻击力，";
 			}
-			if (enemy.defValue) {
-				addstr += enemy.defValue + "点防御力，";
+			if (enemy.bo_def) {
+				addstr += enemy.bo_def + "点防御力，";
 			}
 			if (addstr) {
 				addstr += "可叠加。";
 				str += addstr;
 				return str;
 			}
-			return "【血海奥义】无法认知的神秘力量\n此怪物享受伯化加成，但战斗后不会提供额外伯化效果。";
+			return "【血海奥义】伯力之神的力量\n此怪物享受伯化加成，但战斗后不会提供额外伯化效果。";
 		}, "#00d2d4"],
 		[134, "域爆", function (enemy) { return "【血海奥义】领域之极致\n经过怪物周围" + (enemy.zoneSquare ? "九宫格" : "十字") + "范围内" + (enemy.range || 1) + "格时生命变为1点"; }, "#ff0000"],
 		[135, "阻爆", function (enemy) { return "【血海奥义】阻击之极致\n经过怪物的十字领域时生命变为1点，同时怪物后退一格"; }, "#ff0000"],
@@ -807,7 +827,11 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 			if (enemy.value > 0) return "活力光环";
 			return "抑郁光环";
 		}, function (enemy) { var x = enemy.range * 2 + 1; return (enemy.value > 0 ? "增加" : "减少") + "以自身为中心" + x + "*" + x + "范围内所有友军" + (Math.abs(enemy.value) || 0) + "%的生命，线性叠加。"; }, "#fff900"],
-		[140, "中子束", "【血海奥义】极少有人有幸见到这个技能\n怪物每回合普攻2次，魔攻1次。", "#ff0000"],
+		[140, function (enemy) {
+			if (enemy.atkValue > 0) return "狂暴光环";
+			return "衰退光环";
+		}, function (enemy) { var x = enemy.range * 2 + 1; return (enemy.atkValue > 0 ? "增加" : "减少") + "以自身为中心" + x + "*" + x + "范围内所有友军" + (Math.abs(enemy.atkValue) || 0) + "%的攻击力，线性叠加。"; }, "#fff900"],
+		[141, "中子束", "【血海奥义】简单粗暴而威力巨大的攻击\n怪物每回合普攻2次，魔攻1次。", "#ff0000"],
 	];
 },
         "getEnemyInfo": function (enemy, hero, x, y, floorId) {
@@ -859,7 +883,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	// 光环检查
 	// 在这里判定是否需要遍历全图（由于光环需要遍历全图，应尽可能不需要以减少计算量，尤其是大地图）
 	var query = function () {
-		var floorIds = ["MT70", "MT78", "MT79", "MT7A", "MT87", "MT88", "MT89", "MT90", "Chap3_boss", "MT100", "MT104", "MT105", "MT106", "MT108", "MT109", "MT110"]; // 在这里给出所有需要遍历的楼层（即有光环或支援等）
+		var floorIds = ["MT70", "MT78", "MT79", "MT7A", "MT87", "MT88", "MT89", "MT90", "Chap3_boss", "MT100", "MT104", "MT105", "MT106", "MT108", "MT109", "MT110", "MT111", "MT112", "MT113", "MT114", "MT115", "MT116", "MT117", "MT118", "MT119", "MT120", "Final"]; // 在这里给出所有需要遍历的楼层（即有光环或支援等）
 		return core.inArray(floorIds, floorId); // 也可以写其他的判定条件
 	};
 
@@ -893,7 +917,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 						}
 					}
 					// 范围光环
-					if (core.isset(enemy) && core.hasSpecial(enemy.special, 129) && core.isset(x) && core.isset(y) &&
+					if (core.isset(enemy) && core.hasSpecial(enemy.special, 140) && core.isset(x) && core.isset(y) &&
 						Math.abs(block.x - x) <= enemy.range && Math.abs(block.y - y) <= enemy.range) {
 						atk_buff += enemy.atkValue || 0;
 						cnt++;
@@ -1104,7 +1128,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	if (core.hasSpecial(mon_special, 6)) per_damage *= (enemy.n || 4);
 
 	// 中子束
-	if (core.hasSpecial(mon_special, 140)) {
+	if (core.hasSpecial(mon_special, 141)) {
 		per_damage *= 2;
 		per_damage += mon_atk;
 	}

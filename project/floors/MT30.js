@@ -7,7 +7,7 @@ main.floors.MT30=
     "height": 13,
     "canFlyTo": true,
     "canUseQuickShop": true,
-    "cannotViewMap": false,
+    "cannotViewMap": true,
     "images": [],
     "item_ratio": 4,
     "defaultGround": "ground3",
