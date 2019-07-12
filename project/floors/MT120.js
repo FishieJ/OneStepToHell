@@ -52,7 +52,7 @@ main.floors.MT120=
             "floorId": "Final",
             "loc": [
                 6,
-                6
+                12
             ],
             "direction": "up",
             "time": 2000

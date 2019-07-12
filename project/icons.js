@@ -138,7 +138,8 @@ var icons_4665ee12_3a1f_44a4_bea3_0fccba634dc1 =
 		"drb": 27,
 		"N330": 28,
 		"N384": 29,
-		"N502": 30
+		"N502": 30,
+		"N575": 31
 	},
 	"npc48": {
 		"npc1": 1,
@@ -179,7 +180,8 @@ var icons_4665ee12_3a1f_44a4_bea3_0fccba634dc1 =
 		"N508": 35,
 		"N509": 36,
 		"N510": 37,
-		"N511": 38
+		"N511": 38,
+		"N_kongyang": 39
 	},
 	"enemys": {
 		"greenSlime": 0,
@@ -412,7 +414,8 @@ var icons_4665ee12_3a1f_44a4_bea3_0fccba634dc1 =
 		"E494": 14,
 		"E495": 15,
 		"E496": 16,
-		"E535": 17
+		"E535": 17,
+		"kongyang": 18
 	},
 	"items": {
 		"yellowKey": 0,

@@ -804,7 +804,7 @@ main.floors.Chap3_boss=
             },
             {
                 "type": "setValue",
-                "name": "flag:morph",
+                "name": "flag:morph_chap3",
                 "value": "1"
             },
             {

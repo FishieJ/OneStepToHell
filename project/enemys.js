@@ -168,10 +168,10 @@ var enemys_fcae963b_31c9_42b4_b48c_bb48d09f3f80 =
 	"E490": {"name":"坚毅神符","hp":100,"atk":0,"def":0,"money":0,"experience":1000,"point":0,"special":25,"level":"蓝海巅峰","defValue":25,"add":true},
 	"E491": {"name":"绿色史莱姆","hp":15000000,"atk":8000000,"def":2550000,"money":0,"experience":0,"point":0,"special":[6,11,20,22],"level":"血海王者","n":18,"value":0.4,"damage":127623},
 	"E494": {"name":"邪恶黑影","hp":3000000,"atk":250000,"def":135000,"money":0,"experience":1000000,"point":0,"special":[11,128],"level":"血海初成","value":0.25},
-	"E495": {"name":"恶毒黑影","hp":1000000,"atk":220000,"def":130000,"money":0,"experience":800000,"point":0,"special":[100,116],"level":"血海初成","x":10},
+	"E495": {"name":"恶毒黑影","hp":1800000,"atk":230000,"def":130000,"money":0,"experience":800000,"point":0,"special":[100,116],"level":"血海初成","x":10},
 	"E496": {"name":"阴魂黑影","hp":2500000,"atk":240000,"def":120000,"money":0,"experience":900000,"point":0,"special":[4,99],"level":"血海初成","defValue":90,"v_121":null},
-	"E497": {"name":"狂暴之力","hp":100,"atk":100,"def":0,"money":0,"experience":0,"point":0,"special":[18,19,140],"level":"半步血海","value":10000,"zoneSquare":true,"range":3,"atkValue":10,"add":true},
-	"E498": {"name":"衰退之力","hp":100,"atk":100,"def":0,"money":0,"experience":0,"point":0,"special":[18,19,140],"level":"半步血海","value":10000,"atkValue":-10,"add":true,"range":2,"zoneSquare":true},
+	"E497": {"name":"狂暴之力","hp":10,"atk":100,"def":0,"money":0,"experience":0,"point":0,"special":[18,19,140],"level":"半步血海","value":10000,"zoneSquare":true,"range":3,"atkValue":10,"add":true},
+	"E498": {"name":"衰退之力","hp":100,"atk":10,"def":0,"money":0,"experience":0,"point":0,"special":[18,19,140],"level":"半步血海","value":10000,"atkValue":-10,"add":true,"range":2,"zoneSquare":true},
 	"E512": {"name":"绿头怪","hp":500000,"atk":200000,"def":10000,"money":0,"experience":5000,"point":0,"special":12,"level":"半步血海","poison":10000},
 	"E513": {"name":"红头怪","hp":700000,"atk":150000,"def":20000,"money":0,"experience":6000,"point":0,"special":0,"level":"半步血海"},
 	"E514": {"name":"黑头怪","hp":600000,"atk":350000,"def":50000,"money":0,"experience":7000,"point":0,"special":0,"level":"半步血海"},
@@ -200,7 +200,7 @@ var enemys_fcae963b_31c9_42b4_b48c_bb48d09f3f80 =
 	"E541": {"name":"伯力杀人魔","hp":6400000,"atk":640000,"def":220000,"money":0,"experience":36000,"point":0,"special":[101,126],"level":"血海大成","v_126":25},
 	"E542": {"name":"伯力鼓舞者","hp":4700000,"atk":450000,"def":130000,"money":0,"experience":31300,"point":0,"special":[133,140],"level":"血海大成","range":2,"atkValue":20,"bo_atk":5000},
 	"E543": {"name":"伯力收割者","hp":6600000,"atk":710000,"def":330000,"money":0,"experience":37000,"point":0,"special":[101,133],"level":"血海大成","v_126":null,"atkValue":null,"bo_atk":5000},
-	"E544": {"name":"伯力狂热者","hp":10000000,"atk":750000,"def":550000,"money":0,"experience":7500000,"point":0,"special":[19,134],"level":"血海圆满","atkValue":null,"defValue":null,"range":2,"zoneSquare":true},
+	"E544": {"name":"伯力狂热者","hp":10000000,"atk":650000,"def":510000,"money":0,"experience":7500000,"point":0,"special":[19,133,134],"level":"血海圆满","atkValue":null,"defValue":null,"range":2,"zoneSquare":true},
 	"E545": {"name":"伯力双刀魔","hp":5500000,"atk":780000,"def":260000,"money":0,"experience":40800,"point":0,"special":[4,133],"level":"血海圆满"},
 	"E546": {"name":"伯力战士","hp":4500000,"atk":280000,"def":160000,"money":0,"experience":26000,"point":0,"special":[121,133],"level":"血海初成","damage":null,"defValue":2000,"v_121":50,"bo_atk":1000},
 	"E547": {"name":"伯力近卫","hp":7000000,"atk":430000,"def":230000,"money":0,"experience":31800,"point":0,"special":[121,133],"level":"血海大成","damage":null,"value":100000,"v_121":50,"bo_atk":2000},
@@ -228,5 +228,6 @@ var enemys_fcae963b_31c9_42b4_b48c_bb48d09f3f80 =
 	"E569": {"name":"曙光神射手","hp":3140000,"atk":320000,"def":150000,"money":0,"experience":24000,"point":0,"special":[24,100],"level":"血海初成","value":100000,"x":15},
 	"E570": {"name":"曙光傀儡","hp":1600000,"atk":270000,"def":140000,"money":0,"experience":23500,"point":0,"special":[3,8],"level":"血海初成","value":0.01,"defValue":null},
 	"E571": {"name":"曙光蝙蝠","hp":1300000,"atk":370000,"def":80000,"money":0,"experience":22000,"point":0,"special":[99,112],"level":"血海初成","defValue":60},
-	"E572": {"name":"黑暗裁决","hp":4000000,"atk":800000,"def":200000,"money":0,"experience":33500,"point":0,"special":[6,7],"level":"血海大成","n":4,"value":4}
+	"E572": {"name":"黑暗裁决","hp":4000000,"atk":800000,"def":200000,"money":0,"experience":33500,"point":0,"special":[6,7],"level":"血海大成","n":4,"value":4},
+	"kongyang": {"name":"孔阳","hp":20000000,"atk":1750000,"def":850000,"money":0,"experience":0,"point":0,"special":[5,99,100,142],"level":"血海圆满","defValue":25,"x":15}
 }

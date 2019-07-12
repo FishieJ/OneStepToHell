@@ -278,7 +278,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	} else {
 		heroAnimateName = heroNormalAttack;
 	}
-	if (core.getFlag('morph', 0) == 1) { // 变身
+	if (core.getFlag('morph', 0) == 1 || core.getFlag('morph_chap3', 0)) { // 变身
 		if (core.getFlag('skill', 0) != 0)
 			heroAnimateName = 'darkexplode';
 		else
@@ -304,7 +304,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		drawEnemyAnimate('sword4');
 	} else if (enemyId == 'E558') {
 		drawEnemyAnimate('sword5');
-	} else if (enemyId == 'E559' || enemyId == 'E560') {
+	} else if (enemyId == 'E559' || enemyId == 'E560' || enemyId == 'E564') {
 		drawEnemyAnimate('fire');
 	} else if (enemyId == 'E561' || enemyId == 'E562') {
 		drawEnemyAnimate('thunder');
@@ -312,7 +312,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		drawEnemyAnimate('dark2');
 	} else if (enemyId == 'E543') {
 		drawEnemyAnimate('dark');
-	} else if (enemyId == 'blackMagician') {
+	} else if (core.enemys.hasSpecial(special, 132)) {
 		drawEnemyAnimate('blackmagic');
 	} else if (core.enemys.hasSpecial(special, 141)) {
 		drawEnemyAnimate('thunder3');
@@ -717,7 +717,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	return [
 		[1, "先攻", "先发制人。怪物首先攻击。"],
 		[2, "魔攻", "穿透护甲直接造成伤害。怪物无视勇士的防御。", "#b6b0ff"],
-		[3, "坚固", "很硬。勇士每次普通攻击最多只能对怪物造成1点伤害。", "#b9822d"],
+		[3, "坚固", "勇士每次普通攻击最多只能对怪物造成1点伤害。", "#b9822d"],
 		[4, "2连击", "怪物每回合攻击2次"],
 		[5, "3连击", "怪物每回合攻击3次"],
 		[6, function (enemy) { return (enemy.n || 4) + "连击"; }, function (enemy) { return "怪物每回合攻击" + (enemy.n || 4) + "次"; }],
@@ -785,7 +785,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[118, "炫目之光", "持续散发出神圣的光芒之力。每回合损耗自身2%的最大生命值，使自身处于无敌状态。", "#fff900"],
 		[119, "驱邪", "使对方体内的不洁之力尽数爆发。战斗开始时驱除勇士的所有光明/黑暗状态，每驱除1层便额外造成64100点伤害。", "#fff900"],
 		[120, "魔免", "免疫技能伤害。", "#c3c3c3"],
-		[121, "重伤", function (enemy) { return "抑制对手的生命。使对手受到的回复效果降低" + (enemy.v_121 || 0) + "%。"; }, "#b30000"],
+		[121, "重伤", function (enemy) { return "造成难以治愈的严重伤害。使对手受到的回复效果降低" + (enemy.v_121 || 0) + "%。"; }, "#b30000"],
 		[122, "盛宴", function (enemy) { return "【红海技能】撕扯对手的血肉\n每次攻击造成对方最大生命值" + (enemy.v_122 || 0) + "%的额外伤害。"; }, "#ff00d2"],
 		[123, "竭心", function (enemy) { return "【红海技能】心脏慢慢停止跳动\n经过怪物周围" + (enemy.zoneSquare ? "九宫格" : "十字") + "范围内" + (enemy.range || 1) + "格时自动减最大生命的" + (enemy.value || 0) + "%"; }, "#ff00d2"],
 		[124, "血怨", "【红海技能】死亡的怨念缠绕着对手。似乎是某个血海奥义的劣化版本\n战斗结束后，勇士的生命值变成一半。", "#ff00d2"],
@@ -793,9 +793,9 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[126, "苦痛", function (enemy) { return "【红海技能】引诱对手走向死亡\n战斗开始时，造成对方已损失生命值" + enemy.v_126 + "%的伤害。"; }, "#b30000"],
 		[127, "死亡镰刀", function (enemy) { return "【红海技能】似乎是某个血海奥义的劣化版本。第5回合结束时，造成相当于对方已损失生命值100%的伤害。"; }, "#ff00d2"],
 		[128, "邪恶净化", "【血海奥义】运用至邪之力打击对手\n移除对方的护盾，并造成100万额外伤害。", "#b113ff"],
-		[130, "审判之剑", "【血海奥义】传说此招曾经击败过一位想要复仇的魔王\n剥夺对手拥有的剑盾，且如果对方是魔王，则使其攻防减半", "#ff0000"],
+		[130, "审判之剑", "【血海奥义】传说此招曾经击败过一位想要复仇的魔王\n剥夺对手拥有的剑盾，且如果对方拥有“魔王”称号，则使其攻防减半", "#ff0000"],
 		[131, "无敌斩", "【血海奥义】以无敌的姿态爆发出暴雨般的斩击\n战前以2倍攻击力先攻9次", "#ff0000"],
-		[132, "混乱", "战斗中，勇士攻防互换", "#c3c3c3"],
+		[132, "混乱", "颠倒对手的能力。战斗中，勇士攻防互换", "#c3c3c3"],
 		[133, "伯化", function (enemy) {
 			var str = "【血海奥义】伯力之神的力量\n战斗后，所有拥有该属性的怪物提升";
 			var addstr = "";
@@ -832,6 +832,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 			return "衰退光环";
 		}, function (enemy) { var x = enemy.range * 2 + 1; return (enemy.atkValue > 0 ? "增加" : "减少") + "以自身为中心" + x + "*" + x + "范围内所有友军" + (Math.abs(enemy.atkValue) || 0) + "%的攻击力，线性叠加。"; }, "#fff900"],
 		[141, "中子束", "【血海奥义】简单粗暴而威力巨大的攻击\n怪物每回合普攻2次，魔攻1次。", "#ff0000"],
+		[142, "法力虚空", "【血海奥义】敌人将因使用魔法而遭到惩戒\n瞬间造成对手最大生命值X%的伤害，X为已损失魔法的比例", "#747dff"],
 	];
 },
         "getEnemyInfo": function (enemy, hero, x, y, floorId) {
@@ -883,7 +884,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	// 光环检查
 	// 在这里判定是否需要遍历全图（由于光环需要遍历全图，应尽可能不需要以减少计算量，尤其是大地图）
 	var query = function () {
-		var floorIds = ["MT70", "MT78", "MT79", "MT7A", "MT87", "MT88", "MT89", "MT90", "Chap3_boss", "MT100", "MT104", "MT105", "MT106", "MT108", "MT109", "MT110", "MT111", "MT112", "MT113", "MT114", "MT115", "MT116", "MT117", "MT118", "MT119", "MT120", "Final"]; // 在这里给出所有需要遍历的楼层（即有光环或支援等）
+		var floorIds = ["MT70", "MT78", "MT79", "MT7A", "MT87", "MT88", "MT89", "MT90", "Chap3_boss", "MT100", "MT102", "MT103", "MT104", "MT105", "MT106", "MT108", "MT109", "MT110", "MT111", "MT113", "MT114", "MT115", "MT116", "MT118", "MT119", "MT120", "Final"]; // 在这里给出所有需要遍历的楼层（即有光环或支援等）
 		return core.inArray(floorIds, floorId); // 也可以写其他的判定条件
 	};
 
@@ -1108,6 +1109,10 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	// 无敌斩
 	if (core.hasSpecial(mon_special, 131)) {
 		init_damage += (mon_atk * 2 - hero_def) * 9;
+	}
+	// 法力虚空
+	if (core.hasSpecial(mon_special, 142)) {
+		init_damage += hero_hpmax * (1 - core.status.hero.mana / core.status.hero.manamax);
 	}
 
 	// 每回合怪物对勇士造成的战斗伤害

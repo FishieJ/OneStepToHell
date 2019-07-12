@@ -846,9 +846,8 @@ main.floors.EventMap=
                 "function": "function(){\ncore.unloadEquip(\"0\");\ncore.unloadEquip(\"1\");\ncore.unloadEquip(\"2\");\ncore.unloadEquip(\"3\");\n}"
             },
             {
-                "type": "addValue",
-                "name": "item:coin",
-                "value": "core.itemCount('I476')*400"
+                "type": "comment",
+                "text": "装备直接清除，不加钱"
             },
             {
                 "type": "setValue",
@@ -1191,6 +1190,26 @@ main.floors.EventMap=
                         ]
                     },
                     {
+                        "text": "爆攻狂魔（${flag:atk_final_lv}/6）",
+                        "color": [
+                            170,
+                            34,
+                            51,
+                            1
+                        ],
+                        "condition": "core.status.hero.lv >= 26",
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    4,
+                                    5
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    },
+                    {
                         "text": "高级防御（${flag:skill2_lv2}/3）",
                         "color": [
                             68,
@@ -1241,6 +1260,26 @@ main.floors.EventMap=
                                 "type": "insert",
                                 "loc": [
                                     1,
+                                    6
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "爆防狂魔（${flag:def_final_lv}/6）",
+                        "color": [
+                            0,
+                            102,
+                            136,
+                            1
+                        ],
+                        "condition": "core.status.hero.lv >= 26",
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    4,
                                     6
                                 ],
                                 "floorId": "EventMap"
@@ -2861,6 +2900,256 @@ main.floors.EventMap=
                 "type": "setValue",
                 "name": "status:mana",
                 "value": "status:manamax"
+            }
+        ],
+        "4,6": [
+            {
+                "type": "choices",
+                "text": "\t[爆防狂魔（${flag:def_final_lv}/6）,shield5]\r[blue][防御类]\r[white]每级被动提升100000点防御力。",
+                "choices": [
+                    {
+                        "text": "确认",
+                        "action": [
+                            {
+                                "type": "if",
+                                "condition": "flag:skill2_lv2 < 3 || flag:charge_lv < 5 || flag:c_charge_lv < 3",
+                                "true": [
+                                    "需要其他[防御类]技能均点满才能学习。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "flag:def_final_lv >= 6",
+                                "true": [
+                                    "已达到满级。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "item:talentPoint > 0",
+                                "true": [
+                                    {
+                                        "type": "addValue",
+                                        "name": "item:talentPoint",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "status:def",
+                                        "value": "100000"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:def_final_lv",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            4,
+                                            6
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": [
+                                    "天赋点不足。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "取消",
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    1,
+                                    1
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "4,5": [
+            {
+                "type": "choices",
+                "text": "\t[爆攻狂魔（${flag:atk_final_lv}/6）,sword5]\r[red][攻击类]\r[white]每级被动提升100000点攻击力。",
+                "choices": [
+                    {
+                        "text": "确认",
+                        "action": [
+                            {
+                                "type": "if",
+                                "condition": "flag:skill1_lv2 < 3 || flag:execute_lv < 3 || flag:morph_lv < 5",
+                                "true": [
+                                    "需要其他[攻击类]技能均点满才能学习。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "flag:atk_final_lv >= 6",
+                                "true": [
+                                    "已达到满级。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            {
+                                "type": "if",
+                                "condition": "item:talentPoint > 0",
+                                "true": [
+                                    {
+                                        "type": "addValue",
+                                        "name": "item:talentPoint",
+                                        "value": "-1"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "status:atk",
+                                        "value": "100000"
+                                    },
+                                    {
+                                        "type": "addValue",
+                                        "name": "flag:atk_final_lv",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            4,
+                                            5
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ],
+                                "false": [
+                                    "天赋点不足。",
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            1,
+                                            1
+                                        ],
+                                        "floorId": "EventMap"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "取消",
+                        "action": [
+                            {
+                                "type": "insert",
+                                "loc": [
+                                    1,
+                                    1
+                                ],
+                                "floorId": "EventMap"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "11,12": [
+            {
+                "type": "comment",
+                "text": "ending"
+            },
+            {
+                "type": "showImage",
+                "code": 1,
+                "image": "ending1.png",
+                "loc": [
+                    0,
+                    416
+                ],
+                "opacity": 1,
+                "time": 0
+            },
+            {
+                "type": "moveImage",
+                "code": 1,
+                "to": [
+                    0,
+                    -416
+                ],
+                "time": 20000
+            },
+            {
+                "type": "showImage",
+                "code": 2,
+                "image": "ending2.png",
+                "loc": [
+                    0,
+                    88
+                ],
+                "opacity": 1,
+                "time": 3000
+            },
+            {
+                "type": "sleep",
+                "time": 2000
+            },
+            {
+                "type": "hideImage",
+                "code": 2,
+                "time": 3000
+            },
+            {
+                "type": "sleep",
+                "time": 1000
+            },
+            {
+                "type": "win",
+                "reason": "血海王中王"
             }
         ]
     },

@@ -57,7 +57,27 @@ main.floors.MT110=
                 "direction": "up",
                 "time": 2000
             }
-        ]
+        ],
+        "6,2": {
+            "trigger": "action",
+            "enable": true,
+            "noPass": null,
+            "displayDamage": true,
+            "data": [
+                "\t[伯力狂热者,E544]伯力之神，赐我力量！",
+                {
+                    "type": "battle",
+                    "loc": [
+                        6,
+                        2
+                    ]
+                },
+                {
+                    "type": "hide",
+                    "time": 0
+                }
+            ]
+        }
     },
     "changeFloor": {
         "6,12": {
@@ -84,7 +104,14 @@ main.floors.MT110=
                     8,
                     3
                 ]
-            }
+            },
+            {
+                "type": "sleep",
+                "time": 500
+            },
+            "\t[hero]什么伯力之神，我看这力量完全是他自己的。",
+            "\t[hero]前方就是\r[yellow]伯力圣殿\r[white]了……隐隐间能感到里面传来的强大气息。",
+            "\t[hero]杀光这些家伙，吸收他们的力量，然后再继续前进吧。"
         ]
     },
     "afterGetItem": {},

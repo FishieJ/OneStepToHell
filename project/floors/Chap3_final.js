@@ -102,6 +102,11 @@ main.floors.Chap3_final=
             "async": true
         },
         {
+            "type": "setValue",
+            "name": "flag:morph_chap3",
+            "value": "0"
+        },
+        {
             "type": "setHeroIcon",
             "name": "hero2.png"
         },
@@ -119,11 +124,6 @@ main.floors.Chap3_final=
             "type": "addValue",
             "name": "status:def",
             "value": "-50000"
-        },
-        {
-            "type": "setValue",
-            "name": "flag:morph",
-            "value": "0"
         },
         "\t[hero]\b[up,hero]谔谔，变回来了……完蛋了吗……",
         {

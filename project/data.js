@@ -145,7 +145,10 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"winskin.png",
 			"black.jpg",
 			"hero2.png",
-			"hero3.png"
+			"hero3.png",
+			"ending1.png",
+			"ending2.png",
+			"heroine.png"
 		],
 		"tilesets": [
 			"001-Grassland01.png",
@@ -196,6 +199,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"sword5",
 			"thunder",
 			"thunder3",
+			"thunder4",
 			"tuihua",
 			"upgrade",
 			"wuyu",
@@ -231,7 +235,8 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"preboss1.mp3",
 			"postboss1.mp3",
 			"rain.mp3",
-			"xuehai.mp3"
+			"xuehai.mp3",
+			"ending.mp3"
 		],
 		"sounds": [
 			"floor.mp3",
@@ -252,6 +257,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"053-Cannon02.ogg",
 			"054-Cannon03.ogg",
 			"057-Wrong01.ogg",
+			"061-Thunderclap01.ogg",
 			"082-Monster04.ogg",
 			"083-Monster05.ogg",
 			"086-Action01.ogg",
@@ -2273,7 +2279,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				]
 			},
 			{
-				"need": "100000000",
+				"need": "50000000",
 				"title": "血海圆满",
 				"clear": true,
 				"action": [
@@ -2317,7 +2323,20 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"name": "status:mdef",
 						"value": "status:mdef+120000"
 					},
-					"晋升为血海圆满！生命、生命上限+30000000，魔法、魔法上限+500，攻击+100000，防御+100000，护盾+120000"
+					"晋升为血海圆满！生命、生命上限+30000000，魔法、魔法上限+500，攻击+100000，防御+100000，护盾+120000",
+					"获得5次洗点机会。",
+					{
+						"type": "addValue",
+						"name": "item:sword0",
+						"value": "5"
+					},
+					"开启终极天赋！",
+					"获得6点天赋。",
+					{
+						"type": "addValue",
+						"name": "item:talentPoint",
+						"value": "6"
+					}
 				]
 			}
 		]
