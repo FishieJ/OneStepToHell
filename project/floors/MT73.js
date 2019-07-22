@@ -68,7 +68,7 @@ main.floors.MT73=
             "\t[熙枫,heroine]不对，不是那熊怪蠢，是我太厉害了……啊啊别说那个了，赶快感悟这上面的信息吧。",
             {
                 "type": "function",
-                "function": "function(){\ncore.getItem('execute');\ncore.setFlag('execute_percentage', 20);\ncore.setFlag('execute_atk_percentage', 50);\n}"
+                "function": "function(){\ncore.setFlag('execute_percentage', 20);\ncore.setFlag('execute_atk_percentage', 50);\ncore.getItem('execute');\n}"
             }
         ]
     },

@@ -72,11 +72,6 @@ main.floors.MT84=
                     "\t[权圣教壮汉,N485]俺看你击败一个骷髅之后，冲锋势头不减，不过权圣教最擅长正面相斗之术，俺可以让你更进一步，击败一个敌人后冲锋势头更盛！",
                     {
                         "type": "setValue",
-                        "name": "item:c_charge",
-                        "value": "1"
-                    },
-                    {
-                        "type": "setValue",
                         "name": "flag:charge2_battle_extra",
                         "value": "3"
                     },
@@ -84,6 +79,11 @@ main.floors.MT84=
                         "type": "setValue",
                         "name": "flag:charge2_battle_extra_max",
                         "value": "9"
+                    },
+                    {
+                        "type": "setValue",
+                        "name": "item:c_charge",
+                        "value": "1"
                     },
                     "\t[hero]明白了，多谢老哥指点。",
                     "\t[权圣教壮汉,N485]兄弟客气，这样俺俩互不相欠，俺先撤了。",

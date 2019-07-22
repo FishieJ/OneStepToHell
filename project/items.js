@@ -385,12 +385,12 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"I_hard_1": {
 			"cls": "constants",
 			"name": "乱撞难度",
-			"text": "你正在游玩乱撞难度！免疫地图伤害，战斗伤害减少50%。（注：负伤害也会减少）"
+			"text": "你正在游玩乱撞难度！免疫地图伤害，战斗的最终伤害减少50%。（注：负伤害也会减少）"
 		},
 		"I_hard_2": {
 			"cls": "constants",
 			"name": "简单难度",
-			"text": "你正在游玩简单难度！战斗伤害减少20%。（注：负伤害也会减少）"
+			"text": "你正在游玩简单难度！战斗的最终伤害减少20%。（注：负伤害也会减少）"
 		},
 		"I454": {
 			"cls": "items",
@@ -452,7 +452,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"bring_mana": {
 			"cls": "tools",
 			"name": "便携式蓝瓶 (F2)",
-			"text": "便于携带的蓝瓶，使用可以回复50魔法。快捷键是F2。"
+			"text": "便于携带的蓝瓶，使用可以回复${flag:bring_mana_val}魔法。快捷键是F2。"
 		},
 		"I476": {
 			"cls": "equips",
@@ -548,7 +548,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"shield5": null,
 		"bigKey": "core.status.hero.items.keys.yellowKey++;core.status.hero.items.keys.blueKey++;core.status.hero.items.keys.redKey++;",
 		"superPotion": "core.status.hero.hp *= 2",
-		"moneyPocket": "core.status.hero.money += 500",
+		"moneyPocket": "null",
 		"I349": "core.status.hero.atk += core.values.redJewel * ratio * 2",
 		"I350": "core.status.hero.def += core.values.blueJewel * ratio * 2",
 		"I351": "core.status.hero.mdef += core.values.greenJewel * ratio * 2",
@@ -591,7 +591,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"shield5": null,
 		"bigKey": "'，全钥匙+1'",
 		"superPotion": "'，生命值翻倍'",
-		"moneyPocket": "'，金币+500'",
+		"moneyPocket": "null",
 		"I349": "'，攻击+'+core.values.redJewel * ratio * 2",
 		"I350": "'，防御+'+core.values.blueJewel * ratio * 2",
 		"I351": "'，护盾+'+core.values.greenJewel * ratio * 2",
@@ -651,7 +651,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"tome": "if (core.status.hero.lv < 19)\n\tcore.status.hero.experience += 40000;\nelse\n\tcore.drawTip('没有效果。');",
 		"expelPoison": "// 直接判断是否可以使用即可\nvar curMana = core.status.hero.mana;\nvar cost = core.getFlag('expelPoison_cost', 641);\nif (curMana >= cost) {\n\tvar temp = core.getFlag('poison_stack', 0);\n\tif (temp == 0 && core.getFlag('in_chap4', 0) == 0) {\n\t\tcore.insertAction([{ \"type\": \"insert\", \"loc\": [1, 0], \"floorId\": \"EventMap\" }]);\n\t} else {\n\t\tcore.status.hero.mana -= cost;\n\t\tif (temp > 0 && !core.getFlag(\"in_chap4\"))\n\t\t\tcore.getItem('I459', temp);\n\t\tcore.setFlag('poison_stack', 0);\n\t\tcore.drawTip(\"你感觉很舒服。\");\n\t\tcore.drawAnimate('light2', core.status.hero.loc.x, core.status.hero.loc.y);\n\t}\n} else {\n\tcore.drawTip(\"魔法不足。\");\n}",
 		"bring_hp": "var heal = core.getFlag('bring_hp_val', 50000);\ncore.drawAnimate('heal', core.status.hero.loc.x, core.status.hero.loc.y);\ncore.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });",
-		"bring_mana": "core.drawAnimate('mana_regen', core.status.hero.loc.x, core.status.hero.loc.y);\ncore.status.hero.mana += 50;",
+		"bring_mana": "core.drawAnimate('mana_regen', core.status.hero.loc.x, core.status.hero.loc.y);\ncore.status.hero.mana += core.getFlag('bring_mana_val', 50);",
 		"invisibleWine": "core.setFlag('invisible', 1);\ncore.setOpacity('hero', 0.5);\ncore.setFlag('no_betweenAttack', true);\ncore.setFlag('no_zone', true);\ncore.setFlag('no_snipe', true);\ncore.setFlag('no_laser', true);\ncore.setFlag('no_ambush', true);",
 		"talent": "if (core.status.hero.lv < 24)\n\tcore.insertAction([{ \"type\": \"insert\", \"loc\": [0, 1], \"floorId\": \"EventMap\" }]);\nelse\n\tcore.insertAction([{ \"type\": \"insert\", \"loc\": [0, 4], \"floorId\": \"EventMap\" }]);",
 		"smallJump": "if (core.getFlag('after_final_boss', 0)) {\n\tcore.insertAction(\"\\t[hero]闲的没事跳什么跳啊，赶快离开这。\");\n} else {\n\tcore.status.hero.mana -= core.getFlag('smallJump_cost', 30);\n\tcore.insertAction({ \"type\": \"jumpHero\", \"loc\": [core.nextX(1), core.nextY(1)] });\n\n\tvar charge_ratio = core.getFlag('charge_ratio', 0.02);\n\tvar charge_atk = core.getFlag('charge_atk', 0);\n\tcore.setFlag('charge_atk', Math.max(charge_atk - charge_ratio * core.status.hero.atk, 0));\n}",

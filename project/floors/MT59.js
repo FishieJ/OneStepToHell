@@ -51,7 +51,7 @@ main.floors.MT59=
                 "false": [
                     {
                         "type": "confirm",
-                        "text": "前方boss战，确认要继续前进吗?",
+                        "text": "前方boss战，准备好了吗?（之后可以回来）",
                         "yes": [
                             {
                                 "type": "setVolume",

@@ -22,7 +22,45 @@ main.floors.MT101=
             "time": 500
         },
         "\t[hero]已经破晓了吗……",
-        "\t[hero]熙枫，挺住，我一定会让你醒来的！"
+        "\t[hero]熙枫，挺住，我一定会让你醒来的！",
+        {
+            "type": "switch",
+            "condition": "flag:hard",
+            "caseList": [
+                {
+                    "case": "1",
+                    "action": [
+                        "检测到正在游玩乱撞难度，获得100个便携式血瓶和蓝瓶，请不要忘记使用！",
+                        {
+                            "type": "addValue",
+                            "name": "item:bring_hp",
+                            "value": "100"
+                        },
+                        {
+                            "type": "addValue",
+                            "name": "item:bring_mana",
+                            "value": "100"
+                        }
+                    ]
+                },
+                {
+                    "case": "2",
+                    "action": [
+                        "检测到正在游玩简单难度，获得20个便携式血瓶和蓝瓶！",
+                        {
+                            "type": "addValue",
+                            "name": "item:bring_hp",
+                            "value": "20"
+                        },
+                        {
+                            "type": "addValue",
+                            "name": "item:bring_mana",
+                            "value": "20"
+                        }
+                    ]
+                }
+            ]
+        }
     ],
     "eachArrive": [],
     "parallelDo": "",

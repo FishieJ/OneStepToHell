@@ -736,7 +736,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[19, "自爆", "【血海奥义】同归于尽吧！\n战斗结束后，勇士的生命值变成1", "#ff0000"],
 		[20, "无敌", "【？？？】无法认知的神秘力量\n勇士无法打败怪物，除非拥有[？？？]", "#fbff00"],
 		[21, "退化", function (enemy) { return "【血海奥义】对敌人造成永久性不可逆的能力损伤\n战斗后勇士永久下降" + (enemy.atkValue || 0) + "点攻击，" + (enemy.defValue || 0) + "点防御，以及" + (enemy.value || 0) + "点护盾"; }, "#ff0000"],
-		[22, "固伤", function (enemy) { return "【红海技能】不讲道理的生命扣除\n战斗结束前，怪物对勇士造成" + (enemy.damage || 0) + "点固定伤害，无视勇士护盾。"; }],
+		[22, "固伤", function (enemy) { return "【红海技能】不讲道理的生命扣除\n战斗结束前，怪物对勇士造成" + (enemy.damage || 0) + "点固定伤害，无视勇士护盾和减伤效果。"; }],
 		[23, "重生", "怪物被击败后，角色转换楼层则怪物将再次出现"],
 		[24, "射击", function (enemy) { return "经过怪物同行或同列时自动减生命" + (enemy.value || 0) + "点"; }],
 		[25, function (enemy) {
@@ -1353,7 +1353,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		}
 	}
 	// 死亡镰刀修正
-	if (core.hasSpecial(mon_special, 199) && turn > 5) {
+	if (core.hasSpecial(mon_special, 127) && turn > 5) {
 		var cur_hp = hero_hp + hero_mdef - init_damage;
 		var mon_cur_hp = mon_hp;
 		var poison = core.getFlag('poison_stack', 0);

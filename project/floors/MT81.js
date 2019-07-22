@@ -11,7 +11,28 @@ main.floors.MT81=
     "images": [],
     "item_ratio": 100,
     "defaultGround": "soil",
-    "firstArrive": [],
+    "firstArrive": [
+        {
+            "type": "function",
+            "function": "function(){\ncore.setFlag('bgLight', [\n\t[176, 176, 200],\n\t[304, 176, 200]\n]);\ncore.drawMap();\n}"
+        },
+        {
+            "type": "sleep",
+            "time": 500
+        },
+        "\t[熙枫,heroine]白骨山洞被各种颜色的骷髅所占据，之所以叫“白骨”，是因为山洞深处会形成一种最为强大的骷髅，它是白色的。",
+        "\t[熙枫,heroine]有一些骷髅能够根据你\r[yellow]已损失的生命值\r造成伤害，所以要尽可能降低这一数值。除了多吃血瓶之外，也可以利用权圣教商人那里卖的东西降低生命上限来达成这一目的。",
+        {
+            "type": "sleep",
+            "time": 500
+        },
+        "\t[hero]说到这个，两大宗派的弟子平日里都在拿这些怪物练手，它们就不会被杀光吗？",
+        "\t[熙枫,heroine]这些怪物的背后有着两大宗派的高层维持，毕竟他们要给弟子们提供修炼条件。",
+        "\t[hero]也就是说这些红海境界的怪物都是批量制造的？好大的手笔……",
+        "\t[熙枫,heroine]对于那些大佬们而言，搞出这么多红海怪物并不算什么难事。",
+        "\t[hero]天哪……这些怪物随便拉一个放到我家那边，恐怕都无敌了。",
+        "\t[熙枫,heroine]这个世界上神奇的事情可多了，等你离开这里，还会见到更多不可思议的东西。"
+    ],
     "eachArrive": [
         {
             "type": "function",

@@ -119,7 +119,45 @@ main.floors.MT91=
             "type": "sleep",
             "time": 1000
         },
-        "终章 血海篇"
+        "终章 血海篇",
+        {
+            "type": "switch",
+            "condition": "flag:hard",
+            "caseList": [
+                {
+                    "case": "1",
+                    "action": [
+                        "检测到正在游玩乱撞难度，获得50个便携式血瓶和蓝瓶，请不要忘记使用！",
+                        {
+                            "type": "addValue",
+                            "name": "item:bring_hp",
+                            "value": "50"
+                        },
+                        {
+                            "type": "addValue",
+                            "name": "item:bring_mana",
+                            "value": "50"
+                        }
+                    ]
+                },
+                {
+                    "case": "2",
+                    "action": [
+                        "检测到正在游玩简单难度，获得10个便携式血瓶和蓝瓶，请妥善利用！",
+                        {
+                            "type": "addValue",
+                            "name": "item:bring_hp",
+                            "value": "10"
+                        },
+                        {
+                            "type": "addValue",
+                            "name": "item:bring_mana",
+                            "value": "10"
+                        }
+                    ]
+                }
+            ]
+        }
     ],
     "eachArrive": [],
     "parallelDo": "",
@@ -129,40 +167,6 @@ main.floors.MT91=
             {
                 "type": "hide",
                 "time": 0
-            }
-        ],
-        "6,11": [
-            {
-                "type": "switch",
-                "condition": "flag:hard",
-                "caseList": [
-                    {
-                        "case": "1",
-                        "action": [
-                            "检测到正在游玩乱撞难度，获得100个便携式蓝瓶，请不要忘记使用！",
-                            {
-                                "type": "addValue",
-                                "name": "item:bring_mana",
-                                "value": "100"
-                            }
-                        ]
-                    },
-                    {
-                        "case": "2",
-                        "action": [
-                            "检测到正在游玩简单难度，获得10个便携式蓝瓶！",
-                            {
-                                "type": "addValue",
-                                "name": "item:bring_mana",
-                                "value": "10"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "type": "hide",
-                "time": 500
             }
         ]
     },

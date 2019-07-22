@@ -72,13 +72,13 @@ main.floors.MT63=
                     "\t[镇仙域少女,npc2]看你这样子应该是对我镇仙域的技能有兴趣吧？我教你一个最简单的，作为你救我的报答好啦。",
                     {
                         "type": "setValue",
-                        "name": "item:smallJump",
-                        "value": "1"
+                        "name": "flag:smallJump_cost",
+                        "value": "50"
                     },
                     {
                         "type": "setValue",
-                        "name": "flag:smallJump_cost",
-                        "value": "50"
+                        "name": "item:smallJump",
+                        "value": "1"
                     },
                     "\t[hero]多谢！",
                     "\t[镇仙域少女,npc2]客气。我先走啦，拜拜~",

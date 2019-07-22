@@ -120,7 +120,7 @@ main.floors.P2=
                         6,
                         12
                     ],
-                    "direction": "right",
+                    "direction": "up",
                     "time": 500
                 },
                 {

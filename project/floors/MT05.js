@@ -17,7 +17,7 @@ main.floors.MT05=
             "type": "sleep",
             "time": 500
         },
-        "\t[hero]咦，竟然有银色的莱姆……",
+        "\t[hero]咦，竟然有银色的莱姆……我感应一下它的实力……",
         {
             "type": "callBook"
         },

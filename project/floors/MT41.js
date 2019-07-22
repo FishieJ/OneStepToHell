@@ -12,9 +12,17 @@ main.floors.MT41=
     "item_ratio": 50,
     "defaultGround": "snowGround",
     "firstArrive": [
+        {
+            "type": "insert",
+            "loc": [
+                3,
+                0
+            ],
+            "floorId": "EventMap"
+        },
         "\t[hero]小姐姐，我们来这干嘛？",
         "\t[熙枫,heroine]当然是让你继续杀怪升级啦。",
-        "\t[hero]啊？我还以为能回家休息了，天色都这么晚了……哦不对我已经没有家了。",
+        "\t[hero]啊？我还以为能稍微休息一下呢，天色都这么晚了……",
         {
             "type": "sleep",
             "time": 500
@@ -124,13 +132,13 @@ main.floors.MT41=
         "\t[hero]有小姐姐陪着我，真的太好了……",
         {
             "type": "setValue",
-            "name": "item:skill3",
-            "value": "1"
+            "name": "flag:skill3_cost",
+            "value": "100"
         },
         {
             "type": "setValue",
-            "name": "flag:skill3_cost",
-            "value": "100"
+            "name": "item:skill3",
+            "value": "1"
         },
         {
             "type": "sleep",
