@@ -89,6 +89,16 @@ main.floors.MT80=
                     7,
                     11
                 ]
+            },
+            {
+                "type": "setBgFgBlock",
+                "name": "bg",
+                "number": "autotile1",
+                "loc": [
+                    1,
+                    10
+                ],
+                "floorId": "Chap3_m"
             }
         ]
     },

@@ -451,8 +451,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"bring_mana": {
 			"cls": "tools",
-			"name": "便携式蓝瓶 (F2)",
-			"text": "便于携带的蓝瓶，使用可以回复${flag:bring_mana_val}魔法。快捷键是F2。"
+			"name": "便携式蓝瓶 (8)",
+			"text": "便于携带的蓝瓶，使用可以回复${flag:bring_mana_val}魔法。快捷键是8。"
 		},
 		"I476": {
 			"cls": "equips",

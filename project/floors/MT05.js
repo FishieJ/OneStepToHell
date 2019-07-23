@@ -33,7 +33,7 @@ main.floors.MT05=
                 "type": "if",
                 "condition": "flag:hard<3",
                 "true": [
-                    "系统提示：没错，这个NPC是个酱油角色，如果后悔花大代价打青莱姆来跟他对话，可以按\r[yellow]A\r[white]键读取自动存档。"
+                    "\t[系统提示]没错，这个NPC是个酱油角色，如果后悔花大代价打青莱姆来跟他对话，可以按\r[yellow]A\r[white]键读取自动存档。"
                 ]
             }
         ]

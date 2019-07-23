@@ -32,10 +32,26 @@ main.floors.MT95=
     "parallelDo": "",
     "events": {
         "6,1": [
-            "这里是漏怪检测装置。正式版本会通过判断经验来判定是否已经清光怪物。",
+            "这里是漏怪检测装置。正在检测是否有剩余怪物。",
             {
-                "type": "hide",
-                "time": 0
+                "type": "function",
+                "function": "function(){\ncore.checkMonster([\"MT95\"]);\n}"
+            },
+            {
+                "type": "if",
+                "condition": "flag:remainMonsterCount>1",
+                "true": [
+                    "共有${flag:remainMonsterCount}只怪物未清除。",
+                    "剩余怪物：${flag:remainMonsterInfo}"
+                ],
+                "false": [
+                    "共有${flag:remainMonsterCount}只怪物未清除。",
+                    "剩余怪物：${flag:remainMonsterInfo}",
+                    {
+                        "type": "hide",
+                        "time": 0
+                    }
+                ]
             }
         ]
     },

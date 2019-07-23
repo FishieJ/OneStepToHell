@@ -103,7 +103,7 @@ main.floors.MT10=
                                     "left"
                                 ]
                             },
-                            "系统提示：可以利用浏览地图功能查找漏掉的怪物，快捷键是PgUp和PgDn。"
+                            "\t[系统提示]可以利用浏览地图功能查找漏掉的怪物，快捷键是PgUp和PgDn。"
                         ]
                     }
                 ],
@@ -116,7 +116,7 @@ main.floors.MT10=
                             "left"
                         ]
                     },
-                    "系统提示：可以利用浏览地图功能查找漏掉的怪物，快捷键是PgUp和PgDn。"
+                    "\t[系统提示]可以利用浏览地图功能查找漏掉的怪物，快捷键是PgUp和PgDn。"
                 ]
             }
         ],
@@ -131,7 +131,7 @@ main.floors.MT10=
                         "condition": "core.status.hero.experience >= 10",
                         "true": [
                             "怪物已清完！",
-                            "系统提示：继续前进将无法再返回此区域，请及时清理地上的资源。",
+                            "\t[系统提示]继续前进将无法再返回此区域，请及时清理地上的资源。",
                             {
                                 "type": "if",
                                 "condition": "core.platform.isPC",
@@ -147,7 +147,7 @@ main.floors.MT10=
                         ],
                         "false": [
                             "\t[hero]前面好像还有莱姆没有打，暂时不要继续前进了吧……",
-                            "系统提示：可以利用浏览地图功能查找漏掉的怪物，快捷键是PgUp和PgDn。",
+                            "\t[系统提示]可以利用浏览地图功能查找漏掉的怪物，快捷键是PgUp和PgDn。",
                             {
                                 "type": "if",
                                 "condition": "core.platform.isPC",
@@ -161,7 +161,7 @@ main.floors.MT10=
                 ],
                 "false": [
                     "\t[hero]前面好像还有莱姆没有打，暂时不要继续前进了吧……",
-                    "系统提示：可以利用浏览地图功能查找漏掉的怪物，快捷键是PgUp和PgDn。",
+                    "\t[系统提示]可以利用浏览地图功能查找漏掉的怪物，快捷键是PgUp和PgDn。",
                     {
                         "type": "if",
                         "condition": "core.platform.isPC",

@@ -46,6 +46,16 @@ main.floors.MT90=
                     7,
                     3
                 ]
+            },
+            {
+                "type": "setBgFgBlock",
+                "name": "fg",
+                "number": "X80000",
+                "loc": [
+                    9,
+                    0
+                ],
+                "floorId": "Chap3_m"
             }
         ]
     },

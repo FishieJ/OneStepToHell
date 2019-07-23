@@ -518,71 +518,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"家主对于莫逆的修炼并不上心，毕竟整个莫家上上下下数百人，再加上还要处理与邻家的关系，莫家家主就如同一个小国家的国王，可谓是日理万机。",
 			"直到有一天……"
 		],
-		"shops": [
-			{
-				"id": "moneyShop1",
-				"name": "贪婪之神",
-				"icon": "blueShop",
-				"textInList": "1F金币商店",
-				"commonTimes": false,
-				"mustEnable": false,
-				"use": "money",
-				"need": "20+10*times*(times+1)",
-				"text": "勇敢的武士啊，给我${need}金币就可以：",
-				"choices": [
-					{
-						"text": "生命+800",
-						"effect": "status:hp+=800"
-					},
-					{
-						"text": "攻击+4",
-						"effect": "status:atk+=4"
-					},
-					{
-						"text": "防御+4",
-						"effect": "status:def+=4"
-					},
-					{
-						"text": "魔防+10",
-						"effect": "status:mdef+=10"
-					}
-				]
-			},
-			{
-				"id": "expShop1",
-				"name": "经验之神",
-				"icon": "pinkShop",
-				"textInList": "1F经验商店",
-				"commonTimes": false,
-				"mustEnable": false,
-				"use": "experience",
-				"need": "-1",
-				"text": "勇敢的武士啊，给我若干经验就可以：",
-				"choices": [
-					{
-						"text": "等级+1",
-						"need": "100",
-						"effect": "status:lv+=1;status:hp+=1000;status:atk+=7;status:def+=7"
-					},
-					{
-						"text": "攻击+5",
-						"need": "30",
-						"effect": "status:atk+=5"
-					},
-					{
-						"text": "防御+5",
-						"need": "30",
-						"effect": "status:def+=5"
-					}
-				]
-			},
-			{
-				"id": "keyShop1",
-				"textInList": "回收钥匙商店",
-				"mustEnable": false,
-				"commonEvent": "回收钥匙商店"
-			}
-		],
+		"shops": [],
 		"levelUp": [
 			{
 				"need": "0",
@@ -2411,8 +2347,8 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 		"bigKeyIsBox": false,
 		"steelDoorWithoutKey": true,
 		"equipment": false,
-		"equipboxButton": false,
-		"iconInEquipbox": false,
+		"equipboxButton": true,
+		"iconInEquipbox": true,
 		"enableAddPoint": false,
 		"enableNegativeDamage": true,
 		"hatredDecrease": true,
@@ -2427,11 +2363,11 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 		"displayCritical": true,
 		"displayExtraDamage": true,
 		"enableGentleClick": true,
-		"potionWhileRouting": true,
+		"potionWhileRouting": false,
 		"ignoreChangeFloor": true,
-		"canGoDeadZone": false,
+		"canGoDeadZone": true,
 		"enableMoveDirectly": true,
-		"enableDisabledShop": true,
+		"enableDisabledShop": false,
 		"disableShopOnDamage": false,
 		"checkConsole": false,
 		"flyRecordPosition": true

@@ -431,5 +431,81 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		while (criticals[0] == '0:0') criticals.shift();
 		texts.push("临界表：" + JSON.stringify(criticals));
 	};
+},
+    "setToolBarButton": function () {
+	core.control.setToolbarButton = function (useButton) {
+		if (!core.domStyle.showStatusBar) {
+			// 隐藏状态栏时检查竖屏
+			if (!core.domStyle.isVertical) {
+				for (var i = 0; i < core.dom.tools.length; ++i)
+					core.dom.tools[i].style.display = 'none';
+				return;
+			}
+			if (!core.hasFlag('showToolbox')) return;
+			else core.dom.tools.hard.style.display = 'block';
+		}
+
+		if (useButton == null) useButton = core.domStyle.toolbarBtn;
+		if (!core.domStyle.isVertical || !core.platform.extendKeyboard) useButton = false;
+		core.domStyle.toolbarBtn = useButton;
+
+		if (useButton) {
+			["book", "fly", "toolbox", "keyboard", "shop", "save", "load", "settings"].forEach(function (t) {
+				core.statusBar.image[t].style.display = 'none';
+			});
+			["btn1", "btn2", "btn3", "btn4", "btn5", "btn6", "btn7", "btn8"].forEach(function (t) {
+				core.statusBar.image[t].style.display = 'block';
+			});
+		} else {
+			["btn1", "btn2", "btn3", "btn4", "btn5", "btn6", "btn7", "btn8"].forEach(function (t) {
+				core.statusBar.image[t].style.display = 'none';
+			});
+			["book", "fly", "toolbox", "save", "load", "settings"].forEach(function (t) {
+				core.statusBar.image[t].style.display = 'block';
+			});
+			core.statusBar.image.keyboard.style.display = core.statusBar.image.shop.style.display = core.domStyle.isVertical ? "block" : "none";
+		}
+	};
+},
+    "checkMonster": function () {
+	// 漏怪检测，来自于《圣王魔塔》，有少量修改
+	// 调用样例：core.plugin.checkMonster(["MT641","MT6700417"]);
+	this.checkMonster = function (floorIds) {
+		var remainMonsterInfo = [];
+		var cnt = 0;
+		for (var i in floorIds) {
+			var floorId = floorIds[i];
+			if (core.enemys.getCurrentEnemys(floorId).length > 0) {
+				// 遍历每个图块
+				core.status.maps[floorId].blocks.forEach(function (block) {
+					if (core.isset(block.event) && !block.disable) {
+						// 获得该图块的ID
+						var id = block.event.id,
+							enemy = core.material.enemys[id];
+						// 检查是不是怪物
+						if (core.isset(enemy)) {
+							cnt++;
+							if (enemy.name in remainMonsterInfo)
+								remainMonsterInfo[enemy.name]++;
+							else
+								remainMonsterInfo[enemy.name] = 1;
+						}
+					}
+				});
+			}
+		}
+		core.setFlag("remainMonsterInfo", this.printMonsterInfo(remainMonsterInfo));
+		core.setFlag("remainMonsterCount", cnt);
+		return;
+	};
+
+	this.printMonsterInfo = function (info) {
+		var print = "";
+		for (var x in info) {
+			var y = info[x];
+			print += "\n" + x + " * " + y;
+		}
+		return print;
+	};
 }
 }

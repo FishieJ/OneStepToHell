@@ -1611,9 +1611,9 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 			core.useItem('smallJump', true);
 		}
 		break;
-	case 113: // F2: 便携式蓝瓶
+	case 56: // 8: 便携式蓝瓶
 		if (core.hasItem('bring_mana')) {
-			core.status.route.push("key:113");
+			core.status.route.push("key:56");
 			core.useItem('bring_mana', true);
 		}
 		break;
@@ -2225,17 +2225,20 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 },
         "drawStatistics": function () {
 	// 浏览地图时参与的统计项目
-	
+
 	return [
 		'yellowDoor', 'blueDoor', 'redDoor', 'greenDoor', 'steelDoor',
 		'yellowKey', 'blueKey', 'redKey', 'greenKey', 'steelKey',
 		'redJewel', 'blueJewel', 'greenJewel', 'yellowJewel',
-		'redPotion', 'bluePotion', 'greenPotion', 'yellowPotion', 'superPotion',
-		'pickaxe', 'bomb', 'centerFly', 'icePickaxe', 'snow',
-		'earthquake', 'upFly', 'downFly', 'jumpShoes', 'lifeWand',
-		'poisonWine', 'weakWine', 'curseWine', 'superWine',
-		'sword1', 'sword2', 'sword3', 'sword4', 'sword5',
-		'shield1', 'shield2', 'shield3', 'shield4', 'shield5',
+		'I349', 'I350', 'I351', 'I352', 'I353', 'I354', 'I355', 'I356',
+		'I357', 'I358', 'I359', 'I360',
+		'redPotion', 'bluePotion', 'yellowPotion', 'greenPotion', 'superPotion',
+		'I454', 'I455', 'I456', 'I457',
+		//'pickaxe', 'bomb', 'centerFly', 'icePickaxe', 'snow',
+		//'earthquake', 'upFly', 'downFly', 'jumpShoes', 'lifeWand',
+		//'poisonWine', 'weakWine', 'curseWine', 'superWine',
+		//'sword1', 'sword2', 'sword3', 'sword4', 'sword5',
+		//'shield1', 'shield2', 'shield3', 'shield4', 'shield5',
 		// 在这里可以增加新的ID来进行统计个数，只能增加道具ID
 	];
 },

@@ -13,7 +13,7 @@ main.floors.MT17=
     "defaultGround": "sand",
     "bgm": "13-15.mp3",
     "firstArrive": [
-        "系统提示：部分怪物属性会导致怪物手册无法正确显示临界，请无视这类怪物的临界显示。"
+        "\t[系统提示]部分怪物属性会导致怪物手册无法正确显示临界，请无视这类怪物的临界显示。"
     ],
     "eachArrive": [],
     "parallelDo": "",

@@ -214,42 +214,56 @@ main.floors.MT100=
             ]
         },
         "6,2": [
-            "这里是漏怪检测装置。正式版本会通过判断经验来判定是否已经清光怪物。",
-            "怪物已清完！",
+            "这里是漏怪检测装置。正在检测是否有剩余怪物。",
             {
-                "type": "loadBgm",
-                "name": "xuehai.mp3"
+                "type": "function",
+                "function": "function(){\ncore.checkMonster([\"MT96\", \"MT97\", \"MT98\", \"MT99\", \"MT100\"]);\n}"
             },
             {
-                "type": "show",
-                "loc": [
-                    [
-                        6,
-                        1
-                    ]
+                "type": "if",
+                "condition": "flag:remainMonsterCount>0",
+                "true": [
+                    "共有${flag:remainMonsterCount}只怪物未清除。",
+                    "剩余怪物：${flag:remainMonsterInfo}"
                 ],
-                "time": 500,
-                "async": true
-            },
-            {
-                "type": "openDoor",
-                "loc": [
-                    5,
-                    1
-                ],
-                "async": true
-            },
-            {
-                "type": "openDoor",
-                "loc": [
-                    7,
-                    1
-                ],
-                "async": true
-            },
-            {
-                "type": "hide",
-                "time": 0
+                "false": [
+                    "怪物已清完！",
+                    {
+                        "type": "loadBgm",
+                        "name": "xuehai.mp3"
+                    },
+                    {
+                        "type": "show",
+                        "loc": [
+                            [
+                                6,
+                                1
+                            ]
+                        ],
+                        "time": 500,
+                        "async": true
+                    },
+                    {
+                        "type": "openDoor",
+                        "loc": [
+                            5,
+                            1
+                        ],
+                        "async": true
+                    },
+                    {
+                        "type": "openDoor",
+                        "loc": [
+                            7,
+                            1
+                        ],
+                        "async": true
+                    },
+                    {
+                        "type": "hide",
+                        "time": 0
+                    }
+                ]
             }
         ]
     },

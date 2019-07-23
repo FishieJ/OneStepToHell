@@ -176,7 +176,7 @@ main.floors.Area4_1=
                     "type": "if",
                     "condition": "flag:hard < 3",
                     "true": [
-                        "系统提示：这把钥匙是乱撞/简单难度的福利。",
+                        "\t[系统提示]这把钥匙是乱撞/简单难度的福利。",
                         {
                             "type": "addValue",
                             "name": "item:yellowKey",
@@ -188,7 +188,7 @@ main.floors.Area4_1=
                         }
                     ],
                     "false": [
-                        "系统提示：这把钥匙是乱撞/简单难度的福利，困难难度无法获取。",
+                        "\t[系统提示]这把钥匙是乱撞/简单难度的福利，困难难度无法获取。",
                         {
                             "type": "hide",
                             "time": 0

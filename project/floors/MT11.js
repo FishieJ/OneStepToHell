@@ -23,7 +23,7 @@ main.floors.MT11=
             "type": "freeBgm",
             "name": "11-13.mp3"
         },
-        "系统提示：进入新的区域，所有物品效果都会有所增强。"
+        "\t[系统提示]进入新的区域，所有物品效果都会有所增强。"
     ],
     "eachArrive": [],
     "parallelDo": "",

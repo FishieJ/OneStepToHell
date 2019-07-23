@@ -47,6 +47,16 @@ main.floors.MT70=
                     7,
                     1
                 ]
+            },
+            {
+                "type": "setBgFgBlock",
+                "name": "bg",
+                "number": "autotile1",
+                "loc": [
+                    2,
+                    0
+                ],
+                "floorId": "Chap3_m"
             }
         ]
     },

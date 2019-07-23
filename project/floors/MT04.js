@@ -17,7 +17,7 @@ main.floors.MT04=
             "type": "if",
             "condition": "core.status.hero.hp <= 268 && core.getFlag('hard', -1) == 3",
             "true": [
-                "系统提示：可以使用回放录像功能检查自己的路线是否正确。快捷键是R。"
+                "\t[系统提示]可以使用回放录像功能检查自己的路线是否正确。快捷键是R。"
             ],
             "false": []
         }

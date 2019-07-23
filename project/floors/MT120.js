@@ -32,10 +32,25 @@ main.floors.MT120=
     "parallelDo": "var lastTime = core.getFlag('lastTime', 0);\n\nif (timestamp - lastTime > 60) {\n\tvar image = core.material.images.images['area12.jpg'];\n\tvar width = 416, height = 416;\n\t\n\tcore.canvas.bg.translate(width/2,height/2);\n\tcore.canvas.bg.rotate(Math.PI/180/6);\n\tcore.canvas.bg.translate(-width/2,-height/2);\n\tcore.canvas.bg.drawImage(image,-288,-96);\n\t\n\tcore.setFlag('lastTime', timestamp);\n\t\n\tvar rotateTime = core.getFlag('rotateTime', 0);\n\trotateTime += 1;\n\tif (rotateTime >= 6 * 180) {\n\t\trotateTime -= 6 * 180;\n\t}\n\tcore.setFlag('rotateTime', rotateTime);\n}",
     "events": {
         "6,5": [
-            "这里是漏怪检测装置。正式版本会通过判断经验来判定是否已经清光怪物。",
+            "这里是漏怪检测装置。正在检测是否有剩余怪物。",
             {
-                "type": "hide",
-                "time": 0
+                "type": "function",
+                "function": "function(){\ncore.checkMonster([\"MT111\", \"MT112\", \"MT113\", \"MT114\", \"MT115\", \"MT116\", \"MT117\", \"MT118\", \"MT119\", \"MT120\"]);\n}"
+            },
+            {
+                "type": "if",
+                "condition": "flag:remainMonsterCount>0",
+                "true": [
+                    "共有${flag:remainMonsterCount}只怪物未清除。",
+                    "剩余怪物：${flag:remainMonsterInfo}"
+                ],
+                "false": [
+                    "怪物已清完！",
+                    {
+                        "type": "hide",
+                        "time": 0
+                    }
+                ]
             }
         ]
     },
