@@ -15,6 +15,14 @@ main.floors.P1=
     "firstArrive": [
         {
             "type": "if",
+            "condition": "!core.platform.isPC",
+            "true": [
+                "\t[系统提示]建议使用PC进行游戏。"
+            ],
+            "false": []
+        },
+        {
+            "type": "if",
             "condition": "!core.musicStatus.bgmStatus",
             "true": [
                 "\t[系统提示]你当前音乐处于关闭状态。"

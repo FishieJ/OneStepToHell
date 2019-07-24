@@ -21,6 +21,10 @@ main.floors.MT101=
             "type": "sleep",
             "time": 500
         },
+        {
+            "type": "function",
+            "function": "function(){\ncore.values.animateSpeed = 400;\n}"
+        },
         "\t[hero]已经破晓了吗……",
         "\t[hero]熙枫，挺住，我一定会让你醒来的！",
         {

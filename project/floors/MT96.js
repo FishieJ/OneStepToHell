@@ -26,6 +26,10 @@ main.floors.MT96=
             "value": "0"
         },
         {
+            "type": "function",
+            "function": "function(){\n// 动画速度和BGM匹配\ncore.values.animateSpeed = 385;\n}"
+        },
+        {
             "type": "sleep",
             "time": 1000
         },
