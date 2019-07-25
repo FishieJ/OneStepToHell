@@ -71,6 +71,10 @@ main.floors.MT96=
                     }
                 ],
                 "false": []
+            },
+            {
+                "type": "hide",
+                "time": 0
             }
         ]
     },

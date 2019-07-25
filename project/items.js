@@ -385,7 +385,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"I_hard_1": {
 			"cls": "constants",
 			"name": "乱撞难度",
-			"text": "你正在游玩乱撞难度！免疫地图伤害，战斗的最终伤害减少50%。（注：负伤害也会减少）"
+			"text": "你正在游玩乱撞难度！免疫大多数地图伤害，战斗的最终伤害减少50%。（注：负伤害也会减少）"
 		},
 		"I_hard_2": {
 			"cls": "constants",
@@ -530,10 +530,10 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"blueJewel": "core.status.hero.def += core.values.blueJewel * ratio",
 		"greenJewel": "core.status.hero.mdef += core.values.greenJewel * ratio",
 		"yellowJewel": "core.status.hero.hpmax += core.values.yellowJewel * ratio;\ncore.status.hero.hp += core.values.yellowJewel * ratio;",
-		"redPotion": "var heal = core.values.redPotion * ratio;\ncore.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });",
-		"bluePotion": "var heal = core.values.bluePotion * ratio;\ncore.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });",
-		"yellowPotion": "var heal = core.values.yellowPotion * ratio;\ncore.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });",
-		"greenPotion": "var heal = core.values.greenPotion * ratio;\ncore.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });",
+		"redPotion": "var heal = core.values.redPotion * ratio;\n\n//core.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });\n\nvar realhpmax = core.getRealStatusOrDefault(core.status.hero, 'hpmax');\nvar overheal = heal - (realhpmax - core.status.hero.hp);\nif (overheal > 0) {\n\tcore.insertAction({ \"type\": \"animate\", \"name\": \"heal\", \"loc\": \"hero\", \"async\": true });\n\tcore.addFlag('hp_score', overheal);\n}\ncore.status.hero.hp += heal;\nif (core.status.hero.hp > realhpmax) {\n\tcore.status.hero.hp = realhpmax;\n}",
+		"bluePotion": "var heal = core.values.bluePotion * ratio;\n\n//core.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });\n\nvar realhpmax = core.getRealStatusOrDefault(core.status.hero, 'hpmax');\nvar overheal = heal - (realhpmax - core.status.hero.hp);\nif (overheal > 0) {\n\tcore.insertAction({ \"type\": \"animate\", \"name\": \"heal\", \"loc\": \"hero\", \"async\": true });\n\tcore.addFlag('hp_score', overheal);\n}\ncore.status.hero.hp += heal;\nif (core.status.hero.hp > realhpmax) {\n\tcore.status.hero.hp = realhpmax;\n}",
+		"yellowPotion": "var heal = core.values.yellowPotion * ratio;\n\n//core.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });\n\nvar realhpmax = core.getRealStatusOrDefault(core.status.hero, 'hpmax');\nvar overheal = heal - (realhpmax - core.status.hero.hp);\nif (overheal > 0) {\n\tcore.insertAction({ \"type\": \"animate\", \"name\": \"heal\", \"loc\": \"hero\", \"async\": true });\n\tcore.addFlag('hp_score', overheal);\n}\ncore.status.hero.hp += heal;\nif (core.status.hero.hp > realhpmax) {\n\tcore.status.hero.hp = realhpmax;\n}",
+		"greenPotion": "var heal = core.values.greenPotion * ratio;\n\n//core.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });\n\nvar realhpmax = core.getRealStatusOrDefault(core.status.hero, 'hpmax');\nvar overheal = heal - (realhpmax - core.status.hero.hp);\nif (overheal > 0) {\n\tcore.insertAction({ \"type\": \"animate\", \"name\": \"heal\", \"loc\": \"hero\", \"async\": true });\n\tcore.addFlag('hp_score', overheal);\n}\ncore.status.hero.hp += heal;\nif (core.status.hero.hp > realhpmax) {\n\tcore.status.hero.hp = realhpmax;\n}",
 		"sword0": null,
 		"sword1": "core.status.hero.atk += 10",
 		"sword2": "core.status.hero.atk += 20",
@@ -562,10 +562,10 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"I356": "core.status.hero.hpmax += core.values.yellowJewel * ratio * 4;\ncore.status.hero.hp += core.values.yellowJewel * ratio * 4;",
 		"I360": "core.status.hero.hpmax += core.values.yellowJewel * ratio * 8;\ncore.status.hero.hp += core.values.yellowJewel * ratio * 8;",
 		"I380": "core.status.hero.mana += core.values.manaCrystal * ratio",
-		"I454": "var heal = core.values.redPotion * 10 * ratio;\ncore.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });",
-		"I455": "var heal = core.values.bluePotion * 10 * ratio;\ncore.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });",
-		"I456": "var heal = core.values.yellowPotion * 10 * ratio;\ncore.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });",
-		"I457": "var heal = core.values.greenPotion * 10 * ratio;\ncore.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });",
+		"I454": "var heal = core.values.redPotion * 10 * ratio;\n\n//core.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });\n\nvar realhpmax = core.getRealStatusOrDefault(core.status.hero, 'hpmax');\nvar overheal = heal - (realhpmax - core.status.hero.hp);\nif (overheal > 0) {\n\tcore.insertAction({ \"type\": \"animate\", \"name\": \"heal\", \"loc\": \"hero\", \"async\": true });\n\tcore.addFlag('hp_score', overheal);\n}\ncore.status.hero.hp += heal;\nif (core.status.hero.hp > realhpmax) {\n\tcore.status.hero.hp = realhpmax;\n}",
+		"I455": "var heal = core.values.bluePotion * 10 * ratio;\n\n//core.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });\n\nvar realhpmax = core.getRealStatusOrDefault(core.status.hero, 'hpmax');\nvar overheal = heal - (realhpmax - core.status.hero.hp);\nif (overheal > 0) {\n\tcore.insertAction({ \"type\": \"animate\", \"name\": \"heal\", \"loc\": \"hero\", \"async\": true });\n\tcore.addFlag('hp_score', overheal);\n}\ncore.status.hero.hp += heal;\nif (core.status.hero.hp > realhpmax) {\n\tcore.status.hero.hp = realhpmax;\n}",
+		"I456": "var heal = core.values.yellowPotion * 10 * ratio;\n\n//core.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });\n\nvar realhpmax = core.getRealStatusOrDefault(core.status.hero, 'hpmax');\nvar overheal = heal - (realhpmax - core.status.hero.hp);\nif (overheal > 0) {\n\tcore.insertAction({ \"type\": \"animate\", \"name\": \"heal\", \"loc\": \"hero\", \"async\": true });\n\tcore.addFlag('hp_score', overheal);\n}\ncore.status.hero.hp += heal;\nif (core.status.hero.hp > realhpmax) {\n\tcore.status.hero.hp = realhpmax;\n}",
+		"I457": "var heal = core.values.greenPotion * 10 * ratio;\n\n//core.insertAction({ \"type\": \"insert\", \"name\": \"增加HP\", \"args\": [heal] });\n\nvar realhpmax = core.getRealStatusOrDefault(core.status.hero, 'hpmax');\nvar overheal = heal - (realhpmax - core.status.hero.hp);\nif (overheal > 0) {\n\tcore.insertAction({ \"type\": \"animate\", \"name\": \"heal\", \"loc\": \"hero\", \"async\": true });\n\tcore.addFlag('hp_score', overheal);\n}\ncore.status.hero.hp += heal;\nif (core.status.hero.hp > realhpmax) {\n\tcore.status.hero.hp = realhpmax;\n}",
 		"I536": "core.status.hero.mana += core.values.manaCrystal * ratio * 0.1"
 	},
 	"itemEffectTip": {

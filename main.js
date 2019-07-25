@@ -74,7 +74,8 @@ function main() {
         'inputMessage': document.getElementById('inputMessage'),
         'inputBox': document.getElementById('inputBox'),
         'inputYes': document.getElementById('inputYes'),
-        'inputNo': document.getElementById('inputNo')
+        'inputNo': document.getElementById('inputNo'),
+        'next': document.getElementById('next')
     };
     this.mode = 'play';
     this.loadList = [
@@ -216,6 +217,7 @@ main.prototype.init = function (mode, callback) {
             })(span,value[1]);
             main.dom.levelChooseButtons.appendChild(span);
         });
+        main.createOnChoiceAnimation();
         
         main.loadJs('libs', main.loadList, function () {
             main.core = core;
@@ -328,14 +330,32 @@ main.prototype.log = function (e) {
     }
 }
 
+main.prototype.createOnChoiceAnimation = function () {
+    var borderColor = main.dom.startButtonGroup.style.caretColor || "rgb(255, 215, 0)";
+    // get rgb value
+    var rgb = /^rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*(,\s*\d+\s*)?\)$/.exec(borderColor);
+    if (rgb != null) {
+        var value = rgb[1] + ", " + rgb[2] + ", " + rgb[3];
+        var style = document.createElement("style");
+        style.type = 'text/css';
+        var keyFrames = "onChoice { " +
+            "0% { border-color: rgba("+value+", 0.9); } " +
+            "50% { border-color: rgba("+value+", 0.3); } " +
+            "100% { border-color: rgba("+value+", 0.9); } " +
+            "}";
+        style.innerHTML = "@-webkit-keyframes " + keyFrames + " @keyframes " + keyFrames;
+        document.body.appendChild(style);
+    }
+}
+
 ////// 选项 //////
 main.prototype.selectButton = function (index) {
     var select = function (children) {
         index = (index + children.length) % children.length;
         for (var i = 0;i < children.length; ++i) {
-            children[i].style.borderColor = 'transparent';
+            children[i].classList.remove("onChoiceAnimate");
         }
-        children[index].style.borderColor = main.dom.startButtonGroup.style.caretColor || '#FFD700';
+        children[index].classList.add("onChoiceAnimate");
         if (main.selectedButton == index) {
             children[index].click();
         }
@@ -343,6 +363,8 @@ main.prototype.selectButton = function (index) {
             main.selectedButton = index;
         }
     }
+
+    if (core.dom.startPanel.style.display != 'block') return;
 
     if (main.dom.startButtons.style.display == 'block') {
         select(main.dom.startButtons.children);
@@ -372,19 +394,36 @@ main.dom.body.onkeydown = function(e) {
 
 ////// 在界面上放开某按键时 //////
 main.dom.body.onkeyup = function(e) {
-    if (core.dom.startPanel.style.display == 'block' && (main.dom.startButtons.style.display == 'block' || main.dom.levelChooseButtons.style.display == 'block')) {
-        if (e.keyCode == 38 || e.keyCode == 33) // up/pgup
-            main.selectButton((main.selectedButton||0) - 1);
-        else if (e.keyCode == 40 || e.keyCode == 34) // down/pgdn
-            main.selectButton((main.selectedButton||0) + 1);
-        else if (e.keyCode == 67 || e.keyCode == 13 || e.keyCode == 32) // C/Enter/Space
-            main.selectButton(main.selectedButton);
-        return;
-    }
-
     try {
-        if (main.dom.inputDiv.style.display == 'block') return;
-        if (main.core && (main.core.isPlaying() || main.core.status.lockControl))
+        if (main.dom.startPanel.style.display == 'block' &&
+            (main.dom.startButtons.style.display == 'block' || main.dom.levelChooseButtons.style.display == 'block')) {
+            if (e.keyCode == 38 || e.keyCode == 33) // up/pgup
+                main.selectButton((main.selectedButton||0) - 1);
+            else if (e.keyCode == 40 || e.keyCode == 34) // down/pgdn
+                main.selectButton((main.selectedButton||0) + 1);
+            else if (e.keyCode == 67 || e.keyCode == 13 || e.keyCode == 32) // C/Enter/Space
+                main.selectButton(main.selectedButton);
+            else if (e.keyCode == 27 && main.dom.levelChooseButtons.style.display == 'block') { // ESC
+                main.core.showStartAnimate(true);
+            }
+            e.stopPropagation();
+            return;
+        }
+        if (main.dom.inputDiv.style.display == 'block') {
+            if (e.keyCode == 13) {
+                setTimeout(function () {
+                    main.dom.inputYes.click();
+                }, 50);
+            }
+            else if (e.keyCode == 27) {
+                setTimeout(function () {
+                    main.dom.inputNo.click();
+                }, 50);
+            }
+            return;
+        }
+        if (main.core && main.core.isPlaying && main.core.status &&
+            (main.core.isPlaying() || main.core.status.lockControl))
             main.core.onkeyUp(e);
     } catch (ee) { main.log(ee); }
 }
@@ -626,7 +665,7 @@ main.statusBar.image.settings.onclick = function (e) {
 }
 
 ////// 点击工具栏时 //////
-main.dom.toolBar.onclick = function () {
+main.dom.hard.onclick = function () {
     if (core.isReplaying())
         return;
     main.core.control.setToolbarButton(!core.domStyle.toolbarBtn);
@@ -727,19 +766,6 @@ main.dom.inputNo.onclick = function () {
     var func = core.platform.errorCallback;
     core.platform.successCallback = core.platform.errorCallback = null;
     if (func) func(null);
-}
-
-main.dom.inputDiv.onkeyup = function (e) {
-    if (e.keyCode == 13) {
-        setTimeout(function () {
-            main.dom.inputYes.click();
-        }, 50);
-    }
-    else if (e.keyCode == 27) {
-        setTimeout(function () {
-            main.dom.inputNo.click();
-        }, 50);
-    }
 }
 
 }//listen end

@@ -72,7 +72,6 @@ function core() {
         'isChrome': false, // 是否是Chrome
         'supportCopy': false, // 是否支持复制到剪切板
         'useLocalForage': true,
-        'extendKeyboard': false,
 
         'fileInput': null, // FileInput
         'fileReader': null, // 是否支持FileReader
@@ -248,7 +247,7 @@ core.prototype._init_flags = function () {
 core.prototype._init_sys_flags = function () {
     if (!core.flags.enableExperience) core.flags.enableLevelUp = false;
     if (!core.flags.enableLevelUp) core.flags.levelUpLeftMode = false;
-    if (core.flags.equipboxButton) core.flags.equipment = true;
+    //if (core.flags.equipboxButton) core.flags.equipment = true;
     core.flags.displayEnemyDamage = core.getLocalStorage('enemyDamage', core.flags.displayEnemyDamage);
     core.flags.displayCritical = core.getLocalStorage('critical', core.flags.displayCritical);
     core.flags.displayExtraDamage = core.getLocalStorage('extraDamage', core.flags.displayExtraDamage);
@@ -285,7 +284,6 @@ core.prototype._init_platform = function () {
     core.platform.isQQ = /QQ/i.test(navigator.userAgent);
     core.platform.isWeChat = /MicroMessenger/i.test(navigator.userAgent);
     this._init_checkLocalForage();
-    core.platform.extendKeyboard = core.getLocalStorage("extendKeyboard", false);
     if (window.FileReader) {
         core.platform.fileReader = new FileReader();
         core.platform.fileReader.onload = function () {

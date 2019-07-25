@@ -432,41 +432,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		texts.push("临界表：" + JSON.stringify(criticals));
 	};
 },
-    "setToolBarButton": function () {
-	core.control.setToolbarButton = function (useButton) {
-		if (!core.domStyle.showStatusBar) {
-			// 隐藏状态栏时检查竖屏
-			if (!core.domStyle.isVertical) {
-				for (var i = 0; i < core.dom.tools.length; ++i)
-					core.dom.tools[i].style.display = 'none';
-				return;
-			}
-			if (!core.hasFlag('showToolbox')) return;
-			else core.dom.tools.hard.style.display = 'block';
-		}
-
-		if (useButton == null) useButton = core.domStyle.toolbarBtn;
-		if (!core.domStyle.isVertical || !core.platform.extendKeyboard) useButton = false;
-		core.domStyle.toolbarBtn = useButton;
-
-		if (useButton) {
-			["book", "fly", "toolbox", "keyboard", "shop", "save", "load", "settings"].forEach(function (t) {
-				core.statusBar.image[t].style.display = 'none';
-			});
-			["btn1", "btn2", "btn3", "btn4", "btn5", "btn6", "btn7", "btn8"].forEach(function (t) {
-				core.statusBar.image[t].style.display = 'block';
-			});
-		} else {
-			["btn1", "btn2", "btn3", "btn4", "btn5", "btn6", "btn7", "btn8"].forEach(function (t) {
-				core.statusBar.image[t].style.display = 'none';
-			});
-			["book", "fly", "toolbox", "save", "load", "settings"].forEach(function (t) {
-				core.statusBar.image[t].style.display = 'block';
-			});
-			core.statusBar.image.keyboard.style.display = core.statusBar.image.shop.style.display = core.domStyle.isVertical ? "block" : "none";
-		}
-	};
-},
+    "setToolBarButton": undefined,
     "checkMonster": function () {
 	// 漏怪检测，来自于《圣王魔塔》，有少量修改
 	// 调用样例：core.plugin.checkMonster(["MT641","MT6700417"]);

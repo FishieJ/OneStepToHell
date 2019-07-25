@@ -335,7 +335,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 		"增加HP": [
 			{
 				"type": "function",
-				"function": "function(){\nvar heal = core.getFlag('arg1', 0);\nvar realhpmax = core.getRealStatusOrDefault(core.status.hero, 'hpmax');\nvar overheal = heal - (realhpmax - core.status.hero.hp);\nif (overheal > 0) {\n\tcore.insertAction({ \"type\": \"animate\", \"name\": \"heal\", \"loc\": \"hero\", \"async\": true });\n\tcore.addFlag('hp_score', overheal);\n}\ncore.status.hero.hp += heal;\nif (core.status.hero.hp > realhpmax) {\n\tcore.status.hero.hp = realhpmax;\n}\n}"
+				"function": "function(){\n// 由于通过insertAction调用这段会导致吃血瓶可能有短暂卡顿感，所以这段直接写在了血瓶的拾取效果里面，没有被实际调用过\nvar heal = core.getFlag('arg1', 0);\nvar realhpmax = core.getRealStatusOrDefault(core.status.hero, 'hpmax');\nvar overheal = heal - (realhpmax - core.status.hero.hp);\nif (overheal > 0) {\n\tcore.insertAction({ \"type\": \"animate\", \"name\": \"heal\", \"loc\": \"hero\", \"async\": true });\n\tcore.addFlag('hp_score', overheal);\n}\ncore.status.hero.hp += heal;\nif (core.status.hero.hp > realhpmax) {\n\tcore.status.hero.hp = realhpmax;\n}\n}"
 			}
 		]
 	}

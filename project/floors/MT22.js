@@ -12,19 +12,7 @@ main.floors.MT22=
     "item_ratio": 4,
     "defaultGround": "grass",
     "bgm": "15-17.mp3",
-    "firstArrive": [
-        {
-            "type": "sleep",
-            "time": 1000
-        },
-        {
-            "type": "animate",
-            "name": "wuyu",
-            "loc": "hero"
-        },
-        "\t[hero]那些法师竟然拥有无视防御力的特殊能力……",
-        "\t[hero]挺好的地方，怎么就遍地都是骷髅和鬼魂呢……"
-    ],
+    "firstArrive": [],
     "eachArrive": [],
     "parallelDo": "",
     "events": {},

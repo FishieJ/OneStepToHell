@@ -258,7 +258,7 @@ main.floors.EventMap=
         "0,2": [
             {
                 "type": "choices",
-                "text": "\t[强击（${flag:skill1_lv}/3）,skill1]\r[red][攻击类]\r[white]每级提升\r[yellow]0.5\r[white]倍额外伤害。当前强击造成的额外伤害是\r[yellow]${flag:skill1_val-1}\r[white]倍攻击力。",
+                "text": "\t[强击（${flag:skill1_lv}/3）,skill1]\r[red][攻击类]\r[white]每级提升\r[yellow]0.5\r[white]倍攻击力的额外伤害。当前强击造成的额外伤害是\r[yellow]${flag:skill1_val-1}\r[white]倍攻击力。",
                 "choices": [
                     {
                         "text": "确认",
@@ -956,6 +956,9 @@ main.floors.EventMap=
                 "type": "setValue",
                 "name": "flag:charge2_battle_extra_cur",
                 "value": "0"
+            },
+            {
+                "type": "update"
             }
         ],
         "12,0": [

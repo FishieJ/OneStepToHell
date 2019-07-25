@@ -21,9 +21,9 @@ main.floors.MT21=
             "noPass": null,
             "displayDamage": true,
             "data": [
-                "\t[hero]\b[up,hero]骷髅？我从来没听说过泰南山有骷髅……",
+                "\t[hero]\b[up,hero]骷髅？好像确实听人说过泰南山有骷髅，境界都处于高阶萌新……",
                 "\t[skeleton]\b[up,2,10]外来者，离开这里吧……",
-                "\t[hero]\b[up,hero]为什么要阻拦我？",
+                "\t[hero]\b[up,hero]原来你能说话？为什么要阻拦我？",
                 "\t[skeleton]\b[up,2,10]离开这里……",
                 {
                     "type": "battle",
@@ -33,7 +33,7 @@ main.floors.MT21=
                     "type": "hide",
                     "time": 0
                 },
-                "\t[hero]\b[up,hero]看来这些骷髅只有最基本的战斗本能，完全没办法与人交流。它们的出现应该和那什么宝贝有关系吧？"
+                "\t[hero]\b[up,hero]……虽然能说话但是完全无法交流。还是一路杀过去吧。"
             ]
         }
     },

@@ -26,7 +26,7 @@ main.floors.MT01=
             "\t[系统提示]不同于一般人，主角能够精确地看穿怪物能力，并预知自己将要受到的伤害。按x可以查看怪物信息。",
             {
                 "type": "if",
-                "condition": "core.getFlag('hard', -1) < 3",
+                "condition": "core.getFlag('hard', -1) == 1",
                 "true": [
                     {
                         "type": "choices",

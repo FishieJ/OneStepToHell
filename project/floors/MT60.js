@@ -577,6 +577,32 @@ main.floors.MT60=
             "displayDamage": true,
             "data": [
                 {
+                    "type": "if",
+                    "condition": "core.status.hero.lv < 18 || (core.status.hero.lv == 18 && core.status.hero.experience < 64791)",
+                    "true": [
+                        "\t[hero]前面好像还有怪物没有清理……",
+                        {
+                            "type": "moveHero",
+                            "time": 100,
+                            "steps": [
+                                "down"
+                            ]
+                        },
+                        {
+                            "type": "insert",
+                            "loc": [
+                                3,
+                                0
+                            ],
+                            "floorId": "EventMap"
+                        },
+                        {
+                            "type": "exit"
+                        }
+                    ],
+                    "false": []
+                },
+                {
                     "type": "confirm",
                     "default": true,
                     "text": "确定已经准备好了吗？",
@@ -637,8 +663,10 @@ main.floors.MT60=
                             "name": "bg",
                             "number": "autotile10",
                             "loc": [
-                                6,
-                                5
+                                [
+                                    6,
+                                    5
+                                ]
                             ]
                         },
                         {
@@ -646,8 +674,10 @@ main.floors.MT60=
                             "name": "bg",
                             "number": "autotile10",
                             "loc": [
-                                6,
-                                4
+                                [
+                                    6,
+                                    4
+                                ]
                             ]
                         },
                         {
@@ -655,8 +685,10 @@ main.floors.MT60=
                             "name": "bg",
                             "number": "autotile10",
                             "loc": [
-                                6,
-                                6
+                                [
+                                    6,
+                                    6
+                                ]
                             ]
                         },
                         {
@@ -664,8 +696,10 @@ main.floors.MT60=
                             "name": "bg",
                             "number": "autotile10",
                             "loc": [
-                                5,
-                                5
+                                [
+                                    5,
+                                    5
+                                ]
                             ]
                         },
                         {
@@ -673,8 +707,10 @@ main.floors.MT60=
                             "name": "bg",
                             "number": "autotile10",
                             "loc": [
-                                7,
-                                5
+                                [
+                                    7,
+                                    5
+                                ]
                             ]
                         },
                         {
@@ -682,8 +718,10 @@ main.floors.MT60=
                             "name": "bg",
                             "number": "autotile10",
                             "loc": [
-                                4,
-                                5
+                                [
+                                    4,
+                                    5
+                                ]
                             ]
                         },
                         {
@@ -691,8 +729,10 @@ main.floors.MT60=
                             "name": "bg",
                             "number": "autotile10",
                             "loc": [
-                                8,
-                                5
+                                [
+                                    8,
+                                    5
+                                ]
                             ]
                         },
                         {
@@ -700,8 +740,10 @@ main.floors.MT60=
                             "name": "bg",
                             "number": "autotile10",
                             "loc": [
-                                6,
-                                3
+                                [
+                                    6,
+                                    3
+                                ]
                             ]
                         },
                         {
@@ -709,8 +751,10 @@ main.floors.MT60=
                             "name": "bg",
                             "number": "autotile10",
                             "loc": [
-                                6,
-                                7
+                                [
+                                    6,
+                                    7
+                                ]
                             ]
                         },
                         {
@@ -718,8 +762,10 @@ main.floors.MT60=
                             "name": "bg",
                             "number": "autotile10",
                             "loc": [
-                                5,
-                                4
+                                [
+                                    5,
+                                    4
+                                ]
                             ]
                         },
                         {
@@ -727,8 +773,10 @@ main.floors.MT60=
                             "name": "bg",
                             "number": "autotile10",
                             "loc": [
-                                5,
-                                6
+                                [
+                                    5,
+                                    6
+                                ]
                             ]
                         },
                         {
@@ -736,8 +784,10 @@ main.floors.MT60=
                             "name": "bg",
                             "number": "autotile10",
                             "loc": [
-                                7,
-                                4
+                                [
+                                    7,
+                                    4
+                                ]
                             ]
                         },
                         {
@@ -745,8 +795,10 @@ main.floors.MT60=
                             "name": "bg",
                             "number": "autotile10",
                             "loc": [
-                                7,
-                                6
+                                [
+                                    7,
+                                    6
+                                ]
                             ]
                         },
                         {

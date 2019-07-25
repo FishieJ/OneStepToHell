@@ -23,8 +23,8 @@ main.floors.MT63=
             "type": "sleep",
             "time": 500
         },
-        "\t[hero]右上方好像有个人被困住了。",
-        "\t[熙枫,heroine]看穿着应该是\r[yellow]镇仙域\r[white]的人。她看起来暂时没有危险，不用着急，做好准备再去帮她吧。"
+        "\t[hero]那边好像有个人被困住了。",
+        "\t[熙枫,heroine]看穿着应该是\r[yellow]镇仙域\r[white]的人。她看起来暂时没有危险，不要逞强，做好准备再去帮她吧。"
     ],
     "eachArrive": [],
     "parallelDo": "",
