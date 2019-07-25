@@ -339,7 +339,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 		"title": "一夜登天",
 		"name": "OneStepToHell",
 		"version": "Ver 2.6.1",
-		"floorId": "P1",
+		"floorId": "EventMap",
 		"hero": {
 			"name": "莫逆",
 			"lv": 1,
@@ -365,8 +365,8 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			},
 			"loc": {
 				"direction": "left",
-				"x": 11,
-				"y": 11
+				"x": 641,
+				"y": 641
 			},
 			"flags": {},
 			"steps": 0
@@ -506,18 +506,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"text": "接下来会执行startText中的事件"
 			}
 		],
-		"startText": [
-			{
-				"type": "setText",
-				"time": 37
-			},
-			"在这个实力为尊的世界中，永远不缺少幻想自己获得强大力量的弱者。",
-			"莫逆，就是这样的一个人。生于一方豪门世家——莫家，却毫无修炼天赋，处于世间最为低等的境界——萌新一段。在这个修炼为上的世界中，他只能沦为家族中的笑柄。家里派来指点他的长老对他也无可奈何。",
-			"\t[hero]哼，什么长老，萌新九段不还是萌新，能有多厉害？",
-			"在莫家，唯有家主达到了蓝海一阶——萌新九段之上的境界。虽然在蓝海九大阶位之中处于垫底，却也足以管理莫家这些大大小小的萌新了。",
-			"家主对于莫逆的修炼并不上心，毕竟整个莫家上上下下数百人，再加上还要处理与邻家的关系，莫家家主就如同一个小国家的国王，可谓是日理万机。",
-			"直到有一天……"
-		],
+		"startText": [],
 		"shops": [],
 		"levelUp": [
 			{
@@ -2353,7 +2342,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 		"betweenAttackMax": false,
 		"useLoop": false,
 		"startUsingCanvas": false,
-		"startDirectly": false,
+		"startDirectly": true,
 		"statusCanvas": false,
 		"statusCanvasRowsOnMobile": 3,
 		"displayEnemyDamage": true,

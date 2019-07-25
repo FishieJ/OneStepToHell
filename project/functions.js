@@ -112,14 +112,14 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		});
 	});
 },
-        "lose": function(reason) {
+        "lose": function (reason) {
 	// 游戏失败事件
 	core.ui.closePanel();
 	var replaying = core.isReplaying();
 	core.stopReplay();
-	core.waitHeroToStop(function() {
+	core.waitHeroToStop(function () {
 		core.drawText([
-			"\t["+(reason||"结局1")+"]你死了。\n如题。"
+			"\t[" + (reason || "暴毙") + "]你死了。\n如题。"
 		], function () {
 			core.events.gameOver(null, replaying);
 		});

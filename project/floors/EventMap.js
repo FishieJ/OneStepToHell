@@ -1,7 +1,7 @@
 main.floors.EventMap=
 {
     "floorId": "EventMap",
-    "title": "新建楼层",
+    "title": "难度选择",
     "name": "0",
     "width": 13,
     "height": 13,
@@ -12,7 +12,25 @@ main.floors.EventMap=
     "images": [],
     "item_ratio": 1,
     "defaultGround": "ground",
-    "firstArrive": [],
+    "firstArrive": [
+        {
+            "type": "setCurtain",
+            "color": [
+                0,
+                0,
+                0,
+                1
+            ],
+            "time": 0
+        },
+        {
+            "type": "trigger",
+            "loc": [
+                11,
+                11
+            ]
+        }
+    ],
     "eachArrive": [],
     "parallelDo": "",
     "events": {
@@ -3154,6 +3172,140 @@ main.floors.EventMap=
                 "type": "win",
                 "reason": "血海王中王"
             }
+        ],
+        "11,11": [
+            {
+                "type": "choices",
+                "text": "选择游戏难度",
+                "choices": [
+                    {
+                        "text": "乱撞",
+                        "color": [
+                            136,
+                            255,
+                            34,
+                            1
+                        ],
+                        "action": [
+                            "乱撞难度下，主角获得50%减伤，并且有大量额外福利。\n适合只想看剧情的玩家，从拆塔的角度来看极其无聊的难度。",
+                            {
+                                "type": "confirm",
+                                "text": "确认要选择 乱撞 难度吗?",
+                                "yes": [
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:hard",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "function",
+                                        "function": "function(){\ncore.status.hard = 'Blind';\ncore.setInitData();\n}"
+                                    },
+                                    {
+                                        "type": "changeFloor",
+                                        "floorId": "P1",
+                                        "loc": [
+                                            11,
+                                            11
+                                        ],
+                                        "direction": "left",
+                                        "time": 500
+                                    }
+                                ],
+                                "no": [
+                                    {
+                                        "type": "revisit"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "简单",
+                        "color": [
+                            68,
+                            68,
+                            221,
+                            1
+                        ],
+                        "action": [
+                            "简单难度下，主角获得20%减伤，并且有少量额外福利。\n适合愿意动脑拆塔的初心者。",
+                            {
+                                "type": "confirm",
+                                "text": "确认要选择 简单 难度吗?",
+                                "yes": [
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:hard",
+                                        "value": "2"
+                                    },
+                                    {
+                                        "type": "function",
+                                        "function": "function(){\ncore.status.hard = 'Easy';\ncore.setInitData();\n}"
+                                    },
+                                    {
+                                        "type": "changeFloor",
+                                        "floorId": "P1",
+                                        "loc": [
+                                            11,
+                                            11
+                                        ],
+                                        "direction": "left",
+                                        "time": 500
+                                    }
+                                ],
+                                "no": [
+                                    {
+                                        "type": "revisit"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "困难",
+                        "color": [
+                            255,
+                            0,
+                            0,
+                            1
+                        ],
+                        "action": [
+                            "困难难度下没有任何福利。\n适合有一定拆塔经验且愿意动脑的玩家。",
+                            {
+                                "type": "confirm",
+                                "text": "确认要选择 困难 难度吗?",
+                                "yes": [
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:hard",
+                                        "value": "3"
+                                    },
+                                    {
+                                        "type": "function",
+                                        "function": "function(){\ncore.status.hard = 'Hard';\ncore.setInitData();\n}"
+                                    },
+                                    {
+                                        "type": "changeFloor",
+                                        "floorId": "P1",
+                                        "loc": [
+                                            11,
+                                            11
+                                        ],
+                                        "direction": "left",
+                                        "time": 500
+                                    }
+                                ],
+                                "no": [
+                                    {
+                                        "type": "revisit"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
         ]
     },
     "changeFloor": {},
@@ -3181,5 +3333,11 @@ main.floors.EventMap=
 ],
     "fgmap": [
 
-]
+],
+    "color": [
+        0,
+        0,
+        0,
+        1
+    ]
 }
