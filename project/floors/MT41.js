@@ -22,7 +22,7 @@ main.floors.MT41=
         },
         "\t[hero]小姐姐，我们来这干嘛？",
         "\t[熙枫,heroine]当然是让你继续杀怪升级啦。",
-        "\t[hero]啊？我还以为能稍微休息一下呢，天色都这么晚了……",
+        "\t[hero]啊？一下子升级这么快会不会根基不稳什么的……",
         {
             "type": "sleep",
             "time": 500
@@ -37,8 +37,9 @@ main.floors.MT41=
             "type": "sleep",
             "time": 1000
         },
-        "\t[熙枫,heroine]确实也该陪你休息一会了。毕竟你已经让我恢复了不少。",
-        "\t[熙枫,heroine]不过这附近没有适合休息的地方……看来该用这个了……",
+        "\t[熙枫,heroine]首先你放心吧，你获得的力量都是实打实的，不会有什么根基不稳之类的问题。",
+        "\t[熙枫,heroine]不过确实也该陪你休息一会了。毕竟你已经让我恢复了不少，能到这一步我已经应该好好感谢你了。",
+        "\t[熙枫,heroine]这附近似乎没有适合休息的地方……看来该用这个了……",
         {
             "type": "animate",
             "name": "skill3",
@@ -49,8 +50,10 @@ main.floors.MT41=
             "name": "bg",
             "number": "autotile12",
             "loc": [
-                2,
-                12
+                [
+                    2,
+                    12
+                ]
             ]
         },
         {
@@ -58,8 +61,10 @@ main.floors.MT41=
             "name": "bg",
             "number": "autotile12",
             "loc": [
-                1,
-                12
+                [
+                    1,
+                    12
+                ]
             ]
         },
         {
@@ -67,8 +72,10 @@ main.floors.MT41=
             "name": "bg",
             "number": "autotile12",
             "loc": [
-                3,
-                12
+                [
+                    3,
+                    12
+                ]
             ]
         },
         {
@@ -76,8 +83,10 @@ main.floors.MT41=
             "name": "bg",
             "number": "autotile12",
             "loc": [
-                2,
-                11
+                [
+                    2,
+                    11
+                ]
             ]
         },
         {
@@ -85,8 +94,10 @@ main.floors.MT41=
             "name": "bg",
             "number": "autotile12",
             "loc": [
-                1,
-                11
+                [
+                    1,
+                    11
+                ]
             ]
         },
         {
@@ -94,8 +105,10 @@ main.floors.MT41=
             "name": "bg",
             "number": "autotile12",
             "loc": [
-                3,
-                11
+                [
+                    3,
+                    11
+                ]
             ]
         },
         {

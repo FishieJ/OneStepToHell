@@ -3165,8 +3165,56 @@ main.floors.EventMap=
                 "time": 3000
             },
             {
+                "type": "setVolume",
+                "value": 0,
+                "time": 5000
+            },
+            {
+                "type": "pauseBgm"
+            },
+            {
+                "type": "screenFlash",
+                "color": [
+                    255,
+                    255,
+                    255,
+                    1
+                ],
+                "time": 500,
+                "times": 1
+            },
+            "\t[???]这里是探测者114514号，已确认有两道力量碎片成功融合，完成度达到19.19810%。",
+            {
                 "type": "sleep",
+                "time": 500
+            },
+            "\t[???]目前已侦测到的力量碎片共有7道，其中5道已找到宿主。预计全部融合后可以使完成度达到67.00417%。",
+            {
+                "type": "sleep",
+                "time": 500
+            },
+            "\t[???]碎片坐标及宿主信息已上传。任务完成，即将返航。",
+            {
+                "type": "sleep",
+                "time": 500
+            },
+            {
+                "type": "resumeBgm"
+            },
+            {
+                "type": "setVolume",
+                "value": 90,
                 "time": 1000
+            },
+            {
+                "type": "setCurtain",
+                "color": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "time": 2000
             },
             {
                 "type": "win",

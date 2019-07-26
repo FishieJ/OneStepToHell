@@ -307,97 +307,132 @@ main.floors.Chap3_final=
             "type": "setBlock",
             "number": "X80087",
             "loc": [
-                6,
-                4
+                [
+                    6,
+                    4
+                ]
             ]
         },
         {
             "type": "setBlock",
             "number": "X80087",
             "loc": [
-                5,
-                4
+                [
+                    5,
+                    4
+                ]
             ]
         },
         {
             "type": "setBlock",
             "number": "X80087",
             "loc": [
-                6,
-                3
+                [
+                    6,
+                    3
+                ]
             ]
         },
         {
             "type": "setBlock",
             "number": "X80087",
             "loc": [
-                7,
-                4
+                [
+                    7,
+                    4
+                ]
             ]
         },
         {
             "type": "setBlock",
             "number": "X80087",
             "loc": [
-                6,
-                5
+                [
+                    6,
+                    5
+                ]
             ]
         },
         {
             "type": "setBlock",
             "number": "X80087",
             "loc": [
-                6,
-                2
+                [
+                    6,
+                    2
+                ]
             ]
         },
         {
             "type": "setBlock",
             "number": "X80087",
             "loc": [
-                7,
-                3
+                [
+                    7,
+                    3
+                ]
             ]
         },
         {
             "type": "setBlock",
             "number": "X80087",
             "loc": [
-                8,
-                4
+                [
+                    8,
+                    4
+                ]
             ]
         },
         {
             "type": "setBlock",
             "number": "X80087",
             "loc": [
-                7,
-                5
+                [
+                    7,
+                    5
+                ]
             ]
         },
         {
             "type": "setBlock",
             "number": "X80087",
             "loc": [
-                6,
-                6
+                [
+                    6,
+                    6
+                ]
             ]
         },
         {
             "type": "setBlock",
             "number": "X80087",
             "loc": [
-                5,
-                5
+                [
+                    5,
+                    5
+                ]
             ]
         },
         {
             "type": "setBlock",
             "number": "X80087",
             "loc": [
-                5,
-                3
+                [
+                    5,
+                    3
+                ]
             ]
+        },
+        {
+            "type": "if",
+            "condition": "!core.hasItem('shield5')",
+            "true": [
+                {
+                    "type": "win",
+                    "reason": "红海王中王"
+                }
+            ],
+            "false": []
         },
         "即将进入存档页面。",
         {

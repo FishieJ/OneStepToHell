@@ -833,6 +833,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		}, function (enemy) { var x = enemy.range * 2 + 1; return (enemy.atkValue > 0 ? "增加" : "减少") + "以自身为中心" + x + "*" + x + "范围内所有友军" + (Math.abs(enemy.atkValue) || 0) + "%的攻击力，线性叠加。"; }, "#fff900"],
 		[141, "中子束", "【血海奥义】简单粗暴而威力巨大的攻击\n怪物每回合普攻2次，魔攻1次。", "#ff0000"],
 		[142, "法力虚空", "【血海奥义】敌人将因使用魔法而遭到惩戒\n瞬间造成对手最大生命值X%的伤害，X为已损失魔法的比例", "#747dff"],
+		[143, "净爆", "【血海奥义】净化之极致\n战斗前，怪物使勇士护盾变为100倍，然后附加此时勇士护盾的" + core.values.purify + "倍作为伤害", "#00d2d4"],
 	];
 },
         "getEnemyInfo": function (enemy, hero, x, y, floorId) {
@@ -1152,6 +1153,9 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	// 净化
 	if (core.hasSpecial(mon_special, 9))
 		init_damage += Math.floor(core.values.purify * hero_mdef);
+	// 净爆
+	if (core.hasSpecial(mon_special, 143))
+		init_damage += Math.floor(core.values.purify * hero_mdef * 100 - hero_mdef * 99);
 
 	// 勇士每回合对怪物造成的伤害
 	var hero_per_damage = Math.max(hero_atk - mon_def, 0);
