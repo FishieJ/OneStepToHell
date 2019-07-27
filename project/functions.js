@@ -840,6 +840,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[141, "中子束", "【血海奥义】简单粗暴而威力巨大的攻击\n怪物每回合普攻2次，魔攻1次。", "#ff0000"],
 		[142, "法力虚空", "【血海奥义】敌人将因使用魔法而遭到惩戒\n瞬间造成对手最大生命值X%的伤害，X为已损失魔法的比例", "#747dff"],
 		[143, "净爆", "【血海奥义】净化之极致\n战斗前，怪物使勇士护盾变为100倍，然后附加此时勇士护盾数值的" + core.values.purify + "倍作为伤害", "#00d2d4"],
+		[144, "崩甲", "【血海奥义】相比净化，牺牲了爆发力，但更加持久\n怪物每回合附加勇士战斗开始时的护盾数值的0.1倍作为伤害", "#00d2d4"],
 	];
 },
         "getEnemyInfo": function (enemy, hero, x, y, floorId) {
@@ -1143,6 +1144,10 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	if (core.hasSpecial(mon_special, 141)) {
 		per_damage *= 2;
 		per_damage += mon_atk;
+	}
+	// 崩甲
+	if (core.hasSpecial(mon_special, 144)) {
+		per_damage += hero_mdef * 0.1;
 	}
 
 	// 每回合的反击伤害；反击是按照勇士的攻击次数来计算回合

@@ -49,7 +49,7 @@ var enemys_fcae963b_31c9_42b4_b48c_bb48d09f3f80 =
 	"silverSlime": {"name":"银莱姆","hp":280,"atk":36,"def":13,"money":0,"experience":6,"point":0,"special":0,"level":"萌新四段"},
 	"swordEmperor": {"name":"剑圣","hp":6000000,"atk":580000,"def":190000,"money":0,"experience":35000,"point":0,"special":[1,131],"level":"血海大成"},
 	"whiteHornSlime": {"name":"白骨头颅","hp":300000,"atk":44000,"def":25000,"money":0,"experience":1410,"point":0,"special":9,"level":"红海低阶"},
-	"badPrincess": {"name":"痛苦魔女","hp":0,"atk":0,"def":0,"money":0,"experience":0,"point":0,"special":0,"level":"血海初成"},
+	"badPrincess": {"name":"魔神妖女","hp":2500000,"atk":290000,"def":180000,"money":0,"experience":22500,"point":0,"special":[126,144],"level":"血海初成","v_126":10},
 	"badFairy": {"name":"黑暗仙子","hp":60000,"atk":27500,"def":7500,"money":0,"experience":5000,"point":0,"special":116,"level":"蓝海巅峰"},
 	"grayPriest": {"name":"中级法师","hp":0,"atk":0,"def":0,"money":0,"experience":0,"point":0,"special":0},
 	"redSwordsman": {"name":"剑王","hp":233,"atk":128,"def":5,"money":0,"experience":0,"point":0,"special":[4,101],"n":8,"level":"未知境界"},

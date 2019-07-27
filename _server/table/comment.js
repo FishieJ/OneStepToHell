@@ -229,7 +229,7 @@ var comment_c456ea59_6018_45ef_8bcc_211a24c627dc = {
 				"v_126": {
 					"_leaf": true,
 					"_type": "textarea",
-					"_data": "死亡百分比"
+					"_data": "苦痛百分比"
 				},
 				"poison": {
 					"_leaf": true,
