@@ -193,7 +193,7 @@ var enemys_fcae963b_31c9_42b4_b48c_bb48d09f3f80 =
 	"E530": {"name":"十夜黄","hp":2040000,"atk":110000,"def":0,"money":0,"experience":10700,"point":0,"special":[2,15],"level":"血海初成","zoneSquare":true,"value":500000},
 	"E531": {"name":"血海骑士","hp":2440000,"atk":260000,"def":15000,"money":0,"experience":11800,"point":0,"special":[1,16],"level":"血海初成"},
 	"E532": {"name":"血海亡魂","hp":3000000,"atk":215000,"def":120000,"money":0,"experience":15000,"point":0,"special":[11,22,101],"level":"血海初成","damage":300,"value":0.333333333333},
-	"E533": {"name":"石奋","hp":600000,"atk":180000,"def":150000,"money":0,"experience":10800,"point":0,"special":[3],"value":null,"level":"血海初成"},
+	"E533": {"name":"石奋","hp":600000,"atk":180000,"def":150000,"money":0,"experience":10800,"point":0,"special":[3,143],"value":null,"level":"血海初成"},
 	"E534": {"name":"火蝙蝠","hp":500000,"atk":330000,"def":70000,"money":0,"experience":9700,"point":0,"special":11,"level":"血海初成","value":0.333333333333},
 	"E535": {"name":"伊似柳","hp":6700417,"atk":641,"def":641,"money":0,"experience":14600,"point":0,"special":[10,102],"zoneSquare":true,"n":10,"value":24,"level":"血海初成"},
 	"E540": {"name":"伯力死士","hp":4800000,"atk":480000,"def":160000,"money":0,"experience":30800,"point":0,"special":[16,126],"level":"血海大成","v_126":20},

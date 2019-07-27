@@ -115,7 +115,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"shield0": {
 			"cls": "constants",
 			"name": "{被动}高级护盾",
-			"text": "每1点护盾可以在战斗中抵挡${flag:mdef_ratio}点伤害",
+			"text": "每1点护盾可以在战斗中抵挡${flag:mdef_ratio}点伤害（无此技能时只能抵挡1点）",
 			"equip": null
 		},
 		"shield1": {

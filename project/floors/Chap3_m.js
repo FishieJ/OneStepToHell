@@ -200,7 +200,7 @@ main.floors.Chap3_m=
                 "type": "if",
                 "condition": "core.itemCount('redKey') < 3",
                 "true": [
-                    "当前未清理怪物较多，请自行检查。",
+                    "先把红钥匙集齐再来检测吧。",
                     {
                         "type": "exit"
                     }

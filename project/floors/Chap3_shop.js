@@ -494,19 +494,19 @@ main.floors.Chap3_shop=
                                             },
                                             {
                                                 "type": "choices",
-                                                "text": "\t[权圣教商人,womanMagician]抑郁石可以封印你的一部分生命上限。装备后生命上限降低\r[yellow]20%\r[white]。价格\r[yellow]400\r[white]金币。",
+                                                "text": "\t[权圣教商人,womanMagician]抑郁石可以封印你的一部分生命上限。装备后生命上限降低\r[yellow]20%\r[white]。价格\r[yellow]1500\r[white]金币。",
                                                 "choices": [
                                                     {
                                                         "text": "买！",
                                                         "action": [
                                                             {
                                                                 "type": "if",
-                                                                "condition": "core.itemCount('coin') >= 400",
+                                                                "condition": "core.itemCount('coin') >= 1500",
                                                                 "true": [
                                                                     {
                                                                         "type": "addValue",
                                                                         "name": "item:coin",
-                                                                        "value": "-400"
+                                                                        "value": "-1500"
                                                                     },
                                                                     {
                                                                         "type": "addValue",
@@ -558,19 +558,19 @@ main.floors.Chap3_shop=
                                                 "false": [
                                                     {
                                                         "type": "choices",
-                                                        "text": "\t[权圣教商人,womanMagician]这个盾牌可以让你面对【净化】时封印自身的一部分护盾，从而使你受到的净化伤害减少。（当前净化倍数为\r[yellow]${core.values.purify}\r[white]，可以用\r[yellow]${1000*(7-core.values.purify)}\r[white]金币减少1倍。）",
+                                                        "text": "\t[权圣教商人,womanMagician]这个盾牌可以让你面对【净化】时封印自身的一部分护盾，从而使你受到的净化伤害减少。（当前净化倍数为\r[yellow]${core.values.purify}\r[white]，可以用\r[yellow]${625*(2**(7-core.values.purify))}\r[white]金币减少1倍。）",
                                                         "choices": [
                                                             {
                                                                 "text": "买！",
                                                                 "action": [
                                                                     {
                                                                         "type": "if",
-                                                                        "condition": "core.itemCount('coin') >= 1000*(7-core.values.purify)",
+                                                                        "condition": "core.itemCount('coin') >= 625*(2**(7-core.values.purify))",
                                                                         "true": [
                                                                             {
                                                                                 "type": "addValue",
                                                                                 "name": "item:coin",
-                                                                                "value": "-1000*(7-core.values.purify)"
+                                                                                "value": "-625*(2**(7-core.values.purify))"
                                                                             },
                                                                             {
                                                                                 "type": "function",
@@ -980,7 +980,7 @@ main.floors.Chap3_shop=
                     {
                         "type": "addValue",
                         "name": "item:coin",
-                        "value": "2000"
+                        "value": "2500"
                     }
                 ],
                 "false": []

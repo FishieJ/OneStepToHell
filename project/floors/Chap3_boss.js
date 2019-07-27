@@ -715,20 +715,32 @@ main.floors.Chap3_boss=
                 "type": "setBlock",
                 "number": "specialDoor",
                 "loc": [
-                    6,
-                    0
+                    [
+                        6,
+                        0
+                    ]
                 ]
             },
             {
                 "type": "setBlock",
                 "number": "specialDoor",
                 "loc": [
-                    6,
-                    12
+                    [
+                        6,
+                        12
+                    ]
                 ]
             },
             "\t[邪恶黑影,N425]\b[up,6,6]哈哈，已经太晚了。",
             "\t[邪恶黑影,N425]\b[up,6,6]这次你跑不掉了，熙枫。",
+            {
+                "type": "if",
+                "condition": "core.getFlag('invisible')",
+                "true": [
+                    "\t[hero]\b[down,hero]（这……隐身药水都没有效果吗……）"
+                ],
+                "false": []
+            },
             "\t[hero]\b[down,hero]啥？你们在说谁？",
             "\t[邪恶黑影,N425]\b[up,6,6]小子别装傻了，这大半夜的这么努力杀怪，升级还这么快，你不会真觉得你不起眼吧？",
             "\t[邪恶黑影,N425]\b[up,6,6]不过，你就算不杀怪躲起来也是坐以待毙，我们早晚会找到你的。",
@@ -785,7 +797,7 @@ main.floors.Chap3_boss=
                 ],
                 "floorId": "EventMap"
             },
-            "携带的所有道具已换算成等值的货币。",
+            "\t[系统提示]携带的所有道具已换算成等值的货币。",
             "\t[阴魂黑影,N425]\b[down,9,3]别扯那些乱七八糟的了，赶快动手，免得死于话多。",
             "\t[熙枫,heroine]（你，愿意拼命一搏吗？）",
             "\t[hero]（当然！小姐姐有办法吗？）",
@@ -818,6 +830,11 @@ main.floors.Chap3_boss=
             },
             {
                 "type": "addValue",
+                "name": "status:hp",
+                "value": "5000000"
+            },
+            {
+                "type": "addValue",
                 "name": "status:atk",
                 "value": "100000"
             },
@@ -826,20 +843,11 @@ main.floors.Chap3_boss=
                 "name": "status:def",
                 "value": "50000"
             },
-            "进入魔化状态，血量上限增加500万，攻击增加10万，防御增加5万！",
-            {
-                "type": "insert",
-                "loc": [
-                    10,
-                    0
-                ],
-                "floorId": "EventMap"
-            },
-            "状态回满！",
+            "进入魔化状态，血量、血量上限增加500万，攻击增加10万，防御增加5万！",
             "\t[熙枫,heroine]（这……竟然黑化了……）",
             "\t[hero]谔谔啊啊啊啊！死吧！",
             "\t[阴魂黑影,N425]\b[down,9,3]哦？竟然强行催发了这小子的血海奥义……这倒是有点麻烦了……",
-            "\t[邪恶黑影,N425]\b[up,6,6]哼，自不量力。",
+            "\t[邪恶黑影,N425]\b[up,6,6]哼，自不量力，这种强行催发的奥义必然无法发挥全部的力量。",
             "\t[邪恶黑影,N425]\b[up,6,6]你们退下，我自己来解决他，让他明白真正的血海强者的力量！",
             {
                 "type": "hide",
@@ -866,8 +874,10 @@ main.floors.Chap3_boss=
                 "type": "setBlock",
                 "number": "E494",
                 "loc": [
-                    6,
-                    6
+                    [
+                        6,
+                        6
+                    ]
                 ]
             }
         ]

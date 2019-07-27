@@ -312,6 +312,8 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		drawEnemyAnimate('dark2');
 	} else if (enemyId == 'E543') {
 		drawEnemyAnimate('dark');
+	} else if (core.enemys.hasSpecial(special, 143)) {
+		drawEnemyAnimate('purify');
 	} else if (core.enemys.hasSpecial(special, 132)) {
 		drawEnemyAnimate('blackmagic');
 	} else if (core.enemys.hasSpecial(special, 141)) {
@@ -720,12 +722,16 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[3, "坚固", "勇士每次普通攻击最多只能对怪物造成1点伤害。", "#b9822d"],
 		[4, "2连击", "怪物每回合攻击2次"],
 		[5, "3连击", "怪物每回合攻击3次"],
-		[6, function (enemy) { return (enemy.n || 4) + "连击"; }, function (enemy) { return "怪物每回合攻击" + (enemy.n || 4) + "次"; }],
+		[6, function (enemy) { return (enemy.n || 4) + "连击"; }, function (enemy) {
+			if (enemy.n > 10)
+				return "【血海奥义】足以令对手绝望的快速攻击\n怪物每回合攻击18次";
+			return "怪物每回合攻击" + (enemy.n || 4) + "次";
+		}],
 		[7, "破甲", function (enemy) { return "侵蚀对手的护甲。首回合怪物攻击时，附加勇士防御的" + Math.floor(100 * enemy.value || 0) + "%作为伤害"; }, "#b30000"],
 		[8, "反伤", function (enemy) { return "来犯之敌，自讨苦吃。勇士攻击时，攻击力的" + Math.floor(100 * enemy.value || 0) + "%也会同时伤害到自身，此伤害无视防御。"; }, "#bd26ce"],
-		[9, "净化", "【红海技能】用对手的护盾反制对手\n战斗前，怪物附加勇士护盾的" + core.values.purify + "倍作为伤害", "#00d2d4"],
+		[9, "净化", "【红海技能】用对手的护盾反制对手\n战斗前，怪物附加勇士护盾数值的" + core.values.purify + "倍作为伤害", "#00d2d4"],
 		[10, "模仿", "【红海技能】遇弱则弱，遇强则强\n怪物的攻防与勇士基础攻防相等。", "#ff00d2"],
-		[11, "吸血", function (enemy) { return "【红海技能】最常见的红海技能\n战斗前，怪物首先将角色的" + Math.floor(100 * enemy.value || 0) + "%当前生命（约" + Math.floor((enemy.value || 0) * core.getStatus('hp')) + "点）作为伤害" + (enemy.add ? "，并把伤害数值加到自身生命上" : ""); }, "#ff00d2"],
+		[11, "吸血", function (enemy) { return "【红海技能】据说一些蓝海生物也能够掌握\n战斗开始时，怪物首先将角色的" + Math.floor(100 * enemy.value || 0) + "%当前生命（约" + Math.floor((enemy.value || 0) * core.getStatus('hp')) + "点）作为伤害" + (enemy.add ? "，并把伤害数值加到自身生命上" : ""); }, "#ff00d2"],
 		[12, "中毒", function (enemy) { return "【红海技能】战斗后，勇士陷入中毒状态，在接下来的战斗中每回合损失生命" + enemy.poison + "点，效果可叠加。"; }, "#4aff60"],
 		[13, "衰弱", function (enemy) { return "【红海技能】战斗后，勇士获得" + enemy.weak + "层衰弱状态，每层使得战斗中攻防下降" + (core.values.weakValue >= 1 ? core.values.weakValue + "点" : parseInt(core.values.weakValue * 100) + "%") + "。每次战斗减少1层。"; }, "#feccd0"],
 		[14, "霜寒", function (enemy) { return "怪物对敌人施加霜寒诅咒。战斗后，你获得" + enemy.n + "层霜寒状态，每层使你普通攻击造成的伤害降低1%，加法叠加。"; }, "#747dff"],
@@ -792,7 +798,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[125, "血域", function (enemy) { return "【红海技能】生命在流逝\n经过怪物周围" + (enemy.zoneSquare ? "九宫格" : "十字") + "范围内" + (enemy.range || 1) + "格时自动减当前生命的" + (enemy.value || 0) + "%"; }, "#ff00d2"],
 		[126, "苦痛", function (enemy) { return "【红海技能】引诱对手走向死亡\n战斗开始时，造成对方已损失生命值" + enemy.v_126 + "%的伤害。"; }, "#b30000"],
 		[127, "死亡镰刀", function (enemy) { return "【红海技能】似乎是某个血海奥义的劣化版本。第5回合结束时，造成相当于对方已损失生命值100%的伤害。"; }, "#ff00d2"],
-		[128, "邪恶净化", "【血海奥义】运用至邪之力打击对手\n移除对方的护盾，并造成100万额外伤害。", "#b113ff"],
+		[128, "邪恶净化", "【血海奥义】运用至邪之力打击对手\n战斗开始前，暂时移除对方的所有护盾，并造成100万额外伤害。", "#b113ff"],
 		[130, "审判之剑", "【血海奥义】传说此招曾经击败过一位想要复仇的魔王\n剥夺对手拥有的剑盾，且如果对方拥有“魔王”称号，则使其攻防减半", "#ff0000"],
 		[131, "无敌斩", "【血海奥义】以无敌的姿态爆发出暴雨般的斩击\n战前以2倍攻击力先攻9次", "#ff0000"],
 		[132, "混乱", "颠倒对手的能力。战斗中，勇士攻防互换", "#c3c3c3"],
@@ -833,7 +839,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		}, function (enemy) { var x = enemy.range * 2 + 1; return (enemy.atkValue > 0 ? "增加" : "减少") + "以自身为中心" + x + "*" + x + "范围内所有友军" + (Math.abs(enemy.atkValue) || 0) + "%的攻击力，线性叠加。"; }, "#fff900"],
 		[141, "中子束", "【血海奥义】简单粗暴而威力巨大的攻击\n怪物每回合普攻2次，魔攻1次。", "#ff0000"],
 		[142, "法力虚空", "【血海奥义】敌人将因使用魔法而遭到惩戒\n瞬间造成对手最大生命值X%的伤害，X为已损失魔法的比例", "#747dff"],
-		[143, "净爆", "【血海奥义】净化之极致\n战斗前，怪物使勇士护盾变为100倍，然后附加此时勇士护盾的" + core.values.purify + "倍作为伤害", "#00d2d4"],
+		[143, "净爆", "【血海奥义】净化之极致\n战斗前，怪物使勇士护盾变为100倍，然后附加此时勇士护盾数值的" + core.values.purify + "倍作为伤害", "#00d2d4"],
 	];
 },
         "getEnemyInfo": function (enemy, hero, x, y, floorId) {
@@ -885,7 +891,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	// 光环检查
 	// 在这里判定是否需要遍历全图（由于光环需要遍历全图，应尽可能不需要以减少计算量，尤其是大地图）
 	var query = function () {
-		var floorIds = ["MT70", "MT78", "MT79", "MT7A", "MT87", "MT88", "MT89", "MT90", "Chap3_boss", "MT100", "MT102", "MT103", "MT104", "MT105", "MT106", "MT108", "MT109", "MT110", "MT111", "MT113", "MT114", "MT115", "MT116", "MT118", "MT119", "MT120", "Final"]; // 在这里给出所有需要遍历的楼层（即有光环或支援等）
+		var floorIds = ["MT70", "MT78", "MT79", "MT7A", "MT80", "MT87", "MT88", "MT89", "MT90", "Chap3_boss", "MT100", "MT102", "MT103", "MT104", "MT105", "MT106", "MT108", "MT109", "MT110", "MT111", "MT113", "MT114", "MT115", "MT116", "MT118", "MT119", "MT120", "Final"]; // 在这里给出所有需要遍历的楼层（即有光环或支援等）
 		return core.inArray(floorIds, floorId); // 也可以写其他的判定条件
 	};
 

@@ -438,52 +438,10 @@ main.floors.MT60=
                             "type": "setBlock",
                             "number": "yellowKey",
                             "loc": [
-                                6,
-                                1
-                            ]
-                        },
-                        {
-                            "type": "jump",
-                            "from": [
-                                6,
-                                1
-                            ],
-                            "to": [
-                                3,
-                                2
-                            ],
-                            "time": 500,
-                            "keep": true,
-                            "async": true
-                        },
-                        {
-                            "type": "setBlock",
-                            "number": "yellowKey",
-                            "loc": [
-                                6,
-                                1
-                            ]
-                        },
-                        {
-                            "type": "jump",
-                            "from": [
-                                6,
-                                1
-                            ],
-                            "to": [
-                                9,
-                                2
-                            ],
-                            "time": 500,
-                            "keep": true,
-                            "async": true
-                        },
-                        {
-                            "type": "setBlock",
-                            "number": "yellowKey",
-                            "loc": [
-                                6,
-                                1
+                                [
+                                    6,
+                                    1
+                                ]
                             ]
                         },
                         {
@@ -511,8 +469,10 @@ main.floors.MT60=
                             "type": "setBlock",
                             "number": "blueKey",
                             "loc": [
-                                6,
-                                1
+                                [
+                                    6,
+                                    1
+                                ]
                             ]
                         },
                         {
