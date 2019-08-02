@@ -21,6 +21,11 @@ main.floors.MT94_2=
             "type": "sleep",
             "time": 1000
         },
+        "这次出现在莫逆眼前的是熙枫和两个陌生少女，以及……一只黑糊糊的虎头怪物。",
+        {
+            "type": "sleep",
+            "time": 1000
+        },
         "\t[粉发少女,npc3]\b[down,7,4]糟糕了，这里怎么会出现这么残暴的怪物……",
         "\t[蓝帽少女,npc1]\b[down,5,4]熙枫妹妹快跑吧，我们给你断后。",
         "\t[熙枫,heroine]\b[down,6,3]不！我怎么能抛下你们自己跑呢？",
@@ -56,9 +61,16 @@ main.floors.MT94_2=
             "type": "setBlock",
             "number": "N506",
             "loc": [
-                5,
-                4
+                [
+                    5,
+                    4
+                ]
             ]
+        },
+        "少女的体力显然早就到了极限，怪物只用了一击就将她击倒在地。",
+        {
+            "type": "sleep",
+            "time": 500
         },
         "\t[粉发少女,npc3]\b[down,7,4]还愣着干嘛，吓傻了吗？快跑啊！",
         {
@@ -91,11 +103,17 @@ main.floors.MT94_2=
             "type": "setBlock",
             "number": "N505",
             "loc": [
-                7,
-                4
+                [
+                    7,
+                    4
+                ]
             ]
         },
         "\t[熙枫,heroine]\b[down,6,3]……",
+        {
+            "type": "sleep",
+            "time": 500
+        },
         {
             "type": "jump",
             "from": [
@@ -112,6 +130,11 @@ main.floors.MT94_2=
         {
             "type": "playSound",
             "name": "082-Monster04.ogg"
+        },
+        "熙枫的脸上没有任何的惊恐之色，她明显在为某件事情犹豫不决。",
+        {
+            "type": "sleep",
+            "time": 500
         },
         "\t[熙枫,heroine]\b[down,6,3]不行……不能再这样了……",
         {

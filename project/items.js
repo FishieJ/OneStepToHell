@@ -380,7 +380,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"skill3": {
 			"cls": "constants",
 			"name": "感受温暖 (4)",
-			"text": "感受小姐姐释放的温暖。消耗${flag:skill3_cost}点魔法，驱除所有严寒诅咒状态。快捷键为4。"
+			"text": "感受小姐姐释放的温暖。消耗${flag:skill3_cost}点魔法，驱除所有霜寒状态。快捷键为4。"
 		},
 		"I_hard_1": {
 			"cls": "constants",
@@ -657,7 +657,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"smallJump": "if (core.getFlag('after_final_boss', 0)) {\n\tcore.insertAction(\"\\t[hero]闲的没事跳什么跳啊，赶快离开这。\");\n} else {\n\tcore.status.hero.mana -= core.getFlag('smallJump_cost', 30);\n\tcore.insertAction({ \"type\": \"jumpHero\", \"loc\": [core.nextX(1), core.nextY(1)] });\n\n\tvar charge_ratio = core.getFlag('charge_ratio', 0.02);\n\tvar charge_atk = core.getFlag('charge_atk', 0);\n\tcore.setFlag('charge_atk', Math.max(charge_atk - charge_ratio * core.status.hero.atk, 0));\n}",
 		"I_morph": "// 直接判断是否可以使用即可\nvar curMana = core.status.hero.mana;\nvar cost = core.getFlag('skill5_cost', 641);\nif (curMana >= cost) {\n\tcore.status.hero.mana -= cost;\n\tcore.insertAction([{ \"type\": \"insert\", \"loc\": [12, 0], \"floorId\": \"EventMap\" }]);\n} else {\n\tcore.drawTip(\"魔法不足。\");\n}",
 		"I_resetTalent": "core.insertAction([{ \"type\": \"insert\", \"loc\": [0, 7], \"floorId\": \"EventMap\" }]);\n\n/*var list = [\"skill1_lv\", \"skill2_lv\", \"skill4_lv\", \"talent1_lv\", \"talent2_lv\", \"talent3_lv\", \"poison_lv\"];\nfor (var i in list) {\n\tvar z = core.getFlag(list[i], 0);\n\tconsole.log(list[i], z);\n\tif (z > 0) {\n\t\tcore.addFlag('talentPoint', z);\n\t\tcore.setFlag(list[i], 0);\n\t}\n}\ncore.setFlag('skill1_val', 3.5);\ncore.setFlag('skill2_def_ratio', 3);\ncore.setFlag('skill4_val', 5);\ncore.setFlag('vampire_ratio', 0.2);\ncore.setFlag('mana_regen', 3);\ncore.setFlag('mdef_ratio', 1.5);\ncore.drawTip('重置成功');*/",
-		"I_morphed": "core.insertAction([\n\t\"你现在对以下怪物特技免疫：吸血、死亡、自爆，以及地图伤害类技能，如夹击、夹爆、领域、域爆等等。简而言之就是不需要控制血量百分比了！\",\n]);"
+		"I_morphed": "core.insertAction([\n\t\"你现在对以下怪物特技免疫：吸血、苦痛、自爆，以及地图伤害类技能，如夹击、夹爆、领域、域爆等等。简而言之就是不需要控制血量百分比了！\",\n]);"
 	},
 	"canUseItemEffect": {
 		"book": "true",

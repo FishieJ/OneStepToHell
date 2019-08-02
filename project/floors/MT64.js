@@ -23,13 +23,13 @@ main.floors.MT64=
             "type": "sleep",
             "time": 500
         },
-        "\t[熙枫,heroine]这里往下走。",
+        "\t[熙枫,heroine]这里往南走。",
         {
             "type": "if",
             "condition": "flag:hard < 3",
             "true": [
-                "\t[hero]谔谔，下去的路被堵住了。",
-                "\t[熙枫,heroine]它的特技，可以利用一下。"
+                "\t[hero]谔谔，那边的路被堵住了。",
+                "\t[熙枫,heroine]那个怪物的特技，可以利用一下。"
             ],
             "false": [
                 "\t[hero]好的。"

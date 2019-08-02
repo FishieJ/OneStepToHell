@@ -3218,7 +3218,7 @@ main.floors.EventMap=
             },
             {
                 "type": "win",
-                "reason": "血海王中王"
+                "reason": "伯力征服者"
             }
         ],
         "11,11": [
@@ -3257,7 +3257,7 @@ main.floors.EventMap=
                                             11
                                         ],
                                         "direction": "left",
-                                        "time": 500
+                                        "time": 0
                                     }
                                 ],
                                 "no": [
@@ -3299,7 +3299,7 @@ main.floors.EventMap=
                                             11
                                         ],
                                         "direction": "left",
-                                        "time": 500
+                                        "time": 0
                                     }
                                 ],
                                 "no": [
@@ -3341,7 +3341,7 @@ main.floors.EventMap=
                                             11
                                         ],
                                         "direction": "left",
-                                        "time": 500
+                                        "time": 0
                                     }
                                 ],
                                 "no": [

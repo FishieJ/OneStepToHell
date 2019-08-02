@@ -85,7 +85,7 @@ main.floors.Chap3_shop=
                                 "type": "sleep",
                                 "time": 500
                             },
-                            "\t[镇仙域商人,woman]\b[up,3,8]所以小哥要不要买解毒药？"
+                            "\t[镇仙域商人,woman]\b[up,3,8]所以小哥从毒雾沼泽找来这么一块矿石一定不容易吧？要不要买解毒药？"
                         ],
                         "false": []
                     },

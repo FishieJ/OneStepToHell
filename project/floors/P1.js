@@ -33,6 +33,10 @@ main.floors.P1=
             "false": []
         },
         {
+            "type": "sleep",
+            "time": 1000
+        },
+        {
             "type": "setText",
             "time": 37
         },

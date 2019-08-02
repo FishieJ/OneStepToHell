@@ -18,7 +18,12 @@ main.floors.MT61=
         },
         "\t[hero]啊哈……我看到出口了！"
     ],
-    "eachArrive": [],
+    "eachArrive": [
+        {
+            "type": "function",
+            "function": "function(){\ncore.setFlag('bgLight', []);\ncore.drawMap();\n}"
+        }
+    ],
     "parallelDo": "",
     "events": {},
     "changeFloor": {

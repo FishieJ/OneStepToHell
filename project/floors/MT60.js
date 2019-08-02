@@ -32,7 +32,7 @@ main.floors.MT60=
         },
         {
             "type": "function",
-            "function": "function(){\ncore.updateStatusBar();\n}"
+            "function": "function(){\ncore.updateStatusBar();\ncore.values.animateSpeed = 360;\n}"
         },
         {
             "type": "moveHero",
@@ -56,12 +56,14 @@ main.floors.MT60=
             "time": 500
         },
         "\t[hero]嗯？这个猫耳少女是什么时候出现的？之前完全没有感受到她的气息……",
+        "借着一点光亮，莫逆观察着这个少女。齐整的紫色短发，加上猫耳朵和发箍，任何人看到她都会觉得她很可爱吧。",
         "\t[熙枫,heroine]小心，大半夜的出现在这种地方，绝对不是寻常人……",
+        "\t[hero]（也对，刚才看到她的模样我竟然就不自觉地放松了警惕……）",
         "\t[叶芊,yeq]你好啊，我是来自艾奇王国叶家的叶芊。",
         "\t[hero]……你好，我叫莫逆。",
         {
             "type": "sleep",
-            "time": 1000
+            "time": 2000
         },
         "\t[叶芊,yeq]……你脑海里那位小姐姐不出来自我介绍一下吗？",
         {
@@ -172,7 +174,7 @@ main.floors.MT60=
                             "time": 0
                         },
                         "\t[叶芊,yeq]听了你这番话，我反倒更想得到她了哦？",
-                        "\t[叶芊,yeq]哎，既然这样，莫怪我动手抢夺了。放心，等我打赢了也会付钱的。",
+                        "\t[叶芊,yeq]哎，既然这样，莫怪我动手抢夺了。放心，等我打赢了还会给你补偿的。",
                         "\t[hero]多说无益！",
                         "\t[叶芊,yeq]很好，我这就让你领教一下真正的蓝海巅峰的力量！",
                         {
@@ -188,8 +190,10 @@ main.floors.MT60=
                             "type": "setBlock",
                             "number": "yeq_battle",
                             "loc": [
-                                6,
-                                3
+                                [
+                                    6,
+                                    3
+                                ]
                             ]
                         },
                         {
@@ -370,7 +374,7 @@ main.floors.MT60=
                 },
                 {
                     "type": "function",
-                    "function": "function(){\ncore.setBgLight([]);\ncore.setFlag('60_finished', 1);\n}"
+                    "function": "function(){\ncore.setBgLight([]);\ncore.setFlag('60_finished', 1);\ncore.values.animateSpeed = 400;\n}"
                 },
                 {
                     "type": "move",
@@ -509,18 +513,18 @@ main.floors.MT60=
                 "\t[hero]说起来，小姐姐蓝海九阶的时候有她厉害吗？",
                 "\t[熙枫,heroine]嗯？你问这个干嘛？",
                 "\t[hero]我只是好奇啊，或者小姐姐给我讲一讲你以前的故事，随便什么都行。",
-                "\t[熙枫,heroine]……不行，不能说。",
+                "\t[熙枫,heroine]……不行，现在还不能说。",
                 "\t[hero]……唉，真没意思。",
                 {
                     "type": "sleep",
                     "time": 500
                 },
-                "\t[hero]对了，她竟然能直接看出你的存在，这是不是意味着我的处境其实很危险？",
+                "\t[hero]还有一件事，她竟然能直接看出你的存在，这是不是意味着我的处境其实很危险？",
                 "\t[熙枫,heroine]这倒不必太担心，一般人绝对感应不到我的。不过，\r[red]那些人\r还是可以的，若是你被他们找到，连还手之力都没有。",
                 "\t[hero]果然还是因为我太弱了……我接下来去哪修炼？",
                 "\t[熙枫,heroine]红海境界的生物对你来讲还是有些危险，先找一些蓝海巅峰的怪物吧。",
                 "\t[hero]就算是红海境界的生物我也不怕！不管哪里，去就是了！",
-                "\t[熙枫,heroine]很好。那么，先回去把地上的血瓶都搜集了，再踏入传送阵吧。"
+                "\t[熙枫,heroine]很好。那么，先回去把地上的血瓶都搜集了，再从前方的传送阵离开吧。"
             ]
         },
         "6,12": {
@@ -538,26 +542,43 @@ main.floors.MT60=
             "data": [
                 {
                     "type": "if",
-                    "condition": "core.status.hero.lv < 18 || (core.status.hero.lv == 18 && core.status.hero.experience < 64791)",
+                    "condition": "!switch:A",
                     "true": [
-                        "\t[hero]前面好像还有怪物没有清理……",
+                        "正在检测是否有剩余怪物。",
                         {
-                            "type": "moveHero",
-                            "time": 100,
-                            "steps": [
-                                "down"
-                            ]
+                            "type": "function",
+                            "function": "function(){\ncore.checkMonster([\"Area5_m\", \"MT41\", \"MT42\", \"MT43\", \"MT44\", \"MT45\", \"MT46\", \"MT47\", \"MT48\", \"MT49\", \"MT50\", \"MT51\", \"MT52\", \"MT53\", \"MT54\", \"MT55\", \"MT56\", \"MT57\", \"MT58\", \"MT59\", \"MT5A\", \"MT60\"]);\n}"
                         },
                         {
-                            "type": "insert",
-                            "loc": [
-                                3,
-                                0
+                            "type": "if",
+                            "condition": "flag:remainMonsterCount>0",
+                            "true": [
+                                "共有${flag:remainMonsterCount}只怪物未清除。",
+                                "剩余怪物：${flag:remainMonsterInfo}",
+                                {
+                                    "type": "moveHero",
+                                    "time": 100,
+                                    "steps": [
+                                        "down"
+                                    ]
+                                },
+                                {
+                                    "type": "setValue",
+                                    "name": "flag:charge_atk",
+                                    "value": "0"
+                                },
+                                {
+                                    "type": "exit"
+                                }
                             ],
-                            "floorId": "EventMap"
-                        },
-                        {
-                            "type": "exit"
+                            "false": [
+                                "怪物已清完！",
+                                {
+                                    "type": "setValue",
+                                    "name": "switch:A",
+                                    "value": "1"
+                                }
+                            ]
                         }
                     ],
                     "false": []

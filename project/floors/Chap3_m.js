@@ -15,7 +15,7 @@ main.floors.Chap3_m=
     "firstArrive": [
         {
             "type": "function",
-            "function": "function(){\ncore.setFlag('darkRatio', 0);\ncore.setFlag('bgLight', []);\ncore.drawMap();\n}"
+            "function": "function(){\ncore.setFlag('darkRatio', 0.5);\ncore.setFlag('bgLight', [\n\t[304, 304, 100]\n]);\ncore.drawMap();\n}"
         },
         {
             "type": "if",
@@ -44,7 +44,7 @@ main.floors.Chap3_m=
     "eachArrive": [
         {
             "type": "function",
-            "function": "function(){\ncore.setFlag('darkRatio', 0);\ncore.setFlag('bgLight', []);\ncore.drawMap();\n}"
+            "function": "function(){\ncore.setFlag('darkRatio', 0.5);\ncore.setFlag('bgLight', [\n\t[304, 304, 100]\n]);\ncore.drawMap();\n}"
         }
     ],
     "parallelDo": "",

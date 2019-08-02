@@ -48,8 +48,12 @@ main.floors.MT20=
                     "time": 2000,
                     "async": true
                 },
+                {
+                    "type": "function",
+                    "function": "function(){\ncore.values.animateSpeed = 400;\n}"
+                },
                 "\t[E348]\b[up,10,9]你……你怎么可能这么强？",
-                "\t[hero]\b[up,hero]刚才揍你是因为你对我出言不逊，接下来我要为莫然妹妹继续揍你！",
+                "\t[hero]\b[up,hero]刚才揍你是因为你对我出言不逊，接下来我要为莫婉妹妹继续揍你！",
                 "\t[E348]\b[up,10,9]别别别，爷爷我错了，别打我了……只要你保证不打我，我有个很有价值的信息告诉你……",
                 "\t[hero]\b[up,hero]嗯？什么信息？（反正不管你说不说，揍不揍你还是我说了算）",
                 "\t[E348]\b[up,10,9]前方的\r[yellow]泰南山\r[white]出了个宝贝，这也是为什么我会出现在这里……",
@@ -129,6 +133,10 @@ main.floors.MT20=
                 "type": "confirm",
                 "text": "前方boss战，确认要进入吗？",
                 "yes": [
+                    {
+                        "type": "function",
+                        "function": "function(){\ncore.values.animateSpeed = 340;\n}"
+                    },
                     {
                         "type": "show",
                         "loc": [
@@ -268,49 +276,26 @@ main.floors.MT20=
             "displayDamage": true,
             "data": []
         },
-        "10,0": [
+        "11,0": [
+            "这里是漏怪检测装置。正在检测是否有剩余怪物。",
+            {
+                "type": "function",
+                "function": "function(){\ncore.checkMonster([\"MT11\", \"MT12\", \"MT13\", \"MT14\", \"MT15\", \"MT16\", \"MT17\", \"MT18\", \"MT19\", \"MT20\"]);\n}"
+            },
             {
                 "type": "if",
-                "condition": "core.status.hero.lv >= 7",
+                "condition": "flag:remainMonsterCount>0",
                 "true": [
-                    {
-                        "type": "if",
-                        "condition": "core.status.hero.experience >= 80",
-                        "true": [
-                            {
-                                "type": "changeFloor",
-                                "floorId": "MT21",
-                                "loc": [
-                                    2,
-                                    12
-                                ],
-                                "direction": "up",
-                                "time": 1000
-                            }
-                        ],
-                        "false": [
-                            "\t[hero]\r[yellow]泰南山\r[white]离这里挺远的，去了就轻易回不来了，先把剩下的怪清了吧。",
-                            {
-                                "type": "moveHero",
-                                "time": 100,
-                                "steps": [
-                                    "down"
-                                ]
-                            },
-                            "\t[系统提示]可以利用浏览地图功能查找漏掉的怪物，快捷键是PgUp和PgDn。"
-                        ]
-                    }
+                    "共有${flag:remainMonsterCount}只怪物未清除。",
+                    "剩余怪物：${flag:remainMonsterInfo}"
                 ],
                 "false": [
-                    "\t[hero]\r[yellow]泰南山\r[white]离这里挺远的，去了就轻易回不来了，先把剩下的怪清了吧。",
+                    "怪物已清完！",
+                    "\t[系统提示]继续前进将无法再返回此区域，请及时清理地上的资源。",
                     {
-                        "type": "moveHero",
-                        "time": 100,
-                        "steps": [
-                            "down"
-                        ]
-                    },
-                    "\t[系统提示]可以利用浏览地图功能查找漏掉的怪物，快捷键是PgUp和PgDn。"
+                        "type": "hide",
+                        "time": 0
+                    }
                 ]
             }
         ]
@@ -323,6 +308,16 @@ main.floors.MT20=
                 8
             ],
             "time": 0
+        },
+        "12,0": {
+            "floorId": "MT21",
+            "loc": [
+                2,
+                12
+            ],
+            "direction": "up",
+            "time": 1000,
+            "ignoreChangeFloor": false
         }
     },
     "afterBattle": {},
@@ -330,7 +325,7 @@ main.floors.MT20=
     "afterOpenDoor": {},
     "cannotMove": {},
     "map": [
-    [  0,  0,  0,  0,  0,  0, 17,  0,  0,  0, 91,  0,  0],
+    [  0,  0,  0,  0,  0,  0, 17,  0,  0,  0,  0,384, 91],
     [  0,  0,  0,  0,  0,  0, 17,40013,40019, 32,352, 31,40019],
     [  0,  0,  0,  0,  0,  0, 17,  0,350,40009,  0,40009,349],
     [  0,  0,  0,  0,  0,  0, 17,  0, 29,  0, 33,  0, 29],

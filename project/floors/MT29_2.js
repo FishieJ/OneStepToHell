@@ -152,6 +152,10 @@ main.floors.MT29_2=
                     "async": true
                 },
                 {
+                    "type": "function",
+                    "function": "function(){\ncore.values.animateSpeed = 400;\n}"
+                },
+                {
                     "type": "setCurtain",
                     "color": [
                         0,

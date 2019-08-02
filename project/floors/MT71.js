@@ -13,13 +13,22 @@ main.floors.MT71=
     "defaultGround": "grass2",
     "firstArrive": [
         {
+            "type": "function",
+            "function": "function(){\ncore.setFlag('bgLight', []);\ncore.drawMap();\n}"
+        },
+        {
             "type": "sleep",
             "time": 500
         },
         "\t[熙枫,heroine]黑暗森林里面有不少怪物可以根据你\r[yellow]当前的生命值\r造成伤害，不过只要先去其他地方压低生命值，它们的技能就作用不大了。",
         "\t[熙枫,heroine]但如果生命值压得太低就打不过怪物了，所以商人那里卖的\r[yellow]便携式血瓶\r可能会在这里派上用场。"
     ],
-    "eachArrive": [],
+    "eachArrive": [
+        {
+            "type": "function",
+            "function": "function(){\ncore.setFlag('bgLight', []);\ncore.drawMap();\n}"
+        }
+    ],
     "parallelDo": "",
     "events": {},
     "changeFloor": {

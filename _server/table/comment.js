@@ -178,7 +178,7 @@ var comment_c456ea59_6018_45ef_8bcc_211a24c627dc = {
 					"_leaf": true,
 					"_type": "textarea",
 					"_range": "(thiseval==~~thiseval && thiseval>0)||thiseval==null",
-					"_data": "多连击的连击数；上位威压的数值；斩杀的攻击力加成数值；严寒诅咒层数"
+					"_data": "多连击的连击数；上位威压的数值；斩杀的攻击力加成数值；霜寒诅咒层数"
 				},
 				"add": {
 					"_leaf": true,

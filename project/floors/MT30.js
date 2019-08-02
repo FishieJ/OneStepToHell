@@ -22,6 +22,10 @@ main.floors.MT30=
         },
         {
             "type": "loadBgm",
+            "name": "rain.mp3"
+        },
+        {
+            "type": "loadBgm",
             "name": "17-19.mp3"
         },
         {
@@ -149,6 +153,10 @@ main.floors.MT30=
                         "\t[hero]毕竟你是我莫家的家主，我本来还不想跟你撕破脸皮的，既然你逼我……",
                         "\t[hero]为了自由！谔谔啊啊啊啊啊啊啊！",
                         {
+                            "type": "function",
+                            "function": "function(){\ncore.values.animateSpeed = 340;\n}"
+                        },
+                        {
                             "type": "setBlock",
                             "number": "mgz",
                             "loc": [
@@ -192,6 +200,10 @@ main.floors.MT30=
                 {
                     "type": "setBlock",
                     "number": "N367"
+                },
+                {
+                    "type": "function",
+                    "function": "function(){\ncore.values.animateSpeed = 400;\n}"
                 },
                 {
                     "type": "move",
@@ -441,7 +453,6 @@ main.floors.MT30=
                     "type": "sleep",
                     "time": 2000
                 },
-                "第二章 蓝海篇",
                 {
                     "type": "setVolume",
                     "value": 0,

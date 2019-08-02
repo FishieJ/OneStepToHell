@@ -140,6 +140,10 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 		"images": [
 			"area3.jpg",
 			"area12.jpg",
+			"c1.png",
+			"c2.png",
+			"c3.png",
+			"c4.png",
 			"dawn.jpg",
 			"morning.jpg",
 			"winskin.png",
@@ -1028,6 +1032,12 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"time": 500
 					},
 					"\t[hero]喂？喂？",
+					{
+						"type": "animate",
+						"name": "wuyu",
+						"loc": "hero",
+						"async": true
+					},
 					"\t[hero]……",
 					"\t[hero]看来还要再提升境界才能继续对话了……",
 					"\t[hero]嗯……这样说来，这个残魂生前境界应当不低，难道我现在升级这么快，以及能够感知附近怪物的战斗力，这些能力也跟她有关系？"
@@ -1107,6 +1117,12 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"type": "sleep",
 						"time": 500
 					},
+					{
+						"type": "animate",
+						"name": "wuyu",
+						"loc": "hero",
+						"async": true
+					},
 					"\t[hero]……",
 					"\t[hero]我都搞不清她是真的陷入沉睡了还是不想理我了……"
 				]
@@ -1172,6 +1188,12 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"time": 500
 					},
 					"\t[熙枫,heroine]你接纳我的残魂应该不是偶然。你是不是整天做着变成强者的白日梦？",
+					{
+						"type": "animate",
+						"name": "wuyu",
+						"loc": "hero",
+						"async": true
+					},
 					"\t[hero]……",
 					"\t[熙枫,heroine]果然如此。血海级别的残魂，对于你这种境界的人来讲，就是你梦寐以求的力量来源。",
 					"\t[hero]血海级别……你生前是血海境界！血海到底有多强？",
@@ -1186,6 +1208,12 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					"\t[hero]我现在升级这么快，感觉到达血海境界也没什么难度嘛。",
 					"\t[熙枫,heroine]嗯嗯，很好。现在你也知道我会随着你境界的提升而不断恢复，等你成为血海强者我就能恢复到全盛期的实力了，到时我有神秘奖励给你作为报答。",
 					"\t[熙枫,heroine]抓紧时间修炼吧，我要继续休息了，你加油哦。",
+					{
+						"type": "animate",
+						"name": "wuyu",
+						"loc": "hero",
+						"async": true
+					},
 					"\t[hero]……"
 				]
 			},
@@ -1328,6 +1356,12 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					"\t[hero]天哪……突然感觉升级没了尽头，感觉有点迷茫了，我为什么要升级呢？",
 					"\t[hero]既然我很可能永远都升不到最高级别了，我能不能就这样带着小姐姐隐居起来，闲着没事的时候就跟小姐姐聊天，这不也挺幸福的嘛……",
 					"\t[熙枫,heroine]但是那些围攻我的人会找上来带走我的，而你根本无力阻止。",
+					{
+						"type": "animate",
+						"name": "wuyu",
+						"loc": "hero",
+						"async": true
+					},
 					"\t[hero]……你这话也太真实了吧。",
 					"\t[熙枫,heroine]想调戏我你还嫩着呢。"
 				]
@@ -1394,12 +1428,23 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					},
 					"\t[hero]说起来我一直很奇怪，小姐姐这么好的人怎么会被人围攻而落得如此境地？",
 					"\t[熙枫,heroine]拐弯抹角的奉承是没用的。 ",
+					{
+						"type": "animate",
+						"name": "han",
+						"loc": "hero"
+					},
 					"\t[hero]我是真的好奇啊，别说是漂亮的小姐姐，哪怕就是油腻的中年大叔，也不会无缘无故就被人围攻至死吧？",
 					"\t[熙枫,heroine]……利益。而且说起这个，还有一个坏消息要跟你讲。",
 					"\t[hero]什么意思？",
 					"\t[熙枫,heroine]那些人应该知道我这缕残魂逃走了，估计正在到处追杀我。他们全部都是血海境界，以你现在的实力，被他们找到了绝无还手之力。",
 					"\t[hero]这……你就这么隐藏在我脑海里，他们也能发现吗？",
 					"\t[熙枫,heroine]那你可太小看那些人的手段了。",
+					{
+						"type": "animate",
+						"name": "wuyu",
+						"loc": "hero",
+						"async": true
+					},
 					"\t[hero]……好吧我这就好好杀怪升级。",
 					"\t[熙枫,heroine]（嗯，还挺乖的）"
 				]
@@ -1560,6 +1605,11 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					"\t[hero]红海和血海境界这么强，真是有点难以想象我该如何晋入那等境界……毕竟现在我达到蓝海九阶，已经感觉到自己距离下一个等级很遥远了……",
 					"\t[熙枫,heroine]这点你放心好了，有我在的话只要慢慢积累总能突破的。而且也说不定你会碰上什么其他的奇遇。",
 					"\t[熙枫,heroine]比起力量，你反倒更应该重视心性。一定要记住，不论力量多强，若是心性不够，是无法在这个世界上生存下去的。",
+					{
+						"type": "animate",
+						"name": "han",
+						"loc": "hero"
+					},
 					"\t[hero]……小姐姐说教起来真的像是比我大了好多的样子，真是越来越好奇你到底经历过什么。",
 					"\t[熙枫,heroine]你会知道的……不过现在还不行。"
 				]
@@ -1687,6 +1737,19 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"value": "3"
 					},
 					{
+						"type": "if",
+						"condition": "core.getFlag('hard', 0) < 3",
+						"true": [
+							"简单及乱撞难度下额外奖励1点天赋。",
+							{
+								"type": "addValue",
+								"name": "item:talentPoint",
+								"value": "1"
+							}
+						],
+						"false": []
+					},
+					{
 						"type": "insert",
 						"loc": [
 							10,
@@ -1811,6 +1874,19 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"value": "3"
 					},
 					{
+						"type": "if",
+						"condition": "core.getFlag('hard', 0) < 2",
+						"true": [
+							"乱撞难度下额外奖励1点天赋。",
+							{
+								"type": "addValue",
+								"name": "item:talentPoint",
+								"value": "1"
+							}
+						],
+						"false": []
+					},
+					{
 						"type": "addValue",
 						"name": "flag:bring_hp_val",
 						"value": "50000"
@@ -1891,6 +1967,19 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"type": "addValue",
 						"name": "item:talentPoint",
 						"value": "3"
+					},
+					{
+						"type": "if",
+						"condition": "core.getFlag('hard', 0) < 2",
+						"true": [
+							"乱撞难度下额外奖励1点天赋。",
+							{
+								"type": "addValue",
+								"name": "item:talentPoint",
+								"value": "1"
+							}
+						],
+						"false": []
 					},
 					{
 						"type": "addValue",
@@ -2218,11 +2307,11 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"value": "status:mdef+60000"
 					},
 					"晋升为血海大成！生命、生命上限+10000000，魔法、魔法上限+300，攻击+50000，防御+50000，护盾+60000",
-					"获得6点天赋。",
+					"获得5点天赋。",
 					{
 						"type": "addValue",
 						"name": "item:talentPoint",
-						"value": "6"
+						"value": "5"
 					}
 				]
 			},

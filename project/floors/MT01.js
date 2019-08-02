@@ -11,7 +11,32 @@ main.floors.MT01=
     "images": [],
     "item_ratio": 1,
     "defaultGround": "grass",
-    "firstArrive": [],
+    "firstArrive": [
+        {
+            "type": "setCurtain",
+            "time": 500
+        },
+        {
+            "type": "showImage",
+            "code": 1,
+            "image": "c1.png",
+            "loc": [
+                129,
+                146
+            ],
+            "opacity": 1,
+            "time": 1000
+        },
+        {
+            "type": "sleep",
+            "time": 2000
+        },
+        {
+            "type": "hideImage",
+            "code": 1,
+            "time": 1000
+        }
+    ],
     "eachArrive": [],
     "parallelDo": "",
     "events": {

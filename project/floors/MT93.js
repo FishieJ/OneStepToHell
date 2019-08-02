@@ -26,7 +26,8 @@ main.floors.MT93=
         {
             "type": "function",
             "function": "function(){\ncore.drawMap();\n}"
-        }
+        },
+        "\t[hero]唉，想不到我竟然是以这种方式来了解她的过去……"
     ],
     "eachArrive": [],
     "parallelDo": "",

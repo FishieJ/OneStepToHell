@@ -121,47 +121,18 @@ main.floors.MT10=
             }
         ],
         "11,6": [
-            "这里是漏怪检测，请清光前面的怪物再前进。",
+            "这里是漏怪检测装置。正在检测是否有剩余怪物。",
+            {
+                "type": "function",
+                "function": "function(){\ncore.checkMonster([\"MT01\", \"MT02\", \"MT03\", \"MT04\", \"MT05\", \"MT06\", \"MT07\", \"MT08\", \"MT09\", \"MT10\"]);\n}"
+            },
             {
                 "type": "if",
-                "condition": "core.status.hero.lv >= 4",
+                "condition": "flag:remainMonsterCount>0",
                 "true": [
-                    {
-                        "type": "if",
-                        "condition": "core.status.hero.experience >= 10",
-                        "true": [
-                            "怪物已清完！",
-                            "\t[系统提示]继续前进将无法再返回此区域，请及时清理地上的资源。",
-                            {
-                                "type": "if",
-                                "condition": "core.platform.isPC",
-                                "true": [
-                                    "单击地图可以瞬移，用来快速赶路。"
-                                ],
-                                "false": []
-                            },
-                            {
-                                "type": "hide",
-                                "time": 0
-                            }
-                        ],
-                        "false": [
-                            "\t[hero]前面好像还有莱姆没有打，暂时不要继续前进了吧……",
-                            "\t[系统提示]可以利用浏览地图功能查找漏掉的怪物，快捷键是PgUp和PgDn。",
-                            {
-                                "type": "if",
-                                "condition": "core.platform.isPC",
-                                "true": [
-                                    "单击地图可以瞬移，用来快速赶路。"
-                                ],
-                                "false": []
-                            }
-                        ]
-                    }
-                ],
-                "false": [
-                    "\t[hero]前面好像还有莱姆没有打，暂时不要继续前进了吧……",
-                    "\t[系统提示]可以利用浏览地图功能查找漏掉的怪物，快捷键是PgUp和PgDn。",
+                    "共有${flag:remainMonsterCount}只怪物未清除。",
+                    "剩余怪物：${flag:remainMonsterInfo}",
+                    "\t[系统提示]可以利用浏览地图功能查找漏掉的怪物位置，快捷键是PgUp和PgDn。",
                     {
                         "type": "if",
                         "condition": "core.platform.isPC",
@@ -169,6 +140,22 @@ main.floors.MT10=
                             "单击地图可以瞬移，用来快速赶路。"
                         ],
                         "false": []
+                    }
+                ],
+                "false": [
+                    "怪物已清完！",
+                    "\t[系统提示]继续前进将无法再返回此区域，请及时清理地上的资源。",
+                    {
+                        "type": "if",
+                        "condition": "core.platform.isPC",
+                        "true": [
+                            "单击地图可以瞬移，用来快速赶路。"
+                        ],
+                        "false": []
+                    },
+                    {
+                        "type": "hide",
+                        "time": 0
                     }
                 ]
             }

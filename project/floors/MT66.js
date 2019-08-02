@@ -39,22 +39,27 @@ main.floors.MT66=
             ],
             "false": []
         },
-        "第三章 红海篇",
         {
             "type": "sleep",
             "time": 500
         },
         {
             "type": "setValue",
-            "name": "item:skill3",
+            "name": "flag:curse_stack",
             "value": "0"
         },
         {
             "type": "setValue",
-            "name": "flag:curse_stack",
+            "name": "flag:dark",
             "value": "0"
         },
-        "没有了严寒诅咒效果，不再能【感受温暖】。",
+        "在一种神秘力量的影响下，失去所有霜寒和光明/黑暗效果。",
+        {
+            "type": "setValue",
+            "name": "item:skill3",
+            "value": "0"
+        },
+        "没有了霜寒效果，不再能【感受温暖】。",
         "\t[熙枫,heroine]咳咳……",
         "\t[hero]小姐姐？",
         "\t[熙枫,heroine]可恶……那些人……发现我们了……",
@@ -143,7 +148,7 @@ main.floors.MT66=
             ],
             "false": []
         },
-        "由于境界未到达红海，受到毒雾的压制，技能耗蓝提升。",
+        "\t[系统提示]由于境界未到达红海，受到毒雾的压制，技能耗蓝提升。",
         {
             "type": "setValue",
             "name": "flag:skill1_cost",
@@ -153,6 +158,26 @@ main.floors.MT66=
             "type": "setValue",
             "name": "flag:skill2_cost",
             "value": "24"
+        },
+        {
+            "type": "showImage",
+            "code": 1,
+            "image": "c3.png",
+            "loc": [
+                129,
+                150
+            ],
+            "opacity": 1,
+            "time": 1000
+        },
+        {
+            "type": "sleep",
+            "time": 2000
+        },
+        {
+            "type": "hideImage",
+            "code": 1,
+            "time": 1000
         },
         {
             "type": "resumeBgm"

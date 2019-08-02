@@ -23,49 +23,26 @@ main.floors.MT29=
     "eachArrive": [],
     "parallelDo": "",
     "events": {
-        "10,0": [
+        "10,1": [
+            "这里是漏怪检测装置。正在检测是否有剩余怪物。",
+            {
+                "type": "function",
+                "function": "function(){\ncore.checkMonster([\"MT21\", \"MT22\", \"MT22_2\", \"MT23\", \"MT24\", \"MT25\", \"MT26\", \"MT27\", \"MT28\", \"MT29\"]);\n}"
+            },
             {
                 "type": "if",
-                "condition": "core.status.hero.lv >= 9",
+                "condition": "flag:remainMonsterCount>0",
                 "true": [
-                    {
-                        "type": "if",
-                        "condition": "core.status.hero.experience >= 1664",
-                        "true": [
-                            {
-                                "type": "changeFloor",
-                                "floorId": "MT29_2",
-                                "loc": [
-                                    6,
-                                    12
-                                ],
-                                "direction": "up",
-                                "time": 1000
-                            }
-                        ],
-                        "false": [
-                            "\t[hero]总感觉前方有些危险，先把剩下的怪清了再去吧。",
-                            {
-                                "type": "moveHero",
-                                "time": 100,
-                                "steps": [
-                                    "down"
-                                ]
-                            },
-                            "\t[系统提示]可以利用浏览地图功能查找漏掉的怪物，快捷键是PgUp和PgDn。"
-                        ]
-                    }
+                    "共有${flag:remainMonsterCount}只怪物未清除。",
+                    "剩余怪物：${flag:remainMonsterInfo}"
                 ],
                 "false": [
-                    "\t[hero]总感觉前方有些危险，先把剩下的怪清了再去吧。",
+                    "怪物已清完！",
+                    "\t[系统提示]继续前进将无法再返回此区域，请及时清理地上的资源。",
                     {
-                        "type": "moveHero",
-                        "time": 100,
-                        "steps": [
-                            "down"
-                        ]
-                    },
-                    "\t[系统提示]可以利用浏览地图功能查找漏掉的怪物，快捷键是PgUp和PgDn。"
+                        "type": "hide",
+                        "time": 0
+                    }
                 ]
             }
         ]
@@ -78,6 +55,16 @@ main.floors.MT29=
                 12
             ],
             "time": 0
+        },
+        "10,0": {
+            "floorId": "MT29_2",
+            "loc": [
+                6,
+                12
+            ],
+            "direction": "up",
+            "time": 1000,
+            "ignoreChangeFloor": false
         }
     },
     "afterBattle": {},
@@ -111,7 +98,7 @@ main.floors.MT29=
     },
     "map": [
     [ 92,  0, 33,10007, 32,355,10015, 32, 32,10031, 91,10031, 32],
-    [10006,10015,  0,211,10014,221,10006,  0,  0,10031,  0,10031,  0],
+    [10006,10015,  0,211,10014,221,10006,  0,  0,10031,384,10031,  0],
     [ 32,353,221,  0,  0,  0,221,354,353,214,  0,214,354],
     [ 17, 17, 17,20026,20027,  0, 17, 17,  0,319,  0,  0,10004],
     [ 17, 17, 17, 17, 17,  0, 17, 17,319, 33,  0,10007, 32],

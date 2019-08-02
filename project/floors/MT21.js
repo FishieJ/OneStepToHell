@@ -11,7 +11,12 @@ main.floors.MT21=
     "images": [],
     "item_ratio": 4,
     "defaultGround": "grass",
-    "firstArrive": [],
+    "firstArrive": [
+        {
+            "type": "function",
+            "function": "function(){\ncore.values.animateSpeed = 320;\n}"
+        }
+    ],
     "eachArrive": [],
     "parallelDo": "",
     "events": {
