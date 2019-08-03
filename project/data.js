@@ -2221,21 +2221,16 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"name": "item:I_morph",
 						"value": "1"
 					},
-					"获得若干次重置天赋点的机会。",
-					{
-						"type": "setValue",
-						"name": "item:I_resetTalent",
-						"value": "1"
-					},
-					{
-						"type": "setValue",
-						"name": "item:sword0",
-						"value": "2"
-					},
 					{
 						"type": "if",
-						"condition": "flag:hard <= 2",
+						"condition": "flag:hard == 2",
 						"true": [
+							"简单难度下获得2次重置天赋点的机会。",
+							{
+								"type": "setValue",
+								"name": "item:I_resetTalent",
+								"value": "1"
+							},
 							{
 								"type": "setValue",
 								"name": "item:sword0",
@@ -2246,12 +2241,18 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					},
 					{
 						"type": "if",
-						"condition": "flag:hard <= 1",
+						"condition": "flag:hard == 1",
 						"true": [
+							"乱撞难度下获得4次重置天赋点的机会。",
+							{
+								"type": "setValue",
+								"name": "item:I_resetTalent",
+								"value": "1"
+							},
 							{
 								"type": "setValue",
 								"name": "item:sword0",
-								"value": "2"
+								"value": "4"
 							}
 						],
 						"false": []
@@ -2377,11 +2378,16 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"value": "status:mdef+120000"
 					},
 					"晋升为血海圆满！生命、生命上限+30000000，魔法、魔法上限+500，攻击+100000，防御+100000，护盾+120000",
-					"获得5次洗点机会。",
+					"获得3次重置天赋点的机会。",
+					{
+						"type": "setValue",
+						"name": "item:I_resetTalent",
+						"value": "1"
+					},
 					{
 						"type": "addValue",
 						"name": "item:sword0",
-						"value": "5"
+						"value": "3"
 					},
 					"开启终极天赋！",
 					"获得6点天赋。",

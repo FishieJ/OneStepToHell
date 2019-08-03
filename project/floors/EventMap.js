@@ -110,6 +110,27 @@ main.floors.EventMap=
                 "text": "红海天赋"
             },
             {
+                "type": "if",
+                "condition": "!switch:A",
+                "true": [
+                    "\t[系统提示]天赋分为两大类路线，最终天赋会要求其中一类的天赋全部点满。",
+                    {
+                        "type": "if",
+                        "condition": "core.getFlag('hard', 0) == 1",
+                        "true": [
+                            "\t[系统提示]不过乱撞难度不需要最终天赋，撞就完事了。"
+                        ],
+                        "false": []
+                    },
+                    {
+                        "type": "setValue",
+                        "name": "switch:A",
+                        "value": "1"
+                    }
+                ],
+                "false": []
+            },
+            {
                 "type": "choices",
                 "text": "\t[天赋选择,talent]选择要强化的技能。目前有${item:talentPoint}个天赋点。",
                 "choices": [
@@ -1148,6 +1169,19 @@ main.floors.EventMap=
             {
                 "type": "comment",
                 "text": "血海天赋"
+            },
+            {
+                "type": "if",
+                "condition": "!switch:A",
+                "true": [
+                    "\t[系统提示]血海阶段的天赋一旦选择就没有机会取消。",
+                    {
+                        "type": "setValue",
+                        "name": "switch:A",
+                        "value": "1"
+                    }
+                ],
+                "false": []
             },
             {
                 "type": "choices",
