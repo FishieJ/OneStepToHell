@@ -1982,6 +1982,22 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"false": []
 					},
 					{
+						"type": "if",
+						"condition": "core.getFlag('hard', 0) < 3",
+						"true": [
+							{
+								"type": "addValue",
+								"name": "item:coin",
+								"value": "2000"
+							},
+							"天上突然掉下来2000金币砸到莫逆的头上（低难度福利）。",
+							"\t[hero]这啥玩意，天上还能掉钱的？",
+							"\t[熙枫,heroine]……",
+							"\t[系统提示]辣鸡作者怕玩家卡关，脸都不要了。"
+						],
+						"false": []
+					},
+					{
 						"type": "addValue",
 						"name": "flag:bring_hp_val",
 						"value": "50000"

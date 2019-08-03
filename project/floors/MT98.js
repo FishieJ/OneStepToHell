@@ -1,8 +1,8 @@
 main.floors.MT98=
 {
     "floorId": "MT98",
-    "title": "刀剑翠域",
-    "name": "刀剑翠域",
+    "title": "刀剑蓝域",
+    "name": "刀剑蓝域",
     "width": 13,
     "height": 13,
     "canFlyTo": true,
