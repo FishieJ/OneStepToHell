@@ -354,6 +354,17 @@ main.floors.Final=
                     "text": "你可以选择立即提交分数并退出。",
                     "yes": [
                         {
+                            "type": "if",
+                            "condition": "core.getFlag('hp_score',0) + core.status.hero.hp > 292641666 && core.getFlag('hard', 0) == 3 && core.itemCount('greenKey', 0) == 3",
+                            "true": [
+                                {
+                                    "type": "win",
+                                    "reason": "血海王中王"
+                                }
+                            ],
+                            "false": []
+                        },
+                        {
                             "type": "win",
                             "reason": "伯力征服者"
                         }

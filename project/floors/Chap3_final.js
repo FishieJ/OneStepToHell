@@ -36,6 +36,23 @@ main.floors.Chap3_final=
             "value": "0"
         },
         {
+            "type": "if",
+            "condition": "core.getFlag('before_pushBox',0) - core.status.hero.hp <= 100000",
+            "true": [
+                {
+                    "type": "sleep",
+                    "time": 1000
+                },
+                "\t[系统提示]天上突然掉下来一把绿钥匙。",
+                {
+                    "type": "addValue",
+                    "name": "item:greenKey",
+                    "value": "1"
+                }
+            ],
+            "false": []
+        },
+        {
             "type": "sleep",
             "time": 1000
         },
@@ -431,6 +448,7 @@ main.floors.Chap3_final=
             "type": "if",
             "condition": "!core.hasItem('shield5')",
             "true": [
+                "\t[系统提示]莫逆没有五阶青岚盾，暴毙了。",
                 {
                     "type": "win",
                     "reason": "红海王中王"

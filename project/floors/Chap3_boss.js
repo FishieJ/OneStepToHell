@@ -287,6 +287,11 @@ main.floors.Chap3_boss=
                 "time": 2000
             },
             {
+                "type": "setValue",
+                "name": "flag:before_pushBox",
+                "value": "status:hp"
+            },
+            {
                 "type": "animate",
                 "name": "explosion_small",
                 "loc": [

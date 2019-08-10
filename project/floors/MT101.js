@@ -23,7 +23,7 @@ main.floors.MT101=
         },
         {
             "type": "function",
-            "function": "function(){\ncore.values.animateSpeed = 400;\n}"
+            "function": "function(){\ncore.values.animateSpeed = 385;\n}"
         },
         "\t[hero]已经破晓了吗……",
         "\t[hero]熙枫，挺住，我一定会让你醒来的！"

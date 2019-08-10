@@ -146,6 +146,29 @@ main.floors.MT29_2=
             "displayDamage": true,
             "data": [
                 {
+                    "type": "if",
+                    "condition": "core.getFlag('hp_score') > 1508 && core.getFlag('hard', 0) == 3",
+                    "true": [
+                        {
+                            "type": "sleep",
+                            "time": 1000
+                        },
+                        "\t[系统提示]天上突然掉下来一把绿钥匙。",
+                        {
+                            "type": "addValue",
+                            "name": "item:greenKey",
+                            "value": "1"
+                        },
+                        {
+                            "type": "animate",
+                            "name": "wuyu",
+                            "loc": "hero"
+                        },
+                        "\t[hero]这啥玩意……"
+                    ],
+                    "false": []
+                },
+                {
                     "type": "setVolume",
                     "value": 0,
                     "time": 2000,

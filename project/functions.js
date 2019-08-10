@@ -99,17 +99,26 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 			total += 2500 * core.itemCount('coin') + 1000000 * core.itemCount('talentPoint') * core.itemCount('talentPoint');
 			str += core.itemCount('coin') + "金币，共" + 2500 * core.itemCount('coin') + "分\n";
 			str += core.itemCount('talentPoint') + "剩余天赋点，共" + 1000000 * core.itemCount('talentPoint') * core.itemCount('talentPoint') + "分\n";
-		} else if (reason == "伯力征服者") {
-
 		}
 		str += "总计分数：" + total;
 		core.setStatus('hp', total);
-		core.drawText([
-			str,
-			"\t[" + (reason || "恭喜通关") + "]你的分数是${status:hp}。"
-		], function () {
-			core.events.gameOver(reason || '', replaying, norank);
-		});
+		if (reason == "血海王中王") {
+			core.drawText(["\t[技不如人，如沐东风,I342]您好，这里是本游戏的作者。",
+				"\t[技不如人，如沐东风,I342]恭喜您在最高难度下取得了不亚于作者的成绩，请容辣鸡作者膜拜一下大佬。大佬如果有任何想法，不论话本身好听与否，辣鸡作者都希望您在评论区分享一下。辣鸡作者以后不会再造塔了，所以请不要给我留面子，您的意见很可能会对其他造塔者有很大帮助，相信我们都希望看到以后有更多高质量塔出现。",
+				"\t[技不如人，如沐东风,I342]感谢您玩到这里。",
+				str,
+				"\t[" + (reason || "恭喜通关") + "]你的分数是${status:hp}。"
+			], function () {
+				core.events.gameOver(reason || '', replaying, norank);
+			});
+		} else {
+			core.drawText([
+				str,
+				"\t[" + (reason || "恭喜通关") + "]你的分数是${status:hp}。"
+			], function () {
+				core.events.gameOver(reason || '', replaying, norank);
+			});
+		}
 	});
 },
         "lose": function (reason) {
@@ -358,8 +367,10 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		drawEnemyAnimate('xunjie', x, y);
 	} else if (core.enemys.hasSpecial(special, 116)) {
 		drawEnemyAnimate('xunjie');
-	} else if (core.enemys.hasSpecial(special, 117) || core.enemys.hasSpecial(special, 118)) {
+	} else if (core.enemys.hasSpecial(special, 117)) {
 		drawEnemyAnimate('heal', x, y);
+	} else if (core.enemys.hasSpecial(special, 118)) {
+		drawEnemyAnimate('darkattack', x, y);
 	} else if (core.enemys.hasSpecial(special, 119)) {
 		drawEnemyAnimate('light2');
 	} else if (core.enemys.hasSpecial(special, 124)) {
@@ -794,8 +805,8 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[114, "智障", "智力有严重缺陷。勇士先攻100次。", "#aba222"],
 		[115, "怒意狂击", function (enemy) { return "攻击越发致命。怪物每回合提升" + enemy.v_115 + "点攻击力"; }, "#f39f00"],
 		[116, "魔爪", "黑暗的力量使对手动弹不得。怪物先攻100次。", "#8500b1"],
-		[117, "神圣愈合", "持续引导神圣的治愈之力。不攻击，每回合治愈自身10000点生命值。", "#fff900"],
-		[118, "炫目之光", "持续散发出神圣的光芒之力。每回合损耗自身2%的最大生命值，使自身处于无敌状态。", "#fff900"],
+		[117, "神圣愈合", "持续引导神圣的治愈之力。不攻击，每回合治愈自身10000点生命值。", "#ffffff"],
+		[118, "暗影庇护", "隐藏于暗影之中。处于无敌状态，但每回合损耗自身2%的最大生命值。", "#666666"],
 		[119, "驱邪", "使对方体内的不洁之力尽数爆发。战斗开始时驱除勇士的所有光明/黑暗状态，每驱除1层便额外造成64100点伤害。", "#fff900"],
 		[120, "魔免", "免疫技能伤害。", "#c3c3c3"],
 		[121, "重伤", function (enemy) { return "造成难以治愈的严重伤害。使对手受到的回复效果降低" + (enemy.v_121 || 0) + "%。"; }, "#b30000"],

@@ -589,6 +589,29 @@ main.floors.MT60=
                     "text": "确定已经准备好了吗？",
                     "yes": [
                         {
+                            "type": "if",
+                            "condition": "core.getFlag('hard',0) == 3 && core.getFlag('hp_score',0) > 170000 && core.status.hero.hp == core.status.hero.hpmax && core.status.hero.mana == core.status.hero.manamax && core.itemCount('yellowKey', 0) > 5",
+                            "true": [
+                                {
+                                    "type": "sleep",
+                                    "time": 1000
+                                },
+                                "\t[系统提示]天上突然掉下来一把绿钥匙。",
+                                {
+                                    "type": "addValue",
+                                    "name": "item:greenKey",
+                                    "value": "1"
+                                },
+                                {
+                                    "type": "animate",
+                                    "name": "wuyu",
+                                    "loc": "hero"
+                                },
+                                "\t[hero]这啥玩意……"
+                            ],
+                            "false": []
+                        },
+                        {
                             "type": "sleep",
                             "time": 1000
                         },
@@ -1297,7 +1320,12 @@ main.floors.MT60=
             {
                 "type": "function",
                 "function": "function(){\ncore.setBgLight([\n\t[80, 208, 150],\n\t[336, 208, 150],\n]);\n}"
-            }
+            },
+            {
+                "type": "sleep",
+                "time": 1000
+            },
+            "\t[hero]这……是分身术？看起来不太好对付的样子……"
         ],
         "2,6": [
             {
