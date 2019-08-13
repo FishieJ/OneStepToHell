@@ -48,10 +48,16 @@ main.floors.MT91=
             "value": "1"
         },
         {
+            "type": "addValue",
+            "name": "flag:hp_score",
+            "value": "core.itemCount('coin', 0) * 2500"
+        },
+        {
             "type": "setValue",
             "name": "item:coin",
             "value": "0"
         },
+        "\t[系统提示]清空金币，以1:2500的比例换算为溢出生命值。",
         {
             "type": "setCurtain",
             "time": 0
@@ -61,14 +67,12 @@ main.floors.MT91=
             "function": "function(){\ncore.drawMap();\n}"
         },
         {
-            "type": "setValue",
-            "name": "status:hp",
-            "value": "status:hpmax"
-        },
-        {
-            "type": "setValue",
-            "name": "status:mana",
-            "value": "status:manamax"
+            "type": "insert",
+            "loc": [
+                10,
+                0
+            ],
+            "floorId": "EventMap"
         },
         {
             "type": "showStatusBar"
@@ -106,7 +110,7 @@ main.floors.MT91=
             "time": 500
         },
         "一回想起那个湮灭在刺眼光芒中的背影，莫逆的心就隐隐作痛。",
-        "第一次有了喜欢的人，第一次有了强大的力量，两份喜悦相互重叠，为什么，会变成这样，为什么……",
+        "第一次有了喜欢的人，第一次有了强大的力量，两份喜悦相互重叠，为什么，会变成这样，到底为什么……",
         {
             "type": "sleep",
             "time": 500

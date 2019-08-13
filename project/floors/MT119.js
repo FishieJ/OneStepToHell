@@ -73,6 +73,12 @@ main.floors.MT119=
                                         "type": "addValue",
                                         "name": "status:mana",
                                         "value": "50"
+                                    },
+                                    {
+                                        "type": "animate",
+                                        "name": "mana_regen",
+                                        "loc": "hero",
+                                        "async": true
                                     }
                                 ],
                                 "false": [
@@ -108,6 +114,12 @@ main.floors.MT119=
                                         "args": [
                                             4000000
                                         ]
+                                    },
+                                    {
+                                        "type": "animate",
+                                        "name": "heal",
+                                        "loc": "hero",
+                                        "async": true
                                     },
                                     {
                                         "type": "update"
@@ -146,6 +158,12 @@ main.floors.MT119=
                                         "args": [
                                             15000000
                                         ]
+                                    },
+                                    {
+                                        "type": "animate",
+                                        "name": "heal",
+                                        "loc": "hero",
+                                        "async": true
                                     },
                                     {
                                         "type": "update"

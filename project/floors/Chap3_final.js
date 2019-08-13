@@ -60,8 +60,8 @@ main.floors.Chap3_final=
         "\t[熙枫,heroine]（毕竟是血海强者，不过他们此时也一定不好受，你已经非常厉害了……）",
         "\t[恶毒黑影,N425]\b[down,5,3]可恶……不能让这小子就这么跑了……",
         "\t[阴魂黑影,N425]\b[down,7,3]老大，现在怎么办？",
-        "\t[邪恶黑影,N425]\b[down,6,3]哈哈哈哈……\r[red]一切，都在我的掌握之中\r[white]。",
-        "\t[邪恶黑影,N425]\b[down,6,3]秘技——\r[red]献祭魔咒！\r[white]",
+        "\t[邪恶黑影,N425]\b[down,6,3]哈哈哈哈……\\c[24]\r[red]一切，都在我的掌握之中\r[white]。",
+        "\t[邪恶黑影,N425]\b[down,6,3]\\c[24]秘技——\r[red]献祭魔咒！\r[white]",
         {
             "type": "playSound",
             "name": "Zombie02.wav"
@@ -188,7 +188,7 @@ main.floors.Chap3_final=
                 "up"
             ]
         },
-        "\t[hero]\b[up,hero]不！不！谔谔啊啊啊啊！",
+        "\t[hero]\b[up,hero]不！\\c[20]不！谔谔啊啊啊啊！",
         {
             "type": "moveHero",
             "time": 100,
@@ -204,13 +204,14 @@ main.floors.Chap3_final=
             "async": true
         },
         {
-            "type": "jumpHero",
-            "loc": [
-                6,
-                11
-            ],
-            "time": 100,
-            "async": true
+            "type": "moveHero",
+            "time": 25,
+            "steps": [
+                "backward",
+                "backward",
+                "backward",
+                "backward"
+            ]
         },
         {
             "type": "vibrate",
@@ -238,17 +239,21 @@ main.floors.Chap3_final=
         "\t[熙枫,heroine]\b[down,6,5]毕竟，这件事本来跟你没有关系的。",
         "\t[熙枫,heroine]\b[down,6,5]多谢你这一天一夜的努力付出，我……很开心。",
         "\t[熙枫,heroine]\b[down,6,5]请\r[yellow]好好活下去\r[white]……",
-        "\t[hero]\b[up,hero]不！不！！",
+        "\t[hero]\b[up,hero]\\c[24]不！不！！",
         {
             "type": "animate",
             "name": "darkattack",
             "loc": "hero"
         },
-        "\t[hero]\b[up,hero]呃啊啊啊！我竟然动弹不得！",
+        "\t[hero]\b[up,hero]\\c[24]呃啊啊啊！我竟然动弹不得！",
         "\t[hero]\b[up,hero]为什么，为什么我还是这么弱……",
-        "斗志犹在，可惜力不从心。",
+        "这就是力不从心的感觉吧。",
         "呵……什么注重心性……这世界，果然还是绝对的力量至上。",
         "弱小的我，只能跪在地上，无力地看着眼前发生的一切。",
+        {
+            "type": "sleep",
+            "time": 1000
+        },
         "\t[熙枫,heroine]\b[down,6,5]喂，我说，你不是很想要我的力量吗？",
         {
             "type": "move",
@@ -265,7 +270,7 @@ main.floors.Chap3_final=
         "\t[邪恶黑影,N425]\b[down,6,3]等等，不对劲，你想干什么……",
         "\t[邪恶黑影,N425]\b[down,6,3]自爆！你要自爆！你疯了吗？等等！……",
         "\t[熙枫,heroine]\b[down,6,4]来好好感受这种力量吧。",
-        "\t[邪恶黑影,N425]\b[down,6,3]这对你有什么好处吗？我理解不了！我理解不了啊！！",
+        "\t[邪恶黑影,N425]\b[down,6,3]这对你有什么好处吗？等一下，不要激动，听我……",
         {
             "type": "vibrate",
             "time": 2000,

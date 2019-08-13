@@ -300,7 +300,8 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"Darkness4.ogg",
 			"Raise1.ogg",
 			"Zombie02.wav",
-			"MSLASH.ogg"
+			"MSLASH.ogg",
+			"billy.mp3"
 		],
 		"nameMap": {
 			"背景图.jpg": "bg.jpg",
@@ -1901,6 +1902,28 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"type": "sleep",
 						"time": 500
 					},
+					"\t[hero]对了，说起红海技能，到底什么技能算红海技能啊，我看这\r[yellow]阻击\r虽然不是红海技能，却比好多红海技能还要棘手。",
+					"\t[熙枫,heroine]你如今也有了自己的红海技能，你觉得它厉害在哪？",
+					"\t[hero]它的厉害之处……我想一想……",
+					{
+						"type": "sleep",
+						"time": 1000
+					},
+					"\t[hero]……应该是在于能够对强敌造成很好的效果。其实拿它对付不那么厉害的敌人，效果反倒不如一般的技能。",
+					{
+						"type": "sleep",
+						"time": 1000
+					},
+					"\t[hero]……难道说，红海技能都是擅长对抗强敌的？",
+					"\t[熙枫,heroine]很接近了！红海技能实际上指的是\r[yellow]上限很高\r的技能。",
+					"\t[熙枫,heroine]比如\r[yellow]吸血\r这个技能，因为是按照百分比造成伤害，所以再强的人也不能完全无视它。你有趋近于无穷大的血量，它就能造成趋近于无穷大的伤害。",
+					"\t[熙枫,heroine]因此即便是血海境界的人来到红海广场，虽然他凭借强大的防御力可以完全无视怪物的攻击，可如果不特意去应对这些红海技能，依然会被打得很惨。",
+					"\t[hero]原来，这才是红海技能的本质吗……",
+					"\t[熙枫,heroine]不过这个定义还是很模糊，有人不认同这些划分也是很正常的。",
+					{
+						"type": "sleep",
+						"time": 1000
+					},
 					"\t[熙枫,heroine]总之，能够达到红海中阶，我倒是不用担心你了。",
 					"\t[熙枫,heroine]只要记住，不要太勉强自己去挑战强敌。",
 					"\t[hero]放心，我自有分寸。"
@@ -2093,7 +2116,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					},
 					"\t[hero]如今的我，算是站在红海阶位的顶端了吧，离那血海境界也只有一步之遥。",
 					"\t[熙枫,heroine]的确是了。",
-					"\t[hero]那小姐姐是不是可以给我讲一些你以前的故事了，比如你是怎么获得升级这么快的能力的，你为什么对红海战场这么熟悉……",
+					"\t[hero]那小姐姐是不是可以给我讲一些你以前的故事了，比如你是怎么获得升级这么快的能力的，你为什么对红海广场这么熟悉……",
 					"\t[熙枫,heroine]不行，现在还不是闲下来的时候。",
 					{
 						"type": "animate",
@@ -2188,7 +2211,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 					{
 						"type": "setValue",
 						"name": "flag:skill5_cost",
-						"value": "300"
+						"value": "250"
 					},
 					{
 						"type": "setValue",
@@ -2378,16 +2401,23 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"value": "status:mdef+120000"
 					},
 					"晋升为血海圆满！生命、生命上限+30000000，魔法、魔法上限+500，攻击+100000，防御+100000，护盾+120000",
-					"获得3次重置天赋点的机会。",
 					{
-						"type": "setValue",
-						"name": "item:I_resetTalent",
-						"value": "1"
-					},
-					{
-						"type": "addValue",
-						"name": "item:sword0",
-						"value": "3"
+						"type": "if",
+						"condition": "flag:hard < 3",
+						"true": [
+							"获得3次重置天赋点的机会。（低难度福利）",
+							{
+								"type": "setValue",
+								"name": "item:I_resetTalent",
+								"value": "1"
+							},
+							{
+								"type": "addValue",
+								"name": "item:sword0",
+								"value": "3"
+							}
+						],
+						"false": []
 					},
 					"开启终极天赋！",
 					"获得6点天赋。",

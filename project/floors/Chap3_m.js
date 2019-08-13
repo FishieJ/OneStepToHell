@@ -1,8 +1,8 @@
 main.floors.Chap3_m=
 {
     "floorId": "Chap3_m",
-    "title": "红海战场",
-    "name": "红海战场",
+    "title": "红海广场",
+    "name": "红海广场",
     "width": 13,
     "height": 13,
     "canFlyTo": true,
@@ -39,7 +39,7 @@ main.floors.Chap3_m=
             "time": 1000
         },
         "\t[hero]呼……终于逃出这鬼地方了……",
-        "\t[熙枫,heroine]这红海战场的野外遍地都是红海生物，以你现在的实力很难应付，先去商域看看吧，应该有能帮到你的东西。"
+        "\t[熙枫,heroine]这红海广场的野外遍地都是红海生物，以你现在的实力很难应付，先去商域看看吧，应该有能帮到你的东西。"
     ],
     "eachArrive": [
         {
@@ -149,7 +149,7 @@ main.floors.Chap3_m=
         "6,11": [
             {
                 "type": "confirm",
-                "text": "确定准备好了吗？",
+                "text": "进去就回不来了，确定准备好了吗？",
                 "yes": [
                     {
                         "type": "setValue",

@@ -18,7 +18,7 @@ main.floors.Area4_1=
         },
         {
             "type": "function",
-            "function": "function(){\ncore.values.animateSpeed = 420;\n}"
+            "function": "function(){\ncore.values.animateSpeed = 420;\ncore.flags.displayCritical = false;\n}"
         },
         {
             "type": "playBgm",
@@ -61,6 +61,18 @@ main.floors.Area4_1=
                     "time": 0
                 }
             ]
+        },
+        {
+            "type": "if",
+            "condition": "core.flags.displayCritical",
+            "true": [
+                "\t[系统提示]从这里开始，大部分怪物的临界显示已失去意义。已自动关闭地图上的临界显示。"
+            ],
+            "false": []
+        },
+        {
+            "type": "sleep",
+            "time": 500
         },
         "\t[hero]呼……哈……大概也冷静下来了。",
         "\t[hero]天色渐渐地变黑了……我这是跑到了什么地方……",

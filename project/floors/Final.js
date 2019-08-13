@@ -112,17 +112,16 @@ main.floors.Final=
                     "async": true
                 },
                 {
-                    "type": "jumpHero",
-                    "loc": [
-                        6,
-                        8
-                    ],
-                    "time": 50,
-                    "async": true
-                },
-                {
-                    "type": "changePos",
-                    "direction": "up"
+                    "type": "moveHero",
+                    "time": 100,
+                    "steps": [
+                        "backward",
+                        "backward",
+                        "backward",
+                        "backward",
+                        "backward",
+                        "backward"
+                    ]
                 },
                 {
                     "type": "vibrate",
@@ -163,6 +162,46 @@ main.floors.Final=
                     "loc": "hero"
                 },
                 {
+                    "type": "moveHero",
+                    "time": 100,
+                    "async": true,
+                    "steps": [
+                        "backward"
+                    ]
+                },
+                {
+                    "type": "move",
+                    "loc": [
+                        6,
+                        4
+                    ],
+                    "time": 100,
+                    "keep": true,
+                    "steps": [
+                        "up"
+                    ]
+                },
+                {
+                    "type": "moveHero",
+                    "time": 100,
+                    "async": true,
+                    "steps": [
+                        "forward"
+                    ]
+                },
+                {
+                    "type": "move",
+                    "loc": [
+                        6,
+                        3
+                    ],
+                    "time": 100,
+                    "keep": true,
+                    "steps": [
+                        "down"
+                    ]
+                },
+                {
                     "type": "animate",
                     "name": "skill1",
                     "loc": [
@@ -175,6 +214,46 @@ main.floors.Final=
                     "type": "animate",
                     "name": "thunder3",
                     "loc": "hero"
+                },
+                {
+                    "type": "moveHero",
+                    "time": 100,
+                    "async": true,
+                    "steps": [
+                        "backward"
+                    ]
+                },
+                {
+                    "type": "move",
+                    "loc": [
+                        6,
+                        4
+                    ],
+                    "time": 100,
+                    "keep": true,
+                    "steps": [
+                        "up"
+                    ]
+                },
+                {
+                    "type": "moveHero",
+                    "time": 100,
+                    "async": true,
+                    "steps": [
+                        "forward"
+                    ]
+                },
+                {
+                    "type": "move",
+                    "loc": [
+                        6,
+                        3
+                    ],
+                    "time": 100,
+                    "keep": true,
+                    "steps": [
+                        "down"
+                    ]
                 },
                 {
                     "type": "animate",
@@ -219,13 +298,12 @@ main.floors.Final=
                     ]
                 },
                 {
-                    "type": "jumpHero",
-                    "loc": [
-                        6,
-                        6
-                    ],
+                    "type": "moveHero",
                     "time": 100,
-                    "async": true
+                    "async": true,
+                    "steps": [
+                        "backward"
+                    ]
                 },
                 {
                     "type": "move",
@@ -355,7 +433,7 @@ main.floors.Final=
                     "yes": [
                         {
                             "type": "if",
-                            "condition": "core.getFlag('hp_score',0) + core.status.hero.hp > 292641666 && core.getFlag('hard', 0) == 3 && core.itemCount('greenKey', 0) == 3",
+                            "condition": "core.getFlag('hp_score',0) + core.status.hero.hp > 235000000 && core.getFlag('hard', 0) == 3 && core.itemCount('greenKey', 0) == 3",
                             "true": [
                                 {
                                     "type": "win",

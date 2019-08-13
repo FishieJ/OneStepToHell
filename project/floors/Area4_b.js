@@ -120,12 +120,13 @@ main.floors.Area4_b=
                     "name": "attack.mp3"
                 },
                 {
-                    "type": "jumpHero",
-                    "loc": [
-                        6,
-                        8
-                    ],
-                    "time": 50
+                    "type": "moveHero",
+                    "time": 200,
+                    "async": true,
+                    "steps": [
+                        "backward",
+                        "backward"
+                    ]
                 },
                 {
                     "type": "hide",
@@ -187,8 +188,10 @@ main.floors.Area4_b=
                             "type": "setBlock",
                             "number": "yellowKey",
                             "loc": [
-                                6,
-                                7
+                                [
+                                    6,
+                                    7
+                                ]
                             ]
                         },
                         {

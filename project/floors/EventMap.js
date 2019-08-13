@@ -111,7 +111,7 @@ main.floors.EventMap=
             },
             {
                 "type": "if",
-                "condition": "!switch:A",
+                "condition": "!flag:redTalentHint",
                 "true": [
                     "\t[系统提示]天赋分为两大类路线，最终天赋会要求其中一类的天赋全部点满。",
                     {
@@ -124,7 +124,7 @@ main.floors.EventMap=
                     },
                     {
                         "type": "setValue",
-                        "name": "switch:A",
+                        "name": "flag:redTalentHint",
                         "value": "1"
                     }
                 ],
@@ -1012,6 +1012,10 @@ main.floors.EventMap=
                 "async": true
             },
             {
+                "type": "playSound",
+                "name": "billy.mp3"
+            },
+            {
                 "type": "sleep",
                 "time": 500
             },
@@ -1172,16 +1176,16 @@ main.floors.EventMap=
             },
             {
                 "type": "if",
-                "condition": "!switch:A",
+                "condition": "!flag:bloodTalentHint",
                 "true": [
-                    "\t[系统提示]血海阶段的天赋一旦选择就没有机会取消。",
-                    {
-                        "type": "setValue",
-                        "name": "switch:A",
-                        "value": "1"
-                    }
+                    "\t[系统提示]血海阶段的天赋一旦选择就没有机会取消。"
                 ],
                 "false": []
+            },
+            {
+                "type": "setValue",
+                "name": "flag:bloodTalentHint",
+                "value": "1"
             },
             {
                 "type": "choices",
@@ -1825,7 +1829,7 @@ main.floors.EventMap=
         "2,5": [
             {
                 "type": "choices",
-                "text": "\t[魔化（${flag:morph_lv}/5）,I_morph]\r[red][攻击类]\r[white]每级使魔化额外提供\r[yellow]500000\r[white]点生命、\r[yellow]10000\r[white]点攻击、\r[yellow]5000\r[white]点防御，且冷却时间减少\r[yellow]1\r[white]次战斗，魔法消耗降低\r[yellow]20\r[white]点。\n当前魔化提升\r[yellow]${flag:skill5_hpmax}\r[white]点生命、\r[yellow]${flag:skill5_atk}\r[white]点攻击力和\r[yellow]${flag:skill5_def}\r[white]点防御，冷却\r[yellow]${flag:skill5_cooldown}\r[white]次战斗，魔法消耗\r[yellow]${flag:skill5_cost}\r[white]点。",
+                "text": "\t[魔化（${flag:morph_lv}/5）,I_morph]\r[red][攻击类]\r[white]每级使魔化额外提供\r[yellow]500000\r[white]点生命、\r[yellow]10000\r[white]点攻击、\r[yellow]5000\r[white]点防御，且冷却时间减少\r[yellow]1\r[white]次战斗。\n当前魔化提升\r[yellow]${flag:skill5_hpmax}\r[white]点生命、\r[yellow]${flag:skill5_atk}\r[white]点攻击力和\r[yellow]${flag:skill5_def}\r[white]点防御，冷却\r[yellow]${flag:skill5_cooldown}\r[white]次战斗。",
                 "choices": [
                     {
                         "text": "确认",
@@ -1911,11 +1915,6 @@ main.floors.EventMap=
                                         "type": "addValue",
                                         "name": "flag:skill5_cooldown",
                                         "value": "-1"
-                                    },
-                                    {
-                                        "type": "addValue",
-                                        "name": "flag:skill5_cost",
-                                        "value": "-20"
                                     },
                                     {
                                         "type": "insert",
@@ -3252,7 +3251,7 @@ main.floors.EventMap=
             },
             {
                 "type": "if",
-                "condition": "core.getFlag('hp_score',0) + core.status.hero.hp > 292641666 && core.getFlag('hard', 0) == 3 && core.itemCount('greenKey', 0) == 3",
+                "condition": "core.getFlag('hp_score',0) + core.status.hero.hp > 235000000 && core.getFlag('hard', 0) == 3 && core.itemCount('greenKey', 0) == 3",
                 "true": [
                     {
                         "type": "win",

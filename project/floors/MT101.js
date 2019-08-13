@@ -26,7 +26,7 @@ main.floors.MT101=
             "function": "function(){\ncore.values.animateSpeed = 385;\n}"
         },
         "\t[hero]已经破晓了吗……",
-        "\t[hero]熙枫，挺住，我一定会让你醒来的！"
+        "\t[hero]好多血海生物的气息……杀出一条血路吧！"
     ],
     "eachArrive": [],
     "parallelDo": "",
