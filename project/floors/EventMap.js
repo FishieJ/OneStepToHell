@@ -3251,7 +3251,7 @@ main.floors.EventMap=
             },
             {
                 "type": "if",
-                "condition": "core.getFlag('hp_score',0) + core.status.hero.hp > 235000000 && core.getFlag('hard', 0) == 3 && core.itemCount('greenKey', 0) == 3",
+                "condition": "core.getFlag('hp_score',0) + core.status.hero.hp > 365000000 && core.getFlag('hard', 0) == 3 && core.itemCount('greenKey', 0) == 3",
                 "true": [
                     {
                         "type": "win",
