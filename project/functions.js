@@ -66,9 +66,6 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	if (core.status.hard == 'Hard') { // 困难难度
 		core.setFlag('hard', 3); // 可以用flag:hard来获得当前难度
 	}
-	if (core.status.hard == 'Hell') { // 噩梦难度
-		core.setFlag('hard', 4); // 可以用flag:hard来获得当前难度
-	}
 
 	// 设置已经到过的楼层
 	core.setFlag("__visited__", {});
@@ -101,6 +98,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 			str += core.itemCount('talentPoint') + "剩余天赋点，共" + 1000000 * core.itemCount('talentPoint') * core.itemCount('talentPoint') + "分\n";
 		}
 		str += "总计分数：" + total;
+		core.setStatus('hpmax', -1);
 		core.setStatus('hp', total);
 		if (reason == "血海王中王") {
 			core.drawText(["\t[技不如人，如沐东风,I342]您好，这里是本游戏的作者。",
@@ -1003,11 +1001,6 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	//     mon_atk = hero_atk;
 	// }
 	// 也可以按需增加各种自定义内容（比如幻塔的魔杖效果等）
-
-	// 勇士吸血
-	if (core.hasItem('I_vampire')) {
-		damage -= mon_hp * 0.3;
-	}
 
 	return {
 		"hp": Math.floor(mon_hp),

@@ -3297,16 +3297,6 @@ main.floors.EventMap=
                                     {
                                         "type": "function",
                                         "function": "function(){\ncore.status.hard = 'Blind';\ncore.setInitData();\n}"
-                                    },
-                                    {
-                                        "type": "changeFloor",
-                                        "floorId": "P1",
-                                        "loc": [
-                                            11,
-                                            11
-                                        ],
-                                        "direction": "left",
-                                        "time": 0
                                     }
                                 ],
                                 "no": [
@@ -3339,16 +3329,6 @@ main.floors.EventMap=
                                     {
                                         "type": "function",
                                         "function": "function(){\ncore.status.hard = 'Easy';\ncore.setInitData();\n}"
-                                    },
-                                    {
-                                        "type": "changeFloor",
-                                        "floorId": "P1",
-                                        "loc": [
-                                            11,
-                                            11
-                                        ],
-                                        "direction": "left",
-                                        "time": 0
                                     }
                                 ],
                                 "no": [
@@ -3381,16 +3361,6 @@ main.floors.EventMap=
                                     {
                                         "type": "function",
                                         "function": "function(){\ncore.status.hard = 'Hard';\ncore.setInitData();\n}"
-                                    },
-                                    {
-                                        "type": "changeFloor",
-                                        "floorId": "P1",
-                                        "loc": [
-                                            11,
-                                            11
-                                        ],
-                                        "direction": "left",
-                                        "time": 0
                                     }
                                 ],
                                 "no": [

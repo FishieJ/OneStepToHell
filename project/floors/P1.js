@@ -33,6 +33,9 @@ main.floors.P1=
             "false": []
         },
         {
+            "type": "hideStatusBar"
+        },
+        {
             "type": "sleep",
             "time": 1000
         },
@@ -57,6 +60,9 @@ main.floors.P1=
         },
         {
             "type": "resumeBgm"
+        },
+        {
+            "type": "showStatusBar"
         },
         "\t[hero]这是……哪里？似乎有一种奇特的熟悉感……",
         "地上有一张纸条。",
