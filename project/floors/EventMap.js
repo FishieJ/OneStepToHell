@@ -3297,6 +3297,9 @@ main.floors.EventMap=
                                     {
                                         "type": "function",
                                         "function": "function(){\ncore.status.hard = 'Blind';\ncore.setInitData();\n}"
+                                    },
+                                    {
+                                        "type": "break"
                                     }
                                 ],
                                 "no": [
@@ -3329,6 +3332,9 @@ main.floors.EventMap=
                                     {
                                         "type": "function",
                                         "function": "function(){\ncore.status.hard = 'Easy';\ncore.setInitData();\n}"
+                                    },
+                                    {
+                                        "type": "break"
                                     }
                                 ],
                                 "no": [
@@ -3361,6 +3367,9 @@ main.floors.EventMap=
                                     {
                                         "type": "function",
                                         "function": "function(){\ncore.status.hard = 'Hard';\ncore.setInitData();\n}"
+                                    },
+                                    {
+                                        "type": "break"
                                     }
                                 ],
                                 "no": [

@@ -512,7 +512,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			},
 			{
 				"type": "while",
-				"condition": "flag:hard == 0",
+				"condition": "1",
 				"data": [
 					{
 						"type": "insert",

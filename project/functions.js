@@ -1768,7 +1768,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	core.events.checkLvUp();
 
 	// 检查HP上限
-	if (core.flags.enableHPMax) {
+	if (core.flags.enableHPMax && core.getStatus('hpmax') >= 0) {
 		core.setStatus('hp', Math.min(core.getStatus('hpmax'), core.getStatus('hp')));
 	}
 
