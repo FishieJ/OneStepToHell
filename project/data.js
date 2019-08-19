@@ -340,7 +340,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 		"font": "Verdana"
 	},
 	"firstData": {
-		"title": "一夜登天",
+		"title": "一夜登天！",
 		"name": "OneStepToHell",
 		"version": "Ver 2.6.1",
 		"floorId": "EventMap",

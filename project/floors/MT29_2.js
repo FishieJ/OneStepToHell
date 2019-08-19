@@ -147,7 +147,7 @@ main.floors.MT29_2=
             "data": [
                 {
                     "type": "if",
-                    "condition": "core.getFlag('hp_score') > 1508 && core.getFlag('hard', 0) == 3",
+                    "condition": "core.getFlag('hp_score') > 1500 && core.getFlag('hard', 0) == 3",
                     "true": [
                         {
                             "type": "sleep",
