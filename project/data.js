@@ -511,12 +511,18 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"time": 0
 			},
 			{
-				"type": "insert",
-				"loc": [
-					11,
-					11
-				],
-				"floorId": "EventMap"
+				"type": "while",
+				"condition": "flag:hard == 0",
+				"data": [
+					{
+						"type": "insert",
+						"loc": [
+							11,
+							11
+						],
+						"floorId": "EventMap"
+					}
+				]
 			}
 		],
 		"shops": [],
