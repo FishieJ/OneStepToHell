@@ -826,7 +826,8 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"type": "setValue",
 						"name": "item:I_charge",
 						"value": "1"
-					}
+					},
+					"\t[系统提示]可以在设置里关闭单击瞬移，方便利用冲锋技能。"
 				]
 			},
 			{

@@ -46,7 +46,7 @@ main.floors.Area4_3=
                         },
                         {
                             "type": "setBlock",
-                            "number": "X70013"
+                            "number": "X10395"
                         }
                     ],
                     "false": []

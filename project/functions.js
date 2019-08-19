@@ -1439,10 +1439,12 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	}
 
 	// 难度减伤
-	if (core.hasItem('I_hard_1')) {
-		damage /= 2;
-	} else if (core.hasItem('I_hard_2')) {
-		damage *= 0.8;
+	if (damage > 0) {
+		if (core.hasItem('I_hard_1')) {
+			damage /= 2;
+		} else if (core.hasItem('I_hard_2')) {
+			damage *= 0.75;
+		}
 	}
 
 	return {

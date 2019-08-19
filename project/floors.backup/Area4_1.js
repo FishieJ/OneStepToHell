@@ -222,7 +222,7 @@ main.floors.Area4_1=
                         },
                         {
                             "type": "setBlock",
-                            "number": "X70013"
+                            "number": "X10395"
                         }
                     ],
                     "false": []
@@ -248,7 +248,7 @@ main.floors.Area4_1=
                         },
                         {
                             "type": "setBlock",
-                            "number": "X70013"
+                            "number": "X10395"
                         }
                     ],
                     "false": []

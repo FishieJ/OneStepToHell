@@ -144,9 +144,22 @@ main.floors.MT41=
         "\t[熙枫,heroine]你把魔力给我，我帮你放。",
         "\t[hero]有小姐姐陪着我，真的太好了……",
         {
-            "type": "setValue",
-            "name": "flag:skill3_cost",
-            "value": "100"
+            "type": "if",
+            "condition": "flag:hard == 3",
+            "true": [
+                {
+                    "type": "setValue",
+                    "name": "flag:skill3_cost",
+                    "value": "100"
+                }
+            ],
+            "false": [
+                {
+                    "type": "setValue",
+                    "name": "flag:skill3_cost",
+                    "value": "25"
+                }
+            ]
         },
         {
             "type": "setValue",
