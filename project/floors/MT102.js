@@ -17,10 +17,7 @@ main.floors.MT102=
     "item_ratio": 2000,
     "defaultGround": "white",
     "bgm": "7-9.mp3",
-    "weather": [
-        "fog",
-        3
-    ],
+    "weather": null,
     "firstArrive": [
         {
             "type": "sleep",

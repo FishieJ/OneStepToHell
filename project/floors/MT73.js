@@ -45,7 +45,7 @@ main.floors.MT73=
                 "loc": "hero"
             },
             "\t[hero]这是个什么东西？",
-            "\t[熙枫,heroine]似乎是记录了某种战斗技能的卷轴。",
+            "\t[熙枫,heroine]记录了某种战斗技能的卷轴。",
             "\t[hero]（打开卷轴）然而这上面什么都没写……",
             "\t[熙枫,heroine]被加密了。",
             "\t[熙枫,heroine]不过似乎是很低级的加密手段，我试试能不能破解它。",
@@ -74,7 +74,8 @@ main.floors.MT73=
             {
                 "type": "function",
                 "function": "function(){\ncore.setFlag('execute_percentage', 20);\ncore.setFlag('execute_atk_percentage', 50);\ncore.getItem('execute');\n}"
-            }
+            },
+            "\t[hero]貌似不是个很厉害的技能，好在技不压身。"
         ]
     },
     "afterOpenDoor": {},

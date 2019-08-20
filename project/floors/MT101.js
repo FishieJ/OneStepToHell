@@ -67,8 +67,5 @@ main.floors.MT101=
 
 ],
     "bgm": "7-9.mp3",
-    "weather": [
-        "fog",
-        4
-    ]
+    "weather": null
 }

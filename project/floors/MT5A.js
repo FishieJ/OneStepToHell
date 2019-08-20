@@ -24,7 +24,18 @@ main.floors.MT5A=
             "type": "setValue",
             "name": "flag:darkRatio",
             "value": "flag:darkRatio+0.01"
-        }
+        },
+        {
+            "type": "sleep",
+            "time": 1000
+        },
+        {
+            "type": "animate",
+            "name": "wuyu",
+            "loc": "hero"
+        },
+        "\t[hero]这里好像就是迅捷妖精和持盾莱姆两族最强者聚集的地方了。",
+        "\t[熙枫,heroine]利用好光明和黑暗状态，对付它们应该并非难事。"
     ],
     "eachArrive": [
         {

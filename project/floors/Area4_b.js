@@ -25,6 +25,14 @@ main.floors.Area4_b=
         {
             "type": "loadBgm",
             "name": "19-21.mp3"
+        },
+        {
+            "type": "if",
+            "condition": "core.getRealStatusOrDefault('hpmax', 0) < 54000 || core.getRealStatusOrDefault('atk', 0) < 3778 || core.getRealStatusOrDefault('def', 0) < 2943 || core.getRealStatusOrDefault('mdef', 0) < 3816",
+            "true": [
+                "\t[系统提示]到这里应该拥有54000生命上限，3778基础攻击（也就是，不计算冲锋的额外攻击），2943防，3816护盾。"
+            ],
+            "false": []
         }
     ],
     "parallelDo": "",
