@@ -943,7 +943,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"name": "flag:skill1_cost",
 						"value": "12"
 					},
-					"领悟主动技能【强击】：首回合获得2倍攻击力，消耗12点魔法。",
+					"领悟主动技能【强击】：首回合造成1倍攻击力的额外伤害，消耗12点魔法。",
 					{
 						"type": "setValue",
 						"name": "item:skill1",

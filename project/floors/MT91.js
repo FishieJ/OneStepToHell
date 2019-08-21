@@ -164,6 +164,20 @@ main.floors.MT91=
                             "type": "addValue",
                             "name": "item:bring_mana",
                             "value": "50"
+                        },
+                        {
+                            "type": "choices",
+                            "text": "\t[系统提示]作为高贵的乱撞玩家的你，现在有一次咸鱼机会，支付641亿点溢出生命值，获得6700417基础攻防。",
+                            "choices": [
+                                {
+                                    "text": "小姐姐都没了，我不能当咸鱼！",
+                                    "action": []
+                                },
+                                {
+                                    "text": "我不想当咸鱼",
+                                    "action": []
+                                }
+                            ]
                         }
                     ]
                 },

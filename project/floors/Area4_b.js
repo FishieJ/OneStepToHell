@@ -28,7 +28,7 @@ main.floors.Area4_b=
         },
         {
             "type": "if",
-            "condition": "core.getRealStatusOrDefault('hpmax', 0) < 54000 || core.getRealStatusOrDefault('atk', 0) < 3778 || core.getRealStatusOrDefault('def', 0) < 2943 || core.getRealStatusOrDefault('mdef', 0) < 3816",
+            "condition": "core.status.hero.hpmax < 54000 || core.status.hero.atk < 3778 || core.status.hero.def < 2943 || core.status.hero.mdef < 3816",
             "true": [
                 "\t[系统提示]到这里应该拥有54000生命上限，3778基础攻击（也就是，不计算冲锋的额外攻击），2943防，3816护盾。"
             ],

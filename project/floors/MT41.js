@@ -20,6 +20,78 @@ main.floors.MT41=
             ],
             "floorId": "EventMap"
         },
+        {
+            "type": "if",
+            "condition": "flag:hard < 3",
+            "true": [
+                "\t[系统提示]检测到正在游玩简单或乱撞难度，主角基础攻防增加250。",
+                {
+                    "type": "addValue",
+                    "name": "status:atk",
+                    "value": "250"
+                },
+                {
+                    "type": "addValue",
+                    "name": "status:def",
+                    "value": "250"
+                }
+            ],
+            "false": []
+        },
+        {
+            "type": "if",
+            "condition": "flag:hard == 1",
+            "true": [
+                {
+                    "type": "choices",
+                    "text": "\t[系统提示]作为高贵的乱撞玩家的你，现在有一次咸鱼机会，支付200亿点溢出生命值，获得1500基础攻防。",
+                    "choices": [
+                        {
+                            "text": "我决定放弃思考！咸了！",
+                            "action": [
+                                {
+                                    "type": "addValue",
+                                    "name": "status:atk",
+                                    "value": "1500"
+                                },
+                                {
+                                    "type": "addValue",
+                                    "name": "status:def",
+                                    "value": "1500"
+                                },
+                                {
+                                    "type": "addValue",
+                                    "name": "flag:hp_score",
+                                    "value": "-20000000000"
+                                },
+                                "\t[系统提示]祝你乱撞快乐。",
+                                {
+                                    "type": "sleep",
+                                    "time": 1000
+                                },
+                                "\t[熙枫,heroine]呃啊……咳……",
+                                "\t[hero]……小姐姐怎么了？",
+                                "\t[熙枫,heroine]不知为何突然感到一阵恶心，没事……",
+                                "\t[hero]……",
+                                {
+                                    "type": "sleep",
+                                    "time": 1000
+                                }
+                            ]
+                        },
+                        {
+                            "text": "我不想当咸鱼",
+                            "action": []
+                        }
+                    ]
+                }
+            ],
+            "false": []
+        },
+        {
+            "type": "sleep",
+            "time": 1000
+        },
         "\t[hero]小姐姐，我们来这干嘛？",
         "\t[熙枫,heroine]当然是让你继续杀怪升级啦。",
         "\t[hero]啊？一下子升级这么快会不会根基不稳什么的……",

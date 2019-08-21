@@ -18,6 +18,24 @@ main.floors.Area4_1=
         },
         {
             "type": "if",
+            "condition": "flag:hard < 3",
+            "true": [
+                "\t[系统提示]检测到正在游玩简单或乱撞难度，获得50点基础攻防。",
+                {
+                    "type": "addValue",
+                    "name": "status:atk",
+                    "value": "50"
+                },
+                {
+                    "type": "addValue",
+                    "name": "status:def",
+                    "value": "50"
+                }
+            ],
+            "false": []
+        },
+        {
+            "type": "if",
             "condition": "flag:hard == 1",
             "true": [
                 "\t[系统提示]检测到正在游玩乱撞难度，部分怪物特技已经无效化。",
@@ -25,6 +43,37 @@ main.floors.Area4_1=
                     "type": "setValue",
                     "name": "flag:no_zone",
                     "value": "true"
+                },
+                {
+                    "type": "choices",
+                    "text": "\t[系统提示]作为高贵的乱撞玩家的你，现在有一次咸鱼机会，支付100亿点溢出生命值，获得200基础攻防。",
+                    "choices": [
+                        {
+                            "text": "我决定放弃思考！咸了！",
+                            "action": [
+                                {
+                                    "type": "addValue",
+                                    "name": "status:atk",
+                                    "value": "200"
+                                },
+                                {
+                                    "type": "addValue",
+                                    "name": "status:def",
+                                    "value": "200"
+                                },
+                                {
+                                    "type": "addValue",
+                                    "name": "flag:hp_score",
+                                    "value": "-10000000000"
+                                },
+                                "\t[系统提示]祝你乱撞快乐。"
+                            ]
+                        },
+                        {
+                            "text": "我不想当咸鱼",
+                            "action": []
+                        }
+                    ]
                 }
             ],
             "false": []
