@@ -49,7 +49,45 @@ main.floors.MT96=
         },
         "\t[hero]这都是什么奇怪的怪物名称……",
         "\t[hero]这不对劲，之前的一切都太诡异了，熙枫的记忆接连展现在我眼前，还有那种虚浮的力量，来了又去，去了又来……",
-        "\t[hero]而且这里为什么叫刀剑蓝域啊，遍地都是绿色的树丛和红色的怪物，哪里蓝了……"
+        "\t[hero]而且这里为什么叫刀剑蓝域啊，遍地都是绿色的树丛和红色的怪物，哪里蓝了……",
+        {
+            "type": "if",
+            "condition": "flag:hard == 1",
+            "true": [
+                {
+                    "type": "choices",
+                    "text": "\t[系统提示]作为高贵的乱撞玩家的你，现在有一次咸鱼机会，支付400亿点溢出生命值，获得40000基础攻防。",
+                    "choices": [
+                        {
+                            "text": "小姐姐都没了……算了，真香！",
+                            "action": [
+                                {
+                                    "type": "addValue",
+                                    "name": "status:atk",
+                                    "value": "40000"
+                                },
+                                {
+                                    "type": "addValue",
+                                    "name": "status:def",
+                                    "value": "40000"
+                                },
+                                {
+                                    "type": "addValue",
+                                    "name": "flag:hp_score",
+                                    "value": "-40000000000"
+                                },
+                                "\t[系统提示]祝你乱撞快乐。"
+                            ]
+                        },
+                        {
+                            "text": "我不想当咸鱼",
+                            "action": []
+                        }
+                    ]
+                }
+            ],
+            "false": []
+        }
     ],
     "eachArrive": [],
     "parallelDo": "",
