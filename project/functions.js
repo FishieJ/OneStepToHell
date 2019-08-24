@@ -1238,13 +1238,17 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		var perc = core.getFlag('execute_percentage', 20);
 		var inc_atk_ratio = core.getFlag('execute_atk_percentage', 30);
 		var cur_hp = mon_hp;
-		turn = 0;
-		while (cur_hp > 0) {
-			cur_hp -= hero_per_damage;
-			if (cur_hp / mon_hp < perc / 100) {
-				cur_hp -= inc_atk_ratio / 100 * hero_per_damage;
+		if (cur_hp / hero_per_damage > 1641) { // 回合数太多，放弃计算斩杀以提升性能
+
+		} else {
+			turn = 0;
+			while (cur_hp > 0) {
+				cur_hp -= hero_per_damage;
+				if (cur_hp / mon_hp < perc / 100) {
+					cur_hp -= inc_atk_ratio / 100 * hero_per_damage;
+				}
+				turn++;
 			}
-			turn++;
 		}
 	}
 	// 开启了技能4：撕裂，且怪物不魔免，则重新计算回合数

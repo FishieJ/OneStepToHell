@@ -657,7 +657,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"smallJump": "if (core.getFlag('after_final_boss', 0)) {\n\tcore.insertAction(\"\\t[hero]闲的没事跳什么跳啊，赶快离开这。\");\n} else if (core.status.floorId == \"Chap3_boss\") {\n\tcore.insertAction(\"此技能暂时不可用！\");\n} else {\n\tcore.status.hero.mana -= core.getFlag('smallJump_cost', 30);\n\tcore.insertAction({ \"type\": \"jumpHero\", \"loc\": [core.nextX(1), core.nextY(1)] });\n\n\tvar charge_ratio = core.getFlag('charge_ratio', 0.02);\n\tvar charge_atk = core.getFlag('charge_atk', 0);\n\tcore.setFlag('charge_atk', Math.max(charge_atk - charge_ratio * core.status.hero.atk, 0));\n}",
 		"I_morph": "// 直接判断是否可以使用即可\nvar curMana = core.status.hero.mana;\nvar cost = core.getFlag('skill5_cost', 641);\nif (curMana >= cost) {\n\tcore.status.hero.mana -= cost;\n\tcore.insertAction([{ \"type\": \"insert\", \"loc\": [12, 0], \"floorId\": \"EventMap\" }]);\n} else {\n\tcore.drawTip(\"魔法不足。\");\n}",
 		"I_resetTalent": "core.insertAction([{ \"type\": \"insert\", \"loc\": [0, 7], \"floorId\": \"EventMap\" }]);\n\n/*var list = [\"skill1_lv\", \"skill2_lv\", \"skill4_lv\", \"talent1_lv\", \"talent2_lv\", \"talent3_lv\", \"poison_lv\"];\nfor (var i in list) {\n\tvar z = core.getFlag(list[i], 0);\n\tconsole.log(list[i], z);\n\tif (z > 0) {\n\t\tcore.addFlag('talentPoint', z);\n\t\tcore.setFlag(list[i], 0);\n\t}\n}\ncore.setFlag('skill1_val', 3.5);\ncore.setFlag('skill2_def_ratio', 3);\ncore.setFlag('skill4_val', 5);\ncore.setFlag('vampire_ratio', 0.2);\ncore.setFlag('mana_regen', 3);\ncore.setFlag('mdef_ratio', 1.5);\ncore.drawTip('重置成功');*/",
-		"I_morphed": "core.insertAction([\n\t\"你现在对以下怪物特技免疫：吸血、苦痛、自爆，以及所有的地图伤害类技能，包括阻击、射击、夹击、领域以及它们的上位版本。\",\n]);"
+		"I_morphed": "core.insertAction([\n\t\"你现在对以下怪物特技免疫：吸血、苦痛、自爆，以及所有的地图伤害类技能，包括阻击、射击、夹击、领域以及它们的上位版本。\",\n]);",
+		"execute": "core.insertAction([\n\t\"由于性能原因，若战斗回合数超过1641，则此技能无效。\",\n]);"
 	},
 	"canUseItemEffect": {
 		"book": "true",
@@ -713,7 +714,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"talentPoint": null,
 		"I_morph": "(function () {\n\treturn core.getFlag('morph', 0) == 0 && core.getFlag('morph_cooldown', 0) == 0;\n})();",
 		"I_resetTalent": "true",
-		"I_morphed": "true"
+		"I_morphed": "true",
+		"execute": "true"
 	},
 	"canEquip": {},
 	"equipCondition": {
