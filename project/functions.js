@@ -75,6 +75,24 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
         "win": function (reason, norank) {
 	// 游戏获胜事件 
 	core.ui.closePanel();
+
+	var total = core.status.hero.hp + core.getFlag('hp_score', 0);
+	var str = "正在统计分数……\n溢出生命和剩余生命值共" + total + "点，转化为等量分数\n";
+	if (reason == "蓝海王中王") {
+		total += 100000 * core.itemCount('yellowKey');
+		str += core.itemCount('yellowKey') + "把黄钥匙，共" + 100000 * core.itemCount('yellowKey') + "分\n";
+	} else if (reason == "红海王中王") {
+		total += 1000000 * core.itemCount('yellowKey') + 4000000 * core.itemCount('blueKey');
+		str += core.itemCount('yellowKey') + "把黄钥匙，共" + 1000000 * core.itemCount('yellowKey') + "分\n";
+		str += core.itemCount('blueKey') + "把蓝钥匙，共" + 4000000 * core.itemCount('blueKey') + "分\n";
+		total += 2500 * core.itemCount('coin') + 1000000 * core.itemCount('talentPoint') * core.itemCount('talentPoint');
+		str += core.itemCount('coin') + "金币，共" + 2500 * core.itemCount('coin') + "分\n";
+		str += core.itemCount('talentPoint') + "剩余天赋点，共" + 1000000 * core.itemCount('talentPoint') * core.itemCount('talentPoint') + "分\n";
+	}
+	str += "总计分数：" + total;
+	core.setStatus('hpmax', -1);
+	core.setStatus('hp', total);
+
 	var replaying = core.isReplaying();
 	if (replaying) core.stopReplay();
 	core.waitHeroToStop(function () {
@@ -84,22 +102,6 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		// 请注意：
 		// 成绩统计时是按照hp进行上传并排名，因此光在这里改${status:hp}是无效的
 		// 如需按照其他的的分数统计方式，请先将hp设置为你的得分
-		var total = core.status.hero.hp + core.getFlag('hp_score', 0);
-		var str = "正在统计分数……\n溢出生命和剩余生命值共" + total + "点，转化为等量分数\n";
-		if (reason == "蓝海王中王") {
-			total += 100000 * core.itemCount('yellowKey');
-			str += core.itemCount('yellowKey') + "把黄钥匙，共" + 100000 * core.itemCount('yellowKey') + "分\n";
-		} else if (reason == "红海王中王") {
-			total += 1000000 * core.itemCount('yellowKey') + 4000000 * core.itemCount('blueKey');
-			str += core.itemCount('yellowKey') + "把黄钥匙，共" + 1000000 * core.itemCount('yellowKey') + "分\n";
-			str += core.itemCount('blueKey') + "把蓝钥匙，共" + 4000000 * core.itemCount('blueKey') + "分\n";
-			total += 2500 * core.itemCount('coin') + 1000000 * core.itemCount('talentPoint') * core.itemCount('talentPoint');
-			str += core.itemCount('coin') + "金币，共" + 2500 * core.itemCount('coin') + "分\n";
-			str += core.itemCount('talentPoint') + "剩余天赋点，共" + 1000000 * core.itemCount('talentPoint') * core.itemCount('talentPoint') + "分\n";
-		}
-		str += "总计分数：" + total;
-		core.setStatus('hpmax', -1);
-		core.setStatus('hp', total);
 		if (reason == "血海王中王") {
 			core.drawText(["\t[技不如人，如沐东风,I342]您好，这里是本游戏的作者。",
 				"\t[技不如人，如沐东风,I342]恭喜您在最高难度下取得了不亚于作者的成绩，请容辣鸡作者膜拜一下大佬。大佬如果有任何想法，不论话本身好听与否，辣鸡作者都希望您在评论区分享一下。辣鸡作者以后不会再造塔了，所以请不要给我留面子，您的意见很可能会对其他造塔者有很大帮助，相信我们有着共同的目的——以后能有更多高质量塔出现。",

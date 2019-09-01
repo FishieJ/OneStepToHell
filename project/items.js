@@ -497,7 +497,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"talentPoint": {
 			"cls": "tools",
 			"name": "天赋点",
-			"text": "可以用来学习天赋，或者留到最后算分"
+			"text": "可以用来学习天赋，或者留到红海篇的结尾算分"
 		},
 		"I536": {
 			"cls": "items",
