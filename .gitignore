@@ -4,4 +4,5 @@
 !/libs/
 !/project/
 !/_server/
-
+/libs/*.min.js
+/project/*.min.js
