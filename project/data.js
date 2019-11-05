@@ -289,7 +289,10 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"Raise1.ogg",
 			"Zombie02.wav",
 			"MSLASH.ogg",
-			"billy.mp3"
+			"billy.mp3",
+			"pickJewel.wav",
+			"pickPotion.wav",
+			"pickKey.wav"
 		],
 		"nameMap": {
 			"背景图.jpg": "bg.jpg",

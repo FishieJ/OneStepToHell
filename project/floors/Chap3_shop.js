@@ -573,25 +573,26 @@ main.floors.Chap3_shop=
                                                                                 "value": "-625*(2**(7-core.values.purify))"
                                                                             },
                                                                             {
-                                                                                "type": "function",
-                                                                                "function": "function(){\ncore.values.purify -= 1;\n}"
-                                                                            },
-                                                                            {
                                                                                 "type": "switch",
                                                                                 "condition": "core.values.purify",
                                                                                 "caseList": [
                                                                                     {
-                                                                                        "case": "5",
+                                                                                        "case": "6",
                                                                                         "action": [
                                                                                             {
                                                                                                 "type": "setValue",
                                                                                                 "name": "item:shield1",
                                                                                                 "value": "1"
+                                                                                            },
+                                                                                            {
+                                                                                                "type": "setGlobalValue",
+                                                                                                "name": "purify",
+                                                                                                "value": 5
                                                                                             }
                                                                                         ]
                                                                                     },
                                                                                     {
-                                                                                        "case": "4",
+                                                                                        "case": "5",
                                                                                         "action": [
                                                                                             {
                                                                                                 "type": "setValue",
@@ -602,11 +603,16 @@ main.floors.Chap3_shop=
                                                                                                 "type": "setValue",
                                                                                                 "name": "item:shield2",
                                                                                                 "value": "1"
+                                                                                            },
+                                                                                            {
+                                                                                                "type": "setGlobalValue",
+                                                                                                "name": "purify",
+                                                                                                "value": 4
                                                                                             }
                                                                                         ]
                                                                                     },
                                                                                     {
-                                                                                        "case": "3",
+                                                                                        "case": "4",
                                                                                         "action": [
                                                                                             {
                                                                                                 "type": "setValue",
@@ -617,11 +623,16 @@ main.floors.Chap3_shop=
                                                                                                 "type": "setValue",
                                                                                                 "name": "item:shield3",
                                                                                                 "value": "1"
+                                                                                            },
+                                                                                            {
+                                                                                                "type": "setGlobalValue",
+                                                                                                "name": "purify",
+                                                                                                "value": 3
                                                                                             }
                                                                                         ]
                                                                                     },
                                                                                     {
-                                                                                        "case": "2",
+                                                                                        "case": "3",
                                                                                         "action": [
                                                                                             {
                                                                                                 "type": "setValue",
@@ -632,11 +643,16 @@ main.floors.Chap3_shop=
                                                                                                 "type": "setValue",
                                                                                                 "name": "item:shield4",
                                                                                                 "value": "1"
+                                                                                            },
+                                                                                            {
+                                                                                                "type": "setGlobalValue",
+                                                                                                "name": "purify",
+                                                                                                "value": 2
                                                                                             }
                                                                                         ]
                                                                                     },
                                                                                     {
-                                                                                        "case": "1",
+                                                                                        "case": "2",
                                                                                         "action": [
                                                                                             {
                                                                                                 "type": "setValue",
@@ -647,6 +663,11 @@ main.floors.Chap3_shop=
                                                                                                 "type": "setValue",
                                                                                                 "name": "item:shield5",
                                                                                                 "value": "1"
+                                                                                            },
+                                                                                            {
+                                                                                                "type": "setGlobalValue",
+                                                                                                "name": "purify",
+                                                                                                "value": 1
                                                                                             }
                                                                                         ]
                                                                                     }
@@ -934,7 +955,7 @@ main.floors.Chap3_shop=
             }
         ],
         "6,8": [
-            "\t[系统提示]几乎所有商品以及金币在本章结束后都会被清空并换算成分数，唯一的例外是\r[yellow]青岚盾\r[white]（防净化盾牌）。青岚盾总共5个等级，达到最高等级才能进入下一章节。虽然这么说，不是刷分的话请不要刻意省钱。",
+            "\t[系统提示]几乎所有商品以及金币在本章结束后都会被清空并换算成分数，唯一的例外是\r[yellow]青岚盾\r[white]（防净化盾牌）。\r[red]青岚盾总共5个等级，达到最高等级才能进入下一章节。\r虽然这么说，不是刷分的话请不要刻意省钱。",
             "\t[系统提示]另外，如果感觉游戏变得十分艰难，不妨换一个天赋选择试试。不同天赋并不是完全平衡的，在不合适的时机学习某些天赋会加大游戏难度。"
         ],
         "12,6": {

@@ -679,6 +679,12 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 	} else if (itemId == 'I_morphed' || itemId == 'I_morph' || itemId == 'I_morph_cooldown') {
 
+	} else if (itemId == 'redJewel' || itemId == 'blueJewel' || itemId == 'greenJewel' || itemId == 'yellowJewel' || itemId == 'I349' || itemId == 'I350' || itemId == 'I351' || itemId == 'I352' || itemId == 'I353' || itemId == 'I354' || itemId == 'I355' || itemId == 'I356' || itemId == 'I357' || itemId == 'I358' || itemId == 'I359' || itemId == 'I360') {
+		core.playSound('pickJewel.wav');
+	} else if (itemId == 'yellowKey' || itemId == 'blueKey' || itemId == 'redKey' || itemId == 'greenKey') {
+		core.playSound('pickKey.wav');
+	} else if (itemId == 'redPotion' || itemId == 'bluePotion' || itemId == 'yellowPotion' || itemId == 'greenPotion' || itemId == 'I454' || itemId == 'I455' || itemId == 'I456' || itemId == 'I457' || itemId == 'I380' || itemId == 'I536') {
+		core.playSound('pickPotion.wav');
 	} else
 		core.playSound('item.mp3');
 
